@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50+ Empregos - Experiência que gera resultado</title>
+    <meta name="description" content="Conectamos profissionais 50+ a empresas que valorizam maturidade e performance. Vagas, capacitação e empreendedorismo para 50+.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="50+ Empregos - Experiência que gera resultado">
+    <meta property="og:description" content="Conectamos profissionais 50+ a empresas que valorizam maturidade e performance.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://50plus-empregos.com">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Otimizado -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <a href="#inicio" class="logo-link" aria-label="50+ Empregos - Página inicial">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAABkCAYAAABwx8J9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABCeSURBVHgB7Z1NjFvVGYafc2fuzRQ6Rh2qCBWJSFAXFCGxQewQKpSF64JEpWLLQqQCbJFokagbJFJUFigLCiJpNmExYsGGNpCyQ1AXbOMuWKQsWAixQFBEG1UpFP8O95z3nPfe3+O5d+58995z30dKMnPnnvs7P/fc73znO2f+Y4yJhyiKskE9G4z5hBL5+QrH/CzDMT8r53FfBGP+88z/d/zyy39bY+JhLwA4aJWVlfVrv379+tWsrKzMLi4unmJjYxPOZDAYPMHGJpCdnZ3ZAwcOFNdcc82lS5cuPcbEw0XovVJWVjY0NzeP7bbbbtddd921t23btpva29s3JZMJm7DZBG1YJEkYnp+flxdffPGN559//rkzZ878jdlcXELvhXa3u7a2dvPs2bNH9+7d+5t9+/Zdn9kk3fWOZOJSFwFNlhZRm+PZs2c/feutt371+uuvP37p0qXjzObiK3ceQi8rKxsZHh7+wpYtW7961113ff7YsWNbM5ukE7SJzRcBTUaT5YU333zz2Z/+9KdzP/nJT/6VzU7vJfNn/m7yE/rq6upDO3bs+N7PfvazQwcOHLg2s4la12uPZAGJ2CfOy9QP+4sSeu9UVla+VFdXd+Dpp59+9O677+7NbCJOBNSJgBYl+shHhwU0WZ5+++233/nOd7/7zOTk5P+y2+k9+/c8hG6M+YQxZustt9zy1aeeeurBffv2fTGzQfzhD3945OzZs2tLS0srMzMzs52+l9vl7OfLfPq/bAJOBNSJgCKdCGgS+uKLL7574MCBb//sZz/7e7a7iN5+5yj0sbGxrzz99NMPb926NW+3ux9fgOo3m5jc1VaSJOYXv/jFOy+++OKJYrvcRqD9zpPQSajqmq+srPyJJZaF1dXVEy+//PI7xWa5uy70vQQ+ePLJJx+4+eabr8jM/iYvAir/aNHbZWdn51dJ5PPPP3/2lltu+RyzORQjdPX7XBZ6DgLfPDhx4sQvT5069Tq1v3DhwgctLy9//Morr1x5+PDhL+Ut9Iy1T/eFXlaZjXDKfJbpV6v7/vnnny+dOXPm/WK83H0IXcTv7pxnKhCByOFy947KW/39qnI/c+bMipvnfVDorlvCJxOdJrNF/F7xfPe73z0xOTn516xdyAV0u7sEnlEkkI+JiYkzAwMDb5Lp3R4OkztHgdPFWr2LI2dqY2JOEIkc8bvhHHK1u9CL9XJnlbtPIkc8Lx5//PFHT5069ScyvXu5s8pdgd9Pvfl/8fUE7h4yt4fQIwv3e/Bud2ajwR9++OHg1atXP0Q8L153DgKneTq3u0+hI563gzO5SRbTu5c7p9xdX/T7TaD2q4eHhx959NFHj7rB327O7e5D6Iw/lqJbPV8S8fzGm9t3sLBIo9E4uLKyMru6uvo+Wdnc7nF60vApdx9CPzE5OflH53a/mOQ3vbMUOsI663YfyeFyF697tnb7k7fbp3fCud19CF1e93i3u8m7J3y/yJKlza8V2meuJ/R8Dx9R8LcQMJunRrjX93kK8R//8Y8fUH+8M0N9/fLLL/+jqU/93L11AcaOHTt+ks7k5kPoPi54+Nj0zmqbukEb7rRE7r7L3YfQ5XUPd7tn8yfg/+LN1P7555///PTp069N3nPPPX/LPQNcLgLnInQNlbefL7KUtdud2vjHP/7xz6x3fbjfXRX/5PTU/yZhz3K6u3lud8dJ6BO09zt3u1Pe7e5D6Ar+7t3tvrGBXAr+7l3ufoQ+eeTIkd/Rb9t3uy9s9w7A3LlhPsrJBOeqdx/b3Qsg9DKPpe8eznbP1m734e+3j/w3Nh7vZi/l8Dd1wsvtft/k5ORrzEZTPW91n5+VgS9tIQ8+/Xb/jRNONO6Sd1bZCLgK3YT7t3+L/t3O/zyT++3e7e4F3x7PXGwDhcK7VDrRu+3VPcQFJmPZrvlGN8I1J6lx5FqO3u3ulh/f+t//5Lj/2i+cyzMLX5rjT7L35z/72xvZf5+ZmKnQzfcLwAMPPPD9zORm5FXZFO4qQY9/UKEaO7nvUfA3Rr9bBXvv27fPWa7sdudUPffeY4899jynu3P3uqdj+fqb+j3gTOCLuLbUd6lzN6O/3bn6PWRlxWBVPmfcyRtzwUXoZWw4nS67bCCdtV/zHs2rOI5NiGsOLRdJD5fDfyJRN3b3ww8/vOJEvwO8XLLBPfvssy8xzHVe6AyXy8W73TPGmG7d7ibX91v+k3HA8QUx8iu4yVzoTKQaH59ZvUdZGvZMPrjSvUi6DcfFzTCfbfOr7M8s3O7Z+lzufqzB3oUuwdV5nzE3vdHQh6XOqr5yD7v3y4JsHidJ0jj13HPPHev+0G7bwZnZnQUdOdxVME67B7rTnY7Z65kWj8dtvpY+x8fHL85Mzzx/8tFH7yxauJ1rz05NTfmwRnoXereQhIxrCXl4s3L3wXj/FpeNrJKH7kLnchTAGdY5CN8nETqLtHvevHTfvn0pG1vcbfvwL/Qx4+mVjJ0Ueq9R4pjQM7uRLJZwdztpgYE9NDGJOfrSVF7BZCFCV9j7OJP7zffdp9HmM+q2LXzoIFf/Vs9CX3P9+t9FfrnKnYfQHb+7d7eZFbKOOxc6J7jGOL8PjTzz1g9HcRk4LnSGWOdB3H7T3tLsSnMbsVe6jfxk0XaPV+6dHpVKfPYfO++ZBYV1xol1Xy57F6G7+gztdp+f1wHOQf5+LdGePjzw8vYMeOYKlxsOXOh+QrJL8bnP8OBY8Hs8AvdNKaHI2WzA3U7HZMvOmF3b/+79z7N2o/y53O8DLz/77LPPcYLc7i6++c6Jdnfb7e5D6GNXr14dtgdPP/TQQw+zXC7xItJoLJeE3ht8lx1s+7mLu9sz6WcCCGMrn9/3O+I9TdafuuGGGy5l39iFT3n79t7HI3OFhJnMrN09bd4hYx3QLpq7SdJ4kP1Nkds9zM7UhgY6r4BwG9o1tbCwsKDwb292Ob7rrrvuaXfOYfR8KyJdGu5jdOD6AuzCOO+Q5D4S0iqYm0ngQzzW1tY+xv82P2FWe4BvLJxUOyYe8x+vdyxyMOdz5vqVu4/sYlZuJ7/bM/5dzr7lHgOhh1nd+Ha7Z9N3u4vQeS5kKOgJI90eFPrx48ffoIOzvbKL2L2/z5mNhpvQpyrZ7Z5O8jYroxv1vN7t3Z7xJ3SFffMOlO7QJD9vt3s2PbcrR6Er7Dv4O0k6U6HHz+Lu5+7c7e6UpQ3G7R5S9jsOXWiflz8/5w1l73Y/f/787Orq6oR+E5xmK+IjP6U63E36fY9+b8+ZXb3m52fZsO91F7TbfZx3lvoLjjE3vfHPG/fkc7v3K3SFfQd/u7VPZSVyd4p2N7rbXeEYNKOfO7d7HGzZxmK3fB7LLkwJnWs0hqvQh4xPz5e/nG75OL6+e7d7EyYiT8dxD2L3k7m89YYbbnja9q7o6zPzuHsR5+sHoXPO7OZD6H7C7Pn4E7d7fzgO2LrfQ/g3Rr/7P9f9uNNd3XZ6qAp9fPyy+zKKy7ndlX72mQyBL213vtvdZUC9T1y525u1v3P+Ys+7s2/7ey9fvlyyyzubCH32u5zd7ukEWJfRJMsW9JwLOJG7D6Hbt7t3jnb3HVHM+Yq7M5+vP/h2vFuHRPe9uT7z0G73sDm3u+YK7pxnPaQi9FkOQs8vd5Ob3G/7D//VPnO5hzHze+c1lm63e/y7pRO5+xA6o8xuP+wkN6G3+/4Hf2P8wBf3O/bZ9lkHrDe6GrW83TGdcr8d73ZXjTFCJ7JaY9/VE2C5e7ez0TI9Pf2XXS5lkFV+gg4Ryt0kXOQu7nc3/c6EflbGW3N4/vM9ePKRyO0+8dW7drvxNwcnW3LnJPeh/k9nZmcfe+kXv/zrxz/+4bu8M7m9nP5/JxbgZoqN3Ll8/eFkFmyj3FntT/CRuzOeNx8NjfJze8cqdhM6XPB8BL/jMhE9CJ3JEhN6p+CUnqKyOclb7Jj5POO6U/7s2bNBBGTjKe7+pS6idz5m/j5k7VqpLnddWJnFzGo3sUejjhM59+7QjEAeP378wB133LE90zwGqr8EWXGVuyJP+U5YrqJ3P8a53Lm73rPFjcudqTvABeNzn6vc+W53PH3SHGJmu2wckXfCZyUTOOdvpZJNxpwF78TfYGKK2925fBEYW7lpd7cHI+Iu1K7x+Ixza3B4rjVdMm9FHnK/OPVkuHZJjBfufnfC+xU6J8jdPfF6Fy4f+cjNOz7HnNv5cEr/5IinmQxPfnwfec5dnqXQmXjdmQ/7ZD7lHmQmgJN4ZyZ2dz7+zCb8rQQOl/x9OGcr8TQ3edbtvl3uHMOjmfn98xwI67a8ueQa6+66Ew46EiL0fCT3kZyZm72w7FfuEVOPh3O5c8/u9lY3Qjfeh8vd3x37yJe3g3a7D/yFkX+TnIJ9z1C3LwXxI/e2OEmnHfb9Uv8zKYCdNGKfyeu2tPa7WKFzPCu3t3S3w4hgI6HZCz0MQ5kJw8JtvSe3e9zV7u2wfmY/57tOu3Nxu3uP0Wfq1Tc/CZ4EKBfYfD7dyfC0rqvQGX+9YOIJu/f7WDfOwKQ35CPy8I2zYMT5nF2VgQJCM8z9fZ2Eu9x9X6nZ9rsLBpUNF6F3gZfQ8zmcHV5F/JkN2/3ebbTz4pz1Kt7Oxx8cu3VVPC4q955pKqSzQp9+P8JLz1vYBKUd5iR059iM2C9o3O6+hc49kHt48lz5jN6HxdRuCvKdxYfHsxfH9kS/pHEcLlPo2++YjN+tbu6tG9eJEzNlYJ2XTJONhLPdC3iZL7uWoTuTu+/M7r4Evrc6Njb2JT9ud+xbk9eHVuq5kL+d+L+1zD1rPbLxsOeL4dDmEoKJc7vnPKi13e2O3Oe8VluHqA8dueL9YtmJ9P7fT+h9IHJ3D6T5/z7p7YbP9Ef7LOCaLz6JrX3et+nXo9+3O+xO5z+/1bKLzS18wy7EsA+Tk3k9w3bMzC4R3BHfLBfQhNrsZsZMz0w+jHO5e8rg7qO3uLTf3e8T7Wof4vdpG93u8X5tV96HjVlZE0iXYXCOdm+XnT+3u5vQ+9kuE7pYNFvLrnPo1kOddfCPl9s9Oz8/v6jftsOx++vfaHJ6+nfj41O/t+f8vtXF7e6y5PeLeq72OG3/53+8f9kUfJXjCR9Ct2Nx2/JZhI2Hvdwe3ZgY96RvHo9F7tT3S/LGPt/tZrFiPnI4xrndrTNKGg9Z9H6ZXHQVelvn5+fnQ7x+13xd+nUjUhwOIx/OKc7B/x6DXeveDk3mofnvfOYpJyJ3N0Nj6Mzt7h9bnK1yLSQOkFfhOdJz7VruzO7O0e7uxKfqe7vPYQOKdJKbK8zl7jyuB6F3a1vfJKCd2x09a4hg3u5297c/JFfAKPf+xPk6BbrVe7C/F+B+t6lTU1PPPP/88+/a/+6bKLNEO+a31OHXfe8XUwJNXe6+PVY++7m7zGdBJzGGdpKTud5MvVnb8a6+73/jlv3tH4vBRujM17zwrZKNxfegGjNMRJ5vONkVDqg2oXe69+Q8RuCN3YH0eOA9z6lzP2EJq9+Nt78vLCx8t+38vQc6u91JhgJz8+6xNHlud0O2PdntnsON5Tz7fCdud5N7b2G8j/VE6M/E7jTpwKQu9/E7d34f+v2QWk8JffkrJUJnoJzZncrfZlcPtHN9Tx2lBMfK7mfLwRF2JB7/Qm9aWNXL9fS5lHtmdqnQOdzubkdgu0u9fyiGHzCz24y5lI3Au7Vfa6LnZs7X/E2e2923OHdDJjkLvXvhZK4Y63a3vyNRe82pOGdCKe8RJ8SFt0v8zbCKM7t7+Z6cePYSaJ5vLcMEyMF8xXtpEw/5KHe/Qc4KevCde3K/Qc3uLhsWJLJ7zz33/O6nP/1p9wvfnWNmdmkJTr7bPRzuZnep6ckmhA6he/J6F7I9q8K3r7L1VlJnZhclXhqeT7mTuOB57NN+/lXzV85zP2JC1qZ5PwOQ693F7c4n+Nu3y+P1RHCE8O5tgOdlLO32IjLsZdlSz0HwA84Nud9+L8pEPzRfTeFt5xM6/Gw3W27MZmQR7FKmOOEu93uQ70IH6hOkgxn+Gvy+feGFFz6t31Pz+faBj5vZJYJPvKVRGDO7R+z3Ufp7CfzaR8cE7Wj/6M/fd1zx3/+c23a/8fQ1t9xJV3dJJ7k7E7sbl7t+0vfeGpK+1xTy8/l1rczv+K5Aq1YIFRF4L7e73Hkfft9sH7+a3e2+/b5dJf68MFdLlH8jePm5/j+IZsYZC6P5/wAAAABJRU5ErkJggg==" alt="50+ Empregos" class="nav-logo-img">
+                </a>
+            </div>
+            
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#inicio" class="nav-link active" role="menuitem">Início</a></li>
+                <li role="none"><a href="#vagas" class="nav-link" role="menuitem">Vagas</a></li>
+                <li role="none"><a href="#candidatos" class="nav-link" role="menuitem">Candidatos</a></li>
+                <li role="none"><a href="#empresas" class="nav-link" role="menuitem">Empresas</a></li>
+                <li role="none"><a href="#capacitacao" class="nav-link" role="menuitem">Capacitação</a></li>
+                <li role="none"><a href="#sobre" class="nav-link" role="menuitem">Sobre</a></li>
+                <li role="none"><a href="#contato" class="nav-link" role="menuitem">Contato</a></li>
+            </ul>
+            
+            <div class="nav-buttons">
+                <a href="#vagas" class="btn btn-secondary btn-nav">Ver Vagas</a>
+                <a href="#candidatos" class="btn btn-primary btn-nav">Cadastrar-se</a>
+                <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section - Moderno e impactante -->
+        <section class="hero" id="inicio">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <span>Referência em Carreiras 50+</span>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            Sua <span class="highlight">experiência</span><br>
+                            vale <span class="highlight-gold">ouro</span>
+                        </h1>
+                        
+                        <p class="hero-subtitle">
+                            Conectamos profissionais experientes a empresas que reconhecem o valor da maturidade,<br>
+                            <strong>transformando conhecimento em oportunidades</strong>
+                        </p>
+                        
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">•</span>
+                                <span>Vagas exclusivas 50+</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">•</span>
+                                <span>Mentoria especializada</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">•</span>
+                                <span>Empresas parceiras</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-buttons">
+                            <a href="#vagas" class="btn btn-primary btn-hero">
+                                <span class="btn-text">
+                                    <strong>Encontrar Vagas</strong>
+                                    <small>Gratuito e rápido</small>
+                                </span>
+                            </a>
+                            <a href="#empresas" class="btn btn-outline btn-hero">
+                                <span class="btn-text">
+                                    <strong>Para Empresas</strong>
+                                    <small>Contrate talentos</small>
+                                </span>
+                            </a>
+                        </div>
+                        
+                        <div class="hero-social-proof">
+                            <div class="social-proof-item">
+                                <div class="proof-avatars">
+                                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Cliente" class="avatar">
+                                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Cliente" class="avatar">
+                                    <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Cliente" class="avatar">
+                                    <span class="avatar-count">+2.5k</span>
+                                </div>
+                                <div class="proof-text">
+                                    <strong>2.500+ profissionais</strong> já encontraram trabalho conosco
+                                    <div class="proof-rating">
+                                        <span class="rating-stars">★★★★★</span> <span>4.8/5 avaliação</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="hero-image-main">
+                            <img src="data:image/jpeg;base64,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" 
+                                 alt="Profissional 50+ trabalhando com confiança em escritório moderno" 
+                                 class="hero-img-primary">
+                            <div class="hero-floating-card">
+                                <div class="floating-card-content">
+                                    <div class="card-icon-success">✓</div>
+                                    <div class="card-text">
+                                        <strong>Maria, 54 anos</strong>
+                                        <span>Contratada em 15 dias</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-stats-visual">
+                            <div class="stat-card">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Taxa de sucesso</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">15</div>
+                                <div class="stat-label">Dias médios</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Empresas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="value-prop" id="proposta">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Por que escolher a <span class="highlight">50+ Empregos</span>?</h2>
+                    <p class="section-subtitle">Somos especialistas em conectar experiência com oportunidade, transformando carreiras com resultados comprovados</p>
+                </div>
+                
+                <div class="value-cards">
+                    <div class="value-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <span class="icon-symbol">🎯</span>
+                            </div>
+                            <div class="card-badge">Destaque</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Recolocação Focada</h3>
+                            <p class="card-description">Especialistas em conectar profissionais 50+ com oportunidades que valorizam experiência e maturidade profissional.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Perfil personalizado</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Acompanhamento especializado</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Vagas compatíveis</span>
+                                </div>
+                            </div>
+                            <div class="card-cta">
+                                <a href="#candidatos" class="btn btn-outline btn-sm">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <span class="icon-symbol">💻</span>
+                            </div>
+                            <div class="card-badge">Gratuito</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Capacitação Digital</h3>
+                            <p class="card-description">Cursos práticos incluindo tecnologias digitais e ferramentas modernas para manter-se competitivo no mercado.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Cursos gratuitos</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Certificados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Suporte especializado</span>
+                                </div>
+                            </div>
+                            <div class="card-cta">
+                                <a href="#capacitacao" class="btn btn-outline btn-sm">Ver cursos</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <span class="icon-symbol">🤝</span>
+                            </div>
+                            <div class="card-badge">Certificado</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Parcerias Age-Friendly</h3>
+                            <p class="card-description">Empresas comprometidas com diversidade etária e valorização da experiência profissional comprovada.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Empresas certificadas</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Ambiente inclusivo</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">✓</span>
+                                    <span class="feature-text">Valorização da experiência</span>
+                                </div>
+                            </div>
+                            <div class="card-cta">
+                                <a href="#parceiras" class="btn btn-outline btn-sm">Ver empresas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Jobs - Melhorado inspirado no 55mais.pt -->
+        <section class="featured-jobs" id="vagas">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Oportunidades para <span class="highlight">Profissionais 50+</span></h2>
+                    <p class="section-subtitle">Vagas que valorizam sua experiência e conhecimento acumulado ao longo dos anos</p>
+                </div>
+                
+                <!-- Filtros de Vagas -->
+                <div class="jobs-filters">
+                    <div class="filter-group">
+                        <label for="area-filter" class="filter-label">Área:</label>
+                        <select id="area-filter" class="filter-select">
+                            <option value="">Todas as áreas</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Atendimento">Atendimento</option>
+                            <option value="Vendas">Vendas</option>
+                            <option value="Logística">Logística</option>
+                            <option value="Serviços">Serviços</option>
+                            <option value="Financeiro">Financeiro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="mode-filter" class="filter-label">Modalidade:</label>
+                        <select id="mode-filter" class="filter-select">
+                            <option value="">Todas</option>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Híbrido">Híbrido</option>
+                            <option value="Remoto">Remoto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="state-filter" class="filter-label">Estado:</label>
+                        <select id="state-filter" class="filter-select">
+                            <option value="">Todos os estados</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PR">Paraná</option>
+                            <option value="BR">Nacional (Remoto)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="filter-clear" id="clearFilters">
+                        Limpar filtros
+                    </button>
+                </div>
+                
+                <!-- Contador de vagas -->
+                <div class="jobs-count">
+                    <span id="jobsCounter">Mostrando <strong>6</strong> vagas disponíveis</span>
+                </div>
+                
+                <div class="jobs-grid" id="featuredJobs">
+                    <!-- Jobs serão carregados via JavaScript -->
+                </div>
+                
+                <!-- Sem vagas encontradas -->
+                <div class="no-jobs" id="noJobsMessage" style="display: none;">
+                    <div class="no-jobs-content">
+                        <span class="no-jobs-icon">!</span>
+                        <h3>Nenhuma vaga encontrada</h3>
+                        <p>Tente ajustar os filtros ou <strong>remover alguns critérios</strong> para ver mais oportunidades.</p>
+                        <button class="btn btn-outline" onclick="clearAllFilters()">
+                            Limpar todos os filtros
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="section-cta">
+                    <div class="cta-content">
+                        <h3>Não encontrou o que procura?</h3>
+                        <p>Cadastre-se e receba notificações sobre novas vagas que combinem com seu perfil</p>
+                        <div class="cta-buttons">
+                            <a href="#cadastro" class="btn btn-primary btn-large">
+                                Cadastrar CV
+                            </a>
+                            <a href="#contato" class="btn btn-outline btn-large">
+                                Falar com consultor
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- For Companies -->
+        <section class="for-companies" id="empresas">
+            <div class="container">
+                <div class="company-content">
+                    <div class="company-text">
+                        <div class="company-badge">
+                            <span>Para Empresas</span>
+                        </div>
+                        <h2>Encontre talentos que <span class="highlight">trazem resultados</span></h2>
+                        <p>Profissionais 50+ oferecem estabilidade, experiência comprovada e comprometimento com a empresa. São colaboradores que valorizam o trabalho e trazem resultados consistentes para sua organização.</p>
+                        
+                        <div class="company-stats">
+                            <div class="company-stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Empresas parceiras</span>
+                            </div>
+                            <div class="company-stat">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Taxa de retenção</span>
+                            </div>
+                            <div class="company-stat">
+                                <span class="stat-number">3x</span>
+                                <span class="stat-label">Mais estáveis</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#empresas" class="btn btn-primary btn-large">
+                            Falar com o time B2B
+                        </a>
+                    </div>
+                    
+                    <div class="company-image">
+                        <div class="company-image-container">
+                            <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                                 alt="Equipe de profissionais 50+ em reunião de negócios" 
+                                 class="company-img">
+                            <div class="company-image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text">Equipe Experiente</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Empresas Parceiras -->
+        <section class="partners" id="parceiras">
+            <div class="container">
+                <div class="partners-content">
+                    <div class="partners-header">
+                        <h2 class="partners-title">Empresas que acreditam no poder da experiência</h2>
+                        <div class="partners-divider"></div>
+                    </div>
+                    
+                    <div class="partners-logos">
+                        <div class="partners-row">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Magazine_Luiza_logo.svg" alt="Magazine Luiza" class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/P%C3%A3o_de_A%C3%A7%C3%BAcar_%28Logo%29.svg" alt="Pão de Açúcar" class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Ambev_logo.svg" alt="Ambev" class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Banco_Bradesco_logo.svg" alt="Bradesco" class="partner-logo">
+                        </div>
+                        <div class="partners-row">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Natura_logo.svg" alt="Natura" class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Carrefour_logo.svg" alt="Carrefour" class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Sebrae_Logo.svg" alt="Sebrae" class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Hospital_Israelita_Albert_Einstein_logo.svg" alt="Hospital Albert Einstein" class="partner-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training & AI - Simplificado -->
+        <section class="training" id="capacitacao">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Capacitação e <span class="highlight">Desenvolvimento</span></h2>
+                    <p class="section-subtitle">Cursos práticos e workshops para manter-se atualizado e competitivo no mercado de trabalho</p>
+                </div>
+                
+                <div class="training-cards">
+                    <div class="training-card featured">
+                        <div class="card-badge featured-badge">⭐ Destaque</div>
+                        <div class="card-header">
+                            <div class="card-icon-large">
+                                <span class="icon-symbol">🤖</span>
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="card-title">Inteligência Artificial para 50+</h3>
+                                <p class="card-subtitle">Domine as ferramentas do futuro</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Curso prático sobre ferramentas de IA para aumentar sua produtividade e competitividade no mercado de trabalho.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">ChatGPT e IA generativa</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Automação de tarefas</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Análise de dados</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span class="meta-text">20 horas</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📊</span>
+                                <span class="meta-text">Iniciante</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏆</span>
+                                <span class="meta-text">Certificado</span>
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            <a href="#capacitacao" class="btn btn-primary btn-full">Ver curso gratuito</a>
+                        </div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="card-header">
+                            <div class="card-icon-large">
+                                <span class="icon-symbol">💻</span>
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="card-title">Ferramentas Digitais</h3>
+                                <p class="card-subtitle">Produtividade no trabalho moderno</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Microsoft Office, Google Workspace e outras ferramentas essenciais para o trabalho moderno e produtivo.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Office 365 completo</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Google Workspace</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Colaboração online</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span class="meta-text">15 horas</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📊</span>
+                                <span class="meta-text">Básico</span>
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            <a href="#capacitacao" class="btn btn-outline btn-full">Ver curso</a>
+                        </div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="card-header">
+                            <div class="card-icon-large">
+                                <span class="icon-symbol">🧠</span>
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="card-title">Soft Skills</h3>
+                                <p class="card-subtitle">Destaque-se com inteligência emocional</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Comunicação, liderança e inteligência emocional para se destacar no mercado de trabalho atual.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Comunicação eficaz</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Liderança situacional</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Gestão de conflitos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span class="meta-text">12 horas</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📊</span>
+                                <span class="meta-text">Todos</span>
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            <a href="#capacitacao" class="btn btn-outline btn-full">Ver curso</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Perguntas <span class="highlight">Frequentes</span></h2>
+                    <p class="section-subtitle">Tire suas dúvidas sobre nossos serviços e processos</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-text">Como funciona o processo de recolocação?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nosso processo é simples e eficiente: cadastro completo, validação do perfil por especialistas, capacitação personalizada e encaminhamento para vagas compatíveis. Todo o acompanhamento é feito por especialistas em carreira 50+ com experiência comprovada.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-text">As vagas são apenas para cargos administrativos?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Não! Temos vagas em todas as áreas: administrativo, vendas, atendimento, logística, serviços gerais, tecnologia e muito mais. O importante é a experiência e disposição para aprender e se adaptar às novas tecnologias.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-text">Os cursos de capacitação são gratuitos?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim! Nossa trilha de IA é 100% gratuita. Outros cursos têm versões gratuitas e premium, sempre com foco em acessibilidade para profissionais 50+. Queremos que todos tenham acesso ao conhecimento necessário para se manterem competitivos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Pronto para dar o <span class="highlight">próximo passo</span>?</h2>
+                    <p>Junte-se a milhares de profissionais 50+ que já transformaram suas carreiras e encontraram novas oportunidades de crescimento e realização profissional.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#candidatos" class="btn btn-primary btn-large">
+                            Cadastrar meu perfil
+                        </a>
+                        <a href="#empresas" class="btn btn-secondary btn-large">
+                            Cadastrar minhas vagas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer limpo e organizado -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="data:image/png;base64,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" alt="50+ Empregos" class="footer-logo-img">
+                    <p>Conectando experiência com oportunidade. Transformando carreiras 50+ com resultados comprovados e sucesso profissional.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <span class="social-icon">in</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <span class="social-icon">f</span>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <span class="social-icon">ig</span>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <span class="social-icon">yt</span>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Para Candidatos</h4>
+                        <ul>
+                            <li><a href="#vagas">Buscar vagas</a></li>
+                            <li><a href="#candidatos">Cadastrar-se</a></li>
+                            <li><a href="#capacitacao">Capacitação</a></li>
+                            <li><a href="#empreender">Empreender</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Para Empresas</h4>
+                        <ul>
+                            <li><a href="#empresas">Publicar vagas</a></li>
+                            <li><a href="#empresas">Planos</a></li>
+                            <li><a href="#sobre">Sobre nós</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Recursos</h4>
+                        <ul>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#sobre">Missão</a></li>
+                            <li><a href="#privacidade">Privacidade</a></li>
+                            <li><a href="#termos">Termos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2025 50+ Empregos. Todos os direitos reservados.</p>
+                    <div class="footer-seals">
+                        <span class="seal">LGPD</span>
+                        <span class="seal">Acessível</span>
+                        <span class="seal">Age-Friendly</span>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Guia gratuito: Atualização Digital 50+</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit" class="btn btn-primary">Receber</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-button" onclick="openWhatsApp()">
+        <span class="whatsapp-icon">WA</span>
+        <span class="whatsapp-text">Fale conosco</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
