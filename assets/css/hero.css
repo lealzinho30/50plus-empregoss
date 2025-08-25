@@ -35,8 +35,8 @@
   transform: translateY(-50%);
   width: 300px;
   height: 400px;
-  opacity: 0.4;
-  z-index: 5;
+  opacity: 0.6;
+  z-index: 2;
 }
 
 .hero-image-left img{
@@ -54,8 +54,8 @@
   transform: translateY(-50%);
   width: 300px;
   height: 400px;
-  opacity: 0.4;
-  z-index: 5;
+  opacity: 0.6;
+  z-index: 2;
 }
 
 .hero-image-right img{
@@ -73,9 +73,9 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, 
-    rgba(20, 60, 107, 0.7) 0%, 
-    rgba(27, 75, 132, 0.6) 50%, 
-    rgba(74, 144, 188, 0.5) 100%);
+    rgba(20, 60, 107, 0.3) 0%, 
+    rgba(27, 75, 132, 0.2) 50%, 
+    rgba(74, 144, 188, 0.1) 100%);
   z-index: 3;
 }
 
@@ -93,9 +93,9 @@
 /* Pill superior */
 .hero-pill{
   display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--white);
   padding: 12px 24px;
   border-radius: 50px;
@@ -113,16 +113,17 @@
   line-height: 1.1;
   margin-bottom: 24px;
   animation: fadeInUp 0.8s ease-out 0.2s both;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-highlight{
   color: var(--accent-gold);
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-gold{
   color: var(--gold);
-  text-shadow: 0 0 20px rgba(245, 183, 0, 0.3);
+  text-shadow: 0 0 20px rgba(245, 183, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Subtítulo */
@@ -131,13 +132,15 @@
   line-height: 1.5;
   max-width: 700px;
   margin-bottom: 48px;
-  opacity: 0.95;
+  opacity: 1;
   animation: fadeInUp 0.8s ease-out 0.4s both;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-subtitle strong{
   color: var(--accent-gold);
   font-weight: 700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Estatísticas */
@@ -150,9 +153,9 @@
 
 .stat-item{
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 24px 20px;
   min-width: 140px;
@@ -161,8 +164,8 @@
 
 .stat-item:hover{
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .stat-number{
@@ -171,14 +174,15 @@
   font-weight: 900;
   color: var(--accent-gold);
   margin-bottom: 8px;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .stat-label{
   font-size: 14px;
   font-weight: 500;
-  opacity: 0.9;
+  opacity: 1;
   line-height: 1.3;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 /* Botões CTA */
@@ -211,7 +215,7 @@
   background: var(--white);
   color: var(--blue);
   border-color: var(--white);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover{
@@ -223,17 +227,17 @@
 }
 
 .btn-secondary{
-  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
   color: var(--white);
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover{
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.6);
   border-color: var(--white);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Animações */
@@ -254,7 +258,7 @@
   .hero-image-right {
     width: 200px;
     height: 300px;
-    opacity: 0.3;
+    opacity: 0.5;
   }
   
   .hero-stats {
