@@ -100,14 +100,31 @@ let currentFilters = {
     state: ''
 };
 
-// Função para criar card de vaga melhorado - Com imagens
+// Função para mapear área para ícone setorial
+function getSectorIcon(area) {
+    const iconMap = {
+        'Administrativo': 'icons/administrativo.svg',
+        'Saúde': 'icons/saude.svg',
+        'Atendimento': 'icons/atendimento.svg',
+        'Logística': 'icons/logistica.svg',
+        'Vendas': 'icons/vendas.svg',
+        'Serviços': 'icons/atendimento.svg',
+        'Financeiro': 'icons/administrativo.svg'
+    };
+    return iconMap[area] || 'icons/administrativo.svg';
+}
+
+// Função para criar card de vaga melhorado - Com ícones setoriais
 function createJobCard(job) {
     const modeClass = job.mode.toLowerCase().replace('í', 'i'); // presencial, hibrido, remoto
+    const sectorIcon = getSectorIcon(job.area);
     
     return `
         <div class="job-card" data-area="${job.area}" data-mode="${job.mode}" data-state="${job.state}">
             <div class="job-image">
-                <img src="${job.image}" alt="${job.title}" class="job-img" loading="lazy">
+                <div class="job-sector-icon">
+                    <img src="${sectorIcon}" alt="${job.area}" class="sector-icon" loading="lazy">
+                </div>
                 <div class="job-image-overlay">
                     <span class="job-mode ${modeClass}">${job.mode}</span>
                 </div>
@@ -120,14 +137,18 @@ function createJobCard(job) {
                 </div>
                 
                 <div class="job-location">${job.location}</div>
-                <div class="job-salary">${job.salary}</div>
+                <div class="job-salary-highlighted">💰 ${job.salary}</div>
                 
                 <div class="job-tags">
                     ${job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('')}
                 </div>
                 
+                <div class="job-badges">
+                    <span class="job-experience-badge">✨ ${job.experience}</span>
+                    <span class="job-age-friendly-badge">🎯 Idade não é barreira</span>
+                </div>
+                
                 <div class="job-footer">
-                    <span class="job-experience">${job.experience}</span>
                     <div class="job-actions">
                         <a href="#aplicar" class="job-btn job-btn-primary" onclick="showApplicationDialog('${job.title}')">
                             Candidatar-se

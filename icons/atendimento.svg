@@ -1,0 +1,72 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ícone setorial para Atendimento -->
+  <defs>
+    <linearGradient id="serviceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B4B84"/>
+      <stop offset="100%" style="stop-color:#4A90BC"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#FCD34D"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#serviceGrad)" opacity="0.1"/>
+  
+  <!-- Headset -->
+  <path d="M40 30 Q60 20 80 30 Q85 35 85 45 L85 55 Q85 60 80 60 L75 60 Q70 60 70 55 L70 45 Q70 40 75 40 L80 40" 
+        fill="none" stroke="url(#serviceGrad)" stroke-width="4"/>
+  <path d="M40 30 Q35 35 35 45 L35 55 Q35 60 40 60 L45 60 Q50 60 50 55 L50 45 Q50 40 45 40 L40 40" 
+        fill="none" stroke="url(#serviceGrad)" stroke-width="4"/>
+  
+  <!-- Microphone -->
+  <rect x="57" y="50" width="6" height="15" rx="3" fill="url(#accentGrad)"/>
+  <rect x="55" y="65" width="10" height="3" rx="1" fill="url(#serviceGrad)"/>
+  <rect x="58" y="68" width="4" height="5" fill="url(#serviceGrad)"/>
+  
+  <!-- Person/operator -->
+  <circle cx="60" cy="35" r="8" fill="url(#serviceGrad)"/>
+  <rect x="52" y="43" width="16" height="20" rx="3" fill="url(#serviceGrad)"/>
+  
+  <!-- Customer service desk -->
+  <rect x="25" y="75" width="70" height="8" rx="2" fill="url(#serviceGrad)"/>
+  <rect x="30" y="70" width="15" height="5" rx="1" fill="url(#accentGrad)"/>
+  <rect x="50" y="70" width="20" height="5" rx="1" fill="url(#accentGrad)"/>
+  <rect x="75" y="70" width="15" height="5" rx="1" fill="url(#accentGrad)"/>
+  
+  <!-- Phone -->
+  <rect x="20" y="40" width="15" height="25" rx="3" fill="url(#accentGrad)"/>
+  <rect x="22" y="42" width="11" height="4" rx="1" fill="white"/>
+  <circle cx="25" cy="50" r="1" fill="white"/>
+  <circle cx="28" cy="50" r="1" fill="white"/>
+  <circle cx="31" cy="50" r="1" fill="white"/>
+  <circle cx="25" cy="53" r="1" fill="white"/>
+  <circle cx="28" cy="53" r="1" fill="white"/>
+  <circle cx="31" cy="53" r="1" fill="white"/>
+  <circle cx="25" cy="56" r="1" fill="white"/>
+  <circle cx="28" cy="56" r="1" fill="white"/>
+  <circle cx="31" cy="56" r="1" fill="white"/>
+  <rect x="24" y="59" width="8" height="4" rx="2" fill="white"/>
+  
+  <!-- Speech bubbles -->
+  <ellipse cx="85" cy="35" rx="10" ry="6" fill="url(#accentGrad)"/>
+  <path d="M82 40 L85 45 L88 40" fill="url(#accentGrad)"/>
+  <text x="85" y="37" text-anchor="middle" font-family="sans-serif" font-size="6" font-weight="bold" fill="white">Hi!</text>
+  
+  <ellipse cx="15" cy="25" rx="8" ry="5" fill="url(#serviceGrad)"/>
+  <path d="M13 29 L15 33 L17 29" fill="url(#serviceGrad)"/>
+  <circle cx="12" cy="25" r="1" fill="white"/>
+  <circle cx="15" cy="25" r="1" fill="white"/>
+  <circle cx="18" cy="25" r="1" fill="white"/>
+  
+  <!-- Rating stars -->
+  <path d="M85 85 L87 90 L92 90 L88 93 L90 98 L85 95 L80 98 L82 93 L78 90 L83 90 Z" fill="url(#accentGrad)"/>
+  <path d="M95 85 L97 90 L102 90 L98 93 L100 98 L95 95 L90 98 L92 93 L88 90 L93 90 Z" fill="url(#accentGrad)"/>
+  
+  <!-- Support ticket -->
+  <rect x="90" y="50" width="20" height="25" rx="2" fill="white" stroke="url(#serviceGrad)" stroke-width="2"/>
+  <rect x="92" y="55" width="16" height="2" rx="1" fill="url(#serviceGrad)"/>
+  <rect x="92" y="60" width="12" height="2" rx="1" fill="url(#serviceGrad)"/>
+  <rect x="92" y="65" width="14" height="2" rx="1" fill="url(#serviceGrad)"/>
+</svg>
