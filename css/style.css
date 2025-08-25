@@ -899,11 +899,11 @@ section {
 
 .value-card {
     background-color: var(--white);
-    padding: var(--spacing-8);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--gray-200);
+    padding: var(--spacing-10);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 10px 25px -5px rgba(27, 75, 132, 0.1), 0 4px 6px -2px rgba(27, 75, 132, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(27, 75, 132, 0.08);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -927,9 +927,9 @@ section {
 }
 
 .value-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-100);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px -10px rgba(27, 75, 132, 0.15), 0 8px 16px -4px rgba(27, 75, 132, 0.1);
+    border-color: rgba(27, 75, 132, 0.15);
 }
 
 .card-header {
@@ -953,6 +953,35 @@ section {
     box-shadow: 0 4px 12px rgba(27, 75, 132, 0.2);
 }
 
+.card-icon-illustration {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(27, 75, 132, 0.05) 0%, rgba(107, 182, 214, 0.05) 100%);
+    border: 2px solid rgba(27, 75, 132, 0.1);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.card-icon-illustration:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(27, 75, 132, 0.1) 0%, rgba(107, 182, 214, 0.1) 100%);
+    border-color: rgba(27, 75, 132, 0.2);
+}
+
+.card-illustration {
+    width: 64px;
+    height: 64px;
+    transition: transform 0.3s ease;
+}
+
+.card-icon-illustration:hover .card-illustration {
+    transform: scale(1.1);
+}
+
 .card-badge {
     background: var(--accent);
     color: var(--white);
@@ -968,13 +997,14 @@ section {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding-top: var(--spacing-4);
 }
 
 .card-title {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--gray-900);
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-5);
     line-height: var(--line-height-tight);
 }
 
