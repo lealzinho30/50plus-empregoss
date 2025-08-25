@@ -753,6 +753,138 @@ function addRevealAnimations() {
     });
 }
 
+// ====== SEÇÃO SOBRE PREMIUM ======
+function initSobrePremium() {
+  // Animar números quando entrar na viewport
+  const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+  
+  const animateNumbers = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const numberElement = entry.target;
+        const target = parseInt(numberElement.getAttribute('data-target'));
+        const duration = 2000; // 2 segundos
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          numberElement.textContent = Math.floor(current);
+        }, 16);
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  
+  const numberObserver = new IntersectionObserver(animateNumbers, {
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
+  });
+  
+  statNumbers.forEach(number => {
+    numberObserver.observe(number);
+  });
+  
+  // Efeitos de hover avançados
+  const pillarCards = document.querySelectorAll('.pillar-card');
+  pillarCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-12px) scale(1.02)';
+      this.style.boxShadow = `
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(59, 130, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1)
+      `;
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+      this.style.boxShadow = 'none';
+    });
+  });
+  
+  // Animações de entrada com stagger
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const animateOnScroll = (entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = `${index * 0.1}s`;
+        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  
+  const scrollObserver = new IntersectionObserver(animateOnScroll, observerOptions);
+  
+  // Observar elementos para animação
+  const animatedElements = document.querySelectorAll(`
+    .pillar-card,
+    .servico-card-premium,
+    .stat-card-premium
+  `);
+  
+  animatedElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(40px)';
+    scrollObserver.observe(el);
+  });
+  
+  // Efeito parallax sutil no background
+  let ticking = false;
+  
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.sobre-bg-pattern, .sobre-bg-gradient');
+    
+    parallaxElements.forEach((element, index) => {
+      const speed = (index + 1) * 0.5;
+      const yPos = -(scrolled * speed);
+      element.style.transform = `translateY(${yPos}px)`;
+    });
+    
+    ticking = false;
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', requestTick);
+  
+  // Efeito de brilho nos botões
+  const premiumButtons = document.querySelectorAll('.btn-primary-premium, .btn-secondary-premium');
+  
+  premiumButtons.forEach(button => {
+    button.addEventListener('mouseenter', function() {
+      this.style.background = 'linear-gradient(135deg, #4f46e5, #7c3aed)';
+      this.style.boxShadow = '0 15px 35px rgba(79, 70, 229, 0.4)';
+    });
+    
+    button.addEventListener('mouseleave', function() {
+      if (this.classList.contains('btn-primary-premium')) {
+        this.style.background = 'linear-gradient(135deg, #3b82f6, #8b5cf6)';
+        this.style.boxShadow = 'none';
+      } else {
+        this.style.background = 'rgba(255, 255, 255, 0.1)';
+        this.style.boxShadow = 'none';
+      }
+    });
+  });
+}
+
 // Header Sticky e Scroll Effects
 function initHeaderScroll() {
     const header = document.getElementById('header');
@@ -859,6 +991,7 @@ function init() {
     enhanceHoverEffects();
     addScrollProgress();
     addRevealAnimations();
+    initSobrePremium(); // Inicializar a nova seção
     
     // Event listeners
     document.addEventListener('DOMContentLoaded', () => {
