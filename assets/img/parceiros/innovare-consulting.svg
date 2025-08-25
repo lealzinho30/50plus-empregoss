@@ -1,0 +1,21 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Innovare Consulting - Logotipo Consultoria -->
+  <rect width="120" height="40" fill="#ffffff"/>
+  
+  <!-- Ícone inovação -->
+  <g transform="translate(8, 8)">
+    <!-- Hexágono base -->
+    <path d="M12 2 L20 7 L20 17 L12 22 L4 17 L4 7 Z" fill="#8B5CF6"/>
+    <!-- Elementos internos -->
+    <circle cx="12" cy="12" r="4" fill="#A78BFA"/>
+    <circle cx="12" cy="12" r="2" fill="#C4B5FD"/>
+    <!-- Pontos de conexão -->
+    <circle cx="8" cy="8" r="1" fill="#F59E0B"/>
+    <circle cx="16" cy="8" r="1" fill="#F59E0B"/>
+    <circle cx="12" cy="18" r="1" fill="#F59E0B"/>
+  </g>
+  
+  <!-- Texto da empresa -->
+  <text x="36" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#8B5CF6">Innovare</text>
+  <text x="36" y="26" font-family="Inter, sans-serif" font-size="7" font-weight="400" fill="#6B7280">Consulting</text>
+</svg>

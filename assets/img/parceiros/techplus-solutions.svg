@@ -1,0 +1,16 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- TechPlus Solutions - Logotipo Corporativa -->
+  <rect width="120" height="40" fill="#ffffff"/>
+  
+  <!-- Ícone geométrico -->
+  <g transform="translate(8, 8)">
+    <rect x="0" y="0" width="24" height="24" rx="4" fill="#1B4B84"/>
+    <rect x="4" y="4" width="16" height="16" rx="2" fill="#4A90BC"/>
+    <rect x="8" y="8" width="8" height="8" rx="1" fill="#F59E0B"/>
+    <circle cx="12" cy="12" r="2" fill="white"/>
+  </g>
+  
+  <!-- Texto da empresa -->
+  <text x="40" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#1B4B84">TechPlus</text>
+  <text x="40" y="26" font-family="Inter, sans-serif" font-size="7" font-weight="400" fill="#6B7280">Solutions</text>
+</svg>

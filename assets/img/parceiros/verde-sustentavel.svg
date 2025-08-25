@@ -1,0 +1,20 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Verde Sustentável - Logotipo Sustentabilidade -->
+  <rect width="120" height="40" fill="#ffffff"/>
+  
+  <!-- Folha estilizada -->
+  <g transform="translate(8, 8)">
+    <path d="M12 2 Q18 6 20 12 Q18 18 12 22 Q6 18 4 12 Q6 6 12 2 Z" fill="#059669"/>
+    <path d="M12 4 Q16 7 17 12 Q16 17 12 20 Q8 17 7 12 Q8 7 12 4 Z" fill="#10B981"/>
+    <path d="M12 6 Q14 8 15 12 Q14 16 12 18 Q10 16 9 12 Q10 8 12 6 Z" fill="#34D399"/>
+    <!-- Nervura central -->
+    <line x1="12" y1="4" x2="12" y2="20" stroke="#047857" stroke-width="1"/>
+    <!-- Gotas de água -->
+    <circle cx="15" cy="8" r="1" fill="#06B6D4"/>
+    <circle cx="9" cy="16" r="1" fill="#06B6D4"/>
+  </g>
+  
+  <!-- Texto da empresa -->
+  <text x="36" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#059669">Verde</text>
+  <text x="36" y="26" font-family="Inter, sans-serif" font-size="7" font-weight="400" fill="#6B7280">Sustentável</text>
+</svg>
