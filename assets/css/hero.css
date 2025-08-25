@@ -1,11 +1,9 @@
-/* ====== HERO CHAMATIVO COM FOTOS ====== */
+/* ====== HERO SIMPLES E ACOLHEDOR ====== */
 :root{
   --blue: #143C6B; 
-  --blue-dark: #0F2A4F;
   --blue-light: #1B4F72;
   --gold: #F5B700;
   --white: #FFFFFF;
-  --accent-gold: #FFD700;
 }
 
 .hero{
@@ -37,7 +35,7 @@
   height: 400px;
   opacity: 0.7;
   z-index: 2;
-  filter: brightness(1.1) contrast(1.05) saturate(1.1);
+  filter: brightness(1.1) contrast(1.05);
 }
 
 .hero-image-left img{
@@ -58,7 +56,7 @@
   height: 400px;
   opacity: 0.7;
   z-index: 2;
-  filter: brightness(1.1) contrast(1.05) saturate(1.1);
+  filter: brightness(1.1) contrast(1.05);
 }
 
 .hero-image-right img{
@@ -121,8 +119,8 @@
 }
 
 .hero-highlight{
-  color: var(--accent-gold);
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.6);
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(245, 183, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-gold{
@@ -142,9 +140,9 @@
 }
 
 .hero-subtitle strong{
-  color: var(--accent-gold);
+  color: var(--gold);
   font-weight: 700;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 15px rgba(245, 183, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Estatísticas */
@@ -176,9 +174,9 @@
   display: block;
   font-size: 32px;
   font-weight: 900;
-  color: var(--accent-gold);
+  color: var(--gold);
   margin-bottom: 8px;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 15px rgba(245, 183, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .stat-label{
@@ -223,11 +221,11 @@
 }
 
 .btn-primary:hover{
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: var(--blue-dark);
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--blue);
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 12px 35px rgba(245, 183, 0, 0.3);
 }
 
 .btn-secondary{
