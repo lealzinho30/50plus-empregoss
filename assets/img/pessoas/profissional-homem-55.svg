@@ -1,0 +1,111 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Homem profissional 55+ - Estilo moderno e realista -->
+  <defs>
+    <linearGradient id="skinToneM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8C4A0"/>
+      <stop offset="100%" style="stop-color:#D4B896"/>
+    </linearGradient>
+    <linearGradient id="hairGradM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B6B6B"/>
+      <stop offset="50%" style="stop-color:#8A8A8A"/>
+      <stop offset="100%" style="stop-color:#B0B0B0"/>
+    </linearGradient>
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A365D"/>
+      <stop offset="100%" style="stop-color:#2C5282"/>
+    </linearGradient>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EBF8FF"/>
+      <stop offset="100%" style="stop-color:#DBEAFE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background sutil -->
+  <rect width="400" height="500" fill="#F7FAFC"/>
+  
+  <!-- Corpo base -->
+  <g transform="translate(200, 170)">
+    <!-- Pescoço -->
+    <ellipse cx="0" cy="85" rx="28" ry="38" fill="url(#skinToneM)"/>
+    
+    <!-- Cabeça -->
+    <ellipse cx="0" cy="0" rx="48" ry="58" fill="url(#skinToneM)"/>
+    
+    <!-- Cabelo - grisalho bem definido -->
+    <path d="M-45 -25 Q-50 -45 -30 -58 Q-5 -65 0 -62 Q5 -65 30 -58 Q50 -45 45 -25 Q40 -15 30 -5 Q15 5 0 0 Q-15 5 -30 -5 Q-40 -15 -45 -25" fill="url(#hairGradM)"/>
+    
+    <!-- Careca/entradas -->
+    <ellipse cx="0" cy="-45" rx="15" ry="8" fill="url(#skinToneM)"/>
+    
+    <!-- Cabelo nas laterais -->
+    <path d="M-40 -20 Q-35 -15 -30 -10 Q-35 -5 -40 0" fill="#A0A0A0"/>
+    <path d="M40 -20 Q35 -15 30 -10 Q35 -5 40 0" fill="#A0A0A0"/>
+    
+    <!-- Rosto masculino -->
+    <!-- Olhos -->
+    <ellipse cx="-16" cy="-8" rx="9" ry="6" fill="#FFFFFF"/>
+    <ellipse cx="16" cy="-8" rx="9" ry="6" fill="#FFFFFF"/>
+    <circle cx="-16" cy="-8" r="5" fill="#2D3748"/>
+    <circle cx="16" cy="-8" r="5" fill="#2D3748"/>
+    <circle cx="-14" cy="-10" r="1.5" fill="#FFFFFF"/>
+    <circle cx="18" cy="-10" r="1.5" fill="#FFFFFF"/>
+    
+    <!-- Sobrancelhas grisalhas -->
+    <path d="M-25 -16 Q-16 -18 -7 -16" stroke="#808080" stroke-width="3" fill="none"/>
+    <path d="M7 -16 Q16 -18 25 -16" stroke="#808080" stroke-width="3" fill="none"/>
+    
+    <!-- Nariz masculino -->
+    <path d="M-3 -3 Q0 8 3 -3" stroke="#D4B896" stroke-width="2" fill="none"/>
+    <ellipse cx="-2" cy="3" rx="1" ry="2" fill="#C9A876"/>
+    <ellipse cx="2" cy="3" rx="1" ry="2" fill="#C9A876"/>
+    
+    <!-- Boca -->
+    <path d="M-10 12 Q0 18 10 12" stroke="#C73E1D" stroke-width="2" fill="none"/>
+    
+    <!-- Barba/bigode grisalho -->
+    <path d="M-15 8 Q0 15 15 8" stroke="#909090" stroke-width="2" fill="none"/>
+    <path d="M-20 15 Q-10 20 0 18 Q10 20 20 15" stroke="#909090" stroke-width="1.5" fill="none"/>
+    
+    <!-- Rugas de expressão -->
+    <path d="M-30 -2 Q-25 2 -20 5" stroke="#D0AC86" stroke-width="0.8" fill="none" opacity="0.7"/>
+    <path d="M20 5 Q25 2 30 -2" stroke="#D0AC86" stroke-width="0.8" fill="none" opacity="0.7"/>
+    <path d="M-12 18 Q-6 22 0 18 Q6 22 12 18" stroke="#D0AC86" stroke-width="0.6" fill="none" opacity="0.5"/>
+    
+    <!-- Terno profissional -->
+    <!-- Camisa -->
+    <ellipse cx="0" cy="160" rx="60" ry="75" fill="url(#shirtGrad)"/>
+    
+    <!-- Gravata -->
+    <path d="M-8 115 L8 115 L6 200 L-6 200 Z" fill="#8B0000"/>
+    <path d="M-6 120 L6 120 L4 140 L-4 140 Z" fill="#A50000"/>
+    <path d="M-4 150 L4 150 L3 170 L-3 170 Z" fill="#A50000"/>
+    
+    <!-- Paletó -->
+    <path d="M-55 125 Q-65 145 -60 185 Q-55 225 -50 270 L-25 270 L-30 185 Q-35 145 -30 125 Q-20 115 0 120 Q20 115 30 125 Q35 145 30 185 L25 270 L50 270 Q55 225 60 185 Q65 145 55 125 Q45 105 25 105 Q0 100 -25 105 Q-45 105 -55 125" fill="url(#suitGrad)"/>
+    
+    <!-- Gola do paletó -->
+    <path d="M-30 125 Q-20 115 0 120 Q20 115 30 125 Q25 130 0 135 Q-25 130 -30 125" fill="#0F2A44"/>
+    
+    <!-- Bolso do paletó -->
+    <rect x="-35" y="155" width="20" height="15" rx="2" fill="none" stroke="#0F2A44" stroke-width="1"/>
+    
+    <!-- Óculos profissionais -->
+    <ellipse cx="-16" cy="-8" rx="12" ry="8" fill="none" stroke="#2D3748" stroke-width="2"/>
+    <ellipse cx="16" cy="-8" rx="12" ry="8" fill="none" stroke="#2D3748" stroke-width="2"/>
+    <line x1="-4" y1="-8" x2="4" y2="-8" stroke="#2D3748" stroke-width="2"/>
+    <path d="M-28 -8 Q-32 -12 -35 -8" stroke="#2D3748" stroke-width="2" fill="none"/>
+    <path d="M28 -8 Q32 -12 35 -8" stroke="#2D3748" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Elementos de fundo profissional -->
+  <g opacity="0.08">
+    <rect x="60" y="60" width="90" height="70" rx="8" fill="#2563EB"/>
+    <rect x="260" y="90" width="70" height="60" rx="8" fill="#059669"/>
+    <circle cx="80" cy="420" r="35" fill="#DC2626"/>
+    <circle cx="330" cy="440" r="25" fill="#D97706"/>
+  </g>
+  
+  <!-- Texto identificativo -->
+  <text x="200" y="480" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1E293B">Roberto Silva, 55 anos</text>
+  <text x="200" y="495" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#64748B">Consultor Financeiro</text>
+</svg>

@@ -1,0 +1,96 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mulher profissional 50+ - Estilo moderno e realista -->
+  <defs>
+    <linearGradient id="skinTone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F4D1B0"/>
+      <stop offset="100%" style="stop-color:#E8C4A0"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B7355"/>
+      <stop offset="50%" style="stop-color:#A68B5B"/>
+      <stop offset="100%" style="stop-color:#C0A080"/>
+    </linearGradient>
+    <linearGradient id="blazerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C3E50"/>
+      <stop offset="100%" style="stop-color:#34495E"/>
+    </linearGradient>
+    <linearGradient id="blouseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#F8F9FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background sutil -->
+  <rect width="400" height="500" fill="#F8FAFC"/>
+  
+  <!-- Corpo base -->
+  <g transform="translate(200, 180)">
+    <!-- Pescoço -->
+    <ellipse cx="0" cy="80" rx="25" ry="35" fill="url(#skinTone)"/>
+    
+    <!-- Cabeça -->
+    <ellipse cx="0" cy="0" rx="45" ry="55" fill="url(#skinTone)"/>
+    
+    <!-- Cabelo - estilo profissional com mechas grisalhas -->
+    <path d="M-45 -20 Q-50 -40 -35 -55 Q-10 -65 0 -60 Q10 -65 35 -55 Q50 -40 45 -20 Q40 -10 35 5 Q20 15 0 10 Q-20 15 -35 5 Q-40 -10 -45 -20" fill="url(#hairGrad)"/>
+    
+    <!-- Detalhes do cabelo grisalho -->
+    <path d="M-25 -45 Q-15 -50 -5 -45 Q5 -50 15 -45" stroke="#C5C5C5" stroke-width="2" fill="none"/>
+    <path d="M-20 -35 Q-10 -40 0 -35 Q10 -40 20 -35" stroke="#D0D0D0" stroke-width="1.5" fill="none"/>
+    
+    <!-- Rosto -->
+    <!-- Olhos -->
+    <ellipse cx="-15" cy="-10" rx="8" ry="5" fill="#FFFFFF"/>
+    <ellipse cx="15" cy="-10" rx="8" ry="5" fill="#FFFFFF"/>
+    <circle cx="-15" cy="-10" r="4" fill="#3C4043"/>
+    <circle cx="15" cy="-10" r="4" fill="#3C4043"/>
+    <circle cx="-13" cy="-12" r="1.5" fill="#FFFFFF"/>
+    <circle cx="17" cy="-12" r="1.5" fill="#FFFFFF"/>
+    
+    <!-- Sobrancelhas -->
+    <path d="M-23 -18 Q-15 -20 -7 -18" stroke="#8B7355" stroke-width="2" fill="none"/>
+    <path d="M7 -18 Q15 -20 23 -18" stroke="#8B7355" stroke-width="2" fill="none"/>
+    
+    <!-- Nariz -->
+    <path d="M-2 -5 Q0 5 2 -5" stroke="#E8C4A0" stroke-width="1.5" fill="none"/>
+    
+    <!-- Boca -->
+    <path d="M-8 8 Q0 15 8 8" stroke="#D64545" stroke-width="2" fill="none"/>
+    
+    <!-- Rugas de expressão (sutis) -->
+    <path d="M-25 -5 Q-20 -2 -18 0" stroke="#E0B49A" stroke-width="0.5" fill="none" opacity="0.6"/>
+    <path d="M18 0 Q20 -2 25 -5" stroke="#E0B49A" stroke-width="0.5" fill="none" opacity="0.6"/>
+    <path d="M-10 12 Q-5 15 0 12 Q5 15 10 12" stroke="#E0B49A" stroke-width="0.5" fill="none" opacity="0.4"/>
+    
+    <!-- Roupas profissionais -->
+    <!-- Blusa -->
+    <ellipse cx="0" cy="150" rx="55" ry="70" fill="url(#blouseGrad)"/>
+    
+    <!-- Blazer -->
+    <path d="M-50 120 Q-60 140 -55 180 Q-50 220 -45 260 L-20 260 L-25 180 Q-30 140 -25 120 Q-15 110 0 115 Q15 110 25 120 Q30 140 25 180 L20 260 L45 260 Q50 220 55 180 Q60 140 50 120 Q40 100 20 100 Q0 95 -20 100 Q-40 100 -50 120" fill="url(#blazerGrad)"/>
+    
+    <!-- Gola do blazer -->
+    <path d="M-25 120 Q-15 110 0 115 Q15 110 25 120 Q20 125 0 130 Q-20 125 -25 120" fill="#1A252F"/>
+    
+    <!-- Botões -->
+    <circle cx="0" cy="140" r="3" fill="#BDC3C7"/>
+    <circle cx="0" cy="165" r="3" fill="#BDC3C7"/>
+    <circle cx="0" cy="190" r="3" fill="#BDC3C7"/>
+    
+    <!-- Colar discreto -->
+    <ellipse cx="0" cy="95" rx="20" ry="8" fill="none" stroke="#F1C40F" stroke-width="2"/>
+    <circle cx="0" cy="103" r="3" fill="#F39C12"/>
+  </g>
+
+  <!-- Elementos de fundo profissional -->
+  <g opacity="0.1">
+    <rect x="50" y="50" width="100" height="60" rx="5" fill="#3498DB"/>
+    <rect x="250" y="80" width="80" height="50" rx="5" fill="#2ECC71"/>
+    <circle cx="100" cy="400" r="30" fill="#E74C3C"/>
+    <circle cx="320" cy="420" r="20" fill="#F39C12"/>
+  </g>
+  
+  <!-- Texto identificativo -->
+  <text x="200" y="480" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#2C3E50">Maria Helena, 54 anos</text>
+  <text x="200" y="495" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7F8C8D">Gestora Administrativa</text>
+</svg>

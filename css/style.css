@@ -554,6 +554,106 @@ body {
 
 /* ====== FIM HERO NOVO ====== */
 
+/* ====== DEPOIMENTOS COM PESSOAS 50+ ====== */
+.testimonials {
+  padding: var(--spacing-20) 0;
+  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-12);
+}
+
+.testimonial-card {
+  background: var(--white);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-avatar {
+  flex-shrink: 0;
+}
+
+.testimonial-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(148, 163, 184, 0.1);
+}
+
+.testimonial-content {
+  flex: 1;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-4);
+  font-style: italic;
+  position: relative;
+}
+
+.testimonial-text::before {
+  content: '"';
+  font-size: 24px;
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: -12px;
+  top: -8px;
+}
+
+.testimonial-author strong {
+  display: block;
+  color: var(--gray-900);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.testimonial-author span {
+  color: var(--gray-500);
+  font-size: 14px;
+}
+
+/* Mobile adjustments para depoimentos */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+  
+  .testimonial-card {
+    padding: var(--spacing-6);
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .testimonial-avatar img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .testimonial-text {
+    font-size: 15px;
+  }
+}
+
 /* Hero Section - Moderno e impactante com nova identidade */
 .hero {
     position: relative;

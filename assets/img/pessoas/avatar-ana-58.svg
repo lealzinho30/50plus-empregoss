@@ -1,0 +1,67 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Avatar Ana, 58 anos - Para depoimentos -->
+  <defs>
+    <linearGradient id="skinAna" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F4D1B0"/>
+      <stop offset="100%" style="stop-color:#E8C4A0"/>
+    </linearGradient>
+    <clipPath id="circleAna">
+      <circle cx="60" cy="60" r="55"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background circular -->
+  <circle cx="60" cy="60" r="60" fill="#FEF7ED"/>
+  
+  <!-- Imagem dentro do círculo -->
+  <g clip-path="url(#circleAna)">
+    <!-- Fundo gradiente -->
+    <rect width="120" height="120" fill="linear-gradient(135deg, #FEF7ED 0%, #FED7AA 100%)"/>
+    
+    <!-- Cabeça -->
+    <ellipse cx="60" cy="45" rx="26" ry="30" fill="url(#skinAna)"/>
+    
+    <!-- Cabelo ondulado com mechas grisalhas -->
+    <path d="M34 28 Q30 18 42 15 Q52 13 60 15 Q68 13 78 15 Q90 18 86 28 Q83 33 80 38 Q73 43 60 41 Q47 43 40 38 Q37 33 34 28" fill="#8B4513"/>
+    
+    <!-- Mechas grisalhas -->
+    <path d="M45 20 Q52 18 58 20" stroke="#C0C0C0" stroke-width="2" fill="none"/>
+    <path d="M62 20 Q68 18 74 20" stroke="#C0C0C0" stroke-width="2" fill="none"/>
+    <path d="M40 32 Q50 30 60 32" stroke="#D3D3D3" stroke-width="1.5" fill="none"/>
+    
+    <!-- Olhos expressivos -->
+    <ellipse cx="52" cy="37" rx="6" ry="4" fill="#FFFFFF"/>
+    <ellipse cx="68" cy="37" rx="6" ry="4" fill="#FFFFFF"/>
+    <circle cx="52" cy="37" r="3" fill="#2563EB"/>
+    <circle cx="68" cy="37" r="3" fill="#2563EB"/>
+    <circle cx="53" cy="35" r="1" fill="#FFFFFF"/>
+    <circle cx="69" cy="35" r="1" fill="#FFFFFF"/>
+    
+    <!-- Sobrancelhas bem definidas -->
+    <path d="M46 32 Q52 30 58 32" stroke="#6B4423" stroke-width="2" fill="none"/>
+    <path d="M62 32 Q68 30 74 32" stroke="#6B4423" stroke-width="2" fill="none"/>
+    
+    <!-- Sorriso caloroso -->
+    <path d="M52 50 Q60 56 68 50" stroke="#DC2626" stroke-width="2" fill="none"/>
+    
+    <!-- Batom sutil -->
+    <ellipse cx="60" cy="53" rx="4" ry="1.5" fill="#F87171"/>
+    
+    <!-- Roupa elegante -->
+    <rect x="25" y="75" width="70" height="60" fill="#7C3AED"/>
+    <rect x="30" y="80" width="60" height="50" fill="#FFFFFF"/>
+    
+    <!-- Colar de pérolas -->
+    <ellipse cx="60" cy="72" rx="18" ry="5" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+    <circle cx="50" cy="72" r="2" fill="#F8FAFC"/>
+    <circle cx="60" cy="70" r="2" fill="#F8FAFC"/>
+    <circle cx="70" cy="72" r="2" fill="#F8FAFC"/>
+    
+    <!-- Brincos -->
+    <circle cx="35" cy="45" r="2" fill="#F59E0B"/>
+    <circle cx="85" cy="45" r="2" fill="#F59E0B"/>
+  </g>
+  
+  <!-- Borda do avatar -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#FED7AA" stroke-width="4"/>
+</svg>

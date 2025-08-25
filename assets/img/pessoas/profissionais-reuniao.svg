@@ -1,0 +1,135 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Profissionais 50+ em reunião - Para hero ou seções principais -->
+  <defs>
+    <linearGradient id="bgReuniao" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC"/>
+      <stop offset="100%" style="stop-color:#EDF2F7"/>
+    </linearGradient>
+    <radialGradient id="mesa" cx="50%" cy="80%">
+      <stop offset="0%" style="stop-color:#E2E8F0"/>
+      <stop offset="100%" style="stop-color:#CBD5E0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background moderno -->
+  <rect width="600" height="400" fill="url(#bgReuniao)"/>
+  
+  <!-- Janela de escritório no fundo -->
+  <rect x="50" y="50" width="150" height="200" rx="8" fill="rgba(255,255,255,0.4)" opacity="0.6"/>
+  <rect x="450" y="40" width="120" height="180" rx="8" fill="rgba(255,255,255,0.4)" opacity="0.6"/>
+  
+  <!-- Mesa de reunião -->
+  <ellipse cx="300" cy="320" rx="250" ry="60" fill="url(#mesa)"/>
+  
+  <!-- Pessoa 1 - Mulher líder, 55 anos (centro-esquerda) -->
+  <g transform="translate(200, 150)">
+    <!-- Cabeça -->
+    <ellipse cx="0" cy="0" rx="32" ry="38" fill="#F4D1B0"/>
+    <!-- Cabelo curto profissional -->
+    <path d="M-32 -15 Q-35 -30 -20 -38 Q-5 -42 0 -40 Q5 -42 20 -38 Q35 -30 32 -15 Q28 -8 22 -2 Q12 3 0 1 Q-12 3 -22 -2 Q-28 -8 -32 -15" fill="#8B4513"/>
+    <!-- Mechas grisalhas -->
+    <path d="M-18 -25 Q-8 -30 2 -25" stroke="#D3D3D3" stroke-width="2" fill="none"/>
+    <path d="M-15 -35 Q-5 -38 5 -35" stroke="#C0C0C0" stroke-width="1.5" fill="none"/>
+    <!-- Rosto expressivo -->
+    <ellipse cx="-10" cy="-5" rx="6" ry="4" fill="#FFFFFF"/>
+    <ellipse cx="10" cy="-5" rx="6" ry="4" fill="#FFFFFF"/>
+    <circle cx="-10" cy="-5" r="3" fill="#2563EB"/>
+    <circle cx="10" cy="-5" r="3" fill="#2563EB"/>
+    <path d="M-5 5 Q0 10 5 5" stroke="#DC2626" stroke-width="2" fill="none"/>
+    <!-- Blazer executivo -->
+    <rect x="-25" y="38" width="50" height="70" rx="5" fill="#1E293B"/>
+    <rect x="-20" y="43" width="40" height="60" rx="3" fill="#FFFFFF"/>
+    <!-- Gesticulando -->
+    <ellipse cx="-40" cy="60" rx="8" ry="25" fill="#F4D1B0" transform="rotate(-30)"/>
+    <ellipse cx="35" cy="55" rx="8" ry="20" fill="#F4D1B0" transform="rotate(20)"/>
+  </g>
+  
+  <!-- Pessoa 2 - Homem atento, 58 anos (centro-direita) -->
+  <g transform="translate(400, 160)">
+    <!-- Cabeça -->
+    <ellipse cx="0" cy="0" rx="34" ry="40" fill="#E8C4A0"/>
+    <!-- Cabelo grisalho bem cuidado -->
+    <path d="M-34 -18 Q-37 -33 -22 -40 Q-8 -44 0 -42 Q8 -44 22 -40 Q37 -33 34 -18 Q30 -10 24 -4 Q14 1 0 -1 Q-14 1 -24 -4 Q-30 -10 -34 -18" fill="#A9A9A9"/>
+    <!-- Óculos modernos -->
+    <ellipse cx="-11" cy="-3" rx="9" ry="6" fill="none" stroke="#1F2937" stroke-width="2"/>
+    <ellipse cx="11" cy="-3" rx="9" ry="6" fill="none" stroke="#1F2937" stroke-width="2"/>
+    <line x1="-2" y1="-3" x2="2" y2="-3" stroke="#1F2937" stroke-width="2"/>
+    <!-- Olhos atentos -->
+    <ellipse cx="-11" cy="-3" rx="6" ry="4" fill="#FFFFFF"/>
+    <ellipse cx="11" cy="-3" rx="6" ry="4" fill="#FFFFFF"/>
+    <circle cx="-11" cy="-3" r="3" fill="#4B5563"/>
+    <circle cx="11" cy="-3" r="3" fill="#4B5563"/>
+    <!-- Barba grisalha -->
+    <path d="M-15 8 Q0 15 15 8" stroke="#909090" stroke-width="2" fill="none"/>
+    <!-- Camisa social -->
+    <rect x="-28" y="40" width="56" height="75" rx="6" fill="#3B82F6"/>
+    <rect x="-23" y="45" width="46" height="65" rx="4" fill="#EBF8FF"/>
+    <!-- Braços relaxados -->
+    <ellipse cx="-35" cy="65" rx="8" ry="22" fill="#E8C4A0"/>
+    <ellipse cx="35" cy="65" rx="8" ry="22" fill="#E8C4A0"/>
+  </g>
+  
+  <!-- Pessoa 3 - Mulher participativa, 52 anos (esquerda) -->
+  <g transform="translate(120, 180)">
+    <!-- Cabeça -->
+    <ellipse cx="0" cy="0" rx="30" ry="36" fill="#D4B896"/>
+    <!-- Cabelo afro com grisalho -->
+    <circle cx="0" cy="-18" r="22" fill="#4A4A4A"/>
+    <circle cx="-15" cy="-25" r="8" fill="#6B6B6B"/>
+    <circle cx="12" cy="-28" r="6" fill="#6B6B6B"/>
+    <circle cx="-8" cy="-32" r="5" fill="#808080"/>
+    <circle cx="18" cy="-20" r="7" fill="#808080"/>
+    <!-- Rosto sorridente -->
+    <ellipse cx="-8" cy="-2" rx="5" ry="3" fill="#FFFFFF"/>
+    <ellipse cx="8" cy="-2" rx="5" ry="3" fill="#FFFFFF"/>
+    <circle cx="-8" cy="-2" r="2.5" fill="#2D3748"/>
+    <circle cx="8" cy="-2" r="2.5" fill="#2D3748"/>
+    <path d="M-6 6 Q0 12 6 6" stroke="#8B4513" stroke-width="2" fill="none"/>
+    <!-- Roupa colorida -->
+    <rect x="-22" y="36" width="44" height="65" rx="4" fill="#7C3AED"/>
+    <rect x="-18" y="41" width="36" height="55" rx="3" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Elementos da reunião -->
+  <!-- Notebook -->
+  <g transform="translate(280, 280)">
+    <rect x="0" y="0" width="40" height="25" rx="2" fill="#374151"/>
+    <rect x="2" y="2" width="36" height="20" rx="1" fill="#F3F4F6"/>
+    <rect x="4" y="4" width="32" height="16" rx="1" fill="#3B82F6"/>
+  </g>
+  
+  <!-- Documentos -->
+  <g transform="translate(350, 290)">
+    <rect x="0" y="0" width="25" height="20" rx="1" fill="#FFFFFF"/>
+    <rect x="2" y="3" width="21" height="1" fill="#E5E7EB"/>
+    <rect x="2" y="6" width="18" height="1" fill="#E5E7EB"/>
+    <rect x="2" y="9" width="20" height="1" fill="#E5E7EB"/>
+    <rect x="2" y="12" width="16" height="1" fill="#E5E7EB"/>
+  </g>
+  
+  <!-- Canecas de café -->
+  <g transform="translate(180, 295)">
+    <ellipse cx="0" cy="0" rx="8" ry="6" fill="#8B4513"/>
+    <ellipse cx="0" cy="-2" rx="7" ry="5" fill="#D2691E"/>
+    <rect x="6" y="-2" width="3" height="6" rx="1" fill="#8B4513"/>
+  </g>
+  
+  <g transform="translate(420, 300)">
+    <ellipse cx="0" cy="0" rx="8" ry="6" fill="#2D3748"/>
+    <ellipse cx="0" cy="-2" rx="7" ry="5" fill="#4A5568"/>
+    <rect x="6" y="-2" width="3" height="6" rx="1" fill="#2D3748"/>
+  </g>
+  
+  <!-- Indicadores de comunicação -->
+  <g opacity="0.4">
+    <!-- Balões de fala -->
+    <ellipse cx="250" cy="120" rx="15" ry="8" fill="#F59E0B"/>
+    <path d="M245 128 L240 135 L250 130" fill="#F59E0B"/>
+    
+    <ellipse cx="420" cy="110" rx="12" ry="6" fill="#10B981"/>
+    <path d="M425 116 L430 123 L420 118" fill="#10B981"/>
+  </g>
+  
+  <!-- Título da imagem -->
+  <text x="300" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#1E293B" opacity="0.8">Experiência em Ação</text>
+</svg>
