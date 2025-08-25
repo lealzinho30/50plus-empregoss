@@ -554,6 +554,85 @@ body {
 
 /* ====== FIM HERO NOVO ====== */
 
+/* ====== SEÇÃO SOBRE NÓS COM FOTO REAL ====== */
+.about-us {
+  padding: var(--spacing-20) 0;
+  background: var(--white);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-12);
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  padding: var(--spacing-8);
+}
+
+.about-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--gray-600);
+  margin: var(--spacing-6) 0 var(--spacing-8) 0;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-6);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--spacing-4);
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.stat-item span {
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+/* Mobile adjustments para about-us */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+  
+  .about-image img {
+    height: 300px;
+  }
+  
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+  
+  .about-description {
+    font-size: 16px;
+  }
+}
+
 /* ====== DEPOIMENTOS COM PESSOAS 50+ ====== */
 .testimonials {
   padding: var(--spacing-20) 0;
@@ -2261,11 +2340,47 @@ section {
     line-height: 1.6;
 }
 
-/* Final CTA - Com nova identidade visual */
+/* Final CTA - Com Foto Real de Fundo */
 .final-cta {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--secondary) 100%);
+    position: relative;
     color: var(--white);
     text-align: center;
+    overflow: hidden;
+}
+
+.cta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.cta-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(20, 60, 107, 0.85) 0%, 
+        rgba(27, 75, 132, 0.75) 50%,
+        rgba(74, 144, 188, 0.65) 100%);
+    z-index: 2;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 3;
+    padding: var(--spacing-20) 0;
 }
 
 .cta-content h2 {
