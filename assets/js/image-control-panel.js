@@ -65,6 +65,23 @@ function createImageControlPanel() {
                 </select>
                 <button onclick="applyCustomImage()">Aplicar</button>
             </div>
+            
+            <div class="control-section">
+                <h4>📁 Upload de Arquivo</h4>
+                <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)" />
+                <button onclick="document.getElementById('image-upload').click()" class="upload-btn">📁 Escolher Imagem</button>
+                <div id="upload-preview" style="display: none;">
+                    <img id="preview-img" style="max-width: 100px; max-height: 60px; border-radius: 4px; margin: 5px 0;" />
+                    <div style="font-size: 10px; color: #ccc; margin: 2px 0;">Arraste para aplicar</div>
+                </div>
+                <select id="upload-section">
+                    <option value="hero">Hero</option>
+                    <option value="about">Sobre</option>
+                    <option value="services">Serviços</option>
+                    <option value="vagas">Vagas</option>
+                </select>
+                <button onclick="applyUploadedImage()" id="apply-upload-btn" style="display: none;">✅ Aplicar Upload</button>
+            </div>
         </div>
     `;
 
@@ -174,6 +191,37 @@ function createImageControlPanel() {
             color: rgba(255,255,255,0.6);
         }
         
+        .upload-btn {
+            background: rgba(76, 175, 80, 0.3) !important;
+            border-color: rgba(76, 175, 80, 0.6) !important;
+            color: #4CAF50 !important;
+            font-weight: bold;
+        }
+        
+        .upload-btn:hover {
+            background: rgba(76, 175, 80, 0.5) !important;
+            border-color: #4CAF50 !important;
+        }
+        
+        #upload-preview {
+            background: rgba(255,255,255,0.05);
+            padding: 8px;
+            border-radius: 6px;
+            margin: 8px 0;
+            text-align: center;
+        }
+        
+        #apply-upload-btn {
+            background: rgba(76, 175, 80, 0.4) !important;
+            border-color: #4CAF50 !important;
+            color: white !important;
+            font-weight: bold;
+        }
+        
+        #apply-upload-btn:hover {
+            background: rgba(76, 175, 80, 0.6) !important;
+        }
+        
         #image-control-panel.collapsed .panel-content {
             display: none;
         }
@@ -192,6 +240,9 @@ function createImageControlPanel() {
 
     document.head.appendChild(styles);
     document.body.appendChild(panel);
+    
+    // Ativar drag and drop
+    setupDragAndDrop();
 
     console.log('🎛️ Painel de controle de imagens criado!');
 }
@@ -228,6 +279,101 @@ function applyCustomImage() {
     } else {
         alert('Por favor, insira uma URL válida');
     }
+}
+
+// Funções para upload de imagens
+let uploadedImageData = null;
+
+function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    // Verificar se é uma imagem
+    if (!file.type.startsWith('image/')) {
+        alert('Por favor, selecione apenas arquivos de imagem (JPG, PNG, GIF, etc.)');
+        return;
+    }
+    
+    // Verificar tamanho (máximo 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        alert('A imagem deve ter no máximo 5MB');
+        return;
+    }
+    
+    // Ler o arquivo e criar preview
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        uploadedImageData = e.target.result;
+        
+        // Mostrar preview
+        const preview = document.getElementById('upload-preview');
+        const previewImg = document.getElementById('preview-img');
+        const applyBtn = document.getElementById('apply-upload-btn');
+        
+        previewImg.src = uploadedImageData;
+        preview.style.display = 'block';
+        applyBtn.style.display = 'inline-block';
+        
+        console.log('✅ Imagem carregada com sucesso!');
+    };
+    
+    reader.readAsDataURL(file);
+}
+
+function applyUploadedImage() {
+    if (!uploadedImageData) {
+        alert('Nenhuma imagem foi carregada');
+        return;
+    }
+    
+    const section = document.getElementById('upload-section').value;
+    
+    // Aplicar a imagem usando o ImageManager
+    const success = ImageManager.changeSectionImage(section, uploadedImageData);
+    
+    if (success) {
+        // Limpar o upload
+        document.getElementById('image-upload').value = '';
+        document.getElementById('upload-preview').style.display = 'none';
+        document.getElementById('apply-upload-btn').style.display = 'none';
+        uploadedImageData = null;
+        
+        console.log(`✅ Imagem aplicada na seção ${section} com sucesso!`);
+    } else {
+        alert('Erro ao aplicar a imagem. Verifique o console para mais detalhes.');
+    }
+}
+
+// Função para arrastar e soltar imagens
+function setupDragAndDrop() {
+    const panel = document.getElementById('image-control-panel');
+    
+    panel.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        panel.style.borderColor = '#4CAF50';
+    });
+    
+    panel.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        panel.style.borderColor = '#F5B700';
+    });
+    
+    panel.addEventListener('drop', function(e) {
+        e.preventDefault();
+        panel.style.borderColor = '#F5B700';
+        
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            const file = files[0];
+            if (file.type.startsWith('image/')) {
+                // Simular o evento de upload
+                const event = { target: { files: [file] } };
+                handleImageUpload(event);
+            } else {
+                alert('Por favor, arraste apenas arquivos de imagem');
+            }
+        }
+    });
 }
 
 // Auto-inicializar quando a página carregar
