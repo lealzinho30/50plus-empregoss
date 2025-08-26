@@ -103,9 +103,12 @@ function changeSectionImage(section, imageType = 'default', alternativeIndex = 0
  * @param {string} alt - Novo texto alternativo
  */
 function applyImageChange(section, src, alt) {
+    console.log('🔍 DEBUG: ==========================================');
     console.log('🔍 DEBUG: applyImageChange chamado para seção:', section);
     console.log('🔍 DEBUG: src (primeiros 100 chars):', src.substring(0, 100) + '...');
     console.log('🔍 DEBUG: alt:', alt);
+    console.log('🔍 DEBUG: Tipo de src:', typeof src);
+    console.log('🔍 DEBUG: Src é válido?', src && src.length > 0);
 
     let selectors = [];
     let success = false;
@@ -182,6 +185,16 @@ function applyImageChange(section, src, alt) {
             allImages.forEach((img, index) => {
                 console.log(`   ${index}: ${img.src} (${img.className} - ${img.parentElement.className})`);
             });
+            
+            // Debug adicional: mostrar estrutura da seção
+            console.log('🔍 DEBUG: Estrutura da seção:', section);
+            const sectionElement = document.querySelector(`#${section}`) || document.querySelector(`.${section}`);
+            if (sectionElement) {
+                console.log('🔍 DEBUG: Seção encontrada:', sectionElement);
+                console.log('🔍 DEBUG: Imagens dentro da seção:', sectionElement.querySelectorAll('img'));
+            } else {
+                console.log('🔍 DEBUG: Seção não encontrada no DOM');
+            }
         }
     }
 
