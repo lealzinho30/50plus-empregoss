@@ -413,20 +413,33 @@ function setupDragAndDrop() {
     });
 }
 
-// Múltiplas formas de ativar o painel
+// Comandos secretos para ativar o painel
 document.addEventListener('keydown', function(event) {
-    // F12 ou Ctrl+Shift+I
-    if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+    // F12, Ctrl+Shift+I, ou Ctrl+Shift+P (Painel)
+    if (event.key === 'F12' || 
+        (event.ctrlKey && event.shiftKey && event.key === 'I') ||
+        (event.ctrlKey && event.shiftKey && event.key === 'P')) {
         event.preventDefault();
-        console.log('🔑 Tecla de ativação detectada!');
+        console.log('🔑 Comando secreto detectado!');
         setTimeout(() => {
             if (!document.getElementById('image-control-panel')) {
                 createImageControlPanel();
-                console.log('✅ Painel criado via tecla!');
+                console.log('✅ Painel criado via comando secreto!');
             } else {
                 console.log('ℹ️ Painel já existe!');
             }
         }, 100);
+    }
+    
+    // Comando secreto: Ctrl+Shift+M (Manager)
+    if (event.ctrlKey && event.shiftKey && event.key === 'M') {
+        event.preventDefault();
+        console.log('🔑 Comando secreto M detectado!');
+        if (typeof ImageManager !== 'undefined') {
+            ImageManager.listAvailableSections();
+        } else {
+            console.log('❌ ImageManager não está disponível');
+        }
     }
 });
 
@@ -480,10 +493,8 @@ function createActivationButton() {
     console.log('🎛️ Botão de ativação criado!');
 }
 
-// Criar botão de ativação quando a página carregar
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(createActivationButton, 1000);
-});
+// Botão flutuante removido - apenas comandos secretos disponíveis
+// Use F12 ou Ctrl+Shift+I para ativar o painel
 
 // Função para remover todas as imagens personalizadas
 function removeAllCustomImages() {
@@ -527,5 +538,9 @@ function updateCustomImagesList() {
 
 // Log de inicialização
 console.log('🎛️ Painel de Controle de Imagens carregado!');
-console.log('💡 Pressione F12 ou clique no botão 🎛️ para ativar o painel');
+console.log('🔑 Comandos secretos disponíveis:');
+console.log('   • F12 - Abrir painel');
+console.log('   • Ctrl+Shift+I - Abrir painel');
+console.log('   • Ctrl+Shift+P - Abrir painel');
+console.log('   • Ctrl+Shift+M - Listar seções disponíveis');
 console.log('💡 Use createImageControlPanel() diretamente no console se preferir');

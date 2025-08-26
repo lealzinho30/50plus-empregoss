@@ -451,3 +451,11 @@ window.ImageManager = {
 console.log('🚀 Sistema de Gerenciamento de Imagens carregado!');
 console.log('💡 Use ImageManager.changeSectionImage("hero", "alternative", 0) para trocar imagens');
 console.log('💡 Use ImageManager.listAvailableSections() para ver opções disponíveis');
+
+// Carregar imagens personalizadas automaticamente quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        console.log('🔄 Carregando imagens personalizadas automaticamente...');
+        loadCustomImages();
+    }, 1000);
+});
