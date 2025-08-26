@@ -103,19 +103,34 @@ function changeSectionImage(section, imageType = 'default', alternativeIndex = 0
  * @param {string} alt - Novo texto alternativo
  */
 function applyImageChange(section, src, alt) {
-    let selector = '';
+    let selectors = [];
     let success = false;
 
-    // Mapear seção para seletor CSS
+    // Mapear seção para múltiplos seletores CSS (fallback)
     switch (section) {
         case 'hero':
-            selector = '.hero-media img';
+            selectors = [
+                '.hero-media img',
+                '#hero .hero-media img',
+                '.hero img',
+                'section#hero img'
+            ];
             break;
         case 'about':
-            selector = '.about-image img';
+            selectors = [
+                '.about-image img',
+                '.about-us img',
+                '.about img',
+                'section.about-us img'
+            ];
             break;
         case 'services':
-            selector = '.feature-media img';
+            selectors = [
+                '.feature-media img',
+                '.feature img',
+                '.services img',
+                'section.feature img'
+            ];
             break;
         case 'vagas':
             // Para vagas, precisamos atualizar o JavaScript
@@ -123,19 +138,37 @@ function applyImageChange(section, src, alt) {
             success = true;
             break;
         default:
-            console.error(`❌ Seletor não encontrado para seção: ${section}`);
+            console.error(`❌ Seção "${section}" não encontrada`);
             return false;
     }
 
-    if (selector) {
-        const imageElement = document.querySelector(selector);
-        if (imageElement) {
-            imageElement.src = src;
-            imageElement.alt = alt;
-            success = true;
-            console.log(`✅ Imagem da seção "${section}" alterada com sucesso!`);
-        } else {
-            console.error(`❌ Elemento de imagem não encontrado para: ${selector}`);
+    // Tentar cada seletor até encontrar a imagem
+    if (selectors.length > 0) {
+        for (let selector of selectors) {
+            const imageElement = document.querySelector(selector);
+            if (imageElement) {
+                try {
+                    imageElement.src = src;
+                    imageElement.alt = alt;
+                    success = true;
+                    console.log(`✅ Imagem da seção "${section}" alterada com sucesso usando seletor: ${selector}`);
+                    break;
+                } catch (error) {
+                    console.error(`❌ Erro ao alterar imagem com seletor ${selector}:`, error);
+                    continue;
+                }
+            }
+        }
+        
+        if (!success) {
+            console.error(`❌ Nenhum elemento de imagem encontrado para seção "${section}". Seletores tentados:`, selectors);
+            
+            // Debug: mostrar todas as imagens na página
+            const allImages = document.querySelectorAll('img');
+            console.log(`🔍 Total de imagens na página: ${allImages.length}`);
+            allImages.forEach((img, index) => {
+                console.log(`   ${index}: ${img.src} (${img.className} - ${img.parentElement.className})`);
+            });
         }
     }
 
