@@ -398,19 +398,79 @@ function setupDragAndDrop() {
     });
 }
 
-// Auto-inicializar quando F12 for pressionado
+// Múltiplas formas de ativar o painel
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'F12') {
-        event.preventDefault(); // Previne o painel padrão do navegador
+    // F12 ou Ctrl+Shift+I
+    if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+        event.preventDefault();
+        console.log('🔑 Tecla de ativação detectada!');
         setTimeout(() => {
             if (!document.getElementById('image-control-panel')) {
                 createImageControlPanel();
+                console.log('✅ Painel criado via tecla!');
+            } else {
+                console.log('ℹ️ Painel já existe!');
             }
         }, 100);
     }
 });
 
+// Adicionar botão flutuante para ativar o painel
+function createActivationButton() {
+    if (document.getElementById('panel-activation-btn')) {
+        return;
+    }
+    
+    const btn = document.createElement('button');
+    btn.id = 'panel-activation-btn';
+    btn.innerHTML = '🎛️';
+    btn.title = 'Clique para abrir o painel de controle de imagens';
+    btn.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        background: #F5B700;
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    `;
+    
+    btn.onclick = function() {
+        if (!document.getElementById('image-control-panel')) {
+            createImageControlPanel();
+            console.log('✅ Painel criado via botão!');
+        } else {
+            console.log('ℹ️ Painel já existe!');
+        }
+    };
+    
+    btn.onmouseenter = function() {
+        this.style.transform = 'scale(1.1)';
+        this.style.background = '#E5A800';
+    };
+    
+    btn.onmouseleave = function() {
+        this.style.transform = 'scale(1)';
+        this.style.background = '#F5B700';
+    };
+    
+    document.body.appendChild(btn);
+    console.log('🎛️ Botão de ativação criado!');
+}
+
+// Criar botão de ativação quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(createActivationButton, 1000);
+});
+
 // Log de inicialização
 console.log('🎛️ Painel de Controle de Imagens carregado!');
-console.log('💡 Use createImageControlPanel() para mostrar o painel');
-console.log('💡 Use toggleImagePanel() para expandir/colapsar');
+console.log('💡 Pressione F12 ou clique no botão 🎛️ para ativar o painel');
+console.log('💡 Use createImageControlPanel() diretamente no console se preferir');
