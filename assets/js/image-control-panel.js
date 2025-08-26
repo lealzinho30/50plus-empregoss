@@ -398,18 +398,8 @@ function setupDragAndDrop() {
     });
 }
 
-// Auto-inicializar quando a página carregar
-document.addEventListener('DOMContentLoaded', function() {
-    // Aguardar o ImageManager carregar
-    setTimeout(() => {
-        if (window.ImageManager) {
-            createImageControlPanel();
-        } else {
-            console.log('⏳ Aguardando ImageManager carregar...');
-            setTimeout(createImageControlPanel, 1000);
-        }
-    }, 500);
-});
+// NÃO auto-inicializar - o painel só aparece quando chamado manualmente
+// Para usar: abra F12 (console) e digite: createImageControlPanel()
 
 // Log de inicialização
 console.log('🎛️ Painel de Controle de Imagens carregado!');

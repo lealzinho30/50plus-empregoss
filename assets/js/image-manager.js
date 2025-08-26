@@ -99,10 +99,14 @@ function changeSectionImage(section, imageType = 'default', alternativeIndex = 0
 /**
  * 🎯 Aplica a mudança de imagem na página
  * @param {string} section - Nome da seção
- * @param {string} src - Nova URL da imagem
+ * @param {string} src - Nova URL da imagem (pode ser URL ou base64)
  * @param {string} alt - Novo texto alternativo
  */
 function applyImageChange(section, src, alt) {
+    console.log('🔍 DEBUG: applyImageChange chamado para seção:', section);
+    console.log('🔍 DEBUG: src (primeiros 100 chars):', src.substring(0, 100) + '...');
+    console.log('🔍 DEBUG: alt:', alt);
+
     let selectors = [];
     let success = false;
 
@@ -113,7 +117,8 @@ function applyImageChange(section, src, alt) {
                 '.hero-media img',
                 '#hero .hero-media img',
                 '.hero img',
-                'section#hero img'
+                'section#hero img',
+                'img[src*="unsplash"]' // Fallback genérico
             ];
             break;
         case 'about':
@@ -145,14 +150,22 @@ function applyImageChange(section, src, alt) {
     // Tentar cada seletor até encontrar a imagem
     if (selectors.length > 0) {
         for (let selector of selectors) {
+            console.log('🔍 DEBUG: Tentando seletor:', selector);
             const imageElement = document.querySelector(selector);
             if (imageElement) {
+                console.log('🔍 DEBUG: Elemento de imagem encontrado:', imageElement);
                 try {
-                    imageElement.src = src;
-                    imageElement.alt = alt;
-                    success = true;
-                    console.log(`✅ Imagem da seção "${section}" alterada com sucesso usando seletor: ${selector}`);
-                    break;
+                    // Verificar se é uma imagem válida antes de aplicar
+                    if (src && (src.startsWith('http') || src.startsWith('data:image') || src.startsWith('assets/'))) {
+                        imageElement.src = src;
+                        imageElement.alt = alt || `Imagem para a seção ${section}`;
+                        success = true;
+                        console.log(`✅ Imagem da seção "${section}" alterada com sucesso usando seletor: ${selector}`);
+                        break;
+                    } else {
+                        console.error('❌ URL da imagem inválida:', src);
+                        return false;
+                    }
                 } catch (error) {
                     console.error(`❌ Erro ao alterar imagem com seletor ${selector}:`, error);
                     continue;
