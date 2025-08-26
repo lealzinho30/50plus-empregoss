@@ -92,7 +92,7 @@ function createImageControlPanel() {
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 300px;
+            width: 320px;
             background: rgba(20, 60, 107, 0.95);
             border: 2px solid #F5B700;
             border-radius: 12px;
@@ -101,6 +101,8 @@ function createImageControlPanel() {
             z-index: 10000;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            max-height: 80vh;
+            overflow: hidden;
         }
         
         .panel-header {
@@ -111,6 +113,9 @@ function createImageControlPanel() {
             background: rgba(245, 183, 0, 0.2);
             border-radius: 10px 10px 0 0;
             border-bottom: 1px solid rgba(245, 183, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
         
         .panel-header h3 {
@@ -135,8 +140,24 @@ function createImageControlPanel() {
         
         .panel-content {
             padding: 16px;
-            max-height: 400px;
+            max-height: calc(80vh - 60px);
             overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #F5B700 rgba(255,255,255,0.1);
+        }
+        
+        .panel-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .panel-content::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .panel-content::-webkit-scrollbar-thumb {
+            background: #F5B700;
+            border-radius: 4px;
         }
         
         .control-section {
@@ -168,6 +189,7 @@ function createImageControlPanel() {
             font-size: 11px;
             cursor: pointer;
             transition: all 0.2s;
+            white-space: nowrap;
         }
         
         .control-section button:hover {
@@ -232,7 +254,7 @@ function createImageControlPanel() {
         
         @media (max-width: 768px) {
             #image-control-panel {
-                width: 280px;
+                width: 300px;
                 right: 10px;
             }
         }
