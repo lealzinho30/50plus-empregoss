@@ -89,6 +89,42 @@ const IMAGE_PLACEHOLDERS = {
         ],
         alt: "Chamada para ação final",
         description: "Imagem de fundo do CTA final"
+    },
+
+    // ========== EMPRESAS SECTION ==========
+    empresas: {
+        default: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/empresas/business-meeting.webp",
+            "assets/img/empresas/corporate-partnership.webp"
+        ],
+        alt: "Reunião de negócios com diversidade etária",
+        description: "Imagem da seção Para Empresas"
+    },
+
+    // ========== CONECTANDO SECTION ==========
+    conectando: {
+        default: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/conectando/connection-bridge.webp",
+            "assets/img/conectando/opportunity.webp"
+        ],
+        alt: "Conectando experiência a oportunidades",
+        description: "Imagem da seção Conectando Experiência a Oportunidades"
+    },
+
+    // ========== MISSAO SECTION ==========
+    missao: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/missao/purpose.webp",
+            "assets/img/missao/values.webp"
+        ],
+        alt: "Nossa missão e valores",
+        description: "Imagem da seção Nossa Missão"
     }
 };
 
@@ -203,6 +239,30 @@ function applyImageChange(section, src, alt) {
                 '.final-cta img',
                 'section.cta img',
                 'section.final-cta img'
+            ];
+            break;
+        case 'empresas':
+            selectors = [
+                '.empresas img',
+                '.for-companies img',
+                'section.empresas img',
+                'section.for-companies img'
+            ];
+            break;
+        case 'conectando':
+            selectors = [
+                '.conectando img',
+                '.connecting img',
+                'section.conectando img',
+                'section.connecting img'
+            ];
+            break;
+        case 'missao':
+            selectors = [
+                '.missao img',
+                '.mission img',
+                'section.missao img',
+                'section.mission img'
             ];
             break;
         default:
@@ -320,6 +380,62 @@ function updateVagasImages(newImageSrc) {
         }
         
         console.log('✅ Imagens das vagas atualizadas!');
+    }
+}
+
+/**
+ * 💼 Atualiza imagem de uma vaga específica pelo título
+ * @param {string} jobTitle - Título da vaga
+ * @param {string} newImageSrc - Nova URL da imagem
+ */
+function updateSpecificJobImage(jobTitle, newImageSrc) {
+    if (typeof featuredJobs !== 'undefined') {
+        const job = featuredJobs.find(job => 
+            job.title.toLowerCase().includes(jobTitle.toLowerCase())
+        );
+        
+        if (job) {
+            job.image = newImageSrc;
+            
+            // Re-renderizar as vagas se estiverem visíveis
+            if (typeof renderJobs === 'function') {
+                renderJobs();
+            }
+            
+            console.log(`✅ Imagem da vaga "${job.title}" atualizada!`);
+            return true;
+        } else {
+            console.error(`❌ Vaga com título "${jobTitle}" não encontrada`);
+            return false;
+        }
+    }
+    return false;
+}
+
+/**
+ * 📋 Lista todas as vagas disponíveis para edição
+ */
+function listAvailableJobs() {
+    if (typeof featuredJobs !== 'undefined') {
+        console.log('📋 Vagas disponíveis para edição de imagens:');
+        featuredJobs.forEach((job, index) => {
+            console.log(`\n💼 ${index + 1}. ${job.title}`);
+            console.log(`   🏢 Empresa: ${job.company}`);
+            console.log(`   📍 Local: ${job.location}`);
+            console.log(`   💰 Salário: ${job.salary}`);
+            console.log(`   🖼️ Imagem atual: ${job.image ? 'Sim' : 'Não'}`);
+        });
+        
+        return featuredJobs.map(job => ({
+            title: job.title,
+            company: job.company,
+            location: job.location,
+            salary: job.salary,
+            hasImage: !!job.image
+        }));
+    } else {
+        console.error('❌ Lista de vagas não está disponível');
+        return [];
     }
 }
 
@@ -444,6 +560,9 @@ window.ImageManager = {
     saveCustomImage,
     loadCustomImages,
     removeCustomImage,
+    updateVagasImages,
+    updateSpecificJobImage,
+    listAvailableJobs,
     IMAGE_PLACEHOLDERS
 };
 
