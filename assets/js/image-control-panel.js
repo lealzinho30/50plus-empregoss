@@ -398,8 +398,17 @@ function setupDragAndDrop() {
     });
 }
 
-// NÃO auto-inicializar - o painel só aparece quando chamado manualmente
-// Para usar: abra F12 (console) e digite: createImageControlPanel()
+// Auto-inicializar quando F12 for pressionado
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'F12') {
+        event.preventDefault(); // Previne o painel padrão do navegador
+        setTimeout(() => {
+            if (!document.getElementById('image-control-panel')) {
+                createImageControlPanel();
+            }
+        }, 100);
+    }
+});
 
 // Log de inicialização
 console.log('🎛️ Painel de Controle de Imagens carregado!');

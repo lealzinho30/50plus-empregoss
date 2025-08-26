@@ -312,7 +312,10 @@ function filterJobs() {
     updateJobsCounter();
 }
 
-// Função para renderizar vagas
+// Função para renderizar vagas (apenas 3 inicialmente)
+let currentJobIndex = 0;
+const jobsPerPage = 3;
+
 function renderJobs() {
     const jobsGrid = document.getElementById('featuredJobs');
     const noJobsMessage = document.getElementById('noJobsMessage');
@@ -323,7 +326,19 @@ function renderJobs() {
     } else {
         jobsGrid.style.display = 'grid';
         noJobsMessage.style.display = 'none';
-        jobsGrid.innerHTML = filteredJobs.map(job => createJobCard(job)).join('');
+        
+        // Mostrar apenas as primeiras 3 vagas
+        const jobsToShow = filteredJobs.slice(0, jobsPerPage);
+        jobsGrid.innerHTML = jobsToShow.map(job => createJobCard(job)).join('');
+        
+        // Adicionar botão "Mostrar mais" se houver mais vagas
+        if (filteredJobs.length > jobsPerPage) {
+            const showMoreBtn = document.createElement('button');
+            showMoreBtn.className = 'btn btn-outline btn-large show-more-btn';
+            showMoreBtn.textContent = 'Mostrar mais vagas';
+            showMoreBtn.onclick = showMoreJobs;
+            jobsGrid.appendChild(showMoreBtn);
+        }
         
         // Adicionar animação aos cards
         const cards = jobsGrid.querySelectorAll('.job-card');
@@ -337,6 +352,30 @@ function renderJobs() {
             }, index * 100);
         });
     }
+}
+
+function showMoreJobs() {
+    const jobsGrid = document.getElementById('featuredJobs');
+    const showMoreBtn = jobsGrid.querySelector('.show-more-btn');
+    
+    if (showMoreBtn) {
+        showMoreBtn.remove();
+    }
+    
+    // Mostrar todas as vagas
+    jobsGrid.innerHTML = filteredJobs.map(job => createJobCard(job)).join('');
+    
+    // Adicionar animação aos novos cards
+    const cards = jobsGrid.querySelectorAll('.job-card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
 }
 
 // Função para atualizar contador de vagas

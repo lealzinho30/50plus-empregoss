@@ -4429,3 +4429,105 @@ textarea.error {
     font-size: 32px;
   }
 }
+
+/* ========== OTIMIZAÇÕES MOBILE ESPECÍFICAS ========== */
+
+/* Painel de controle de imagens mobile */
+@media (max-width: 768px) {
+  #image-control-panel {
+    width: 95vw !important;
+    right: 2.5vw !important;
+    left: 2.5vw !important;
+    max-height: 90vh !important;
+  }
+  
+  .panel-content {
+    padding: 12px !important;
+  }
+  
+  .control-section button {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    margin: 3px !important;
+  }
+  
+  .control-section input,
+  .control-section select {
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+/* Botões funcionais mobile */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 44px; /* Tamanho mínimo para touch */
+    padding: 12px 20px;
+    font-size: 16px; /* Previne zoom no iOS */
+  }
+  
+  .btn-large {
+    min-height: 48px;
+    padding: 14px 24px;
+    font-size: 18px;
+  }
+  
+  .job-card .btn {
+    width: 100%;
+    margin-top: 12px;
+  }
+  
+  .show-more-btn {
+    width: 100% !important;
+    margin-top: 20px !important;
+    padding: 16px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Grid de vagas mobile */
+@media (max-width: 768px) {
+  #featuredJobs {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  .job-card {
+    margin-bottom: 16px;
+  }
+  
+  .job-card img {
+    height: 200px !important;
+    object-fit: cover;
+  }
+}
+
+/* Hero mobile otimizado */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px !important;
+    text-align: center !important;
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(32px, 8vw, 48px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .hero-content p {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  .hero-buttons .btn {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+}
