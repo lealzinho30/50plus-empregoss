@@ -4154,60 +4154,60 @@ textarea.error {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 32px;
-  max-width: 800px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 900px;
   width: 100%;
 }
 
 .stat-item {
-  background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3) !important;
-  border-radius: 16px;
-  padding: 24px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 32px 24px;
   text-align: center;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .stat-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
 }
 
 .stat-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 16px;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
   background: linear-gradient(135deg, var(--gold), #ffd700);
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(245, 183, 0, 0.3);
+  position: relative;
+  z-index: 2;
 }
 
 .stat-icon .icon-symbol {
-  font-size: 28px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  font-size: 24px;
+  color: var(--white);
 }
 
 .stat-number {
-  display: block !important;
-  font-size: 36px !important;
-  font-weight: 800 !important;
-  color: var(--white) !important;
-  margin-bottom: 8px !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1;
 }
 
 .stat-label {
-  font-size: 16px !important;
-  color: rgba(255, 255, 255, 1) !important;
-  font-weight: 600 !important;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /* CTA com imagem de fundo */
@@ -4343,7 +4343,7 @@ textarea.error {
   
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
 }
 
@@ -4367,7 +4367,25 @@ textarea.error {
   
   .stats-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+  }
+  
+  .stat-item {
+    padding: 24px 20px;
+  }
+  
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .stat-icon .icon-symbol {
+    font-size: 20px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
   }
   
   .cta-buttons {
