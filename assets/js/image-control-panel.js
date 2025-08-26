@@ -79,12 +79,12 @@ function createImageControlPanel() {
             <div class="control-section">
                 <h4>🔧 Personalizado</h4>
                 <input type="text" id="custom-image-url" placeholder="URL da imagem" />
-                <select id="custom-section">
-                    <option value="hero">Hero</option>
-                    <option value="about">Sobre</option>
-                    <option value="services">Serviços</option>
-                    <option value="vagas">Vagas</option>
-                </select>
+                                 <select id="custom-section">
+                     <option value="hero">Hero</option>
+                     <option value="about">Sobre</option>
+                     <option value="services">Serviços</option>
+                     <option value="vaga-especifica">📸 Foto para Vaga Específica</option>
+                 </select>
                                         <button onclick="applyCustomImage()">Aplicar</button>
                     </div>
                     
@@ -109,7 +109,7 @@ function createImageControlPanel() {
                             <option value="hero">Hero</option>
                             <option value="about">Sobre</option>
                             <option value="services">Serviços</option>
-                            <option value="vagas">Todas as Vagas</option>
+                            <option value="vaga-especifica">📸 Foto para Vaga Específica</option>
                             <option value="empresas">Empresas</option>
                             <option value="conectando">Conectando</option>
                             <option value="missao">Missão</option>
@@ -313,12 +313,12 @@ function createImageControlPanel() {
     if (uploadSection) {
         uploadSection.addEventListener('change', function() {
             const specificJobSelect = document.getElementById('upload-specific-job');
-            if (this.value === 'vagas') {
-                specificJobSelect.style.display = 'block';
-                loadJobsIntoSelect();
-            } else {
-                specificJobSelect.style.display = 'none';
-            }
+                    if (this.value === 'vaga-especifica') {
+            specificJobSelect.style.display = 'block';
+            loadJobsIntoSelect();
+        } else {
+            specificJobSelect.style.display = 'none';
+        }
         });
     }
 
@@ -355,8 +355,13 @@ function applyCustomImage() {
     const section = document.getElementById('custom-section').value;
     
     if (url) {
-        ImageManager.changeSectionImage(section, url);
-        document.getElementById('custom-image-url').value = '';
+        if (section === 'vaga-especifica') {
+            // Para vagas específicas, precisamos saber qual vaga
+            alert('Para vagas específicas, use o sistema de upload de arquivo que permite selecionar a vaga individual.');
+        } else {
+            ImageManager.changeSectionImage(section, url);
+            document.getElementById('custom-image-url').value = '';
+        }
     } else {
         alert('Por favor, insira uma URL válida');
     }
@@ -399,7 +404,7 @@ function handleImageUpload(event) {
         const uploadSection = document.getElementById('upload-section').value;
         const specificJobSelect = document.getElementById('upload-specific-job');
         
-        if (uploadSection === 'vagas') {
+        if (uploadSection === 'vaga-especifica') {
             // Carregar lista de vagas disponíveis
             loadJobsIntoSelect();
             specificJobSelect.style.display = 'block';
@@ -422,20 +427,30 @@ function applyUploadedImage() {
     const section = document.getElementById('upload-section').value;
     const specificJob = document.getElementById('upload-specific-job').value;
     
+    console.log('🔍 Debug - Aplicando imagem:');
+    console.log('  📁 Seção:', section);
+    console.log('  💼 Vaga específica:', specificJob);
+    console.log('  🖼️ Dados da imagem:', uploadedImageData ? 'Carregada' : 'Não carregada');
+    
     let success = false;
     
-    if (section === 'vagas' && specificJob) {
+    if (section === 'vaga-especifica' && specificJob) {
         if (specificJob === 'all') {
             // Aplicar a todas as vagas
+            console.log('🎯 Aplicando a TODAS as vagas...');
             success = ImageManager.changeSectionImage('vagas', uploadedImageData);
         } else {
             // Aplicar a uma vaga específica
+            console.log(`🎯 Aplicando à vaga específica: "${specificJob}"...`);
             success = ImageManager.updateSpecificJobImage(specificJob, uploadedImageData);
         }
     } else {
         // Aplicar a outras seções normalmente
+        console.log(`🎯 Aplicando à seção: "${section}"...`);
         success = ImageManager.changeSectionImage(section, uploadedImageData);
     }
+    
+    console.log('✅ Resultado da aplicação:', success);
     
     if (success) {
         // Limpar o upload
@@ -445,7 +460,7 @@ function applyUploadedImage() {
         document.getElementById('upload-specific-job').style.display = 'none';
         uploadedImageData = null;
         
-        if (section === 'vagas') {
+        if (section === 'vaga-especifica') {
             if (specificJob === 'all') {
                 alert('✅ Imagem aplicada a TODAS as vagas com sucesso!');
             } else {
@@ -456,8 +471,14 @@ function applyUploadedImage() {
         }
         
         console.log(`✅ Imagem aplicada com sucesso!`);
+        
+        // Atualizar lista de imagens personalizadas
+        setTimeout(() => {
+            updateCustomImagesList();
+        }, 500);
     } else {
-        alert('Erro ao aplicar a imagem. Verifique o console para mais detalhes.');
+        alert('❌ Erro ao aplicar a imagem. Verifique o console para mais detalhes.');
+        console.error('❌ Falha na aplicação da imagem');
     }
 }
 
@@ -627,12 +648,21 @@ function updateCustomImagesList() {
         if (sections.length === 0) {
             listElement.innerHTML = '<div>Nenhuma imagem personalizada salva</div>';
         } else {
-            listElement.innerHTML = sections.map(section => 
-                `<div style="margin: 5px 0; padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;">
-                    <strong>${section}</strong> 
+            listElement.innerHTML = sections.map(section => {
+                const customImage = customImages[section];
+                let displayName = section;
+                
+                if (section.startsWith('vaga_')) {
+                    displayName = `💼 ${customImage.jobTitle || 'Vaga'}`;
+                } else {
+                    displayName = `📸 ${section}`;
+                }
+                
+                return `<div style="margin: 5px 0; padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;">
+                    <strong>${displayName}</strong> 
                     <button onclick="removeCustomImage('${section}')" style="float: right; padding: 2px 6px; font-size: 10px; background: #ff4444; border: none; color: white; border-radius: 3px; cursor: pointer;">🗑️</button>
-                </div>`
-            ).join('');
+                </div>`;
+            }).join('');
         }
     } catch (error) {
         console.error('❌ Erro ao atualizar lista:', error);
@@ -845,6 +875,28 @@ function resetJobImage(jobTitle) {
             showJobsManager(); // Recarregar lista
         } else {
             alert('❌ Erro ao resetar imagem da vaga');
+        }
+    }
+}
+
+// Função para remover imagem personalizada específica
+function removeCustomImage(section) {
+    if (confirm(`Tem certeza que deseja remover a imagem da seção "${section}"?`)) {
+        try {
+            if (typeof ImageManager !== 'undefined' && typeof ImageManager.removeCustomImage === 'function') {
+                const success = ImageManager.removeCustomImage(section);
+                if (success) {
+                    alert('✅ Imagem removida com sucesso!');
+                    updateCustomImagesList();
+                } else {
+                    alert('❌ Erro ao remover imagem');
+                }
+            } else {
+                alert('❌ ImageManager não está disponível');
+            }
+        } catch (error) {
+            console.error('❌ Erro ao remover imagem:', error);
+            alert('❌ Erro ao remover imagem');
         }
     }
 }

@@ -397,12 +397,22 @@ function updateSpecificJobImage(jobTitle, newImageSrc) {
         if (job) {
             job.image = newImageSrc;
             
+            // Salvar no localStorage para persistência
+            const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+            customImages[`vaga_${jobTitle}`] = {
+                src: newImageSrc,
+                alt: `Imagem personalizada da vaga ${jobTitle}`,
+                timestamp: Date.now(),
+                jobTitle: jobTitle
+            };
+            localStorage.setItem('customImages', JSON.stringify(customImages));
+            
             // Re-renderizar as vagas se estiverem visíveis
             if (typeof renderJobs === 'function') {
                 renderJobs();
             }
             
-            console.log(`✅ Imagem da vaga "${job.title}" atualizada!`);
+            console.log(`✅ Imagem da vaga "${job.title}" atualizada e salva no localStorage!`);
             return true;
         } else {
             console.error(`❌ Vaga com título "${jobTitle}" não encontrada`);
@@ -512,8 +522,16 @@ function loadCustomImages() {
         Object.keys(customImages).forEach(section => {
             const customImage = customImages[section];
             if (customImage && customImage.src) {
-                console.log(`🔄 Aplicando imagem personalizada para "${section}"`);
-                applyImageChange(section, customImage.src, customImage.alt);
+                if (section.startsWith('vaga_')) {
+                    // É uma imagem de vaga específica
+                    const jobTitle = customImage.jobTitle;
+                    console.log(`🔄 Aplicando imagem personalizada para vaga "${jobTitle}"`);
+                    updateSpecificJobImage(jobTitle, customImage.src);
+                } else {
+                    // É uma imagem de seção normal
+                    console.log(`🔄 Aplicando imagem personalizada para "${section}"`);
+                    applyImageChange(section, customImage.src, customImage.alt);
+                }
             }
         });
         
@@ -531,14 +549,34 @@ function loadCustomImages() {
 function removeCustomImage(section) {
     try {
         const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        
+        if (section.startsWith('vaga_')) {
+            // É uma imagem de vaga específica
+            const jobTitle = customImages[section]?.jobTitle;
+            if (jobTitle) {
+                // Resetar para imagem padrão das vagas
+                if (typeof featuredJobs !== 'undefined') {
+                    const job = featuredJobs.find(job => 
+                        job.title.toLowerCase().includes(jobTitle.toLowerCase())
+                    );
+                    if (job) {
+                        job.image = IMAGE_PLACEHOLDERS.vagas.default;
+                        if (typeof renderJobs === 'function') {
+                            renderJobs();
+                        }
+                    }
+                }
+            }
+        } else {
+            // É uma imagem de seção normal
+            if (IMAGE_PLACEHOLDERS[section]) {
+                const config = IMAGE_PLACEHOLDERS[section];
+                applyImageChange(section, config.default, config.alt);
+            }
+        }
+        
         delete customImages[section];
         localStorage.setItem('customImages', JSON.stringify(customImages));
-        
-        // Restaurar imagem padrão
-        if (IMAGE_PLACEHOLDERS[section]) {
-            const config = IMAGE_PLACEHOLDERS[section];
-            applyImageChange(section, config.default, config.alt);
-        }
         
         console.log(`🗑️ Imagem personalizada removida da seção "${section}"`);
         return true;
