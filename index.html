@@ -137,6 +137,44 @@
         .stats{padding:60px 24px}
         .cta-final{padding:48px 24px; margin:32px auto}
       }
+
+      /* === EMERGÊNCIA: LIMITE DE IMAGEM E SOBREPOSIÇÃO === */
+
+      /* Limite global e comportamento */
+      img { max-width: 100%; height: auto; }
+
+      /* Não usar fotos dentro de blocos de números/estatísticas */
+      #stats img,
+      .stats img,
+      .numeros img { display: none !important; }
+
+      /* Cards de números: ficam só texto + ícone */
+      .stat-card .icon { font-size: 22px; }
+
+      /* Hero: zera qualquer gambiarra de sobreposição */
+      #hero * { position: static !important; z-index: auto !important; }
+      #hero .overlay,
+      #hero .bg,
+      #hero .bg-blur,
+      #hero .duplicate,
+      #hero .shadow,
+      #hero .mask { display: none !important; }
+
+      /* Hero: garante layout limpo e capa de imagem contida */
+      #hero { display: grid !important; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; }
+      #hero .hero-media img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 20px; }
+
+      /* Qualquer imagem em seção comum: limite forte */
+      section img { width: 100%; max-height: 380px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,.10); }
+
+      /* Evita que seções fiquem espremidas */
+      section { padding-top: 48px; padding-bottom: 48px; }
+
+      /* Mobile */
+      @media (max-width: 960px){
+        #hero { grid-template-columns: 1fr; }
+        #hero .hero-media img, section img { max-height: 260px; }
+      }
     </style>
 </head>
 <body>
