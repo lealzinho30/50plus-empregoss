@@ -84,8 +84,8 @@ function changeSectionImage(section, imageType = 'default', alternativeIndex = 0
         } else {
             newImageSrc = config.alternatives[0]; // Fallback para primeira alternativa
         }
-    } else if (imageType.startsWith('http') || imageType.startsWith('assets/')) {
-        // URL personalizada
+    } else if (imageType.startsWith('http') || imageType.startsWith('assets/') || imageType.startsWith('data:image')) {
+        // URL personalizada ou imagem base64
         newImageSrc = imageType;
     } else {
         console.error(`❌ Tipo de imagem inválido: ${imageType}`);
@@ -160,6 +160,7 @@ function applyImageChange(section, src, alt) {
                 try {
                     // Verificar se é uma imagem válida antes de aplicar
                     if (src && (src.startsWith('http') || src.startsWith('data:image') || src.startsWith('assets/'))) {
+                        console.log('🔍 DEBUG: Aplicando imagem válida:', src.substring(0, 50) + '...');
                         imageElement.src = src;
                         imageElement.alt = alt || `Imagem para a seção ${section}`;
                         success = true;
