@@ -100,6 +100,16 @@
       .actions{display:flex; gap:10px; justify-content:flex-end; margin-top:10px}
       .fineprint{font-size:.8rem; opacity:.7; margin-top:6px}
 
+      /* FEATURE SECTIONS */
+      .feature{
+        display:grid; grid-template-columns: 1.1fr .9fr; gap:32px;
+        align-items:center; max-width:1060px; margin:32px auto; padding:0 24px;
+      }
+      .feature-col h3{color:var(--blue-900); font-size:1.6rem; margin:0 0 .5rem; font-weight:800}
+      .feature-col p{color:#334155; margin:0 0 .75rem}
+      .bullets{margin:0; padding-left:18px; color:#334155}
+      .feature-media img{width:100%; display:block; border-radius:20px; box-shadow:0 10px 24px rgba(2,6,23,.12); border:1px solid #e5e7eb}
+
       /* RESPONSIVO */
       @media (max-width: 960px){
         .hero{grid-template-columns:1fr; text-align:center}
@@ -108,6 +118,7 @@
         .stats-grid{grid-template-columns:repeat(2,1fr)}
         .grid{grid-template-columns:1fr}
         .hero-cta{justify-content:center}
+        .feature{grid-template-columns:1fr}
       }
     </style>
 </head>
@@ -162,20 +173,40 @@
           </div>
 
           <div class="hero-media">
-            <!-- Use uma foto limpa de um profissional 50+ (sem overlay). -->
-            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1200&auto=format&fit=crop" alt="Profissional 50+ confiante" />
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=1200&fit=crop&crop=face" 
+              alt="Profissional 50+ confiante em ambiente de escritório" 
+              width="1600" height="1200" />
           </div>
         </section>
 
+        <!-- ========== COMO FUNCIONA ========== -->
+        <section class="feature">
+          <div class="feature-col">
+            <h3>Como funciona nosso processo</h3>
+            <p>Conectamos profissionais 50+ a oportunidades que valorizam experiência e maturidade profissional.</p>
+            <ul class="bullets">
+              <li>Análise do seu perfil e objetivos</li>
+              <li>Conectamos com empresas parceiras</li>
+              <li>Acompanhamento até a contratação</li>
+            </ul>
+          </div>
+          <div class="feature-media">
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&h=960&fit=crop"
+              alt="Profissional 50+ em entrevista de emprego"
+              width="1280" height="960" loading="lazy" />
+          </div>
+        </section>
 
         <!-- Seção Sobre Nós com Foto Real -->
         <section class="about-us">
             <div class="container">
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop" 
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop" 
                              alt="Equipe de profissionais experientes em reunião" 
-                             loading="lazy">
+                             width="1280" height="960" loading="lazy">
                     </div>
                     <div class="about-text">
                         <h2 class="section-title">Nossa missão é <span class="highlight">valorizar experiência</span></h2>
@@ -212,7 +243,9 @@
                 <div class="value-cards">
                     <div class="value-card">
                         <div class="card-icon-illustration">
-                            <img src="illustrations/recolocacao.svg" alt="Recolocação Focada" class="card-illustration">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" 
+                                 alt="Profissional 50+ em entrevista de emprego" 
+                                 class="card-illustration" loading="lazy">
                         </div>
                             <h3 class="card-title">Recolocação Focada</h3>
                         <p class="card-description">Conectamos profissionais 50+ com oportunidades que valorizam experiência.</p>
@@ -220,7 +253,9 @@
                     
                     <div class="value-card">
                         <div class="card-icon-illustration">
-                            <img src="illustrations/capacitacao.svg" alt="Capacitação Digital" class="card-illustration">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" 
+                                 alt="Profissional 50+ estudando no notebook" 
+                                 class="card-illustration" loading="lazy">
                         </div>
                             <h3 class="card-title">Capacitação Digital</h3>
                         <p class="card-description">Cursos práticos com tecnologias modernas para manter competitividade.</p>
@@ -228,7 +263,9 @@
                     
                     <div class="value-card">
                         <div class="card-icon-illustration">
-                            <img src="illustrations/parcerias.svg" alt="Parcerias Age-Friendly" class="card-illustration">
+                            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop" 
+                                 alt="Equipe diversa em reunião de negócios" 
+                                 class="card-illustration" loading="lazy">
                         </div>
                             <h3 class="card-title">Parcerias Age-Friendly</h3>
                         <p class="card-description">Empresas comprometidas com diversidade etária e valorização da experiência.</p>
@@ -617,6 +654,25 @@
                 <div class="stat-label">Aprovação do serviço</div>
               </div>
             </article>
+          </div>
+        </section>
+
+        <!-- ========== CURSOS E ATUALIZAÇÃO ========== -->
+        <section class="feature">
+          <div class="feature-col">
+            <h3>Atualize suas habilidades</h3>
+            <p>Cursos práticos para acelerar sua recolocação e dar mais confiança nas entrevistas.</p>
+            <ul class="bullets">
+              <li>Pacote Office essencial</li>
+              <li>Atendimento ao cliente</li>
+              <li>LinkedIn e Empregos</li>
+            </ul>
+          </div>
+          <div class="feature-media">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=960&fit=crop"
+              alt="Profissional 50+ estudando no notebook"
+              width="1280" height="960" loading="lazy" />
           </div>
         </section>
 
