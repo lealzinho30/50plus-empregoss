@@ -39,18 +39,18 @@
       /* HERO */
       .hero{
         background:var(--blue-900);
-        display:grid; grid-template-columns: 1.1fr 0.9fr; gap:48px;
-        align-items:center; min-height:76vh; padding:56px 24px; border-radius:0 0 28px 28px;
+        display:grid; grid-template-columns: 1.1fr 0.9fr; gap:64px;
+        align-items:center; min-height:80vh; padding:80px 24px; border-radius:0 0 32px 32px;
       }
       .hero-col{max-width:640px; justify-self:center}
       .badge{
-        display:inline-block; padding:8px 14px; background:rgba(255,255,255,.08);
-        border:1px solid rgba(255,255,255,.2); border-radius:999px; font-size:.9rem
+        display:inline-block; padding:12px 20px; background:rgba(255,255,255,.1);
+        border:1px solid rgba(255,255,255,.2); border-radius:999px; font-size:.9rem; font-weight:600
       }
-      .hero-title{font-size: clamp(2rem, 4vw, 3.2rem); line-height:1.05; margin:.75rem 0 1rem; font-weight:800}
+      .hero-title{font-size: clamp(2.5rem, 5vw, 4rem); line-height:1.1; margin:1rem 0 1.5rem; font-weight:900}
       .gold{background: linear-gradient(90deg, var(--gold-500), var(--gold-600)); -webkit-background-clip:text; background-clip:text; color:transparent}
-      .hero-sub{opacity:.9; font-size:1.1rem; margin-bottom:1.25rem; max-width:56ch}
-      .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+      .hero-sub{opacity:.95; font-size:1.25rem; margin-bottom:2rem; max-width:56ch; font-weight:500; line-height:1.6}
+      .hero-cta{display:flex; gap:16px; flex-wrap:wrap}
 
       .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; height:44px; padding:0 18px; border-radius:12px; border:1px solid transparent; text-decoration:none; font-weight:600}
       .btn-primary{background:var(--white); color:var(--blue-900); box-shadow:0 8px 22px rgba(0,0,0,.25)}
@@ -62,7 +62,7 @@
       .hero-media img{width:100%; max-width:520px; display:block; border-radius:24px; box-shadow:0 12px 32px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.18)}
 
       /* STATS */
-      .stats{padding:48px 24px}
+      .stats{padding:80px 24px}
       .stats-grid{
         display:grid; grid-template-columns:repeat(4,1fr); gap:16px; max-width:1060px; margin:0 auto
       }
@@ -75,7 +75,7 @@
       .stat-label{font-size:.95rem; opacity:.75}
 
       /* CTA final */
-      .cta-final{background:var(--blue-700); color:var(--white); text-align:center; padding:48px 24px; border-radius:24px; max-width:1060px; margin:24px auto}
+      .cta-final{background:var(--blue-700); color:var(--white); text-align:center; padding:64px 24px; border-radius:24px; max-width:1060px; margin:48px auto}
       .cta-final h2{font-size:1.9rem; margin:0 0 .4rem}
 
       /* MODAL */
@@ -102,23 +102,40 @@
 
       /* FEATURE SECTIONS */
       .feature{
-        display:grid; grid-template-columns: 1.1fr .9fr; gap:32px;
-        align-items:center; max-width:1060px; margin:32px auto; padding:0 24px;
+        display:grid; grid-template-columns: 1.1fr .9fr; gap:48px;
+        align-items:center; max-width:1060px; margin:64px auto; padding:0 24px;
       }
       .feature-col h3{color:var(--blue-900); font-size:1.6rem; margin:0 0 .5rem; font-weight:800}
       .feature-col p{color:#334155; margin:0 0 .75rem}
       .bullets{margin:0; padding-left:18px; color:#334155}
       .feature-media img{width:100%; display:block; border-radius:20px; box-shadow:0 10px 24px rgba(2,6,23,.12); border:1px solid #e5e7eb}
 
+      /* VALUE CARDS */
+      .value-card{
+        background:var(--white); padding:32px; border-radius:20px; text-align:center;
+        box-shadow:0 8px 24px rgba(16,24,40,.08); border:1px solid #e5e7eb;
+        transition:all 0.3s ease;
+      }
+      .value-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(16,24,40,.12)}
+      .card-icon{
+        width:80px; height:80px; margin:0 auto 24px; background:var(--blue-100);
+        border-radius:20px; display:grid; place-items:center;
+      }
+      .icon-symbol{font-size:32px; filter:drop-shadow(0 2px 4px rgba(0,0,0,.1))}
+      .card-title{color:var(--blue-900); font-size:1.4rem; margin:0 0 16px; font-weight:700}
+      .card-description{color:#64748b; line-height:1.6; margin:0}
+
       /* RESPONSIVO */
       @media (max-width: 960px){
-        .hero{grid-template-columns:1fr; text-align:center}
+        .hero{grid-template-columns:1fr; text-align:center; padding:60px 24px; gap:40px}
         .hero-col{justify-self:unset}
         .hero-media img{max-width:100%}
         .stats-grid{grid-template-columns:repeat(2,1fr)}
         .grid{grid-template-columns:1fr}
         .hero-cta{justify-content:center}
-        .feature{grid-template-columns:1fr}
+        .feature{grid-template-columns:1fr; margin:48px auto; gap:32px}
+        .stats{padding:60px 24px}
+        .cta-final{padding:48px 24px; margin:32px auto}
       }
     </style>
 </head>
@@ -156,7 +173,7 @@
 
     <!-- Main Content -->
     <main>
-                <!-- ========== HERO ========== -->
+                <!-- ========== HERO SIMPLIFICADO ========== -->
         <section id="hero" class="hero">
           <div class="hero-col">
             <span class="badge">Especialistas em Empregos 50+</span>
@@ -174,8 +191,8 @@
 
           <div class="hero-media">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=1200&fit=crop&crop=face" 
-              alt="Profissional 50+ confiante em ambiente de escritório" 
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&h=1200&fit=crop&crop=face" 
+              alt="Profissional 50+ confiante e experiente" 
               width="1600" height="1200" />
           </div>
         </section>
@@ -242,30 +259,24 @@
                 
                 <div class="value-cards">
                     <div class="value-card">
-                        <div class="card-icon-illustration">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" 
-                                 alt="Profissional 50+ em entrevista de emprego" 
-                                 class="card-illustration" loading="lazy">
+                        <div class="card-icon">
+                            <span class="icon-symbol">🎯</span>
                         </div>
                             <h3 class="card-title">Recolocação Focada</h3>
                         <p class="card-description">Conectamos profissionais 50+ com oportunidades que valorizam experiência.</p>
                     </div>
                     
                     <div class="value-card">
-                        <div class="card-icon-illustration">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" 
-                                 alt="Profissional 50+ estudando no notebook" 
-                                 class="card-illustration" loading="lazy">
+                        <div class="card-icon">
+                            <span class="icon-symbol">💻</span>
                         </div>
                             <h3 class="card-title">Capacitação Digital</h3>
                         <p class="card-description">Cursos práticos com tecnologias modernas para manter competitividade.</p>
                     </div>
                     
                     <div class="value-card">
-                        <div class="card-icon-illustration">
-                            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop" 
-                                 alt="Equipe diversa em reunião de negócios" 
-                                 class="card-illustration" loading="lazy">
+                        <div class="card-icon">
+                            <span class="icon-symbol">🤝</span>
                         </div>
                             <h3 class="card-title">Parcerias Age-Friendly</h3>
                         <p class="card-description">Empresas comprometidas com diversidade etária e valorização da experiência.</p>
