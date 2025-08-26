@@ -20,6 +20,96 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      :root{
+        --blue-900:#0f355a;
+        --blue-700:#184e85;
+        --blue-100:#e9f1fb;
+        --gold-500:#f7c948;
+        --gold-600:#e9b949;
+        --text:#0b1522;
+        --white:#fff;
+      }
+
+      /* Layout base */
+      body{color:var(--white); background:#f5f7fb;}
+      .section-title{color:var(--blue-900); text-align:center; font-weight:700; font-size:1.75rem; margin:0 0 1.25rem}
+
+      /* HERO */
+      .hero{
+        background:var(--blue-900);
+        display:grid; grid-template-columns: 1.1fr 0.9fr; gap:48px;
+        align-items:center; min-height:76vh; padding:56px 24px; border-radius:0 0 28px 28px;
+      }
+      .hero-col{max-width:640px; justify-self:center}
+      .badge{
+        display:inline-block; padding:8px 14px; background:rgba(255,255,255,.08);
+        border:1px solid rgba(255,255,255,.2); border-radius:999px; font-size:.9rem
+      }
+      .hero-title{font-size: clamp(2rem, 4vw, 3.2rem); line-height:1.05; margin:.75rem 0 1rem; font-weight:800}
+      .gold{background: linear-gradient(90deg, var(--gold-500), var(--gold-600)); -webkit-background-clip:text; background-clip:text; color:transparent}
+      .hero-sub{opacity:.9; font-size:1.1rem; margin-bottom:1.25rem; max-width:56ch}
+      .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+
+      .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; height:44px; padding:0 18px; border-radius:12px; border:1px solid transparent; text-decoration:none; font-weight:600}
+      .btn-primary{background:var(--white); color:var(--blue-900); box-shadow:0 8px 22px rgba(0,0,0,.25)}
+      .btn-primary:hover{filter:brightness(.95)}
+      .btn-ghost{background:transparent; color:var(--white); border-color:rgba(255,255,255,.35)}
+      .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+      .hero-media{position:relative}
+      .hero-media img{width:100%; max-width:520px; display:block; border-radius:24px; box-shadow:0 12px 32px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.18)}
+
+      /* STATS */
+      .stats{padding:48px 24px}
+      .stats-grid{
+        display:grid; grid-template-columns:repeat(4,1fr); gap:16px; max-width:1060px; margin:0 auto
+      }
+      .stat-card{
+        display:flex; align-items:center; gap:12px; padding:18px; background:var(--white);
+        color:var(--text); border:1px solid #e5e7eb; border-radius:16px; box-shadow:0 4px 14px rgba(16,24,40,.06)
+      }
+      .stat-card .icon{font-size:22px; background:var(--blue-100); width:40px; height:40px; display:grid; place-items:center; border-radius:10px}
+      .stat-value{font-size:1.6rem; font-weight:800; line-height:1}
+      .stat-label{font-size:.95rem; opacity:.75}
+
+      /* CTA final */
+      .cta-final{background:var(--blue-700); color:var(--white); text-align:center; padding:48px 24px; border-radius:24px; max-width:1060px; margin:24px auto}
+      .cta-final h2{font-size:1.9rem; margin:0 0 .4rem}
+
+      /* MODAL */
+      .modal{position:fixed; inset:0; display:none}
+      .modal.is-open{display:block}
+      .modal-backdrop{position:absolute; inset:0; background:rgba(2,6,23,.58)}
+      .modal-dialog{
+        position:relative; background:#fff; color:var(--text); width:min(680px, 92vw);
+        margin:6vh auto 0; padding:20px 20px 12px; border-radius:18px; box-shadow:0 16px 48px rgba(2,6,23,.35)
+      }
+      .modal-close{position:absolute; right:10px; top:10px; border:0; background:transparent; font-size:20px; cursor:pointer}
+      .steps{display:flex; gap:8px; list-style:none; padding:0; margin:8px 0 16px}
+      .step{flex:1; text-align:center; font-size:.9rem; padding:8px; border-radius:8px; background:#f3f4f6}
+      .step.is-active{background:#e9f1fb; color:#0b4aa2; font-weight:700}
+      .step-pane{display:none}
+      .step-pane.is-active{display:block}
+      .grid{display:grid; gap:12px; grid-template-columns: 1fr 1fr}
+      label{display:grid; gap:6px; font-size:.95rem}
+      input, select, textarea{height:44px; padding:10px 12px; border-radius:10px; border:1px solid #e5e7eb; outline:none}
+      textarea{height:auto}
+      .radio{display:flex; gap:8px; align-items:center; margin:.25rem 0}
+      .actions{display:flex; gap:10px; justify-content:flex-end; margin-top:10px}
+      .fineprint{font-size:.8rem; opacity:.7; margin-top:6px}
+
+      /* RESPONSIVO */
+      @media (max-width: 960px){
+        .hero{grid-template-columns:1fr; text-align:center}
+        .hero-col{justify-self:unset}
+        .hero-media img{max-width:100%}
+        .stats-grid{grid-template-columns:repeat(2,1fr)}
+        .grid{grid-template-columns:1fr}
+        .hero-cta{justify-content:center}
+      }
+    </style>
 </head>
 <body>
     <!-- Header Otimizado -->
@@ -55,41 +145,26 @@
 
     <!-- Main Content -->
     <main>
-                <!-- HERO MINIMALISTA -->
+                <!-- ========== HERO ========== -->
         <section id="hero" class="hero">
-            <div class="hero-content">
-                <span class="hero-pill">🌟 Especialistas em Empregos 50+</span>
-                <h1 class="hero-title">
-                    Sua <span class="hero-highlight">experiência</span> 
-                    <br>vale <span class="hero-gold">ouro</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Encontramos empregos para pessoas 50+ em empresas que 
-                    gostam de experiência e sabem que você é capaz
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Anos ajudando</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Pessoas empregadas</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Gostaram do serviço</span>
-                    </div>
-                </div>
-                <div class="hero-ctas">
-                    <a href="#vagas" class="btn btn-primary">
-                        Ver vagas
-                    </a>
-                    <a href="#cadastro" class="btn btn-secondary">
-                        Cadastrar-se
-                    </a>
-                </div>
+          <div class="hero-col">
+            <span class="badge">Especialistas em Empregos 50+</span>
+            <h1 class="hero-title">
+              Sua <span class="gold">experiência</span> vale ouro
+            </h1>
+            <p class="hero-sub">
+              Conectamos profissionais 50+ a empresas que valorizam trajetória, responsabilidade e resultado.
+            </p>
+            <div class="hero-cta">
+              <button class="btn btn-primary" id="btn-cadastrar">Cadastrar CV</button>
+              <a class="btn btn-ghost" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Falar com consultor</a>
             </div>
+          </div>
+
+          <div class="hero-media">
+            <!-- Use uma foto limpa de um profissional 50+ (sem overlay). -->
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1200&auto=format&fit=crop" alt="Profissional 50+ confiante" />
+          </div>
         </section>
 
 
@@ -507,6 +582,44 @@
             </div>
         </section>
 
+        <!-- ========== STATS (Métricas) ========== -->
+        <section id="stats" class="stats">
+          <h2 class="section-title">Números que comprovam nossa eficiência</h2>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="icon" aria-hidden="true">★</div>
+              <div>
+                <div class="stat-value">15+</div>
+                <div class="stat-label">Anos ajudando</div>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="icon" aria-hidden="true">👥</div>
+              <div>
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Pessoas empregadas</div>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="icon" aria-hidden="true">🏢</div>
+              <div>
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Empresas parceiras</div>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="icon" aria-hidden="true">📈</div>
+              <div>
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Aprovação do serviço</div>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <!-- Training & AI - Simplificado -->
         <section class="training" id="capacitacao">
             <div class="container">
@@ -743,6 +856,15 @@
             </div>
         </section>
 
+        <!-- ========== CTA FINAL (opcional) ========== -->
+        <section class="cta-final">
+          <h2>Pronto para transformar sua carreira?</h2>
+          <p>Junte-se aos profissionais 50+ que já deram o próximo passo.</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" id="btn-cadastrar-2">Cadastrar meu perfil</button>
+            <a class="btn btn-ghost" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Cadastrar minhas vagas</a>
+          </div>
+        </section>
 
     </main>
 
@@ -837,8 +959,121 @@
         <span class="whatsapp-text">Fale conosco</span>
     </div>
 
+    <!-- ========== MODAL DE CADASTRO ========== -->
+    <div id="cadastro-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cadastro-title">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-dialog" role="document">
+        <button class="modal-close" data-close aria-label="Fechar">✕</button>
+
+        <h3 id="cadastro-title">Vamos te conhecer rapidinho</h3>
+
+        <form id="form-cadastro">
+          <!-- Stepper -->
+          <ol class="steps">
+            <li class="step is-active">Perfil</li>
+            <li class="step">Contato</li>
+            <li class="step">Objetivo</li>
+          </ol>
+
+          <!-- PASSO 1 -->
+          <div class="step-pane is-active" data-step="1">
+            <label class="radio">
+              <input type="radio" name="perfil" value="profissional" required />
+              Sou profissional 50+
+            </label>
+            <label class="radio">
+              <input type="radio" name="perfil" value="empresa" />
+              Sou empresa contratante
+            </label>
+            <div class="actions">
+              <button type="button" class="btn btn-primary next">Próximo</button>
+            </div>
+          </div>
+
+          <!-- PASSO 2 -->
+          <div class="step-pane" data-step="2">
+            <div class="grid">
+              <label>Nome completo
+                <input type="text" name="nome" required />
+              </label>
+              <label>E-mail
+                <input type="email" name="email" required />
+              </label>
+              <label>WhatsApp
+                <input type="tel" name="whatsapp" placeholder="(11) 90000-0000" />
+              </label>
+              <label>Cidade/UF
+                <input type="text" name="cidade" />
+              </label>
+            </div>
+            <div class="actions">
+              <button type="button" class="btn btn-ghost prev">Voltar</button>
+              <button type="button" class="btn btn-primary next">Próximo</button>
+            </div>
+          </div>
+
+          <!-- PASSO 3 -->
+          <div class="step-pane" data-step="3">
+            <label>Área de interesse
+              <select name="area" required>
+                <option value="">Selecione…</option>
+                <option>Recepção/Atendimento</option>
+                <option>Administração</option>
+                <option>Vendas/Comercial</option>
+                <option>Operacional</option>
+                <option>Outra</option>
+              </select>
+            </label>
+            <label>Conte um pouco da sua experiência
+              <textarea name="resumo" rows="4" placeholder="Ex.: 20 anos em atendimento, pacote Office básico…"></textarea>
+            </label>
+            <div class="actions">
+              <button type="button" class="btn btn-ghost prev">Voltar</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+          </div>
+        </form>
+        <p class="fineprint">Ao enviar, você concorda com nossa política de privacidade.</p>
+      </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="assets/js/cadastro.js"></script>
+    
+    <script>
+      // Abrir/fechar modal
+      const modal = document.getElementById('cadastro-modal');
+      const openers = [document.getElementById('btn-cadastrar'), document.getElementById('btn-cadastrar-2')].filter(Boolean);
+
+      openers.forEach(btn => btn.addEventListener('click', () => modal.classList.add('is-open')));
+      modal?.addEventListener('click', (e) => {
+        if(e.target.hasAttribute('data-close') || e.target.closest('[data-close]')) modal.classList.remove('is-open');
+      });
+
+      // Stepper simples
+      const steps = Array.from(document.querySelectorAll('.step'));
+      const panes = Array.from(document.querySelectorAll('.step-pane'));
+      const nextBtns = Array.from(document.querySelectorAll('.next'));
+      const prevBtns = Array.from(document.querySelectorAll('.prev'));
+
+      function goTo(stepIndex){
+        steps.forEach((s,i)=> s.classList.toggle('is-active', i===stepIndex));
+        panes.forEach((p,i)=> p.classList.toggle('is-active', i===stepIndex));
+      }
+      let current = 0; goTo(current);
+
+      nextBtns.forEach(btn => btn.addEventListener('click', ()=>{ current = Math.min(current+1, panes.length-1); goTo(current); }));
+      prevBtns.forEach(btn => btn.addEventListener('click', ()=>{ current = Math.max(current-1, 0); goTo(current); }));
+
+      // Submit (substitua pelo seu endpoint – ex.: Formspree/Sheets)
+      document.getElementById('form-cadastro')?.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        alert('Cadastro enviado! Em breve entraremos em contato.');
+        modal.classList.remove('is-open');
+        e.target.reset();
+        current = 0; goTo(current);
+      });
+    </script>
 </body>
 </html>
