@@ -54,6 +54,41 @@ const IMAGE_PLACEHOLDERS = {
         ],
         alt: "Vagas em destaque para profissionais 50+",
         description: "Imagens das vagas em destaque"
+    },
+
+    // ========== CURSOS SECTION ==========
+    cursos: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/cursos/online-learning.webp",
+            "assets/img/cursos/professional-development.webp"
+        ],
+        alt: "Profissional 50+ estudando e se atualizando",
+        description: "Imagem da seção Cursos e Atualização"
+    },
+
+    // ========== DEPOIMENTOS SECTION ==========
+    depoimentos: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&crop=face",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop&crop=face",
+            "assets/img/depoimentos/testimonial-1.webp",
+            "assets/img/depoimentos/testimonial-2.webp"
+        ],
+        alt: "Depoimentos de profissionais 50+",
+        description: "Imagens dos depoimentos"
+    },
+
+    // ========== CTA SECTION ==========
+    cta: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=600&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=600&fit=crop",
+            "assets/img/cta/final-cta.webp"
+        ],
+        alt: "Chamada para ação final",
+        description: "Imagem de fundo do CTA final"
     }
 };
 
@@ -145,6 +180,31 @@ function applyImageChange(section, src, alt) {
             updateVagasImages(src);
             success = true;
             break;
+        case 'cursos':
+            selectors = [
+                '.cursos img',
+                '.courses img',
+                '.feature img',
+                'section.cursos img',
+                'section.courses img'
+            ];
+            break;
+        case 'depoimentos':
+            selectors = [
+                '.testimonial img',
+                '.depoimento img',
+                '.avatar img',
+                'section.testimonials img'
+            ];
+            break;
+        case 'cta':
+            selectors = [
+                '.cta img',
+                '.final-cta img',
+                'section.cta img',
+                'section.final-cta img'
+            ];
+            break;
         default:
             console.error(`❌ Seção "${section}" não encontrada`);
             return false;
@@ -164,6 +224,12 @@ function applyImageChange(section, src, alt) {
                         imageElement.src = src;
                         imageElement.alt = alt || `Imagem para a seção ${section}`;
                         success = true;
+                        
+                        // Salvar imagem personalizada automaticamente
+                        if (src.startsWith('data:image')) {
+                            saveCustomImage(section, src, alt || `Imagem personalizada para ${section}`);
+                        }
+                        
                         console.log(`✅ Imagem da seção "${section}" alterada com sucesso usando seletor: ${selector}`);
                         break;
                     } else {
@@ -294,6 +360,78 @@ function showSectionConfig(section) {
     console.log(`   📄 Descrição: ${config.description}`);
 }
 
+// ========== SISTEMA DE PERSISTÊNCIA ==========
+
+/**
+ * 💾 Salva imagem personalizada no localStorage
+ * @param {string} section - Nome da seção
+ * @param {string} imageSrc - URL ou base64 da imagem
+ * @param {string} alt - Texto alternativo
+ */
+function saveCustomImage(section, imageSrc, alt) {
+    try {
+        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        customImages[section] = {
+            src: imageSrc,
+            alt: alt,
+            timestamp: Date.now()
+        };
+        localStorage.setItem('customImages', JSON.stringify(customImages));
+        console.log(`💾 Imagem personalizada salva para seção "${section}"`);
+        return true;
+    } catch (error) {
+        console.error('❌ Erro ao salvar imagem:', error);
+        return false;
+    }
+}
+
+/**
+ * 📂 Carrega imagens personalizadas do localStorage
+ */
+function loadCustomImages() {
+    try {
+        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        console.log('📂 Imagens personalizadas carregadas:', Object.keys(customImages));
+        
+        Object.keys(customImages).forEach(section => {
+            const customImage = customImages[section];
+            if (customImage && customImage.src) {
+                console.log(`🔄 Aplicando imagem personalizada para "${section}"`);
+                applyImageChange(section, customImage.src, customImage.alt);
+            }
+        });
+        
+        return true;
+    } catch (error) {
+        console.error('❌ Erro ao carregar imagens personalizadas:', error);
+        return false;
+    }
+}
+
+/**
+ * 🗑️ Remove imagem personalizada de uma seção
+ * @param {string} section - Nome da seção
+ */
+function removeCustomImage(section) {
+    try {
+        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        delete customImages[section];
+        localStorage.setItem('customImages', JSON.stringify(customImages));
+        
+        // Restaurar imagem padrão
+        if (IMAGE_PLACEHOLDERS[section]) {
+            const config = IMAGE_PLACEHOLDERS[section];
+            applyImageChange(section, config.default, config.alt);
+        }
+        
+        console.log(`🗑️ Imagem personalizada removida da seção "${section}"`);
+        return true;
+    } catch (error) {
+        console.error('❌ Erro ao remover imagem:', error);
+        return false;
+    }
+}
+
 // ========== EXPORTAÇÃO PARA USO GLOBAL ==========
 
 // Disponibilizar funções globalmente
@@ -303,6 +441,9 @@ window.ImageManager = {
     updateMultipleImages,
     listAvailableSections,
     showSectionConfig,
+    saveCustomImage,
+    loadCustomImages,
+    removeCustomImage,
     IMAGE_PLACEHOLDERS
 };
 

@@ -63,8 +63,17 @@ function createImageControlPanel() {
                     <option value="services">Serviços</option>
                     <option value="vagas">Vagas</option>
                 </select>
-                <button onclick="applyCustomImage()">Aplicar</button>
-            </div>
+                                        <button onclick="applyCustomImage()">Aplicar</button>
+                    </div>
+                    
+                    <div class="control-section">
+                        <h4>💾 Imagens Personalizadas</h4>
+                        <button onclick="loadCustomImages()" class="load-btn">📂 Carregar Salvas</button>
+                        <button onclick="removeAllCustomImages()" class="remove-btn">🗑️ Remover Todas</button>
+                        <div id="custom-images-list" style="margin-top: 10px; font-size: 12px; color: #ccc;">
+                            <div>Nenhuma imagem personalizada salva</div>
+                        </div>
+                    </div>
             
             <div class="control-section">
                 <h4>📁 Upload de Arquivo</h4>
@@ -74,12 +83,15 @@ function createImageControlPanel() {
                     <img id="preview-img" style="max-width: 100px; max-height: 60px; border-radius: 4px; margin: 5px 0;" />
                     <div style="font-size: 10px; color: #ccc; margin: 2px 0;">Arraste para aplicar</div>
                 </div>
-                <select id="upload-section">
-                    <option value="hero">Hero</option>
-                    <option value="about">Sobre</option>
-                    <option value="services">Serviços</option>
-                    <option value="vagas">Vagas</option>
-                </select>
+                                        <select id="upload-section">
+                            <option value="hero">Hero</option>
+                            <option value="about">Sobre</option>
+                            <option value="services">Serviços</option>
+                            <option value="vagas">Vagas</option>
+                            <option value="cursos">Cursos</option>
+                            <option value="depoimentos">Depoimentos</option>
+                            <option value="cta">CTA Final</option>
+                        </select>
                 <button onclick="applyUploadedImage()" id="apply-upload-btn" style="display: none;">✅ Aplicar Upload</button>
             </div>
         </div>
@@ -267,6 +279,9 @@ function createImageControlPanel() {
     setupDragAndDrop();
 
     console.log('🎛️ Painel de controle de imagens criado!');
+    
+    // Atualizar lista de imagens personalizadas
+    setTimeout(updateCustomImagesList, 100);
 }
 
 // Funções auxiliares
@@ -276,7 +291,7 @@ function toggleImagePanel() {
 }
 
 function randomizeAllImages() {
-    const sections = ['hero', 'about', 'services', 'vagas'];
+    const sections = ['hero', 'about', 'services', 'vagas', 'cursos', 'depoimentos', 'cta'];
     sections.forEach(section => {
         ImageManager.randomizeSectionImage(section);
     });
@@ -284,7 +299,7 @@ function randomizeAllImages() {
 }
 
 function resetAllImages() {
-    const sections = ['hero', 'about', 'services', 'vagas'];
+    const sections = ['hero', 'about', 'services', 'vagas', 'cursos', 'depoimentos', 'cta'];
     sections.forEach(section => {
         ImageManager.changeSectionImage(section, 'default');
     });
@@ -469,6 +484,46 @@ function createActivationButton() {
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(createActivationButton, 1000);
 });
+
+// Função para remover todas as imagens personalizadas
+function removeAllCustomImages() {
+    if (confirm('Tem certeza que deseja remover TODAS as imagens personalizadas?')) {
+        try {
+            localStorage.removeItem('customImages');
+            updateCustomImagesList();
+            console.log('🗑️ Todas as imagens personalizadas foram removidas');
+            alert('Todas as imagens personalizadas foram removidas!');
+        } catch (error) {
+            console.error('❌ Erro ao remover imagens:', error);
+            alert('Erro ao remover imagens!');
+        }
+    }
+}
+
+// Função para atualizar a lista de imagens personalizadas
+function updateCustomImagesList() {
+    const listElement = document.getElementById('custom-images-list');
+    if (!listElement) return;
+    
+    try {
+        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        const sections = Object.keys(customImages);
+        
+        if (sections.length === 0) {
+            listElement.innerHTML = '<div>Nenhuma imagem personalizada salva</div>';
+        } else {
+            listElement.innerHTML = sections.map(section => 
+                `<div style="margin: 5px 0; padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;">
+                    <strong>${section}</strong> 
+                    <button onclick="removeCustomImage('${section}')" style="float: right; padding: 2px 6px; font-size: 10px; background: #ff4444; border: none; color: white; border-radius: 3px; cursor: pointer;">🗑️</button>
+                </div>`
+            ).join('');
+        }
+    } catch (error) {
+        console.error('❌ Erro ao atualizar lista:', error);
+        listElement.innerHTML = '<div style="color: #ff4444;">Erro ao carregar lista</div>';
+    }
+}
 
 // Log de inicialização
 console.log('🎛️ Painel de Controle de Imagens carregado!');
