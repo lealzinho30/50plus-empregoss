@@ -109,13 +109,18 @@ function createImageControlPanel() {
                             <option value="hero">Hero</option>
                             <option value="about">Sobre</option>
                             <option value="services">Serviços</option>
-                            <option value="vagas">Vagas</option>
+                            <option value="vagas">Todas as Vagas</option>
                             <option value="empresas">Empresas</option>
                             <option value="conectando">Conectando</option>
                             <option value="missao">Missão</option>
                             <option value="cursos">Cursos</option>
                             <option value="depoimentos">Depoimentos</option>
                             <option value="cta">CTA Final</option>
+                        </select>
+                        
+                        <!-- Select para vagas específicas -->
+                        <select id="upload-specific-job" style="display: none; margin-top: 8px;">
+                            <option value="">Selecione uma vaga específica</option>
                         </select>
                 <button onclick="applyUploadedImage()" id="apply-upload-btn" style="display: none;">✅ Aplicar Upload</button>
             </div>
@@ -302,6 +307,20 @@ function createImageControlPanel() {
     
     // Ativar drag and drop
     setupDragAndDrop();
+    
+    // Adicionar listener para mudança de seção
+    const uploadSection = document.getElementById('upload-section');
+    if (uploadSection) {
+        uploadSection.addEventListener('change', function() {
+            const specificJobSelect = document.getElementById('upload-specific-job');
+            if (this.value === 'vagas') {
+                specificJobSelect.style.display = 'block';
+                loadJobsIntoSelect();
+            } else {
+                specificJobSelect.style.display = 'none';
+            }
+        });
+    }
 
     console.log('🎛️ Painel de controle de imagens criado!');
     
@@ -376,6 +395,18 @@ function handleImageUpload(event) {
         preview.style.display = 'block';
         applyBtn.style.display = 'inline-block';
         
+        // Verificar se é para vagas e mostrar select específico
+        const uploadSection = document.getElementById('upload-section').value;
+        const specificJobSelect = document.getElementById('upload-specific-job');
+        
+        if (uploadSection === 'vagas') {
+            // Carregar lista de vagas disponíveis
+            loadJobsIntoSelect();
+            specificJobSelect.style.display = 'block';
+        } else {
+            specificJobSelect.style.display = 'none';
+        }
+        
         console.log('✅ Imagem carregada com sucesso!');
     };
     
@@ -389,20 +420,68 @@ function applyUploadedImage() {
     }
     
     const section = document.getElementById('upload-section').value;
+    const specificJob = document.getElementById('upload-specific-job').value;
     
-    // Aplicar a imagem usando o ImageManager
-    const success = ImageManager.changeSectionImage(section, uploadedImageData);
+    let success = false;
+    
+    if (section === 'vagas' && specificJob) {
+        if (specificJob === 'all') {
+            // Aplicar a todas as vagas
+            success = ImageManager.changeSectionImage('vagas', uploadedImageData);
+        } else {
+            // Aplicar a uma vaga específica
+            success = ImageManager.updateSpecificJobImage(specificJob, uploadedImageData);
+        }
+    } else {
+        // Aplicar a outras seções normalmente
+        success = ImageManager.changeSectionImage(section, uploadedImageData);
+    }
     
     if (success) {
         // Limpar o upload
         document.getElementById('image-upload').value = '';
         document.getElementById('upload-preview').style.display = 'none';
         document.getElementById('apply-upload-btn').style.display = 'none';
+        document.getElementById('upload-specific-job').style.display = 'none';
         uploadedImageData = null;
         
-        console.log(`✅ Imagem aplicada na seção ${section} com sucesso!`);
+        if (section === 'vagas') {
+            if (specificJob === 'all') {
+                alert('✅ Imagem aplicada a TODAS as vagas com sucesso!');
+            } else {
+                alert(`✅ Imagem aplicada à vaga "${specificJob}" com sucesso!`);
+            }
+        } else {
+            alert(`✅ Imagem aplicada na seção ${section} com sucesso!`);
+        }
+        
+        console.log(`✅ Imagem aplicada com sucesso!`);
     } else {
         alert('Erro ao aplicar a imagem. Verifique o console para mais detalhes.');
+    }
+}
+
+// Função para carregar vagas no select específico
+function loadJobsIntoSelect() {
+    const specificJobSelect = document.getElementById('upload-specific-job');
+    if (!specificJobSelect) return;
+    
+    // Limpar opções existentes
+    specificJobSelect.innerHTML = '<option value="">Selecione uma vaga específica</option>';
+    
+    // Adicionar opção para todas as vagas
+    specificJobSelect.innerHTML += '<option value="all">🎯 Aplicar a TODAS as vagas</option>';
+    
+    // Carregar vagas disponíveis
+    if (typeof ImageManager !== 'undefined' && typeof ImageManager.listAvailableJobs === 'function') {
+        const jobs = ImageManager.listAvailableJobs();
+        
+        jobs.forEach(job => {
+            const option = document.createElement('option');
+            option.value = job.title;
+            option.textContent = `💼 ${job.title} - ${job.company}`;
+            specificJobSelect.appendChild(option);
+        });
     }
 }
 
