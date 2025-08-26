@@ -259,14 +259,17 @@ function createJobCard(job) {
     
     return `
         <div class="job-card" data-area="${job.area}" data-mode="${job.mode}" data-state="${job.state}">
-            <div class="job-image">
-                <div class="job-sector-icon">
-                    <img src="${sectorIcon}" alt="${job.area}" class="sector-icon" loading="lazy">
-                </div>
-                <div class="job-image-overlay">
-                    <span class="job-mode ${modeClass}">${job.mode}</span>
-                </div>
+                    <div class="job-image">
+            <div class="job-sector-icon">
+                ${job.image ? 
+                    `<img src="${job.image}" alt="${job.title}" class="job-custom-image" loading="lazy">` : 
+                    `<img src="${sectorIcon}" alt="${job.area}" class="sector-icon" loading="lazy">`
+                }
             </div>
+            <div class="job-image-overlay">
+                <span class="job-mode ${modeClass}">${job.mode}</span>
+            </div>
+        </div>
             
             <div class="job-content">
                 <div class="job-header">

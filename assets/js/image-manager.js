@@ -410,6 +410,30 @@ function updateSpecificJobImage(jobTitle, newImageSrc) {
             // Re-renderizar as vagas se estiverem visíveis
             if (typeof renderJobs === 'function') {
                 renderJobs();
+            } else {
+                // Fallback: tentar re-renderizar diretamente
+                console.log('🔄 Tentando re-renderizar vagas...');
+                const jobsGrid = document.getElementById('featuredJobs');
+                if (jobsGrid && typeof createJobCard === 'function') {
+                    // Forçar re-render das vagas visíveis
+                    const visibleJobs = Array.from(jobsGrid.querySelectorAll('.job-card'));
+                    visibleJobs.forEach(jobCard => {
+                        const jobTitle = jobCard.querySelector('.job-title')?.textContent;
+                        if (jobTitle && jobTitle.toLowerCase().includes(jobTitle.toLowerCase())) {
+                            // Atualizar a imagem diretamente no DOM
+                            const imageContainer = jobCard.querySelector('.job-sector-icon');
+                            if (imageContainer) {
+                                const existingImage = imageContainer.querySelector('img');
+                                if (existingImage) {
+                                    existingImage.src = newImageSrc;
+                                    existingImage.alt = jobTitle;
+                                    existingImage.className = 'job-custom-image';
+                                    console.log(`✅ Imagem atualizada diretamente no DOM para "${jobTitle}"`);
+                                }
+                            }
+                        }
+                    });
+                }
             }
             
             console.log(`✅ Imagem da vaga "${job.title}" atualizada e salva no localStorage!`);
