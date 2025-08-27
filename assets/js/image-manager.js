@@ -547,7 +547,10 @@ window.ImageManager = {
     updateVagasImages,
     updateSpecificJobImage,
     listAvailableJobs,
-    IMAGE_PLACEHOLDERS
+    IMAGE_PLACEHOLDERS,
+    exportCustomImages,
+    importCustomImages,
+    syncImagesWithServer
 };
 
 // Log de inicialização

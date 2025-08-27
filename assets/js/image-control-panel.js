@@ -28,9 +28,9 @@ function createImageControlPanel() {
             
             <div class="control-section">
                 <h4>🌐 Sobre</h4>
-                <button onclick="ImageManager.changeSectionImage('about', 'default')">Padrão</button>
-                <button onclick="ImageManager.changeSectionImage('about', 'alternative', 0)">Alt 1</button>
-                <button onclick="ImageManager.randomizeSectionImage('about')">🎲 Aleatória</button>
+                        <button onclick="ImageManager.changeSectionImage('sobre', 'default')">Padrão</button>
+        <button onclick="ImageManager.changeSectionImage('sobre', 'alternative', 0)">Alt 1</button>
+        <button onclick="ImageManager.randomizeSectionImage('sobre')">🎲 Aleatória</button>
             </div>
             
             <div class="control-section">
@@ -81,7 +81,7 @@ function createImageControlPanel() {
                 <input type="text" id="custom-image-url" placeholder="URL da imagem" />
                                  <select id="custom-section">
                      <option value="hero">Hero</option>
-                     <option value="about">Sobre</option>
+                     <option value="sobre">Sobre</option>
                      <option value="services">Serviços</option>
                      <option value="vaga-especifica">📸 Foto para Vaga Específica</option>
                  </select>
@@ -107,12 +107,12 @@ function createImageControlPanel() {
                 </div>
                                         <select id="upload-section">
                             <option value="hero">Hero</option>
-                            <option value="about">Sobre</option>
+                            <option value="sobre">Sobre</option>
                             <option value="services">Serviços</option>
                             <option value="vaga-especifica">📸 Foto para Vaga Específica</option>
                             <option value="empresas">Empresas</option>
-                            <option value="conectando">Conectando</option>
-                            <option value="missao">Missão</option>
+                            <option value="sobre">Sobre</option>
+                            <option value="proposta">Proposta de Valor</option>
                             <option value="cursos">Cursos</option>
                             <option value="depoimentos">Depoimentos</option>
                             <option value="cta">CTA Final</option>
@@ -355,7 +355,7 @@ function toggleImagePanel() {
 }
 
 function randomizeAllImages() {
-    const sections = ['hero', 'about', 'services', 'vagas', 'empresas', 'conectando', 'missao', 'cursos', 'depoimentos', 'cta'];
+    const sections = ['hero', 'sobre', 'services', 'vagas', 'empresas', 'sobre', 'proposta', 'cursos', 'depoimentos', 'cta'];
     sections.forEach(section => {
         ImageManager.randomizeSectionImage(section);
     });
@@ -363,7 +363,7 @@ function randomizeAllImages() {
 }
 
 function resetAllImages() {
-    const sections = ['hero', 'about', 'services', 'vagas', 'empresas', 'conectando', 'missao', 'cursos', 'depoimentos', 'cta'];
+    const sections = ['hero', 'sobre', 'services', 'vagas', 'empresas', 'sobre', 'proposta', 'cursos', 'depoimentos', 'cta'];
     sections.forEach(section => {
         ImageManager.changeSectionImage(section, 'default');
     });
