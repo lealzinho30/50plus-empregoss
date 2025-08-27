@@ -127,15 +127,64 @@
 
       /* RESPONSIVO */
       @media (max-width: 960px){
-        .hero{grid-template-columns:1fr; text-align:center; padding:60px 24px; gap:40px}
+        .hero{grid-template-columns:1fr; text-align:center; padding:40px 16px; gap:32px}
         .hero-col{justify-self:unset}
-        .hero-media img{max-width:100%}
-        .stats-grid{grid-template-columns:repeat(2,1fr)}
+        .hero-media img{max-width:100%; height:auto}
+        .hero-title{font-size:2.5rem; margin:1rem 0}
+        .hero-sub{font-size:1.1rem; margin-bottom:1.5rem}
+        .hero-cta{justify-content:center; flex-direction:column; align-items:center}
+        .btn{width:100%; max-width:280px; height:48px}
+        .stats-grid{grid-template-columns:repeat(2,1fr); gap:16px}
         .grid{grid-template-columns:1fr}
-        .hero-cta{justify-content:center}
-        .feature{grid-template-columns:1fr; margin:48px auto; gap:32px}
-        .stats{padding:60px 24px}
-        .cta-final{padding:48px 24px; margin:32px auto}
+        .feature{grid-template-columns:1fr; margin:32px auto; gap:24px; padding:0 16px}
+        .stats{padding:40px 16px}
+        .cta-final{padding:32px 16px; margin:24px auto}
+        .nav-menu{display:none !important}
+        .nav-toggle{display:flex !important}
+      }
+      
+      @media (max-width: 480px){
+        .hero{padding:24px 12px; gap:20px}
+        .hero-title{font-size:2rem; line-height:1.2}
+        .hero-sub{font-size:1rem}
+        .container{padding:0 12px}
+        .feature{padding:0 12px; gap:20px}
+        .feature-col h3{font-size:1.5rem}
+        .stats{padding:24px 12px}
+        .stats-grid{grid-template-columns:1fr; gap:12px}
+        .nav-logo-img{height:70px !important; max-width:250px}
+        .header.scrolled .nav-logo-img{height:55px !important}
+      }
+
+      /* CHAT DE SUPORTE */
+      .chat-widget{position:fixed; bottom:20px; right:20px; z-index:1000; font-family:'Inter',sans-serif}
+      .chat-toggle{background:var(--gold-500); color:white; padding:12px 16px; border-radius:25px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.15); display:flex; align-items:center; gap:8px; transition:all 0.3s ease}
+      .chat-toggle:hover{background:var(--gold-600); transform:translateY(-2px)}
+      .chat-icon{font-size:18px}
+      .chat-text{font-weight:600; font-size:14px}
+      .chat-box{position:absolute; bottom:70px; right:0; width:320px; height:450px; background:white; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.15); display:none; flex-direction:column; overflow:hidden}
+      .chat-header{background:var(--blue-900); color:white; padding:12px 16px; display:flex; justify-content:space-between; align-items:center}
+      .chat-title{font-weight:600; font-size:14px}
+      .chat-close{background:none; border:none; color:white; font-size:16px; cursor:pointer; padding:4px}
+      .chat-messages{flex:1; padding:16px; overflow-y:auto; display:flex; flex-direction:column; gap:12px}
+      .message{display:flex; gap:8px; align-items:flex-start}
+      .message-avatar{width:32px; height:32px; border-radius:50%; background:var(--gold-500); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0}
+      .message-content{background:#f8f9fa; padding:8px 12px; border-radius:12px; font-size:13px; line-height:1.4; max-width:220px}
+      .message.user .message-content{background:var(--blue-500); color:white; margin-left:auto}
+      .message.user{flex-direction:row-reverse}
+      .message.user .message-avatar{background:var(--blue-700)}
+      .quick-options{display:flex; gap:6px; margin-top:8px; flex-wrap:wrap}
+      .quick-btn{background:var(--gold-500); color:white; border:none; padding:6px 10px; border-radius:16px; font-size:11px; cursor:pointer; transition:background 0.2s}
+      .quick-btn:hover{background:var(--gold-600)}
+      .chat-input-area{display:flex; padding:12px; border-top:1px solid #e9ecef; gap:8px}
+      .chat-input-area input{flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:20px; outline:none; font-size:13px}
+      .chat-input-area button{background:var(--blue-500); color:white; border:none; padding:8px 12px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center}
+      
+      @media (max-width: 480px){
+        .chat-widget{bottom:10px; right:10px}
+        .chat-box{width:280px; height:400px}
+        .chat-toggle{padding:10px 14px}
+        .chat-text{display:none}
       }
 
       /* === EMERGÊNCIA: LIMITE DE IMAGEM E SOBREPOSIÇÃO === */
@@ -222,15 +271,15 @@
               Conectamos profissionais 50+ a empresas que valorizam trajetória, responsabilidade e resultado.
             </p>
             <div class="hero-cta">
-              <button class="btn btn-primary" id="btn-cadastrar">Cadastrar CV</button>
-              <a class="btn btn-ghost" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Falar com consultor</a>
+              <button class="btn btn-primary" id="btn-cadastrar" onclick="openCadastro()">Cadastrar CV</button>
+              <a class="btn btn-ghost" href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre oportunidades para profissionais 50+ 🎯" target="_blank" rel="noopener">Falar com consultor</a>
             </div>
           </div>
 
           <div class="hero-media">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=1200&fit=crop&crop=face" 
-              alt="Profissional 50+ usando laptop com foco e determinação" 
+              src="/50plus-empregoss/assets/img/hero/image.hero.png" 
+              alt="Profissional 50+ confiante e experiente - Hero 50+ Empregos" 
               width="1600" height="1200" />
           </div>
         </section>
@@ -721,12 +770,45 @@
           <h2>Pronto para transformar sua carreira?</h2>
           <p>Junte-se aos profissionais 50+ que já deram o próximo passo.</p>
           <div class="hero-cta">
-            <button class="btn btn-primary" id="btn-cadastrar-2">Cadastrar meu perfil</button>
-            <a class="btn btn-ghost" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Cadastrar minhas vagas</a>
+            <button class="btn btn-primary" id="btn-cadastrar-2" onclick="openCadastro()">Cadastrar meu perfil</button>
+            <a class="btn btn-ghost" href="https://wa.me/5511999999999?text=Olá! Sou uma empresa e gostaria de cadastrar vagas para profissionais 50+ 💼" target="_blank" rel="noopener">Cadastrar minhas vagas</a>
           </div>
         </section>
 
     </main>
+
+    <!-- Chat de Suporte Inteligente -->
+    <div id="chat-widget" class="chat-widget">
+      <div id="chat-toggle" class="chat-toggle">
+        <span class="chat-icon">💬</span>
+        <span class="chat-text">Suporte 50+</span>
+      </div>
+      
+      <div id="chat-box" class="chat-box">
+        <div class="chat-header">
+          <span class="chat-title">🎯 Assistente 50+ Empregos</span>
+          <button id="chat-close" class="chat-close">✕</button>
+        </div>
+        
+        <div id="chat-messages" class="chat-messages">
+          <div class="message assistant">
+            <div class="message-avatar">🤖</div>
+            <div class="message-content">
+              Olá! Sou seu assistente especializado em carreiras 50+. Como posso ajudar?
+              <div class="quick-options">
+                <button class="quick-btn" onclick="sendQuickMessage('candidato')">👤 Sou Candidato</button>
+                <button class="quick-btn" onclick="sendQuickMessage('empresa')">🏢 Sou Empresa</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chat-input-area">
+          <input type="text" id="chat-input" placeholder="Digite sua pergunta..." maxlength="200">
+          <button id="chat-send">▶️</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer limpo e organizado -->
     <footer class="footer">
@@ -952,6 +1034,140 @@
           console.error('❌ ImageRegistry não encontrado');
         }
       });
+
+      // CHAT DE SUPORTE INTELIGENTE
+      class ChatSupport {
+        constructor() {
+          this.isOpen = false;
+          this.chatResponses = {
+            candidato: {
+              greeting: "Ótimo! Como candidato 50+, posso ajudar com:",
+              options: [
+                {text: "💼 Como cadastrar meu CV", response: "Para cadastrar seu CV, clique em 'Cadastrar CV' no site. Vamos analisar sua experiência e conectar com empresas que valorizam profissionais maduros."},
+                {text: "🎯 Que tipos de vagas vocês têm", response: "Temos vagas em diversas áreas: administrativo, vendas, atendimento, consultoria, gerência e muito mais. Nossa especialidade é conectar experiência com oportunidade!"},
+                {text: "⏰ Quanto tempo leva o processo", response: "O processo varia de 2-8 semanas. Incluímos: análise de perfil, otimização de currículo, matching com empresas e acompanhamento até a contratação."},
+                {text: "📞 Falar com consultor", response: "Perfeito! Clique no botão 'Falar com consultor' ou acesse: https://wa.me/5511999999999"}
+              ]
+            },
+            empresa: {
+              greeting: "Excelente! Como empresa, posso ajudar com:",
+              options: [
+                {text: "🏢 Como cadastrar vagas", response: "Para cadastrar vagas, entre em contato conosco via WhatsApp. Analisamos seu perfil de empresa e conectamos com profissionais 50+ qualificados."},
+                {text: "💰 Custos e investimento", response: "Nossos serviços são personalizados conforme suas necessidades. Oferecemos planos flexíveis para empresas de todos os tamanhos. Vamos conversar?"},
+                {text: "👥 Perfil dos candidatos", response: "Nossos candidatos 50+ têm experiência comprovada, estabilidade, maturidade profissional e alto comprometimento. São profissionais que agregam valor real!"},
+                {text: "📞 Agendar reunião", response: "Vamos agendar! Entre em contato: https://wa.me/5511999999999 - Nosso time comercial vai apresentar as soluções ideais para sua empresa."}
+              ]
+            },
+            geral: [
+              {keywords: ['preço', 'valor', 'custo', 'pagar'], response: "Nossos serviços têm preços competitivos e personalizados. Entre em contato para um orçamento: https://wa.me/5511999999999"},
+              {keywords: ['idade', '50', 'mais', 'velho'], response: "Especializamos em profissionais 50+! A experiência é nosso diferencial. Temos casos de sucesso em todas as idades acima de 50 anos."},
+              {keywords: ['sucesso', 'resultado', 'taxa'], response: "Temos 95% de taxa de sucesso! Mais de 2.500 profissionais 50+ recolocados e 500+ empresas parceiras."},
+              {keywords: ['cv', 'curriculo', 'perfil'], response: "Nossos especialistas otimizam seu CV para destacar sua experiência e conquistar entrevistas. Quer começar?"},
+              {keywords: ['contato', 'telefone', 'whatsapp'], response: "📞 WhatsApp: https://wa.me/5511999999999 | Nossa equipe está pronta para ajudar!"}
+            ]
+          };
+          this.init();
+        }
+
+        init() {
+          const toggle = document.getElementById('chat-toggle');
+          const close = document.getElementById('chat-close');
+          const send = document.getElementById('chat-send');
+          const input = document.getElementById('chat-input');
+
+          toggle.addEventListener('click', () => this.toggleChat());
+          close.addEventListener('click', () => this.closeChat());
+          send.addEventListener('click', () => this.sendMessage());
+          input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.sendMessage();
+          });
+        }
+
+        toggleChat() {
+          const chatBox = document.getElementById('chat-box');
+          this.isOpen = !this.isOpen;
+          chatBox.style.display = this.isOpen ? 'flex' : 'none';
+          
+          if (this.isOpen) {
+            document.getElementById('chat-input').focus();
+          }
+        }
+
+        closeChat() {
+          document.getElementById('chat-box').style.display = 'none';
+          this.isOpen = false;
+        }
+
+        sendMessage() {
+          const input = document.getElementById('chat-input');
+          const message = input.value.trim();
+          
+          if (!message) return;
+          
+          this.addMessage('user', message);
+          input.value = '';
+          
+          setTimeout(() => {
+            const response = this.getResponse(message);
+            this.addMessage('assistant', response);
+          }, 1000);
+        }
+
+        sendQuickMessage(type) {
+          const responses = this.chatResponses[type];
+          this.addMessage('assistant', responses.greeting);
+          
+          setTimeout(() => {
+            const optionsHtml = responses.options.map(option => 
+              `<button class="quick-btn" onclick="chatSupport.handleQuickResponse('${option.response}')">${option.text}</button>`
+            ).join('');
+            
+            this.addMessage('assistant', `<div class="quick-options">${optionsHtml}</div>`);
+          }, 500);
+        }
+
+        handleQuickResponse(response) {
+          this.addMessage('assistant', response);
+        }
+
+        getResponse(message) {
+          const msg = message.toLowerCase();
+          
+          for (const item of this.chatResponses.geral) {
+            if (item.keywords.some(keyword => msg.includes(keyword))) {
+              return item.response;
+            }
+          }
+          
+          return "Obrigado pela sua pergunta! Para um atendimento mais personalizado, recomendo falar com nosso consultor: https://wa.me/5511999999999 😊";
+        }
+
+        addMessage(sender, content) {
+          const messages = document.getElementById('chat-messages');
+          const messageDiv = document.createElement('div');
+          messageDiv.className = `message ${sender}`;
+          
+          const avatar = sender === 'user' ? '👤' : '🤖';
+          messageDiv.innerHTML = `
+            <div class="message-avatar">${avatar}</div>
+            <div class="message-content">${content}</div>
+          `;
+          
+          messages.appendChild(messageDiv);
+          messages.scrollTop = messages.scrollHeight;
+        }
+      }
+
+      // Inicializar chat quando página carregar
+      let chatSupport;
+      document.addEventListener('DOMContentLoaded', function() {
+        chatSupport = new ChatSupport();
+      });
+
+      // Função global para quick messages
+      function sendQuickMessage(type) {
+        chatSupport.sendQuickMessage(type);
+      }
     </script>
 </body>
 </html>
