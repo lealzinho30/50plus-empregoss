@@ -176,22 +176,22 @@ body {
 
 .nav-logo-img {
     display: block;
-    height: 48px;
+    height: 64px;
     width: auto;
-    max-width: 220px;
+    max-width: 280px;
     object-fit: contain;
     transition: height 0.3s ease;
 }
 
 .header.scrolled .nav-logo-img {
-    height: 38px;
+    height: 52px;
 }
 
 .footer-logo-img {
     display: block;
-    height: 48px;
+    height: 56px;
     width: auto;
-    max-width: 180px;
+    max-width: 220px;
     object-fit: contain;
     margin-bottom: var(--spacing-4);
 }

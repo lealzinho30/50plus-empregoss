@@ -221,8 +221,9 @@ a:hover {
 }
 
 .nav-logo-img {
-    height: 48px;
+    height: 64px;
     width: auto;
+    max-width: 280px;
     transition: var(--transition);
 }
 
