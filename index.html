@@ -183,7 +183,7 @@
         <nav class="nav container">
             <div class="nav-logo">
                 <a href="#inicio" class="logo-link" aria-label="50+ Empregos - Página inicial">
-                    <img src="/50plus-empregoss/assets/img/logo-50plus-empregos.png" alt="50+ Empregos" class="nav-logo-img" width="200" height="64">
+                    <img src="/50plus-empregoss/assets/img/logo-50plus-empregos.png" alt="50+ Empregos" class="nav-logo-img" width="250" height="80">
                 </a>
             </div>
             
@@ -247,10 +247,9 @@
             </ul>
           </div>
           <div class="feature-media">
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&h=960&fit=crop"
-              alt="Profissional 50+ em entrevista de emprego"
-              width="1280" height="960" loading="lazy" />
+            <img data-image-id="servicos-nova-imagem"
+              alt="Nova imagem da seção Serviços - atendimento 50+"
+              width="800" height="600" loading="lazy" />
           </div>
         </section>
 
@@ -259,9 +258,9 @@
             <div class="container">
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop" 
-                             alt="Equipe de profissionais experientes em reunião" 
-                             width="1280" height="960" loading="lazy">
+                        <img data-image-id="sobre-nova-imagem" 
+                             alt="Nova imagem da seção Sobre - profissionais 50+" 
+                             width="800" height="600" loading="lazy">
                     </div>
                     <div class="about-text">
                         <h2 class="section-title">Nossa missão é <span class="highlight">valorizar experiência</span></h2>
@@ -899,6 +898,7 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="public/assets/js/imageRegistry.js"></script>
     <script src="js/main.js"></script>
     <script src="assets/js/image-manager.js"></script>
     <script src="assets/js/image-control-panel.js"></script>
@@ -936,6 +936,21 @@
         modal.classList.remove('is-open');
         e.target.reset();
         current = 0; goTo(current);
+      });
+
+      // Inicializar ImageRegistry
+      document.addEventListener('DOMContentLoaded', async function() {
+        console.log('🚀 Inicializando ImageRegistry...');
+        if (window.ImageRegistry) {
+          try {
+            await window.ImageRegistry.init();
+            console.log('✅ ImageRegistry inicializado com sucesso!');
+          } catch (error) {
+            console.error('❌ Erro ao inicializar ImageRegistry:', error);
+          }
+        } else {
+          console.error('❌ ImageRegistry não encontrado');
+        }
       });
     </script>
 </body>
