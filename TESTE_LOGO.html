@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Logo 50+ Empregos</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .logo-test { margin: 20px 0; padding: 20px; border: 2px solid #ccc; }
+        .logo-img { max-width: 300px; height: auto; }
+        .info { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste da Nova Logo 50+ Empregos</h1>
+    
+    <div class="logo-test">
+        <h2>Logo com versão forçada (?v=20241226):</h2>
+        <img src="./public/assets/img/logos/logo-50plus-empregos.png?v=20241226" 
+             alt="Logo 50+ Empregos - Versão 20241226" 
+             class="logo-img">
+        <div class="info">
+            <strong>URL:</strong> ./public/assets/img/logos/logo-50plus-empregos.png?v=20241226<br>
+            <strong>Status:</strong> <span id="status-versioned">Carregando...</span>
+        </div>
+    </div>
+    
+    <div class="logo-test">
+        <h2>Logo sem versão:</h2>
+        <img src="./public/assets/img/logos/logo-50plus-empregos.png" 
+             alt="Logo 50+ Empregos" 
+             class="logo-img">
+        <div class="info">
+            <strong>URL:</strong> ./public/assets/img/logos/logo-50plus-empregos.png<br>
+            <strong>Status:</strong> <span id="status-normal">Carregando...</span>
+        </div>
+    </div>
+    
+    <div class="logo-test">
+        <h2>Logo com caminho absoluto GitHub Pages:</h2>
+        <img src="https://lealzinho30.github.io/50plus-empregoss/public/assets/img/logos/logo-50plus-empregos.png?v=20241226" 
+             alt="Logo 50+ Empregos - GitHub Pages" 
+             class="logo-img">
+        <div class="info">
+            <strong>URL:</strong> https://lealzinho30.github.io/50plus-empregoss/public/assets/img/logos/logo-50plus-empregos.png?v=20241226<br>
+            <strong>Status:</strong> <span id="status-github">Carregando...</span>
+        </div>
+    </div>
+    
+    <div class="info">
+        <h3>📋 Informações do Teste:</h3>
+        <p><strong>Data/Hora:</strong> <span id="datetime"></span></p>
+        <p><strong>User Agent:</strong> <span id="useragent"></span></p>
+        <p><strong>URL Atual:</strong> <span id="current-url"></span></p>
+    </div>
+    
+    <script>
+        // Testar carregamento das imagens
+        function testImage(imgElement, statusElement, description) {
+            const img = new Image();
+            img.onload = function() {
+                statusElement.innerHTML = '✅ Carregada com sucesso!';
+                statusElement.style.color = 'green';
+                console.log(`✅ ${description} carregada:`, img.src);
+            };
+            img.onerror = function() {
+                statusElement.innerHTML = '❌ Erro ao carregar';
+                statusElement.style.color = 'red';
+                console.error(`❌ ${description} falhou:`, img.src);
+            };
+            img.src = imgElement.src;
+        }
+        
+        // Executar testes quando a página carregar
+        window.addEventListener('load', function() {
+            // Testar logo com versão
+            const imgVersioned = document.querySelector('img[src*="?v=20241226"]');
+            if (imgVersioned) {
+                testImage(imgVersioned, document.getElementById('status-versioned'), 'Logo com versão');
+            }
+            
+            // Testar logo sem versão
+            const imgNormal = document.querySelector('img[src*="logo-50plus-empregos.png"]:not([src*="?v="])');
+            if (imgNormal) {
+                testImage(imgNormal, document.getElementById('status-normal'), 'Logo sem versão');
+            }
+            
+            // Testar logo GitHub Pages
+            const imgGitHub = document.querySelector('img[src*="lealzinho30.github.io"]');
+            if (imgGitHub) {
+                testImage(imgGitHub, document.getElementById('status-github'), 'Logo GitHub Pages');
+            }
+            
+            // Preencher informações
+            document.getElementById('datetime').textContent = new Date().toLocaleString('pt-BR');
+            document.getElementById('useragent').textContent = navigator.userAgent;
+            document.getElementById('current-url').textContent = window.location.href;
+        });
+    </script>
+</body>
+</html>
