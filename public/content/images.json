@@ -151,22 +151,22 @@
   },
   {
     "id": "logo-header",
-    "src": "./assets/img/logos/logo-50plus-empregos.png",
-    "alt": "50+ Empregos - Logo",
+    "src": "./assets/img/logos/logo-50plus-empregos.png?v=20241226",
+    "alt": "50+ Empregos - Logo Atualizada",
     "width": 160,
     "height": 48,
     "loading": "eager",
     "section": "header",
-    "description": "Logo no header do site"
+    "description": "Logo atualizada no header do site - versão 20241226"
   },
   {
     "id": "logo-footer",
-    "src": "./assets/img/logos/logo-50plus-empregos.png",
-    "alt": "50+ Empregos - Logo",
+    "src": "./assets/img/logos/logo-50plus-empregos.png?v=20241226",
+    "alt": "50+ Empregos - Logo Atualizada",
     "width": 160,
     "height": 48,
     "loading": "lazy",
     "section": "footer",
-    "description": "Logo no footer do site"
+    "description": "Logo atualizada no footer do site - versão 20241226"
   }
 ]
