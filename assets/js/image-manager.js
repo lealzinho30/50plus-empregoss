@@ -5,126 +5,50 @@
 
 // Configuração centralizada de todas as imagens do site
 const IMAGE_PLACEHOLDERS = {
-    // ========== HERO SECTION ==========
-    hero: {
-        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=1200&fit=crop&crop=face",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&h=1200&fit=crop&crop=face",
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=1200&fit=crop&crop=face",
-            "assets/img/hero/professional-50plus.webp",
-            "assets/img/hero/confident-senior.webp"
-        ],
-        alt: "Profissional 50+ confiante e experiente",
-        description: "Imagem principal do Hero - profissional 50+ em ambiente de trabalho"
+    'hero': {
+        default: 'assets/images/hero-bg.jpg',
+        alternative: 'assets/images/hero-alternative.jpg',
+        description: 'Imagem de fundo da seção principal'
     },
-
-    // ========== ABOUT SECTION ==========
-    about: {
-        default: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
-            "assets/img/about/team-meeting.webp",
-            "assets/img/about/collaboration.webp",
-            "assets/img/about/experienced-team.webp"
-        ],
-        alt: "Equipe de profissionais experientes em reunião",
-        description: "Imagem da seção Sobre - equipe colaborando"
+    'services': {
+        default: 'assets/images/services-bg.jpg',
+        alternative: 'assets/images/services-alternative.jpg',
+        description: 'Imagem da seção de serviços'
     },
-
-    // ========== SERVICES SECTION ==========
-    services: {
-        default: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&h=960&fit=crop",
-        alternatives: [
-            "assets/img/services/interview-process.webp",
-            "assets/img/services/career-guidance.webp",
-            "assets/img/services/professional-development.webp"
-        ],
-        alt: "Profissional 50+ em entrevista de emprego",
-        description: "Imagem da seção Como Funciona - processo de recolocação"
+    'vagas': {
+        default: 'assets/images/jobs-bg.jpg',
+        alternative: 'assets/images/jobs-alternative.jpg',
+        description: 'Imagem da seção de vagas'
     },
-
-    // ========== VAGAS SECTION ==========
-    vagas: {
-        default: "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=400",
-        alternatives: [
-            "assets/img/vagas/administrative.webp",
-            "assets/img/vagas/healthcare.webp",
-            "assets/img/vagas/logistics.webp",
-            "assets/img/vagas/sales.webp"
-        ],
-        alt: "Vagas em destaque para profissionais 50+",
-        description: "Imagens das vagas em destaque"
+    'cursos': {
+        default: 'assets/images/training-bg.jpg',
+        alternative: 'assets/images/training-alternative.jpg',
+        description: 'Imagem da seção de cursos'
     },
-
-    // ========== CURSOS SECTION ==========
-    cursos: {
-        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=960&fit=crop",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
-            "assets/img/cursos/online-learning.webp",
-            "assets/img/cursos/professional-development.webp"
-        ],
-        alt: "Profissional 50+ estudando e se atualizando",
-        description: "Imagem da seção Cursos e Atualização"
+    'depoimentos': {
+        default: 'assets/images/testimonials-bg.jpg',
+        alternative: 'assets/images/testimonials-alternative.jpg',
+        description: 'Imagem da seção de depoimentos'
     },
-
-    // ========== DEPOIMENTOS SECTION ==========
-    depoimentos: {
-        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&crop=face",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop&crop=face",
-            "assets/img/depoimentos/testimonial-1.webp",
-            "assets/img/depoimentos/testimonial-2.webp"
-        ],
-        alt: "Depoimentos de profissionais 50+",
-        description: "Imagens dos depoimentos"
+    'cta': {
+        default: 'assets/images/cta-bg.jpg',
+        alternative: 'assets/images/cta-alternative.jpg',
+        description: 'Imagem da seção de call-to-action'
     },
-
-    // ========== CTA SECTION ==========
-    cta: {
-        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=600&fit=crop",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=600&fit=crop",
-            "assets/img/cta/final-cta.webp"
-        ],
-        alt: "Chamada para ação final",
-        description: "Imagem de fundo do CTA final"
+    'empresas': {
+        default: 'assets/images/companies-bg.jpg',
+        alternative: 'assets/images/companies-alternative.jpg',
+        description: 'Imagem da seção de empresas'
     },
-
-    // ========== EMPRESAS SECTION ==========
-    empresas: {
-        default: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
-            "assets/img/empresas/business-meeting.webp",
-            "assets/img/empresas/corporate-partnership.webp"
-        ],
-        alt: "Reunião de negócios com diversidade etária",
-        description: "Imagem da seção Para Empresas"
+    'sobre': {
+        default: 'assets/images/about-bg.jpg',
+        alternative: 'assets/images/about-alternative.jpg',
+        description: 'Imagem da seção sobre'
     },
-
-    // ========== CONECTANDO SECTION ==========
-    conectando: {
-        default: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&h=960&fit=crop",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
-            "assets/img/conectando/connection-bridge.webp",
-            "assets/img/conectando/opportunity.webp"
-        ],
-        alt: "Conectando experiência a oportunidades",
-        description: "Imagem da seção Conectando Experiência a Oportunidades"
-    },
-
-    // ========== MISSAO SECTION ==========
-    missao: {
-        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=960&fit=crop",
-        alternatives: [
-            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
-            "assets/img/missao/purpose.webp",
-            "assets/img/missao/values.webp"
-        ],
-        alt: "Nossa missão e valores",
-        description: "Imagem da seção Nossa Missão"
+    'proposta': {
+        default: 'assets/images/value-prop-bg.jpg',
+        alternative: 'assets/images/value-prop-alternative.jpg',
+        description: 'Imagem da seção de proposta de valor'
     }
 };
 
@@ -195,12 +119,15 @@ function applyImageChange(section, src, alt) {
                 'img[src*="unsplash"]' // Fallback genérico
             ];
             break;
-        case 'about':
+        case 'sobre':
             selectors = [
                 '.about-image img',
                 '.about-us img',
                 '.about img',
-                'section.about-us img'
+                'section.about-us img',
+                '.sobre-imagens img',
+                'section.sobre-imagens img',
+                'section#sobre img'
             ];
             break;
         case 'services':
@@ -208,6 +135,7 @@ function applyImageChange(section, src, alt) {
                 '.feature-media img',
                 '.feature img',
                 '.services img',
+                'section.feature img',
                 'section.feature img'
             ];
             break;
@@ -218,11 +146,9 @@ function applyImageChange(section, src, alt) {
             break;
         case 'cursos':
             selectors = [
-                '.cursos img',
-                '.courses img',
-                '.feature img',
-                'section.cursos img',
-                'section.courses img'
+                '.training img',
+                'section.training img',
+                'section#capacitacao img'
             ];
             break;
         case 'depoimentos':
@@ -237,32 +163,28 @@ function applyImageChange(section, src, alt) {
             selectors = [
                 '.cta img',
                 '.final-cta img',
-                'section.cta img',
-                'section.final-cta img'
+                'section.cta-final img'
             ];
             break;
         case 'empresas':
             selectors = [
-                '.empresas img',
                 '.for-companies img',
-                'section.empresas img',
-                'section.for-companies img'
+                'section.for-companies img',
+                'section#empresas img'
             ];
             break;
-        case 'conectando':
+        case 'sobre':
             selectors = [
-                '.conectando img',
-                '.connecting img',
-                'section.conectando img',
-                'section.connecting img'
+                '.sobre-imagens img',
+                'section.sobre-imagens img',
+                'section#sobre img'
             ];
             break;
-        case 'missao':
+        case 'proposta':
             selectors = [
-                '.missao img',
-                '.mission img',
-                'section.missao img',
-                'section.mission img'
+                '.value-prop img',
+                'section.value-prop img',
+                'section#proposta img'
             ];
             break;
         default:
@@ -610,135 +532,6 @@ function removeCustomImage(section) {
     }
 }
 
-/**
- * 📤 Exporta todas as imagens personalizadas para um arquivo JSON
- * Permite compartilhar as imagens com outros usuários
- */
-function exportCustomImages() {
-    try {
-        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
-        
-        if (Object.keys(customImages).length === 0) {
-            alert('❌ Nenhuma imagem personalizada encontrada para exportar!');
-            return;
-        }
-        
-        // Criar arquivo de exportação
-        const exportData = {
-            version: '1.0',
-            exportDate: new Date().toISOString(),
-            customImages: customImages,
-            totalImages: Object.keys(customImages).length
-        };
-        
-        const dataStr = JSON.stringify(exportData, null, 2);
-        const dataBlob = new Blob([dataStr], { type: 'application/json' });
-        
-        // Criar link de download
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(dataBlob);
-        link.download = `50plus-empregos-imagens-${new Date().toISOString().split('T')[0]}.json`;
-        link.click();
-        
-        console.log('📤 Exportação concluída:', exportData.totalImages, 'imagens exportadas');
-        alert(`✅ ${exportData.totalImages} imagens exportadas com sucesso!\n\nArquivo salvo para compartilhamento.`);
-        
-    } catch (error) {
-        console.error('❌ Erro na exportação:', error);
-        alert('❌ Erro ao exportar imagens: ' + error.message);
-    }
-}
-
-/**
- * 📥 Importa imagens personalizadas de um arquivo JSON
- * Permite que outros usuários recebam as imagens personalizadas
- */
-function importCustomImages() {
-    try {
-        // Criar input de arquivo
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = '.json';
-        input.style.display = 'none';
-        
-        input.onchange = function(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const importData = JSON.parse(e.target.result);
-                    
-                    if (!importData.customImages || !importData.version) {
-                        throw new Error('Formato de arquivo inválido');
-                    }
-                    
-                    // Mesclar com imagens existentes
-                    const existingImages = JSON.parse(localStorage.getItem('customImages') || '{}');
-                    const mergedImages = { ...existingImages, ...importData.customImages };
-                    
-                    // Salvar no localStorage
-                    localStorage.setItem('customImages', JSON.stringify(mergedImages));
-                    
-                    // Aplicar as imagens importadas
-                    loadCustomImages();
-                    
-                    // Forçar re-renderização das vagas se disponível
-                    if (typeof forceRerenderJobs === 'function') {
-                        forceRerenderJobs();
-                    }
-                    
-                    console.log('📥 Importação concluída:', Object.keys(importData.customImages).length, 'imagens importadas');
-                    alert(`✅ ${Object.keys(importData.customImages).length} imagens importadas com sucesso!\n\nAs imagens foram aplicadas automaticamente.`);
-                    
-                } catch (error) {
-                    console.error('❌ Erro ao processar arquivo:', error);
-                    alert('❌ Erro ao importar arquivo: ' + error.message);
-                }
-            };
-            
-            reader.readAsText(file);
-        };
-        
-        document.body.appendChild(input);
-        input.click();
-        document.body.removeChild(input);
-        
-    } catch (error) {
-        console.error('❌ Erro na importação:', error);
-        alert('❌ Erro ao importar imagens: ' + error.message);
-    }
-}
-
-/**
- * 🔄 Sincroniza imagens com um servidor remoto (simulado)
- * Em produção, isso seria conectado a um backend real
- */
-function syncImagesWithServer() {
-    try {
-        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
-        
-        if (Object.keys(customImages).length === 0) {
-            alert('❌ Nenhuma imagem para sincronizar!');
-            return;
-        }
-        
-        // Simular envio para servidor
-        console.log('🔄 Sincronizando imagens com servidor...');
-        
-        // Em produção, aqui seria uma chamada fetch() para um API
-        setTimeout(() => {
-            console.log('✅ Sincronização simulada concluída!');
-            alert('✅ Imagens sincronizadas com sucesso!\n\nNota: Esta é uma simulação. Em produção, as imagens seriam salvas em um servidor real.');
-        }, 2000);
-        
-    } catch (error) {
-        console.error('❌ Erro na sincronização:', error);
-        alert('❌ Erro ao sincronizar: ' + error.message);
-    }
-}
-
 // ========== EXPORTAÇÃO PARA USO GLOBAL ==========
 
 // Disponibilizar funções globalmente
@@ -754,10 +547,7 @@ window.ImageManager = {
     updateVagasImages,
     updateSpecificJobImage,
     listAvailableJobs,
-    IMAGE_PLACEHOLDERS,
-    exportCustomImages,
-    importCustomImages,
-    syncImagesWithServer
+    IMAGE_PLACEHOLDERS
 };
 
 // Log de inicialização
