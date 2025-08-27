@@ -365,10 +365,31 @@ function applyUploadedImage() {
     const section = document.getElementById('upload-section').value;
     
     console.log('🎯 Aplicando imagem à seção:', section);
+    console.log('🔍 Verificando ImageManager...');
     
-    // Aplicar a imagem usando o ImageManager
-    if (typeof ImageManager !== 'undefined' && typeof ImageManager.changeSectionImage === 'function') {
+    // Verificar se o ImageManager está disponível
+    if (typeof ImageManager === 'undefined') {
+        console.error('❌ ImageManager não está definido globalmente');
+        alert('❌ Sistema de imagens não está disponível. Recarregue a página.');
+        return;
+    }
+    
+    console.log('✅ ImageManager encontrado:', ImageManager);
+    
+    if (typeof ImageManager.changeSectionImage !== 'function') {
+        console.error('❌ ImageManager.changeSectionImage não é uma função');
+        console.log('🔍 Funções disponíveis:', Object.keys(ImageManager));
+        alert('❌ Função de mudança de imagem não está disponível');
+        return;
+    }
+    
+    console.log('✅ Função changeSectionImage encontrada');
+    
+    try {
+        // Aplicar a imagem usando o ImageManager
         const success = ImageManager.changeSectionImage(section, uploadedImageData);
+        
+        console.log('🎯 Resultado da aplicação:', success);
         
         if (success) {
             // Salvar no localStorage
@@ -384,8 +405,9 @@ function applyUploadedImage() {
         } else {
             alert('❌ Erro ao aplicar a imagem. Verifique o console para mais detalhes.');
         }
-    } else {
-        alert('❌ Sistema de imagens não está disponível');
+    } catch (error) {
+        console.error('❌ Erro durante a aplicação:', error);
+        alert('❌ Erro inesperado: ' + error.message);
     }
 }
 
@@ -575,11 +597,37 @@ function clearUpload() {
 
 // ========== INICIALIZAÇÃO AUTOMÁTICA ==========
 
+// Função para aguardar o ImageManager estar disponível
+function waitForImageManager() {
+    return new Promise((resolve) => {
+        const checkManager = () => {
+            if (typeof ImageManager !== 'undefined' && typeof ImageManager.changeSectionImage === 'function') {
+                console.log('✅ ImageManager está disponível!');
+                resolve();
+            } else {
+                console.log('⏳ Aguardando ImageManager...');
+                setTimeout(checkManager, 100);
+            }
+        };
+        checkManager();
+    });
+}
+
 // Inicializar quando a página carregar
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initImageControlPanel);
-} else {
+async function initializePanel() {
+    console.log('🚀 Iniciando painel de controle...');
+    
+    // Aguardar o ImageManager estar disponível
+    await waitForImageManager();
+    
+    // Inicializar o painel
     initImageControlPanel();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePanel);
+} else {
+    initializePanel();
 }
 
 // Comando secreto para abrir o painel (Ctrl + Shift + I)
