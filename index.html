@@ -179,9 +179,69 @@
        .summary-label{font-weight:600; color:var(--blue-900)}
        .summary-value{color:#374151}
        
-       /* MODAL FOOTER */
-       .modal-footer{margin-top:24px; padding-top:16px; border-top:1px solid #e5e7eb}
-       .fineprint{font-size:.8rem; opacity:.7; margin-top:6px; text-align:center}
+               /* MODAL FOOTER */
+        .modal-footer{margin-top:24px; padding-top:16px; border-top:1px solid #e5e7eb}
+        .fineprint{font-size:.8rem; opacity:.7; margin-top:6px; text-align:center}
+        
+        /* LOGIN MODAL ESPECÍFICO */
+        #login-modal .modal-dialog {
+          width: min(480px, 92vw);
+        }
+        
+        .login-options {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 16px 0;
+        }
+        
+        .remember-me {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          font-size: 0.9rem;
+        }
+        
+        .remember-me input[type="checkbox"] {
+          width: 16px;
+          height: 16px;
+          accent-color: var(--blue-700);
+        }
+        
+        .forgot-password {
+          color: var(--blue-700);
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+        
+        .forgot-password:hover {
+          text-decoration: underline;
+        }
+        
+        .login-footer {
+          text-align: center;
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid #e5e7eb;
+        }
+        
+        .login-footer p {
+          margin: 0;
+          color: #6b7280;
+          font-size: 0.9rem;
+        }
+        
+        .login-footer a {
+          color: var(--blue-700);
+          text-decoration: none;
+          font-weight: 600;
+        }
+        
+        .login-footer a:hover {
+          text-decoration: underline;
+        }
        
        /* ANIMATIONS */
        @keyframes fadeIn{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
@@ -1189,10 +1249,49 @@
          <div class="modal-footer">
            <p class="fineprint">* Campos obrigatórios. Seus dados estão seguros e serão usados apenas para encontrar as melhores oportunidades para você.</p>
          </div>
-       </div>
-     </div>
-
-    <!-- JavaScript -->
+               </div>
+      </div>
+      
+      <!-- ========== MODAL DE LOGIN ========== -->
+      <div id="login-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="login-title">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-dialog" role="document">
+          <button class="modal-close" data-close aria-label="Fechar">✕</button>
+          <h3 id="login-title">Bem-vindo(a)! Faça seu login</h3>
+          <p class="modal-subtitle">Acesse sua conta para acompanhar suas oportunidades</p>
+          
+          <form id="form-login">
+            <div class="form-section">
+              <label>E-mail<input type="email" name="email" required placeholder="seu@email.com" /></label>
+              <label>Senha<input type="password" name="senha" required placeholder="Sua senha" /></label>
+            </div>
+            
+            <div class="form-section">
+              <div class="login-options">
+                <label class="remember-me">
+                  <input type="checkbox" name="lembrar" />
+                  <span>Lembrar de mim</span>
+                </label>
+                <a href="#" class="forgot-password">Esqueci minha senha</a>
+              </div>
+            </div>
+            
+            <div class="actions">
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+            
+            <div class="login-footer">
+              <p>Não tem uma conta? <a href="#" onclick="voltarParaCadastro()">Cadastre-se aqui</a></p>
+            </div>
+          </form>
+          
+          <div class="modal-footer">
+            <p class="fineprint">Seus dados estão seguros e serão usados apenas para sua experiência no site.</p>
+          </div>
+        </div>
+      </div>
+ 
+     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="assets/js/image-manager.js"></script>
     <script src="assets/js/image-control-panel.js"></script>
@@ -1322,15 +1421,90 @@
          resumoContainer.innerHTML = resumoHTML;
        }
        
-       // Submit do formulário
-       document.getElementById('form-cadastro')?.addEventListener('submit', (e)=>{
-         e.preventDefault();
-         alert('Cadastro enviado com sucesso! Em breve entraremos em contato.');
-         modal.classList.remove('is-open');
-         e.target.reset();
-         current = 0; 
-         goTo(current);
-       });
+               // Submit do formulário
+        document.getElementById('form-cadastro')?.addEventListener('submit', (e)=>{
+          e.preventDefault();
+          
+          // Simular envio do cadastro
+          const email = e.target.querySelector('input[name="email"]').value;
+          
+          // Fechar modal de cadastro
+          modal.classList.remove('is-open');
+          
+          // Mostrar modal de login
+          setTimeout(() => {
+            mostrarModalLogin(email);
+          }, 500);
+          
+          // Resetar formulário
+          e.target.reset();
+          current = 0; 
+          goTo(current);
+        });
+        
+        // Função para mostrar modal de login
+        function mostrarModalLogin(emailCadastrado) {
+          const loginModal = document.getElementById('login-modal');
+          const emailInput = loginModal.querySelector('input[name="email"]');
+          
+          // Preencher email automaticamente se disponível
+          if (emailCadastrado) {
+            emailInput.value = emailCadastrado;
+          }
+          
+          loginModal.classList.add('is-open');
+        }
+        
+        // Função para voltar para o cadastro
+        function voltarParaCadastro() {
+          const loginModal = document.getElementById('login-modal');
+          const cadastroModal = document.getElementById('cadastro-modal');
+          
+          // Fechar modal de login
+          loginModal.classList.remove('is-open');
+          
+          // Mostrar modal de cadastro
+          setTimeout(() => {
+            cadastroModal.classList.add('is-open');
+          }, 300);
+        }
+        
+        // Gerenciar fechamento dos modais
+        document.addEventListener('click', (e) => {
+          if (e.target.hasAttribute('data-close') || e.target.closest('[data-close]')) {
+            const modal = e.target.closest('.modal');
+            if (modal) {
+              modal.classList.remove('is-open');
+            }
+          }
+        });
+        
+        // Submit do formulário de login
+        document.getElementById('form-login')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const formData = new FormData(e.target);
+          const email = formData.get('email');
+          const senha = formData.get('senha');
+          const lembrar = formData.get('lembrar');
+          
+          // Simular validação de login
+          if (email && senha) {
+            // Simular sucesso de login
+            alert(`Login realizado com sucesso!\nBem-vindo(a), ${email.split('@')[0]}!`);
+            
+            // Fechar modal de login
+            document.getElementById('login-modal').classList.remove('is-open');
+            
+            // Resetar formulário
+            e.target.reset();
+            
+            // Aqui você pode redirecionar para a área do usuário
+            // window.location.href = '/dashboard';
+          } else {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+          }
+        });
      </script>
 </body>
 </html>
