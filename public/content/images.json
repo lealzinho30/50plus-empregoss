@@ -171,7 +171,7 @@
   },
   {
     "id": "sobre-nova-imagem",
-    "src": "./assets/img/sobre/nova-imagem-sobre-2025.png",
+    "src": "/50plus-empregoss/assets/img/sobre/nova-imagem-sobre-2025.png",
     "alt": "Nova imagem da seção Sobre - profissionais 50+",
     "width": 800,
     "height": 600,
@@ -181,7 +181,7 @@
   },
   {
     "id": "servicos-nova-imagem",
-    "src": "./assets/img/servicos/imagensserviços.png",
+    "src": "/50plus-empregoss/assets/img/servicos/imagensserviços.png",
     "alt": "Nova imagem da seção Serviços - atendimento 50+",
     "width": 800,
     "height": 600,

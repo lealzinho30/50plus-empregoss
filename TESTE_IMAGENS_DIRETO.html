@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Direto - Imagens 50+ Empregos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+        }
+        .image-test img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        h1 { color: #143C6B; text-align: center; }
+        h2 { color: #F5B700; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Teste Direto - Carregamento de Imagens</h1>
+        
+        <div class="status info">
+            <strong>ℹ️ Testando:</strong> Carregamento direto das imagens com caminhos absolutos GitHub Pages
+        </div>
+
+        <h2>📸 Teste 1: Imagem da Seção "Sobre"</h2>
+        <div class="image-test">
+            <h3>Caminho: /50plus-empregoss/assets/img/sobre/nova-imagem-sobre-2025.png</h3>
+            <img src="/50plus-empregoss/assets/img/sobre/nova-imagem-sobre-2025.png" 
+                 alt="Teste - Nova imagem da seção Sobre" 
+                 onload="this.nextElementSibling.innerHTML = '✅ Imagem carregada com sucesso!'; this.nextElementSibling.className = 'status success';"
+                 onerror="this.nextElementSibling.innerHTML = '❌ Erro ao carregar imagem'; this.nextElementSibling.className = 'status error';">
+            <div class="status info">🔄 Carregando...</div>
+        </div>
+
+        <h2>📸 Teste 2: Imagem da Seção "Serviços"</h2>
+        <div class="image-test">
+            <h3>Caminho: /50plus-empregoss/assets/img/servicos/imagensserviços.png</h3>
+            <img src="/50plus-empregoss/assets/img/servicos/imagensserviços.png" 
+                 alt="Teste - Nova imagem da seção Serviços" 
+                 onload="this.nextElementSibling.innerHTML = '✅ Imagem carregada com sucesso!'; this.nextElementSibling.className = 'status success';"
+                 onerror="this.nextElementSibling.innerHTML = '❌ Erro ao carregar imagem'; this.nextElementSibling.className = 'status error';">
+            <div class="status info">🔄 Carregando...</div>
+        </div>
+
+        <h2>📸 Teste 3: Logo (referência que funciona)</h2>
+        <div class="image-test">
+            <h3>Caminho: /50plus-empregoss/assets/img/logos/logo-50plus-empregos.png</h3>
+            <img src="/50plus-empregoss/assets/img/logos/logo-50plus-empregos.png" 
+                 alt="Teste - Logo 50+ Empregos" 
+                 onload="this.nextElementSibling.innerHTML = '✅ Logo carregada com sucesso!'; this.nextElementSibling.className = 'status success';"
+                 onerror="this.nextElementSibling.innerHTML = '❌ Erro ao carregar logo'; this.nextElementSibling.className = 'status error';">
+            <div class="status info">🔄 Carregando...</div>
+        </div>
+
+        <h2>🔍 Informações do Sistema</h2>
+        <div class="status info" id="info-sistema">
+            <strong>URL atual:</strong> <span id="url-atual"></span><br>
+            <strong>Base URL:</strong> <span id="base-url"></span><br>
+            <strong>Protocolo:</strong> <span id="protocolo"></span>
+        </div>
+
+        <h2>🧪 Testes de Fetch</h2>
+        <div id="fetch-results">
+            <div class="status info">Executando testes de fetch...</div>
+        </div>
+    </div>
+
+    <script>
+        // Informações do sistema
+        document.getElementById('url-atual').textContent = window.location.href;
+        document.getElementById('base-url').textContent = window.location.origin;
+        document.getElementById('protocolo').textContent = window.location.protocol;
+
+        // Testes de fetch
+        const fetchResults = document.getElementById('fetch-results');
+        
+        const testImages = [
+            '/50plus-empregoss/assets/img/sobre/nova-imagem-sobre-2025.png',
+            '/50plus-empregoss/assets/img/servicos/imagensserviços.png',
+            '/50plus-empregoss/assets/img/logos/logo-50plus-empregos.png'
+        ];
+
+        testImages.forEach((imagePath, index) => {
+            fetch(imagePath)
+                .then(response => {
+                    const div = document.createElement('div');
+                    if (response.ok) {
+                        div.className = 'status success';
+                        div.innerHTML = `✅ Fetch ${index + 1}: ${imagePath} - Status: ${response.status}`;
+                    } else {
+                        div.className = 'status error';
+                        div.innerHTML = `❌ Fetch ${index + 1}: ${imagePath} - Status: ${response.status}`;
+                    }
+                    fetchResults.appendChild(div);
+                })
+                .catch(error => {
+                    const div = document.createElement('div');
+                    div.className = 'status error';
+                    div.innerHTML = `❌ Fetch ${index + 1}: ${imagePath} - Erro: ${error.message}`;
+                    fetchResults.appendChild(div);
+                });
+        });
+
+        console.log('🧪 Teste de imagens iniciado');
+        console.log('📍 URL base:', window.location.origin);
+        console.log('📁 Testando caminhos absolutos GitHub Pages');
+    </script>
+</body>
+</html>

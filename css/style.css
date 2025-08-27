@@ -176,15 +176,15 @@ body {
 
 .nav-logo-img {
     display: block;
-    height: 80px;
+    height: 100px;
     width: auto;
-    max-width: 350px;
+    max-width: 450px;
     object-fit: contain;
     transition: height 0.3s ease;
 }
 
 .header.scrolled .nav-logo-img {
-    height: 65px;
+    height: 80px;
 }
 
 .footer-logo-img {
