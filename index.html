@@ -78,27 +78,86 @@
       .cta-final{background:var(--blue-700); color:var(--white); text-align:center; padding:64px 24px; border-radius:24px; max-width:1060px; margin:48px auto}
       .cta-final h2{font-size:1.9rem; margin:0 0 .4rem}
 
-      /* MODAL */
-      .modal{position:fixed; inset:0; display:none}
-      .modal.is-open{display:block}
-      .modal-backdrop{position:absolute; inset:0; background:rgba(2,6,23,.58)}
-      .modal-dialog{
-        position:relative; background:#fff; color:var(--text); width:min(680px, 92vw);
-        margin:6vh auto 0; padding:20px 20px 12px; border-radius:18px; box-shadow:0 16px 48px rgba(2,6,23,.35)
-      }
-      .modal-close{position:absolute; right:10px; top:10px; border:0; background:transparent; font-size:20px; cursor:pointer}
-      .steps{display:flex; gap:8px; list-style:none; padding:0; margin:8px 0 16px}
-      .step{flex:1; text-align:center; font-size:.9rem; padding:8px; border-radius:8px; background:#f3f4f6}
-      .step.is-active{background:#e9f1fb; color:#0b4aa2; font-weight:700}
-      .step-pane{display:none}
-      .step-pane.is-active{display:block}
-      .grid{display:grid; gap:12px; grid-template-columns: 1fr 1fr}
-      label{display:grid; gap:6px; font-size:.95rem}
-      input, select, textarea{height:44px; padding:10px 12px; border-radius:10px; border:1px solid #e5e7eb; outline:none}
-      textarea{height:auto}
-      .radio{display:flex; gap:8px; align-items:center; margin:.25rem 0}
-      .actions{display:flex; gap:10px; justify-content:flex-end; margin-top:10px}
-      .fineprint{font-size:.8rem; opacity:.7; margin-top:6px}
+             /* MODAL DE CADASTRO COMPLETO */
+       .modal{position:fixed; inset:0; display:none}
+       .modal.is-open{display:block}
+       .modal-backdrop{position:absolute; inset:0; background:rgba(2,6,23,.58)}
+       .modal-dialog{
+         position:relative; background:#fff; color:var(--text); width:min(680px, 92vw);
+         margin:6vh auto 0; padding:20px 20px 12px; border-radius:18px; box-shadow:0 16px 48px rgba(2,6,23,.35)
+       }
+       .modal-large{
+         width:min(900px, 95vw); max-height:90vh; overflow-y:auto
+       }
+       .modal-close{position:absolute; right:15px; top:15px; border:0; background:transparent; font-size:20px; cursor:pointer; z-index:10}
+       .modal-subtitle{text-align:center; color:#6b7280; margin-bottom:20px; font-size:1rem}
+       
+       /* STEPS */
+       .steps{display:flex; gap:4px; list-style:none; padding:0; margin:0 0 25px; border-radius:12px; background:#f3f4f6; padding:4px}
+       .step{flex:1; text-align:center; font-size:.8rem; padding:8px 4px; border-radius:8px; background:transparent; color:#6b7280; font-weight:500; transition:all 0.3s ease}
+       .step.is-active{background:var(--blue-500); color:white; font-weight:600}
+       
+       /* STEP PANES */
+       .step-pane{display:none; animation:fadeIn 0.3s ease}
+       .step-pane.is-active{display:block}
+       @keyframes fadeIn{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
+       
+       /* FORM SECTIONS */
+       .form-section{margin-bottom:25px; padding:20px; background:#f8fafc; border-radius:12px; border:1px solid #e2e8f0}
+       .form-section h4{color:var(--blue-900); font-size:1.1rem; margin:0 0 15px; display:flex; align-items:center; gap:8px}
+       
+       /* GRID LAYOUT */
+       .grid{display:grid; gap:15px; grid-template-columns: 1fr 1fr}
+       @media (max-width: 600px){.grid{grid-template-columns:1fr}}
+       
+       /* LABELS E INPUTS */
+       label{display:grid; gap:8px; font-size:.9rem; font-weight:500; color:var(--blue-900)}
+       label span{font-weight:400; color:#374151}
+       input, select, textarea{height:44px; padding:12px 16px; border-radius:10px; border:1px solid #d1d5db; outline:none; font-size:.9rem; transition:all 0.2s ease; background:white}
+       input:focus, select:focus, textarea:focus{border-color:var(--blue-500); box-shadow:0 0 0 3px rgba(59, 130, 246, 0.1)}
+       textarea{height:auto; min-height:80px; resize:vertical}
+       
+       /* SKILLS GRID */
+       .skills-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:15px 0}
+       .skill-checkbox{display:flex; align-items:center; gap:10px; padding:8px 12px; background:white; border-radius:8px; border:1px solid #e5e7eb; cursor:pointer; transition:all 0.2s ease}
+       .skill-checkbox:hover{background:#f9fafb; border-color:var(--blue-300)}
+       .skill-checkbox input[type="checkbox"]{width:18px; height:18px; accent-color:var(--blue-500)}
+       .skill-checkbox span{font-size:.85rem; color:#374151; font-weight:500}
+       
+       /* TERMS CHECKBOXES */
+       .terms-checkboxes{display:flex; flex-direction:column; gap:12px; margin:15px 0}
+       .term-checkbox{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
+       .term-checkbox input[type="checkbox"]{width:18px; height:18px; accent-color:var(--blue-500); margin-top:2px}
+       .term-checkbox span{font-size:.85rem; color:#374151; line-height:1.4}
+       .term-checkbox a{color:var(--blue-600); text-decoration:underline}
+       
+       /* ACTIONS */
+       .actions{display:flex; gap:12px; justify-content:space-between; margin-top:25px; padding-top:20px; border-top:1px solid #e5e7eb}
+       .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; height:44px; padding:0 20px; border-radius:10px; border:1px solid transparent; text-decoration:none; font-weight:600; font-size:.9rem; cursor:pointer; transition:all 0.2s ease}
+       .btn-primary{background:var(--blue-500); color:white}
+       .btn-primary:hover{background:var(--blue-600); transform:translateY(-1px)}
+       .btn-ghost{background:transparent; color:var(--blue-600); border-color:var(--blue-300)}
+       .btn-ghost:hover{background:var(--blue-50)}
+       
+       /* SUMMARY GRID */
+       .summary-grid{display:grid; gap:15px; margin:20px 0; padding:20px; background:white; border-radius:10px; border:1px solid #e5e7eb}
+       .summary-item{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #f3f4f6}
+       .summary-item:last-child{border-bottom:none}
+       .summary-label{font-weight:600; color:var(--blue-900)}
+       .summary-value{color:#6b7280}
+       
+       /* MODAL FOOTER */
+       .modal-footer{margin-top:20px; padding-top:20px; border-top:1px solid #e5e7eb; text-align:center}
+       .fineprint{font-size:.8rem; color:#6b7280; line-height:1.4}
+       
+       /* RESPONSIVE */
+       @media (max-width: 768px){
+         .modal-large{width:95vw; margin:2vh auto 0; padding:15px}
+         .form-section{padding:15px}
+         .skills-grid{grid-template-columns:1fr}
+         .actions{flex-direction:column-reverse}
+         .btn{width:100%}
+       }
 
       /* FEATURE SECTIONS */
       .feature{
@@ -993,81 +1052,393 @@
         <span class="whatsapp-text">Fale conosco</span>
     </div>
 
-    <!-- ========== MODAL DE CADASTRO ========== -->
+    <!-- ========== MODAL DE CADASTRO COMPLETO ========== -->
     <div id="cadastro-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cadastro-title">
       <div class="modal-backdrop" data-close></div>
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-large" role="document">
         <button class="modal-close" data-close aria-label="Fechar">✕</button>
 
-        <h3 id="cadastro-title">Vamos te conhecer rapidinho</h3>
+        <h3 id="cadastro-title">Vamos conhecer seu perfil completo</h3>
+        <p class="modal-subtitle">Preencha os dados para encontrarmos as melhores oportunidades para você</p>
 
         <form id="form-cadastro">
           <!-- Stepper -->
           <ol class="steps">
             <li class="step is-active">Perfil</li>
+            <li class="step">Experiência</li>
+            <li class="step">Preferências</li>
             <li class="step">Contato</li>
-            <li class="step">Objetivo</li>
+            <li class="step">Finalizar</li>
           </ol>
 
-          <!-- PASSO 1 -->
+          <!-- PASSO 1: PERFIL BÁSICO -->
           <div class="step-pane is-active" data-step="1">
-            <label class="radio">
-              <input type="radio" name="perfil" value="profissional" required />
-              Sou profissional 50+
-            </label>
-            <label class="radio">
-              <input type="radio" name="perfil" value="empresa" />
-              Sou empresa contratante
-            </label>
+            <div class="form-section">
+              <h4>📋 Informações Pessoais</h4>
+              <div class="grid">
+                <label>Nome completo *
+                  <input type="text" name="nome" required placeholder="Seu nome completo" />
+                </label>
+                <label>Data de nascimento *
+                  <input type="date" name="nascimento" required />
+                </label>
+                <label>CPF *
+                  <input type="text" name="cpf" required placeholder="000.000.000-00" maxlength="14" />
+                </label>
+                <label>Estado civil
+                  <select name="estadoCivil">
+                    <option value="">Selecione...</option>
+                    <option value="solteiro">Solteiro(a)</option>
+                    <option value="casado">Casado(a)</option>
+                    <option value="divorciado">Divorciado(a)</option>
+                    <option value="viuvo">Viúvo(a)</option>
+                    <option value="uniao">União Estável</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h4>📍 Localização</h4>
+              <div class="grid">
+                <label>Cidade *
+                  <input type="text" name="cidade" required placeholder="Sua cidade" />
+                </label>
+                <label>Estado *
+                  <select name="estado" required>
+                    <option value="">Selecione o estado...</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+                </label>
+                <label>CEP
+                  <input type="text" name="cep" placeholder="00000-000" maxlength="9" />
+                </label>
+                <label>Bairro
+                  <input type="text" name="bairro" placeholder="Seu bairro" />
+                </label>
+              </div>
+            </div>
+            
             <div class="actions">
               <button type="button" class="btn btn-primary next">Próximo</button>
             </div>
           </div>
 
-          <!-- PASSO 2 -->
+          <!-- PASSO 2: EXPERIÊNCIA PROFISSIONAL -->
           <div class="step-pane" data-step="2">
-            <div class="grid">
-              <label>Nome completo
-                <input type="text" name="nome" required />
-              </label>
-              <label>E-mail
-                <input type="email" name="email" required />
-              </label>
-              <label>WhatsApp
-                <input type="tel" name="whatsapp" placeholder="(11) 90000-0000" />
-              </label>
-              <label>Cidade/UF
-                <input type="text" name="cidade" />
+            <div class="form-section">
+              <h4>💼 Experiência Profissional</h4>
+              <div class="grid">
+                <label>Área principal de atuação *
+                  <select name="areaPrincipal" required>
+                    <option value="">Selecione sua área...</option>
+                    <option value="administrativo">Administrativo</option>
+                    <option value="atendimento">Atendimento ao Cliente</option>
+                    <option value="vendas">Vendas e Comercial</option>
+                    <option value="financeiro">Financeiro e Contábil</option>
+                    <option value="rh">Recursos Humanos</option>
+                    <option value="marketing">Marketing e Comunicação</option>
+                    <option value="tecnologia">Tecnologia da Informação</option>
+                    <option value="operacional">Operacional e Logística</option>
+                    <option value="qualidade">Qualidade e Controle</option>
+                    <option value="engenharia">Engenharia e Produção</option>
+                    <option value="saude">Saúde e Bem-estar</option>
+                    <option value="educacao">Educação e Treinamento</option>
+                    <option value="outros">Outras áreas</option>
+                  </select>
+                </label>
+                <label>Anos de experiência profissional *
+                  <select name="anosExperiencia" required>
+                    <option value="">Selecione...</option>
+                    <option value="5-10">5 a 10 anos</option>
+                    <option value="10-15">10 a 15 anos</option>
+                    <option value="15-20">15 a 20 anos</option>
+                    <option value="20-25">20 a 25 anos</option>
+                    <option value="25-30">25 a 30 anos</option>
+                    <option value="30+">Mais de 30 anos</option>
+                  </select>
+                </label>
+                <label>Último cargo ocupado
+                  <input type="text" name="ultimoCargo" placeholder="Ex: Gerente de Vendas" />
+                </label>
+                <label>Última empresa
+                  <input type="text" name="ultimaEmpresa" placeholder="Nome da empresa" />
+                </label>
+              </div>
+              
+              <label>Resumo da experiência profissional *
+                <textarea name="resumoExperiencia" rows="4" required placeholder="Descreva suas principais responsabilidades, conquistas e habilidades desenvolvidas ao longo da carreira..."></textarea>
               </label>
             </div>
+            
+            <div class="form-section">
+              <h4>🎓 Formação Acadêmica</h4>
+              <div class="grid">
+                <label>Nível de escolaridade *
+                  <select name="escolaridade" required>
+                    <option value="">Selecione...</option>
+                    <option value="fundamental">Ensino Fundamental</option>
+                    <option value="medio">Ensino Médio</option>
+                    <option value="tecnico">Ensino Técnico</option>
+                    <option value="superior">Ensino Superior</option>
+                    <option value="pos">Pós-graduação</option>
+                    <option value="mestrado">Mestrado</option>
+                    <option value="doutorado">Doutorado</option>
+                  </select>
+                </label>
+                <label>Curso/Formação
+                  <input type="text" name="formacao" placeholder="Ex: Administração de Empresas" />
+                </label>
+                <label>Instituição
+                  <input type="text" name="instituicao" placeholder="Nome da instituição" />
+                </label>
+                <label>Ano de conclusão
+                  <input type="number" name="anoConclusao" placeholder="2020" min="1950" max="2025" />
+                </label>
+              </div>
+            </div>
+            
             <div class="actions">
               <button type="button" class="btn btn-ghost prev">Voltar</button>
               <button type="button" class="btn btn-primary next">Próximo</button>
             </div>
           </div>
 
-          <!-- PASSO 3 -->
+          <!-- PASSO 3: PREFERÊNCIAS E OBJETIVOS -->
           <div class="step-pane" data-step="3">
-            <label>Área de interesse
-              <select name="area" required>
-                <option value="">Selecione…</option>
-                <option>Recepção/Atendimento</option>
-                <option>Administração</option>
-                <option>Vendas/Comercial</option>
-                <option>Operacional</option>
-                <option>Outra</option>
-              </select>
-            </label>
-            <label>Conte um pouco da sua experiência
-              <textarea name="resumo" rows="4" placeholder="Ex.: 20 anos em atendimento, pacote Office básico…"></textarea>
-            </label>
+            <div class="form-section">
+              <h4>🎯 Objetivos Profissionais</h4>
+              <div class="grid">
+                <label>O que você busca? *
+                  <select name="objetivo" required>
+                    <option value="">Selecione...</option>
+                    <option value="recolocacao">Recolocação no mercado</option>
+                    <option value="mudanca">Mudança de área</option>
+                    <option value="primeiro">Primeiro emprego 50+</option>
+                    <option value="freelance">Trabalho freelancer</option>
+                    <option value="mentoria">Mentoria e orientação</option>
+                    <option value="capacitacao">Capacitação profissional</option>
+                  </select>
+                </label>
+                <label>Pretensão salarial
+                  <select name="pretensaoSalarial">
+                    <option value="">Selecione...</option>
+                    <option value="1-2">R$ 1.000 - R$ 2.000</option>
+                    <option value="2-3">R$ 2.000 - R$ 3.000</option>
+                    <option value="3-4">R$ 3.000 - R$ 4.000</option>
+                    <option value="4-5">R$ 4.000 - R$ 5.000</option>
+                    <option value="5-7">R$ 5.000 - R$ 7.000</option>
+                    <option value="7-10">R$ 7.000 - R$ 10.000</option>
+                    <option value="10+">Acima de R$ 10.000</option>
+                  </select>
+                </label>
+                <label>Modalidade de trabalho *
+                  <select name="modalidade" required>
+                    <option value="">Selecione...</option>
+                    <option value="presencial">100% Presencial</option>
+                    <option value="hibrido">Híbrido</option>
+                    <option value="remoto">100% Remoto</option>
+                    <option value="flexivel">Flexível</option>
+                  </select>
+                </label>
+                <label>Disponibilidade para viagens
+                  <select name="disponibilidadeViagem">
+                    <option value="">Selecione...</option>
+                    <option value="sim">Sim, sem restrições</option>
+                    <option value="limitada">Sim, mas limitada</option>
+                    <option value="nao">Não</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h4>💻 Habilidades Digitais</h4>
+              <div class="skills-grid">
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="skills[]" value="office" />
+                  <span>Pacote Office (Word, Excel, PowerPoint)</span>
+                </label>
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="skills[]" value="email" />
+                  <span>E-mail e comunicação digital</span>
+                </label>
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="skills[]" value="internet" />
+                  <span>Navegação na internet</span>
+                </label>
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="skills[]" value="whatsapp" />
+                  <span>WhatsApp e redes sociais</span>
+                </label>
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="checkbox" value="excel" />
+                  <span>Excel avançado</span>
+                </label>
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="skills[]" value="sistemas" />
+                  <span>Sistemas empresariais (ERP, CRM)</span>
+                </label>
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="skills[]" value="ia" />
+                  <span>Ferramentas de IA (ChatGPT, etc.)</span>
+                </label>
+                <label class="skill-checkbox">
+                  <input type="checkbox" name="skills[]" value="outros" />
+                  <span>Outras ferramentas</span>
+                </label>
+              </div>
+              
+              <label>Outras habilidades importantes
+                <textarea name="outrasHabilidades" rows="3" placeholder="Descreva outras habilidades, certificações ou conhecimentos específicos que possua..."></textarea>
+              </label>
+            </div>
+            
             <div class="actions">
               <button type="button" class="btn btn-ghost prev">Voltar</button>
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button type="button" class="btn btn-primary next">Próximo</button>
+            </div>
+          </div>
+
+          <!-- PASSO 4: CONTATO E COMUNICAÇÃO -->
+          <div class="step-pane" data-step="4">
+            <div class="form-section">
+              <h4>📞 Informações de Contato</h4>
+              <div class="grid">
+                <label>E-mail *
+                  <input type="email" name="email" required placeholder="seu@email.com" />
+                </label>
+                <label>WhatsApp *
+                  <input type="tel" name="whatsapp" required placeholder="(11) 90000-0000" />
+                </label>
+                <label>Telefone fixo
+                  <input type="tel" name="telefone" placeholder="(11) 3000-0000" />
+                </label>
+                <label>LinkedIn
+                  <input type="url" name="linkedin" placeholder="https://linkedin.com/in/seuperfil" />
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h4>📅 Disponibilidade</h4>
+              <div class="grid">
+                <label>Quando pode começar? *
+                  <select name="disponibilidade" required>
+                    <option value="">Selecione...</option>
+                    <option value="imediata">Imediatamente</option>
+                    <option value="15dias">Em 15 dias</option>
+                    <option value="30dias">Em 30 dias</option>
+                    <option value="60dias">Em 60 dias</option>
+                    <option value="90dias">Em 90 dias</option>
+                    <option value="negociavel">Negociável</option>
+                  </select>
+                </label>
+                <label>Horário preferido
+                  <select name="horarioPreferido">
+                    <option value="">Selecione...</option>
+                    <option value="integral">Tempo integral (8h)</option>
+                    <option value="parcial">Tempo parcial (4-6h)</option>
+                    <option value="flexivel">Horário flexível</option>
+                    <option value="noturno">Trabalho noturno</option>
+                    <option value="finsemana">Fins de semana</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h4>📝 Como nos conheceu?</h4>
+              <div class="grid">
+                <label>Fonte de indicação
+                  <select name="fonteIndicacao">
+                    <option value="">Selecione...</option>
+                    <option value="google">Google/Busca online</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="indicacao">Indicação de amigo</option>
+                    <option value="empresa">Empresa parceira</option>
+                    <option value="outros">Outros</option>
+                  </select>
+                </label>
+                <label>Nome de quem indicou
+                  <input type="text" name="nomeIndicacao" placeholder="Nome da pessoa que indicou" />
+                </label>
+              </div>
+            </div>
+            
+            <div class="actions">
+              <button type="button" class="btn btn-ghost prev">Voltar</button>
+              <button type="button" class="btn btn-primary next">Próximo</button>
+            </div>
+          </div>
+
+          <!-- PASSO 5: FINALIZAR -->
+          <div class="step-pane" data-step="5">
+            <div class="form-section">
+              <h4>✅ Confirme seus dados</h4>
+              <p>Revise as informações antes de enviar. Você pode voltar e corrigir qualquer dado.</p>
+              
+              <div class="summary-grid" id="resumo-cadastro">
+                <!-- Resumo será preenchido via JavaScript -->
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h4>📋 Termos e Condições</h4>
+              <div class="terms-checkboxes">
+                <label class="term-checkbox">
+                  <input type="checkbox" name="aceiteTermos" required />
+                  <span>Li e aceito os <a href="#" target="_blank">Termos de Uso</a> e <a href="#" target="_blank">Política de Privacidade</a> *</span>
+                </label>
+                <label class="term-checkbox">
+                  <input type="checkbox" name="aceiteComunicacoes" />
+                  <span>Autorizo o recebimento de comunicações sobre oportunidades e capacitação</span>
+                </label>
+                <label class="term-checkbox">
+                  <input type="checkbox" name="checkbox" name="aceiteCompartilhamento" />
+                  <span>Autorizo o compartilhamento do meu perfil com empresas parceiras</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="actions">
+              <button type="button" class="btn btn-ghost prev">Voltar</button>
+              <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
             </div>
           </div>
         </form>
-        <p class="fineprint">Ao enviar, você concorda com nossa política de privacidade.</p>
+        
+        <div class="modal-footer">
+          <p class="fineprint">* Campos obrigatórios. Seus dados estão seguros e serão usados apenas para encontrar as melhores oportunidades para você.</p>
+        </div>
       </div>
     </div>
 
@@ -1088,20 +1459,118 @@
         if(e.target.hasAttribute('data-close') || e.target.closest('[data-close]')) modal.classList.remove('is-open');
       });
 
-      // Stepper simples
-      const steps = Array.from(document.querySelectorAll('.step'));
-      const panes = Array.from(document.querySelectorAll('.step-pane'));
-      const nextBtns = Array.from(document.querySelectorAll('.next'));
-      const prevBtns = Array.from(document.querySelectorAll('.prev'));
+             // Stepper avançado para 5 passos
+       const steps = Array.from(document.querySelectorAll('.step'));
+       const panes = Array.from(document.querySelectorAll('.step-pane'));
+       const nextBtns = Array.from(document.querySelectorAll('.next'));
+       const prevBtns = Array.from(document.querySelectorAll('.prev'));
 
-      function goTo(stepIndex){
-        steps.forEach((s,i)=> s.classList.toggle('is-active', i===stepIndex));
-        panes.forEach((p,i)=> p.classList.toggle('is-active', i===stepIndex));
-      }
-      let current = 0; goTo(current);
+       function goTo(stepIndex){
+         steps.forEach((s,i)=> s.classList.toggle('is-active', i===stepIndex));
+         panes.forEach((p,i)=> p.classList.toggle('is-active', i===stepIndex));
+         
+         // Atualizar botões baseado no passo atual
+         const isFirst = stepIndex === 0;
+         const isLast = stepIndex === panes.length - 1;
+         
+         // Mostrar/esconder botões de navegação
+         document.querySelectorAll('.prev').forEach(btn => btn.style.display = isFirst ? 'none' : 'inline-flex');
+         document.querySelectorAll('.next').forEach(btn => btn.style.display = isLast ? 'none' : 'inline-flex');
+         
+         // No último passo, mostrar resumo
+         if (isLast) {
+           mostrarResumo();
+         }
+       }
+       
+       let current = 0; goTo(current);
 
-      nextBtns.forEach(btn => btn.addEventListener('click', ()=>{ current = Math.min(current+1, panes.length-1); goTo(current); }));
-      prevBtns.forEach(btn => btn.addEventListener('click', ()=>{ current = Math.max(current-1, 0); goTo(current); }));
+       nextBtns.forEach(btn => btn.addEventListener('click', ()=>{
+         if (validarPassoAtual()) {
+           current = Math.min(current+1, panes.length-1); 
+           goTo(current);
+         }
+       }));
+       
+       prevBtns.forEach(btn => btn.addEventListener('click', ()=>{ 
+         current = Math.max(current-1, 0); 
+         goTo(current);
+       }));
+       
+       // Validação de cada passo
+       function validarPassoAtual() {
+         const paneAtual = panes[current];
+         const camposObrigatorios = paneAtual.querySelectorAll('[required]');
+         let valido = true;
+         
+         camposObrigatorios.forEach(campo => {
+           if (!campo.value.trim()) {
+             campo.style.borderColor = '#ef4444';
+             campo.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+             valido = false;
+           } else {
+             campo.style.borderColor = '#d1d5db';
+             campo.style.boxShadow = 'none';
+           }
+         });
+         
+         if (!valido) {
+           alert('Por favor, preencha todos os campos obrigatórios marcados com *');
+         }
+         
+         return valido;
+       }
+       
+       // Função para mostrar resumo dos dados
+       function mostrarResumo() {
+         const resumoContainer = document.getElementById('resumo-cadastro');
+         const formData = new FormData(document.getElementById('form-cadastro'));
+         
+         let resumoHTML = '';
+         
+         // Mapear campos para labels legíveis
+         const camposResumo = {
+           'nome': 'Nome completo',
+           'nascimento': 'Data de nascimento',
+           'cpf': 'CPF',
+           'cidade': 'Cidade',
+           'estado': 'Estado',
+           'areaPrincipal': 'Área principal',
+           'anosExperiencia': 'Anos de experiência',
+           'escolaridade': 'Escolaridade',
+           'objetivo': 'Objetivo profissional',
+           'modalidade': 'Modalidade de trabalho',
+           'email': 'E-mail',
+           'whatsapp': 'WhatsApp',
+           'disponibilidade': 'Disponibilidade para começar'
+         };
+         
+         formData.forEach((valor, campo) => {
+           if (camposResumo[campo] && valor.trim()) {
+             resumoHTML += `
+               <div class="summary-item">
+                 <span class="summary-label">${camposResumo[campo]}:</span>
+                 <span class="summary-value">${valor}</span>
+               </div>
+             `;
+           }
+         });
+         
+         // Adicionar skills selecionadas
+         const skillsSelecionadas = Array.from(document.querySelectorAll('input[name="skills[]"]:checked'))
+           .map(cb => cb.nextElementSibling.textContent);
+         
+         if (skillsSelecionadas.length > 0) {
+           resumoHTML += `
+             <div class="summary-item">
+               <span class="summary-label">Habilidades digitais:</span>
+               <span class="summary-value">${skillsSelecionadas.join(', ')}</span>
+             </div>
+           `;
+         }
+         
+         resumoContainer.innerHTML = resumoHTML;
+       }
 
       // Submit (substitua pelo seu endpoint – ex.: Formspree/Sheets)
       document.getElementById('form-cadastro')?.addEventListener('submit', (e)=>{
