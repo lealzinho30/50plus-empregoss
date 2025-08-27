@@ -5,50 +5,126 @@
 
 // Configuração centralizada de todas as imagens do site
 const IMAGE_PLACEHOLDERS = {
-    'hero': {
-        default: 'assets/images/hero-bg.jpg',
-        alternative: 'assets/images/hero-alternative.jpg',
-        description: 'Imagem de fundo da seção principal'
+    // ========== HERO SECTION ==========
+    hero: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=1200&fit=crop&crop=face",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&h=1200&fit=crop&crop=face",
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=1200&fit=crop&crop=face",
+            "assets/img/hero/professional-50plus.webp",
+            "assets/img/hero/confident-senior.webp"
+        ],
+        alt: "Profissional 50+ confiante e experiente",
+        description: "Imagem principal do Hero - profissional 50+ em ambiente de trabalho"
     },
-    'services': {
-        default: 'assets/images/services-bg.jpg',
-        alternative: 'assets/images/services-alternative.jpg',
-        description: 'Imagem da seção de serviços'
+
+    // ========== ABOUT SECTION ==========
+    about: {
+        default: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/about/team-meeting.webp",
+            "assets/img/about/collaboration.webp",
+            "assets/img/about/experienced-team.webp"
+        ],
+        alt: "Equipe de profissionais experientes em reunião",
+        description: "Imagem da seção Sobre - equipe colaborando"
     },
-    'vagas': {
-        default: 'assets/images/jobs-bg.jpg',
-        alternative: 'assets/images/jobs-alternative.jpg',
-        description: 'Imagem da seção de vagas'
+
+    // ========== SERVICES SECTION ==========
+    services: {
+        default: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&h=960&fit=crop",
+        alternatives: [
+            "assets/img/services/interview-process.webp",
+            "assets/img/services/career-guidance.webp",
+            "assets/img/services/professional-development.webp"
+        ],
+        alt: "Profissional 50+ em entrevista de emprego",
+        description: "Imagem da seção Como Funciona - processo de recolocação"
     },
-    'cursos': {
-        default: 'assets/images/training-bg.jpg',
-        alternative: 'assets/images/training-alternative.jpg',
-        description: 'Imagem da seção de cursos'
+
+    // ========== VAGAS SECTION ==========
+    vagas: {
+        default: "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=400",
+        alternatives: [
+            "assets/img/vagas/administrative.webp",
+            "assets/img/vagas/healthcare.webp",
+            "assets/img/vagas/logistics.webp",
+            "assets/img/vagas/sales.webp"
+        ],
+        alt: "Vagas em destaque para profissionais 50+",
+        description: "Imagens das vagas em destaque"
     },
-    'depoimentos': {
-        default: 'assets/images/testimonials-bg.jpg',
-        alternative: 'assets/images/testimonials-alternative.jpg',
-        description: 'Imagem da seção de depoimentos'
+
+    // ========== CURSOS SECTION ==========
+    cursos: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/cursos/online-learning.webp",
+            "assets/img/cursos/professional-development.webp"
+        ],
+        alt: "Profissional 50+ estudando e se atualizando",
+        description: "Imagem da seção Cursos e Atualização"
     },
-    'cta': {
-        default: 'assets/images/cta-bg.jpg',
-        alternative: 'assets/images/cta-alternative.jpg',
-        description: 'Imagem da seção de call-to-action'
+
+    // ========== DEPOIMENTOS SECTION ==========
+    depoimentos: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&crop=face",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop&crop=face",
+            "assets/img/depoimentos/testimonial-1.webp",
+            "assets/img/depoimentos/testimonial-2.webp"
+        ],
+        alt: "Depoimentos de profissionais 50+",
+        description: "Imagens dos depoimentos"
     },
-    'empresas': {
-        default: 'assets/images/companies-bg.jpg',
-        alternative: 'assets/images/companies-alternative.jpg',
-        description: 'Imagem da seção de empresas'
+
+    // ========== CTA SECTION ==========
+    cta: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=600&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=600&fit=crop",
+            "assets/img/cta/final-cta.webp"
+        ],
+        alt: "Chamada para ação final",
+        description: "Imagem de fundo do CTA final"
     },
-    'sobre': {
-        default: 'assets/images/about-bg.jpg',
-        alternative: 'assets/images/about-alternative.jpg',
-        description: 'Imagem da seção sobre'
+
+    // ========== EMPRESAS SECTION ==========
+    empresas: {
+        default: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/empresas/business-meeting.webp",
+            "assets/img/empresas/corporate-partnership.webp"
+        ],
+        alt: "Reunião de negócios com diversidade etária",
+        description: "Imagem da seção Para Empresas"
     },
-    'proposta': {
-        default: 'assets/images/value-prop-bg.jpg',
-        alternative: 'assets/images/value-prop-alternative.jpg',
-        description: 'Imagem da seção de proposta de valor'
+
+    // ========== CONECTANDO SECTION ==========
+    conectando: {
+        default: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/conectando/connection-bridge.webp",
+            "assets/img/conectando/opportunity.webp"
+        ],
+        alt: "Conectando experiência a oportunidades",
+        description: "Imagem da seção Conectando Experiência a Oportunidades"
+    },
+
+    // ========== MISSAO SECTION ==========
+    missao: {
+        default: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=960&fit=crop",
+        alternatives: [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
+            "assets/img/missao/purpose.webp",
+            "assets/img/missao/values.webp"
+        ],
+        alt: "Nossa missão e valores",
+        description: "Imagem da seção Nossa Missão"
     }
 };
 
@@ -119,15 +195,12 @@ function applyImageChange(section, src, alt) {
                 'img[src*="unsplash"]' // Fallback genérico
             ];
             break;
-        case 'sobre':
+        case 'about':
             selectors = [
                 '.about-image img',
                 '.about-us img',
                 '.about img',
-                'section.about-us img',
-                '.sobre-imagens img',
-                'section.sobre-imagens img',
-                'section#sobre img'
+                'section.about-us img'
             ];
             break;
         case 'services':
@@ -135,7 +208,6 @@ function applyImageChange(section, src, alt) {
                 '.feature-media img',
                 '.feature img',
                 '.services img',
-                'section.feature img',
                 'section.feature img'
             ];
             break;
@@ -146,9 +218,11 @@ function applyImageChange(section, src, alt) {
             break;
         case 'cursos':
             selectors = [
-                '.training img',
-                'section.training img',
-                'section#capacitacao img'
+                '.cursos img',
+                '.courses img',
+                '.feature img',
+                'section.cursos img',
+                'section.courses img'
             ];
             break;
         case 'depoimentos':
@@ -163,28 +237,32 @@ function applyImageChange(section, src, alt) {
             selectors = [
                 '.cta img',
                 '.final-cta img',
-                'section.cta-final img'
+                'section.cta img',
+                'section.final-cta img'
             ];
             break;
         case 'empresas':
             selectors = [
+                '.empresas img',
                 '.for-companies img',
-                'section.for-companies img',
-                'section#empresas img'
+                'section.empresas img',
+                'section.for-companies img'
             ];
             break;
-        case 'sobre':
+        case 'conectando':
             selectors = [
-                '.sobre-imagens img',
-                'section.sobre-imagens img',
-                'section#sobre img'
+                '.conectando img',
+                '.connecting img',
+                'section.conectando img',
+                'section.connecting img'
             ];
             break;
-        case 'proposta':
+        case 'missao':
             selectors = [
-                '.value-prop img',
-                'section.value-prop img',
-                'section#proposta img'
+                '.missao img',
+                '.mission img',
+                'section.missao img',
+                'section.mission img'
             ];
             break;
         default:
@@ -557,8 +635,42 @@ console.log('💡 Use ImageManager.listAvailableSections() para ver opções dis
 
 // Carregar imagens personalizadas automaticamente quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 DOM carregado, aguardando elementos estarem prontos...');
+    
+    // Aguardar um pouco mais para garantir que todos os elementos estejam prontos
     setTimeout(() => {
         console.log('🔄 Carregando imagens personalizadas automaticamente...');
+        
+        // Tentar carregar imagens múltiplas vezes para garantir
+        let attempts = 0;
+        const maxAttempts = 5;
+        
+        const attemptLoad = () => {
+            attempts++;
+            console.log(`🔄 Tentativa ${attempts} de carregar imagens...`);
+            
+            const success = loadCustomImages();
+            
+            if (success) {
+                console.log('✅ Imagens personalizadas carregadas com sucesso!');
+            } else if (attempts < maxAttempts) {
+                console.log(`⏳ Tentativa ${attempts} falhou, tentando novamente em 2 segundos...`);
+                setTimeout(attemptLoad, 2000);
+            } else {
+                console.log('❌ Falha ao carregar imagens após múltiplas tentativas');
+            }
+        };
+        
+        attemptLoad();
+    }, 2000); // Aumentado para 2 segundos
+});
+
+// Também tentar carregar quando a janela estiver completamente carregada
+window.addEventListener('load', function() {
+    console.log('🌐 Página completamente carregada, verificando imagens...');
+    
+    setTimeout(() => {
+        console.log('🔄 Verificação adicional de imagens personalizadas...');
         loadCustomImages();
     }, 1000);
 });

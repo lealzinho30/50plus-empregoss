@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Persistência - Sistema de Imagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 300px;
+            max-height: 200px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .controls {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        .localStorage-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste de Persistência - Sistema de Imagens</h1>
+    
+    <div class="test-section">
+        <h2>📁 Upload de Imagem</h2>
+        <div class="controls">
+            <input type="file" id="image-upload" accept="image/*" />
+            <button onclick="testUpload()">🔄 Testar Upload</button>
+            <button onclick="clearTest()">🗑️ Limpar Teste</button>
+        </div>
+        
+        <div class="image-container">
+            <img id="test-image" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbSBkZSB0ZXN0ZTwvdGV4dD48L3N2Zz4=" alt="Imagem de teste" />
+        </div>
+        
+        <div id="upload-status" class="status info">Aguardando upload de imagem...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>💾 Status do localStorage</h2>
+        <div class="controls">
+            <button onclick="checkLocalStorage()">🔍 Verificar localStorage</button>
+            <button onclick="clearLocalStorage()">🗑️ Limpar localStorage</button>
+            <button onclick="reloadPage()">🔄 Recarregar Página</button>
+        </div>
+        
+        <div id="localStorage-status" class="status info">Clique em "Verificar localStorage" para ver o status</div>
+        <div id="localStorage-content" class="localStorage-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>🎯 Teste de Persistência</h2>
+        <div class="controls">
+            <button onclick="testPersistence()">🧪 Testar Persistência</button>
+            <button onclick="simulateImageManager()">🎭 Simular ImageManager</button>
+        </div>
+        
+        <div id="persistence-status" class="status info">Clique em "Testar Persistência" para verificar</div>
+    </div>
+
+    <script>
+        // Simular o ImageManager para teste
+        const ImageManager = {
+            saveCustomImage: function(section, imageSrc, alt) {
+                try {
+                    const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+                    customImages[section] = {
+                        src: imageSrc,
+                        alt: alt,
+                        timestamp: Date.now()
+                    };
+                    localStorage.setItem('customImages', JSON.stringify(customImages));
+                    console.log(`💾 Imagem personalizada salva para seção "${section}"`);
+                    return true;
+                } catch (error) {
+                    console.error('❌ Erro ao salvar imagem:', error);
+                    return false;
+                }
+            },
+            
+            loadCustomImages: function() {
+                try {
+                    const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+                    console.log('📂 Imagens personalizadas carregadas:', Object.keys(customImages));
+                    
+                    Object.keys(customImages).forEach(section => {
+                        const customImage = customImages[section];
+                        if (customImage && customImage.src) {
+                            console.log(`🔄 Aplicando imagem personalizada para "${section}"`);
+                            // Aplicar a imagem na página de teste
+                            if (section === 'test') {
+                                document.getElementById('test-image').src = customImage.src;
+                                document.getElementById('upload-status').innerHTML = '✅ Imagem restaurada do localStorage!';
+                                document.getElementById('upload-status').className = 'status success';
+                            }
+                        }
+                    });
+                    
+                    return true;
+                } catch (error) {
+                    console.error('❌ Erro ao carregar imagens personalizadas:', error);
+                    return false;
+                }
+            }
+        };
+
+        // Função para testar upload
+        function testUpload() {
+            const fileInput = document.getElementById('image-upload');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                document.getElementById('upload-status').innerHTML = '❌ Nenhum arquivo selecionado';
+                document.getElementById('upload-status').className = 'status error';
+                return;
+            }
+            
+            if (!file.type.startsWith('image/')) {
+                document.getElementById('upload-status').innerHTML = '❌ Arquivo não é uma imagem';
+                document.getElementById('upload-status').className = 'status error';
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageData = e.target.result;
+                
+                // Aplicar a imagem
+                document.getElementById('test-image').src = imageData;
+                
+                // Salvar no localStorage usando ImageManager
+                const success = ImageManager.saveCustomImage('test', imageData, 'Imagem de teste');
+                
+                if (success) {
+                    document.getElementById('upload-status').innerHTML = '✅ Imagem aplicada e salva no localStorage!';
+                    document.getElementById('upload-status').className = 'status success';
+                } else {
+                    document.getElementById('upload-status').innerHTML = '❌ Erro ao salvar no localStorage';
+                    document.getElementById('upload-status').className = 'status error';
+                }
+                
+                // Atualizar status do localStorage
+                checkLocalStorage();
+            };
+            
+            reader.readAsDataURL(file);
+        }
+
+        // Função para verificar localStorage
+        function checkLocalStorage() {
+            try {
+                const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+                const keys = Object.keys(customImages);
+                
+                if (keys.length === 0) {
+                    document.getElementById('localStorage-status').innerHTML = '📭 localStorage vazio - nenhuma imagem salva';
+                    document.getElementById('localStorage-status').className = 'status info';
+                    document.getElementById('localStorage-content').innerHTML = '{}';
+                } else {
+                    document.getElementById('localStorage-status').innerHTML = `✅ localStorage contém ${keys.length} imagem(ns) salva(s)`;
+                    document.getElementById('localStorage-status').className = 'status success';
+                    document.getElementById('localStorage-content').innerHTML = JSON.stringify(customImages, null, 2);
+                }
+            } catch (error) {
+                document.getElementById('localStorage-status').innerHTML = '❌ Erro ao verificar localStorage';
+                document.getElementById('localStorage-status').className = 'status error';
+                document.getElementById('localStorage-content').innerHTML = 'Erro: ' + error.message;
+            }
+        }
+
+        // Função para limpar localStorage
+        function clearLocalStorage() {
+            if (confirm('Tem certeza que deseja limpar o localStorage?')) {
+                localStorage.removeItem('customImages');
+                document.getElementById('test-image').src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbSBkZSB0ZXN0ZTwvdGV4dD48L3N2Zz4=';
+                document.getElementById('upload-status').innerHTML = '🗑️ localStorage limpo e imagem resetada';
+                document.getElementById('upload-status').className = 'status info';
+                checkLocalStorage();
+            }
+        }
+
+        // Função para limpar teste
+        function clearTest() {
+            document.getElementById('image-upload').value = '';
+            document.getElementById('test-image').src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbSBkZSB0ZXN0ZTwvdGV4dD48L3N2Zz4=';
+            document.getElementById('upload-status').innerHTML = '🧹 Teste limpo';
+            document.getElementById('upload-status').className = 'status info';
+        }
+
+        // Função para recarregar página
+        function reloadPage() {
+            if (confirm('Tem certeza que deseja recarregar a página? Isso testará a persistência das imagens.')) {
+                location.reload();
+            }
+        }
+
+        // Função para testar persistência
+        function testPersistence() {
+            const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+            const keys = Object.keys(customImages);
+            
+            if (keys.length === 0) {
+                document.getElementById('persistence-status').innerHTML = '❌ Nenhuma imagem para testar persistência';
+                document.getElementById('persistence-status').className = 'status error';
+                return;
+            }
+            
+            document.getElementById('persistence-status').innerHTML = `🧪 Teste de persistência: ${keys.length} imagem(ns) encontrada(s) no localStorage`;
+            document.getElementById('persistence-status').className = 'status success';
+            
+            // Simular carregamento de imagens salvas
+            ImageManager.loadCustomImages();
+        }
+
+        // Função para simular ImageManager
+        function simulateImageManager() {
+            document.getElementById('persistence-status').innerHTML = '🎭 ImageManager simulado - funções disponíveis: saveCustomImage, loadCustomImages';
+            document.getElementById('persistence-status').className = 'status info';
+        }
+
+        // Inicialização automática
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 Página de teste carregada');
+            
+            // Verificar localStorage automaticamente
+            setTimeout(() => {
+                checkLocalStorage();
+                
+                // Tentar carregar imagens salvas automaticamente
+                ImageManager.loadCustomImages();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
