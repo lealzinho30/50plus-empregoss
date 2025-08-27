@@ -58,38 +58,32 @@
       .btn-ghost{background:transparent; color:var(--white); border-color:rgba(255,255,255,.35)}
       .btn-ghost:hover{background:rgba(255,255,255,.08)}
       
-      /* BOTÕES ESPECÍFICOS - NÃO SOBRESCRITOS PELO MODAL */
-      .hero .btn,
-      .hero-cta .btn,
-      .cta-final .btn,
-      .nav-buttons .btn {
-        background:var(--white) !important;
-        color:var(--blue-900) !important;
-        border-color:var(--white) !important;
-        box-shadow:0 8px 22px rgba(0,0,0,.25) !important;
-      }
-      
-      .hero .btn:hover,
-      .hero-cta .btn:hover,
-      .cta-final .btn:hover,
-      .nav-buttons .btn:hover {
-        filter:brightness(.95) !important;
-        transform:translateY(-1px) !important;
-      }
-      
-      .hero .btn-ghost,
-      .hero-cta .btn-ghost {
-        background:transparent !important;
-        color:var(--white) !important;
-        border-color:rgba(255,255,255,.35) !important;
-        box-shadow:none !important;
-      }
-      
-      .hero .btn-ghost:hover,
-      .hero-cta .btn-ghost:hover {
-        background:rgba(255,255,255,.08) !important;
-        transform:translateY(-1px) !important;
-      }
+             /* BOTÕES ESPECÍFICOS - NÃO SOBRESCRITOS PELO MODAL */
+       /* APENAS o botão da navegação (header) */
+       .nav-buttons .btn-primary {
+         background:var(--white) !important;
+         color:var(--blue-900) !important;
+         border-color:var(--white) !important;
+         box-shadow:0 8px 22px rgba(0,0,0,.25) !important;
+       }
+       
+       .nav-buttons .btn-primary:hover {
+         filter:brightness(.95) !important;
+         transform:translateY(-1px) !important;
+       }
+       
+       /* Botões do CTA final */
+       .cta-final .btn-primary {
+         background:var(--white) !important;
+         color:var(--blue-900) !important;
+         border-color:var(--white) !important;
+         box-shadow:0 8px 22px rgba(0,0,0,.25) !important;
+       }
+       
+       .cta-final .btn-primary:hover {
+         filter:brightness(.95) !important;
+         transform:translateY(-1px) !important;
+       }
 
       .hero-media{position:relative}
       .hero-media img{width:100%; max-width:520px; display:block; border-radius:24px; box-shadow:0 12px 32px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.18)}
