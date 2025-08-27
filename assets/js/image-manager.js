@@ -18,8 +18,8 @@ const IMAGE_PLACEHOLDERS = {
         description: "Imagem principal do Hero - profissional 50+ em ambiente de trabalho"
     },
 
-    // ========== ABOUT SECTION ==========
-    about: {
+    // ========== SOBRE SECTION ==========
+    sobre: {
         default: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=960&fit=crop",
         alternatives: [
             "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=960&fit=crop",
@@ -132,7 +132,7 @@ const IMAGE_PLACEHOLDERS = {
 
 /**
  * 🔄 Troca imagem de uma seção específica
- * @param {string} section - Nome da seção (hero, about, services, vagas)
+ * @param {string} section - Nome da seção (hero, sobre, services, vagas)
  * @param {string} imageType - 'default' ou 'alternative' ou URL específica
  * @param {number} alternativeIndex - Índice da alternativa (0, 1, 2...)
  */
@@ -195,12 +195,13 @@ function applyImageChange(section, src, alt) {
                 'img[src*="unsplash"]' // Fallback genérico
             ];
             break;
-        case 'about':
+        case 'sobre':
             selectors = [
-                '.about-image img',
+                '.sobre-imagens img',
                 '.about-us img',
                 '.about img',
-                'section.about-us img'
+                'section.sobre-imagens img',
+                'section#sobre img'
             ];
             break;
         case 'services':
@@ -635,42 +636,8 @@ console.log('💡 Use ImageManager.listAvailableSections() para ver opções dis
 
 // Carregar imagens personalizadas automaticamente quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 DOM carregado, aguardando elementos estarem prontos...');
-    
-    // Aguardar um pouco mais para garantir que todos os elementos estejam prontos
     setTimeout(() => {
         console.log('🔄 Carregando imagens personalizadas automaticamente...');
-        
-        // Tentar carregar imagens múltiplas vezes para garantir
-        let attempts = 0;
-        const maxAttempts = 5;
-        
-        const attemptLoad = () => {
-            attempts++;
-            console.log(`🔄 Tentativa ${attempts} de carregar imagens...`);
-            
-            const success = loadCustomImages();
-            
-            if (success) {
-                console.log('✅ Imagens personalizadas carregadas com sucesso!');
-            } else if (attempts < maxAttempts) {
-                console.log(`⏳ Tentativa ${attempts} falhou, tentando novamente em 2 segundos...`);
-                setTimeout(attemptLoad, 2000);
-            } else {
-                console.log('❌ Falha ao carregar imagens após múltiplas tentativas');
-            }
-        };
-        
-        attemptLoad();
-    }, 2000); // Aumentado para 2 segundos
-});
-
-// Também tentar carregar quando a janela estiver completamente carregada
-window.addEventListener('load', function() {
-    console.log('🌐 Página completamente carregada, verificando imagens...');
-    
-    setTimeout(() => {
-        console.log('🔄 Verificação adicional de imagens personalizadas...');
         loadCustomImages();
     }, 1000);
 });
