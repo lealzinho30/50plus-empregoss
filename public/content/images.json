@@ -179,14 +179,5 @@
     "section": "sobre",
     "description": "Nova imagem adicionada na seção Sobre"
   },
-  {
-    "id": "servicos-nova-imagem",
-    "src": "./assets/img/servicos/nova-imagem-servicos-2025.png",
-    "alt": "Nova imagem da seção Serviços - atendimento 50+",
-    "width": 600,
-    "height": 400,
-    "loading": "lazy",
-    "section": "servicos",
-    "description": "Nova imagem adicionada na seção Serviços"
-  }
+
 ]

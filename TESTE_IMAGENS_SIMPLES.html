@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Simples - Imagens 50+ Empregos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+        }
+        .image-test img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Teste Simples - Carregamento de Imagens</h1>
+        
+        <div class="status info">
+            <strong>ℹ️ Status:</strong> Testando carregamento das novas imagens...
+        </div>
+
+        <h2>📸 Teste 1: Imagem da Seção "Sobre"</h2>
+        <div class="image-test">
+            <h3>Imagem: nova-imagem-sobre-2025.png</h3>
+            <img src="./public/assets/img/sobre/nova-imagem-sobre-2025.png" 
+                 alt="Teste - Nova imagem da seção Sobre" 
+                 onload="this.parentNode.innerHTML += '<div class=\'status success\'>✅ Imagem carregada com sucesso!</div>'"
+                 onerror="this.parentNode.innerHTML += '<div class=\'status error\'>❌ Erro ao carregar imagem</div>'">
+            <div class="status info">🔄 Carregando...</div>
+        </div>
+
+        <h2>📸 Teste 2: Imagem da Seção "Serviços"</h2>
+        <div class="image-test">
+            <h3>Imagem: nova-imagem-servicos-2025.png</h3>
+            <img src="./public/assets/img/servicos/nova-imagem-servicos-2025.png" 
+                 alt="Teste - Nova imagem da seção Serviços" 
+                 onload="this.parentNode.innerHTML += '<div class=\'status success\'>✅ Imagem carregada com sucesso!</div>'"
+                 onerror="this.parentNode.innerHTML += '<div class=\'status error\'>❌ Erro ao carregar imagem</div>'">
+            <div class="status info">🔄 Carregando...</div>
+        </div>
+
+        <h2>🔍 Informações Técnicas</h2>
+        <div class="status info">
+            <strong>📁 Caminho das imagens:</strong><br>
+            • Sobre: <code>./public/assets/img/sobre/nova-imagem-sobre-2025.png</code><br>
+            • Serviços: <code>./public/assets/img/servicos/nova-imagem-servicos-2025.png</code>
+        </div>
+
+        <div class="status info">
+            <strong>📊 Tamanhos dos arquivos:</strong><br>
+            • Sobre: 2.4MB (normal)<br>
+            • Serviços: 489B (⚠️ muito pequeno - pode ser corrompido)
+        </div>
+
+        <h2>🚨 Possíveis Problemas</h2>
+        <ul>
+            <li><strong>Imagem de serviços corrompida:</strong> 489B é muito pequeno para uma imagem PNG</li>
+            <li><strong>Cache do navegador:</strong> Pode estar mostrando versão antiga</li>
+            <li><strong>GitHub Pages:</strong> Pode não ter atualizado ainda</li>
+            <li><strong>Path incorreto:</strong> Verificar se o caminho está correto</li>
+        </ul>
+
+        <h2>🔧 Soluções</h2>
+        <ol>
+            <li><strong>Recarregar página:</strong> Ctrl + F5 (força recarregamento)</li>
+            <li><strong>Verificar console:</strong> F12 → Console para ver erros</li>
+            <li><strong>Aguardar GitHub Pages:</strong> Pode levar 5-10 minutos</li>
+            <li><strong>Reenviar imagem de serviços:</strong> A atual está corrompida</li>
+        </ol>
+    </div>
+
+    <script>
+        // Log de informações para debug
+        console.log('🧪 Teste de imagens iniciado');
+        console.log('📁 Caminho atual:', window.location.href);
+        console.log('🔍 Verificando carregamento das imagens...');
+        
+        // Verificar se as imagens existem
+        fetch('./public/assets/img/sobre/nova-imagem-sobre-2025.png')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ Imagem sobre carregada via fetch');
+                } else {
+                    console.error('❌ Erro ao carregar imagem sobre:', response.status);
+                }
+            })
+            .catch(error => console.error('❌ Erro fetch imagem sobre:', error));
+            
+        fetch('./public/assets/img/servicos/nova-imagem-servicos-2025.png')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ Imagem serviços carregada via fetch');
+                } else {
+                    console.error('❌ Erro ao carregar imagem serviços:', response.status);
+                }
+            })
+            .catch(error => console.error('❌ Erro fetch imagem serviços:', error));
+    </script>
+</body>
+</html>
