@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Upload - 50+ Empregos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #1B4B84;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #133A65;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .image-preview {
+            max-width: 200px;
+            max-height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste do Sistema de Upload - 50+ Empregos</h1>
+    
+    <div class="test-section">
+        <h2>1. Verificação de Dependências</h2>
+        <button class="test-button" onclick="checkDependencies()">Verificar Dependências</button>
+        <div id="dependencies-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Teste de Upload de Imagem</h2>
+        <input type="file" id="test-image" accept="image/*" onchange="previewImage(event)">
+        <div id="image-preview-container"></div>
+        <button class="test-button" onclick="testImageUpload()">Testar Upload</button>
+        <div id="upload-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Teste de Persistência</h2>
+        <button class="test-button" onclick="testPersistence()">Testar Persistência</button>
+        <div id="persistence-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Teste de Aplicação em Vagas</h2>
+        <button class="test-button" onclick="testJobImageUpdate()">Testar Atualização de Vaga</button>
+        <div id="job-update-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Logs do Sistema</h2>
+        <button class="test-button" onclick="clearLogs()">Limpar Logs</button>
+        <div id="system-logs" style="background: #f8f9fa; padding: 10px; border-radius: 4px; max-height: 300px; overflow-y: auto; font-family: monospace; font-size: 12px;"></div>
+    </div>
+
+    <script>
+        let testImageData = null;
+        
+        // Interceptar console.log para mostrar no painel
+        const originalLog = console.log;
+        const originalError = console.error;
+        
+        function addLog(message, type = 'info') {
+            const logsContainer = document.getElementById('system-logs');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `<span style="color: #666;">[${timestamp}]</span> ${message}`;
+            logsContainer.appendChild(logEntry);
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addLog(args.join(' '), 'info');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addLog(`❌ ${args.join(' ')}`, 'error');
+        };
+        
+        function showStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+        
+        function checkDependencies() {
+            const status = document.getElementById('dependencies-status');
+            let html = '<div class="status info">Verificando dependências...</div>';
+            status.innerHTML = html;
+            
+            const checks = [
+                { name: 'ImageManager', check: () => typeof ImageManager !== 'undefined' },
+                { name: 'updateJobImage', check: () => typeof updateJobImage !== 'undefined' },
+                { name: 'forceRerenderJobs', check: () => typeof forceRerenderJobs !== 'undefined' },
+                { name: 'localStorage', check: () => typeof localStorage !== 'undefined' }
+            ];
+            
+            let allGood = true;
+            const results = [];
+            
+            checks.forEach(check => {
+                const available = check.check();
+                if (available) {
+                    results.push(`✅ ${check.name}: Disponível`);
+                } else {
+                    results.push(`❌ ${check.name}: Não disponível`);
+                    allGood = false;
+                }
+            });
+            
+            const type = allGood ? 'success' : 'error';
+            const message = allGood ? 'Todas as dependências estão disponíveis!' : 'Algumas dependências estão faltando!';
+            
+            html = `
+                <div class="status ${type}">${message}</div>
+                <div style="margin-top: 10px;">
+                    ${results.join('<br>')}
+                </div>
+            `;
+            
+            status.innerHTML = html;
+        }
+        
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    testImageData = e.target.result;
+                    const container = document.getElementById('image-preview-container');
+                    container.innerHTML = `
+                        <img src="${testImageData}" alt="Preview" class="image-preview">
+                        <p>Imagem carregada: ${file.name} (${(file.size / 1024).toFixed(1)} KB)</p>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function testImageUpload() {
+            if (!testImageData) {
+                showStatus('upload-status', '❌ Nenhuma imagem selecionada!', 'error');
+                return;
+            }
+            
+            showStatus('upload-status', '🔄 Testando upload...', 'info');
+            
+            try {
+                // Testar salvamento no localStorage
+                const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+                customImages['test_upload'] = {
+                    src: testImageData,
+                    alt: 'Imagem de teste',
+                    timestamp: Date.now()
+                };
+                localStorage.setItem('customImages', JSON.stringify(customImages));
+                
+                showStatus('upload-status', '✅ Upload testado com sucesso! Imagem salva no localStorage.', 'success');
+                console.log('✅ Teste de upload concluído com sucesso!');
+                
+            } catch (error) {
+                showStatus('upload-status', `❌ Erro no teste: ${error.message}`, 'error');
+                console.error('❌ Erro no teste de upload:', error);
+            }
+        }
+        
+        function testPersistence() {
+            showStatus('persistence-status', '🔄 Testando persistência...', 'info');
+            
+            try {
+                const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+                const testImage = customImages['test_upload'];
+                
+                if (testImage && testImage.src) {
+                    showStatus('persistence-status', '✅ Persistência funcionando! Imagem recuperada do localStorage.', 'success');
+                    console.log('✅ Teste de persistência bem-sucedido!');
+                } else {
+                    showStatus('persistence-status', '❌ Falha na persistência! Imagem não encontrada.', 'error');
+                    console.error('❌ Falha no teste de persistência');
+                }
+                
+            } catch (error) {
+                showStatus('persistence-status', `❌ Erro no teste: ${error.message}`, 'error');
+                console.error('❌ Erro no teste de persistência:', error);
+            }
+        }
+        
+        function testJobImageUpdate() {
+            if (!testImageData) {
+                showStatus('job-update-status', '❌ Nenhuma imagem selecionada!', 'error');
+                return;
+            }
+            
+            showStatus('job-update-status', '🔄 Testando atualização de vaga...', 'info');
+            
+            try {
+                if (typeof updateJobImage === 'function') {
+                    // Simular uma vaga de teste
+                    const success = updateJobImage('Vaga de Teste', testImageData);
+                    
+                    if (success) {
+                        showStatus('job-update-status', '✅ Atualização de vaga funcionando!', 'success');
+                        console.log('✅ Teste de atualização de vaga bem-sucedido!');
+                    } else {
+                        showStatus('job-update-status', '❌ Falha na atualização da vaga', 'error');
+                        console.error('❌ Falha no teste de atualização de vaga');
+                    }
+                } else {
+                    showStatus('job-update-status', '❌ Função updateJobImage não disponível', 'error');
+                    console.error('❌ Função updateJobImage não encontrada');
+                }
+                
+            } catch (error) {
+                showStatus('job-update-status', `❌ Erro no teste: ${error.message}`, 'error');
+                console.error('❌ Erro no teste de atualização de vaga:', error);
+            }
+        }
+        
+        function clearLogs() {
+            document.getElementById('system-logs').innerHTML = '';
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 Sistema de teste inicializado!');
+            console.log('📋 Use os botões acima para testar as funcionalidades');
+        });
+    </script>
+</body>
+</html>

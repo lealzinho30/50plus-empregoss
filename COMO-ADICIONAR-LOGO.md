@@ -48,3 +48,5 @@
 - Sem interpretação ou recriação
 - Cores fiéis ao original
 - Funciona perfeitamente no GitHub Pages
+
+

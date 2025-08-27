@@ -543,6 +543,8 @@ function loadCustomImages() {
         const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
         console.log('📂 Imagens personalizadas carregadas:', Object.keys(customImages));
         
+        let loadedCount = 0;
+        
         Object.keys(customImages).forEach(section => {
             const customImage = customImages[section];
             if (customImage && customImage.src) {
@@ -550,14 +552,34 @@ function loadCustomImages() {
                     // É uma imagem de vaga específica
                     const jobTitle = customImage.jobTitle;
                     console.log(`🔄 Aplicando imagem personalizada para vaga "${jobTitle}"`);
-                    updateSpecificJobImage(jobTitle, customImage.src);
+                    
+                    // Tentar usar a função do main.js se disponível
+                    if (typeof updateJobImage === 'function') {
+                        updateJobImage(jobTitle, customImage.src);
+                        loadedCount++;
+                    } else {
+                        // Fallback: aplicar diretamente
+                        const success = updateSpecificJobImage(jobTitle, customImage.src);
+                        if (success) loadedCount++;
+                    }
                 } else {
                     // É uma imagem de seção normal
                     console.log(`🔄 Aplicando imagem personalizada para "${section}"`);
-                    applyImageChange(section, customImage.src, customImage.alt);
+                    const success = applyImageChange(section, customImage.src, customImage.alt);
+                    if (success) loadedCount++;
                 }
             }
         });
+        
+        console.log(`✅ ${loadedCount} imagens personalizadas carregadas com sucesso!`);
+        
+        // Forçar re-renderização das vagas se necessário
+        if (typeof forceRerenderJobs === 'function') {
+            setTimeout(() => {
+                console.log('🔄 Forçando re-renderização das vagas após carregar imagens personalizadas...');
+                forceRerenderJobs();
+            }, 500);
+        }
         
         return true;
     } catch (error) {

@@ -252,24 +252,41 @@ function getSectorIcon(area) {
     return iconMap[area] || 'icons/administrativo.svg';
 }
 
-// Função para criar card de vaga melhorado - Com ícones setoriais
+// Função para criar card de vaga melhorado - Com ícones setoriais e suporte melhorado a imagens personalizadas
 function createJobCard(job) {
     const modeClass = job.mode.toLowerCase().replace('í', 'i'); // presencial, hibrido, remoto
     const sectorIcon = getSectorIcon(job.area);
     
+    // Verificar se existe imagem personalizada para esta vaga
+    let jobImage = job.image;
+    let imageAlt = job.title;
+    
+    try {
+        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        const customImageKey = `vaga_${job.title}`;
+        
+        if (customImages[customImageKey] && customImages[customImageKey].src) {
+            jobImage = customImages[customImageKey].src;
+            imageAlt = customImages[customImageKey].alt || job.title;
+            console.log(`🔄 Usando imagem personalizada para "${job.title}":`, jobImage.substring(0, 50) + '...');
+        }
+    } catch (error) {
+        console.error('❌ Erro ao carregar imagem personalizada:', error);
+    }
+    
     return `
-        <div class="job-card" data-area="${job.area}" data-mode="${job.mode}" data-state="${job.state}">
-                    <div class="job-image">
-            <div class="job-sector-icon">
-                ${job.image ? 
-                    `<img src="${job.image}" alt="${job.title}" class="job-custom-image" loading="lazy">` : 
-                    `<img src="${sectorIcon}" alt="${job.area}" class="sector-icon" loading="lazy">`
-                }
+        <div class="job-card" data-area="${job.area}" data-mode="${job.mode}" data-state="${job.state}" data-job-id="${job.id}">
+            <div class="job-image">
+                <div class="job-sector-icon">
+                    ${jobImage ? 
+                        `<img src="${jobImage}" alt="${imageAlt}" class="job-custom-image" loading="lazy" onerror="this.onerror=null; this.src='${sectorIcon}'; this.className='sector-icon'; console.log('❌ Falha ao carregar imagem personalizada, usando ícone padrão');">` : 
+                        `<img src="${sectorIcon}" alt="${job.area}" class="sector-icon" loading="lazy">`
+                    }
+                </div>
+                <div class="job-image-overlay">
+                    <span class="job-mode ${modeClass}">${job.mode}</span>
+                </div>
             </div>
-            <div class="job-image-overlay">
-                <span class="job-mode ${modeClass}">${job.mode}</span>
-            </div>
-        </div>
             
             <div class="job-content">
                 <div class="job-header">
