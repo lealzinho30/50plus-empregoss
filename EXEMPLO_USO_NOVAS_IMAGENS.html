@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Uso - Novas Imagens 50+ Empregos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .image-example {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        .image-example img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        h1 {
+            color: #143C6B;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #F5B700;
+            border-bottom: 2px solid #F5B700;
+            padding-bottom: 10px;
+        }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Exemplo de Uso - Novas Imagens 50+ Empregos</h1>
+        
+        <div class="info-box">
+            <strong>ℹ️ Informação:</strong> Este arquivo mostra como usar as novas imagens que foram adicionadas ao sistema.
+            As imagens estão configuradas no <code>images.json</code> e podem ser usadas via <code>ImageRegistry</code>.
+        </div>
+
+        <h2>🆕 Nova Imagem da Seção "Sobre"</h2>
+        <div class="image-example">
+            <h3>Imagem: sobre-nova-imagem</h3>
+            <img src="./public/assets/img/sobre/nova-imagem-sobre-2025.png" 
+                 alt="Nova imagem da seção Sobre - profissionais 50+" 
+                 width="800" height="600">
+            
+            <h4>📝 Como usar no HTML:</h4>
+            <div class="code-example">
+&lt;img data-image-id="sobre-nova-imagem" 
+     alt="Nova imagem da seção Sobre"&gt;
+            </div>
+            
+            <h4>🔧 Configuração no images.json:</h4>
+            <div class="code-example">
+{
+  "id": "sobre-nova-imagem",
+  "src": "./assets/img/sobre/nova-imagem-sobre-2025.png",
+  "alt": "Nova imagem da seção Sobre - profissionais 50+",
+  "width": 800,
+  "height": 600,
+  "loading": "lazy",
+  "section": "sobre",
+  "description": "Nova imagem adicionada na seção Sobre"
+}
+            </div>
+        </div>
+
+        <h2>🆕 Nova Imagem da Seção "Serviços"</h2>
+        <div class="image-example">
+            <h3>Imagem: servicos-nova-imagem</h3>
+            <img src="./public/assets/img/servicos/nova-imagem-servicos-2025.png" 
+                 alt="Nova imagem da seção Serviços - atendimento 50+" 
+                 width="600" height="400">
+            
+            <h4>📝 Como usar no HTML:</h4>
+            <div class="code-example">
+&lt;img data-image-id="servicos-nova-imagem" 
+     alt="Nova imagem da seção Serviços"&gt;
+            </div>
+            
+            <h4>🔧 Configuração no images.json:</h4>
+            <div class="code-example">
+{
+  "id": "servicos-nova-imagem",
+  "src": "./assets/img/servicos/nova-imagem-servicos-2025.png",
+  "alt": "Nova imagem da seção Serviços - atendimento 50+",
+  "width": 600,
+  "height": 400,
+  "loading": "lazy",
+  "section": "servicos",
+  "description": "Nova imagem adicionada na seção Serviços"
+}
+            </div>
+        </div>
+
+        <h2>🚀 Como Implementar no Site</h2>
+        
+        <h3>1️⃣ Adicionar no HTML:</h3>
+        <div class="code-example">
+&lt;!-- Seção Sobre --&gt;
+&lt;div class="sobre-nova-secao"&gt;
+    &lt;img data-image-id="sobre-nova-imagem" 
+         alt="Nova imagem da seção Sobre"&gt;
+&lt;/div&gt;
+
+&lt;!-- Seção Serviços --&gt;
+&lt;div class="servicos-nova-secao"&gt;
+    &lt;img data-image-id="servicos-nova-imagem" 
+         alt="Nova imagem da seção Serviços"&gt;
+&lt;/div&gt;
+        </div>
+
+        <h3>2️⃣ O ImageRegistry automaticamente:</h3>
+        <ul>
+            <li>✅ Carrega as imagens do <code>images.json</code></li>
+            <li>✅ Aplica os atributos <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code></li>
+            <li>✅ Configura <code>loading="lazy"</code> para performance</li>
+            <li>✅ Gerencia o cache e versionamento</li>
+        </ul>
+
+        <h3>3️⃣ Para adicionar mais imagens:</h3>
+        <ol>
+            <li>📁 Coloque a imagem em <code>public/assets/img/[secao]/</code></li>
+            <li>📝 Adicione no <code>public/content/images.json</code></li>
+            <li>🔧 Use <code>data-image-id="[id-da-imagem]"</code> no HTML</li>
+            <li>🚀 Faça commit e push para o GitHub</li>
+        </ol>
+
+        <div class="info-box">
+            <strong>💡 Dica:</strong> As imagens são automaticamente otimizadas e gerenciadas pelo sistema.
+            Não é necessário editar HTML manualmente - apenas use o <code>data-image-id</code>!
+        </div>
+    </div>
+</body>
+</html>
