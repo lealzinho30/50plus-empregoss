@@ -60,8 +60,8 @@
 
         <h2>📸 Teste 2: Imagem da Seção "Serviços"</h2>
         <div class="image-test">
-            <h3>Imagem: nova-imagem-servicos-2025.png</h3>
-            <img src="./public/assets/img/servicos/nova-imagem-servicos-2025.png" 
+            <h3>Imagem: imagensserviços.png</h3>
+            <img src="./public/assets/img/servicos/imagensserviços.png" 
                  alt="Teste - Nova imagem da seção Serviços" 
                  onload="this.parentNode.innerHTML += '<div class=\'status success\'>✅ Imagem carregada com sucesso!</div>'"
                  onerror="this.parentNode.innerHTML += '<div class=\'status error\'>❌ Erro ao carregar imagem</div>'">
@@ -72,21 +72,21 @@
         <div class="status info">
             <strong>📁 Caminho das imagens:</strong><br>
             • Sobre: <code>./public/assets/img/sobre/nova-imagem-sobre-2025.png</code><br>
-            • Serviços: <code>./public/assets/img/servicos/nova-imagem-servicos-2025.png</code>
+            • Serviços: <code>./public/assets/img/servicos/imagensserviços.png</code>
         </div>
 
         <div class="status info">
             <strong>📊 Tamanhos dos arquivos:</strong><br>
             • Sobre: 2.4MB (normal)<br>
-            • Serviços: 489B (⚠️ muito pequeno - pode ser corrompido)
+            • Serviços: 2.4MB (✅ normal)
         </div>
 
-        <h2>🚨 Possíveis Problemas</h2>
+        <h2>✅ Status das Imagens</h2>
         <ul>
-            <li><strong>Imagem de serviços corrompida:</strong> 489B é muito pequeno para uma imagem PNG</li>
+            <li><strong>Imagem Sobre:</strong> ✅ 2.4MB - Funcionando normalmente</li>
+            <li><strong>Imagem Serviços:</strong> ✅ 2.4MB - Funcionando normalmente</li>
             <li><strong>Cache do navegador:</strong> Pode estar mostrando versão antiga</li>
             <li><strong>GitHub Pages:</strong> Pode não ter atualizado ainda</li>
-            <li><strong>Path incorreto:</strong> Verificar se o caminho está correto</li>
         </ul>
 
         <h2>🔧 Soluções</h2>
@@ -94,7 +94,6 @@
             <li><strong>Recarregar página:</strong> Ctrl + F5 (força recarregamento)</li>
             <li><strong>Verificar console:</strong> F12 → Console para ver erros</li>
             <li><strong>Aguardar GitHub Pages:</strong> Pode levar 5-10 minutos</li>
-            <li><strong>Reenviar imagem de serviços:</strong> A atual está corrompida</li>
         </ol>
     </div>
 
@@ -115,7 +114,7 @@
             })
             .catch(error => console.error('❌ Erro fetch imagem sobre:', error));
             
-        fetch('./public/assets/img/servicos/nova-imagem-servicos-2025.png')
+        fetch('./public/assets/img/servicos/imagensserviços.png')
             .then(response => {
                 if (response.ok) {
                     console.log('✅ Imagem serviços carregada via fetch');
