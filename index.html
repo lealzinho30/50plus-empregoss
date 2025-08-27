@@ -157,12 +157,12 @@
       }
 
       /* CHAT DE SUPORTE */
-      .chat-widget{position:fixed; bottom:20px; right:20px; z-index:1000; font-family:'Inter',sans-serif}
+      .chat-widget{position:fixed; bottom:20px; left:20px; z-index:1000; font-family:'Inter',sans-serif}
       .chat-toggle{background:var(--gold-500); color:white; padding:12px 16px; border-radius:25px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.15); display:flex; align-items:center; gap:8px; transition:all 0.3s ease}
       .chat-toggle:hover{background:var(--gold-600); transform:translateY(-2px)}
       .chat-icon{font-size:18px}
       .chat-text{font-weight:600; font-size:14px}
-      .chat-box{position:absolute; bottom:70px; right:0; width:320px; height:450px; background:white; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.15); display:none; flex-direction:column; overflow:hidden}
+      .chat-box{position:absolute; bottom:70px; left:0; width:350px; height:500px; background:white; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.15); display:none; flex-direction:column; overflow:hidden}
       .chat-header{background:var(--blue-900); color:white; padding:12px 16px; display:flex; justify-content:space-between; align-items:center}
       .chat-title{font-weight:600; font-size:14px}
       .chat-close{background:none; border:none; color:white; font-size:16px; cursor:pointer; padding:4px}
@@ -181,8 +181,8 @@
       .chat-input-area button{background:var(--blue-500); color:white; border:none; padding:8px 12px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center}
       
       @media (max-width: 480px){
-        .chat-widget{bottom:10px; right:10px}
-        .chat-box{width:280px; height:400px}
+        .chat-widget{bottom:10px; left:10px}
+        .chat-box{width:280px; height:400px; left:0}
         .chat-toggle{padding:10px 14px}
         .chat-text{display:none}
       }
@@ -792,12 +792,14 @@
         
         <div id="chat-messages" class="chat-messages">
           <div class="message assistant">
-            <div class="message-avatar">🤖</div>
+            <div class="message-avatar">🎯</div>
             <div class="message-content">
-              Olá! Sou seu assistente especializado em carreiras 50+. Como posso ajudar?
+              <strong>Bem-vindo ao 50+ Empregos!</strong><br>
+              Sou Ana, sua consultora virtual especializada em carreiras 50+. 
               <div class="quick-options">
-                <button class="quick-btn" onclick="sendQuickMessage('candidato')">👤 Sou Candidato</button>
-                <button class="quick-btn" onclick="sendQuickMessage('empresa')">🏢 Sou Empresa</button>
+                <button class="quick-btn" onclick="sendQuickMessage('candidato')">👤 Sou Candidato 50+</button>
+                <button class="quick-btn" onclick="sendQuickMessage('empresa')">🏢 Represento uma Empresa</button>
+                <button class="quick-btn" onclick="sendQuickMessage('duvidas')">❓ Dúvidas Gerais</button>
               </div>
             </div>
           </div>
@@ -1041,21 +1043,32 @@
           this.isOpen = false;
           this.chatResponses = {
             candidato: {
-              greeting: "Ótimo! Como candidato 50+, posso ajudar com:",
+              greeting: "Perfeito! Como especialista em recolocação 50+, vou te ajudar a conquistar a vaga ideal:",
               options: [
-                {text: "💼 Como cadastrar meu CV", response: "Para cadastrar seu CV, clique em 'Cadastrar CV' no site. Vamos analisar sua experiência e conectar com empresas que valorizam profissionais maduros."},
-                {text: "🎯 Que tipos de vagas vocês têm", response: "Temos vagas em diversas áreas: administrativo, vendas, atendimento, consultoria, gerência e muito mais. Nossa especialidade é conectar experiência com oportunidade!"},
-                {text: "⏰ Quanto tempo leva o processo", response: "O processo varia de 2-8 semanas. Incluímos: análise de perfil, otimização de currículo, matching com empresas e acompanhamento até a contratação."},
-                {text: "📞 Falar com consultor", response: "Perfeito! Clique no botão 'Falar com consultor' ou acesse: https://wa.me/5511999999999"}
+                {text: "💼 Como funciona o cadastro", response: "📋 CADASTRO SIMPLES:<br>1️⃣ Preencha o formulário com seus dados<br>2️⃣ Envie seu CV atualizado<br>3️⃣ Nossa equipe analisa seu perfil<br>4️⃣ Conectamos com empresas parceiras<br><br>💡 Dica: Destaque sua experiência e conquistas!"},
+                {text: "🎯 Vagas disponíveis para 50+", response: "🏢 OPORTUNIDADES ATUAIS:<br>• Gerência e Supervisão<br>• Consultoria Especializada<br>• Vendas B2B<br>• Administrativo Senior<br>• Atendimento Premium<br>• Treinamento e Desenvolvimento<br><br>📊 95% de aprovação em entrevistas!"},
+                {text: "⏰ Prazo para conseguir emprego", response: "⌛ CRONOGRAMA REALISTA:<br>• Semana 1-2: Análise e otimização do perfil<br>• Semana 3-4: Matching com empresas<br>• Semana 5-6: Primeiras entrevistas<br>• Semana 7-8: Propostas e negociação<br><br>🎯 Média: 6 semanas para colocação!"},
+                {text: "💰 Salários e benefícios", response: "💵 REMUNERAÇÃO 50+:<br>• Salário compatível com experiência<br>• Benefícios diferenciados<br>• Flexibilidade de horários<br>• Valorização da maturidade<br><br>📈 Em média 20-30% acima do mercado geral!"},
+                {text: "📞 Falar com especialista", response: "👩‍💼 ATENDIMENTO PERSONALIZADO:<br>Vamos conversar! Nossa consultora Maria vai:<br>• Analisar seu perfil detalhadamente<br>• Criar estratégia personalizada<br>• Acompanhar todo o processo<br><br>📲 WhatsApp: https://wa.me/5511999999999"}
               ]
             },
             empresa: {
-              greeting: "Excelente! Como empresa, posso ajudar com:",
+              greeting: "Excelente! Vou apresentar como podemos otimizar seu RH com talentos 50+:",
               options: [
-                {text: "🏢 Como cadastrar vagas", response: "Para cadastrar vagas, entre em contato conosco via WhatsApp. Analisamos seu perfil de empresa e conectamos com profissionais 50+ qualificados."},
-                {text: "💰 Custos e investimento", response: "Nossos serviços são personalizados conforme suas necessidades. Oferecemos planos flexíveis para empresas de todos os tamanhos. Vamos conversar?"},
-                {text: "👥 Perfil dos candidatos", response: "Nossos candidatos 50+ têm experiência comprovada, estabilidade, maturidade profissional e alto comprometimento. São profissionais que agregam valor real!"},
-                {text: "📞 Agendar reunião", response: "Vamos agendar! Entre em contato: https://wa.me/5511999999999 - Nosso time comercial vai apresentar as soluções ideais para sua empresa."}
+                {text: "🏢 Processo de parceria", response: "🤝 COMO SER PARCEIRA:<br>1️⃣ Reunião de diagnóstico<br>2️⃣ Mapeamento de vagas<br>3️⃣ Seleção de candidatos 50+<br>4️⃣ Apresentação dos perfis<br>5️⃣ Acompanhamento pós-contratação<br><br>⚡ Processo ágil em 15 dias!"},
+                {text: "💰 Investimento e ROI", response: "💼 NOSSO MODELO:<br>• Sem custos iniciais<br>• Taxa por contratação efetiva<br>• ROI médio de 300%<br>• Redução de 60% no tempo de seleção<br>• Garantia de 6 meses<br><br>💡 Primeira contratação com desconto!"},
+                {text: "👥 Perfil dos talentos 50+", response: "🌟 DIFERENCIAIS DOS 50+:<br>• 25+ anos de experiência<br>• Maior estabilidade no emprego<br>• Mentoria natural para equipes<br>• Foco em resultados<br>• Baixo turnover (3x menor)<br><br>📊 86% das empresas renovam parceria!"},
+                {text: "📊 Cases de sucesso", response: "🏆 RESULTADOS COMPROVADOS:<br>• Magazine Luiza: 40% dos gerentes 50+<br>• Banco Santander: programa exclusivo<br>• Carrefour: liderança experiente<br>• +500 empresas satisfeitas<br><br>📈 Produtividade 23% maior!"},
+                {text: "📞 Agendar apresentação", response: "📅 VAMOS CONVERSAR:<br>Nossa Diretora Comercial Patricia vai apresentar:<br>• Portfólio completo<br>• Cases personalizados<br>• Proposta sob medida<br><br>📲 Agenda: https://wa.me/5511999999999"}
+              ]
+            },
+            duvidas: {
+              greeting: "Perfeito! Vou esclarecer as principais dúvidas sobre carreiras 50+:",
+              options: [
+                {text: "🤔 Preconceito etário existe?", response: "💪 REALIDADE 50+:<br>Sim, ainda existe, mas está mudando!<br>• 73% das empresas valorizam experiência<br>• Lei antidiscriminação em vigor<br>• Movimento crescente pró-diversidade<br><br>🎯 Nossa missão: conectar com empresas conscientes!"},
+                {text: "💻 Preciso saber tecnologia?", response: "🖥️ TECNOLOGIA 50+:<br>Não precisa ser expert, mas o básico ajuda:<br>• WhatsApp, Email, Excel<br>• Oferecemos cursos gratuitos<br>• Suporte personalizado<br><br>📚 95% dos candidatos se adaptam rapidamente!"},
+                {text: "📈 Mercado para 50+ está aquecido?", response: "📊 MERCADO PROMISSOR:<br>• +2 milhões de profissionais 50+ empregados<br>• Crescimento de 15% ao ano<br>• Empresas buscam estabilidade<br>• Governo incentiva diversidade<br><br>🚀 Melhor momento dos últimos 10 anos!"},
+                {text: "🎓 Preciso me qualificar mais?", response: "📖 QUALIFICAÇÃO ESTRATÉGICA:<br>• Sua experiência é o maior diferencial<br>• Cursos complementares são um plus<br>• Soft skills valem muito<br>• Oferecemos capacitação gratuita<br><br>🎯 Foco na atualização, não na transformação!"}
               ]
             },
             geral: [
