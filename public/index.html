@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50+ Empregos - Conectando Experiência a Oportunidades</title>
+    
+    <!-- Base path para GitHub Pages -->
+    <base href="/50plus-empregoss/">
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Conectamos profissionais 50+ a oportunidades que valorizam experiência e maturidade profissional. Recolocação, capacitação e desenvolvimento de carreira.">
+    <meta name="keywords" content="emprego 50+, recolocação profissional, carreira 50+, vagas para experientes, capacitação digital">
+    <meta name="author" content="50+ Empregos">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="50+ Empregos - Conectando Experiência a Oportunidades">
+    <meta property="og:description" content="Conectamos profissionais 50+ a oportunidades que valorizam experiência e maturidade profissional.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lealzinho30.github.io/50plus-empregoss/">
+    <meta property="og:image" content="./assets/img/logos/logo-50plus-empregos.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="50+ Empregos - Conectando Experiência a Oportunidades">
+    <meta name="twitter:description" content="Conectamos profissionais 50+ a oportunidades que valorizam experiência e maturidade profissional.">
+    <meta name="twitter:image" content="./assets/img/logos/logo-50plus-empregos.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/img/logos/logo-50plus-empregos.png">
+    <link rel="apple-touch-icon" href="./assets/img/logos/logo-50plus-empregos.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!-- Preload de imagens críticas -->
+    <link rel="preload" as="image" href="./assets/img/hero/hero-profissional-50plus.webp">
+    <link rel="preload" as="image" href="./assets/img/logos/logo-50plus-empregos.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="./assets/img/logos/logo-50plus-empregos.png" alt="50+ Empregos" class="nav-logo-img" width="160" height="48">
+                </div>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="#hero" class="nav-link" role="menuitem">Início</a></li>
+                    <li role="none"><a href="#sobre" class="nav-link" role="menuitem">Sobre</a></li>
+                    <li role="none"><a href="#vagas" class="nav-link" role="menuitem">Vagas</a></li>
+                    <li role="none"><a href="#empresas" class="nav-link" role="menuitem">Empresas</a></li>
+                    <li role="none"><a href="#capacitacao" class="nav-link" role="menuitem">Capacitação</a></li>
+                    <li role="none"><a href="#contato" class="nav-link" role="menuitem">Contato</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openCadastro()">Cadastrar</button>
+                    <button class="btn btn-ghost" onclick="openLogin()">Entrar</button>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Conectamos <span class="highlight">Experiência</span> a 
+                        <span class="accent">Oportunidades</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Para profissionais 50+ que buscam recolocação, capacitação e desenvolvimento de carreira em um mercado que valoriza maturidade e sabedoria.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary btn-large" onclick="openCadastro()">Cadastrar meu perfil</button>
+                        <button class="btn btn-ghost btn-large" onclick="scrollToSection('vagas')">Ver vagas disponíveis</button>
+                    </div>
+                </div>
+                
+                <div class="hero-media">
+                    <img id="hero-image" 
+                         src="./assets/img/hero/hero-profissional-50plus.webp" 
+                         alt="Profissional 50+ confiante e experiente usando laptop" 
+                         width="1600" height="1200" 
+                         loading="eager" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section class="feature">
+            <div class="container">
+                <div class="feature-col">
+                    <h3>Como funciona nosso processo</h3>
+                    <p>Conectamos profissionais 50+ a oportunidades que valorizam experiência e maturidade profissional.</p>
+                    <ul class="bullets">
+                        <li>Análise do seu perfil e objetivos</li>
+                        <li>Conectamos com empresas parceiras</li>
+                        <li>Acompanhamento até a contratação</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <img id="servicos-image"
+                         src="./assets/img/servicos/entrevista-profissional-50plus.webp"
+                         alt="Profissional 50+ em entrevista de emprego"
+                         width="1280" height="960" 
+                         loading="lazy" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Nós -->
+        <section class="about-us">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img id="sobre-image" 
+                             src="./assets/img/sobre/equipe-profissionais-experientes.webp" 
+                             alt="Equipe de profissionais experientes em reunião" 
+                             width="1280" height="960" 
+                             loading="lazy">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="section-title">Nossa missão é <span class="highlight">valorizar experiência</span></h2>
+                        <p class="about-description">
+                            Acreditamos que profissionais 50+ trazem estabilidade, conhecimento profundo e uma perspectiva única que enriquece qualquer organização.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <strong>2.500+</strong>
+                                <span>Profissionais recolocados</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>95%</strong>
+                                <span>Taxa de sucesso</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>500+</strong>
+                                <span>Empresas parceiras</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Para Empresas -->
+        <section class="for-companies" id="empresas">
+            <div class="container">
+                <div class="company-content">
+                    <div class="company-text">
+                        <div class="company-badge">
+                            <span>Para Empresas</span>
+                        </div>
+                        <h2>Encontre talentos que <span class="highlight">trazem resultados</span></h2>
+                        <p>Profissionais 50+ oferecem estabilidade, experiência comprovada e comprometimento com a empresa. São colaboradores que valorizam o trabalho e trazem resultados consistentes para sua organização.</p>
+                        
+                        <div class="company-stats">
+                            <div class="company-stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Empresas parceiras</span>
+                            </div>
+                            <div class="company-stat">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Taxa de retenção</span>
+                            </div>
+                            <div class="company-stat">
+                                <span class="stat-number">3x</span>
+                                <span class="stat-label">Mais estáveis</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#empresas" class="btn btn-primary btn-large">
+                            Falar com o time B2B
+                        </a>
+                    </div>
+                    
+                    <div class="company-image">
+                        <div class="company-image-container">
+                            <img id="empresas-image" 
+                                 src="./assets/img/empresas/equipe-negocios-50plus.webp" 
+                                 alt="Equipe de profissionais 50+ em reunião de negócios" 
+                                 class="company-img">
+                            <div class="company-image-overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-text">Equipe Experiente</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Nós - Com Imagens -->
+        <section class="sobre-imagens" id="sobre">
+            <div class="container">
+                <!-- Header com imagem -->
+                <div class="sobre-header">
+                    <div class="header-content">
+                        <h2 class="sobre-title">
+                            Conectando <span class="title-highlight">Experiência</span> a 
+                            <span class="title-accent">Oportunidades</span>
+                        </h2>
+                        <p class="sobre-subtitle">
+                            Somos especialistas em empregabilidade para profissionais 50+, criando pontes entre 
+                            talento experiente e empresas que valorizam maturidade e sabedoria.
+                        </p>
+                    </div>
+                    <div class="header-image">
+                        <img id="sobre-missao-image"
+                             src="./assets/img/sobre/executivo-50plus-negocios.webp" 
+                             alt="Executivo 50+ em reunião de negócios" 
+                             loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- Serviços com imagens -->
+                <div class="sobre-servicos">
+                    <div class="servicos-header">
+                        <h3 class="servicos-title">Nossos Serviços</h3>
+                        <p class="servicos-subtitle">
+                            Soluções completas para maximizar suas oportunidades profissionais
+                        </p>
+                    </div>
+                    
+                    <div class="servicos-grid">
+                        <div class="servico-item">
+                            <div class="servico-image">
+                                <img id="sobre-servicos-1-image"
+                                     src="./assets/img/sobre/analise-oportunidades-50plus.webp" 
+                                     alt="Profissional 50+ analisando oportunidades de emprego" 
+                                     loading="lazy">
+                            </div>
+                            <div class="servico-content">
+                                <h4 class="servico-title">Match Inteligente</h4>
+                                <p class="servico-text">
+                                    Nossa tecnologia identifica vagas que combinam perfeitamente com seu perfil 
+                                    e experiência profissional.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="servico-item">
+                            <div class="servico-image">
+                                <img id="sobre-servicos-2-image"
+                                     src="./assets/img/sobre/revisao-curriculo-50plus.webp" 
+                                     alt="Profissional 50+ revisando currículo" 
+                                     loading="lazy">
+                            </div>
+                            <div class="servico-content">
+                                <h4 class="servico-title">Revisão de Currículo</h4>
+                                <p class="servico-text">
+                                    Especialistas em carreira 50+ revisam e otimizam seu currículo para 
+                                    destacar sua experiência e conquistas.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="servico-item">
+                            <div class="servico-image">
+                                <img id="sobre-servicos-3-image"
+                                     src="./assets/img/sobre/consultoria-carreira-50plus.webp" 
+                                     alt="Profissional 50+ em consultoria de carreira" 
+                                     loading="lazy">
+                            </div>
+                            <div class="servico-content">
+                                <h4 class="servico-title">Consultoria de Carreira</h4>
+                                <p class="servico-text">
+                                    Acompanhamento personalizado para definir objetivos, estratégias e 
+                                    planos de ação para sua recolocação.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="servico-item">
+                            <div class="servico-image">
+                                <img id="sobre-servicos-4-image"
+                                     src="./assets/img/sobre/desenvolvimento-profissional-50plus.webp" 
+                                     alt="Profissional 50+ em desenvolvimento profissional" 
+                                     loading="lazy">
+                            </div>
+                            <div class="servico-content">
+                                <h4 class="servico-title">Desenvolvimento Profissional</h4>
+                                <p class="servico-text">
+                                    Cursos e treinamentos para manter-se atualizado e competitivo no 
+                                    mercado de trabalho atual.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA com imagem -->
+                <div class="sobre-cta">
+                    <div class="cta-content">
+                        <h3>Pronto para dar o próximo passo?</h3>
+                        <p>Junte-se aos milhares de profissionais 50+ que já transformaram suas carreiras conosco.</p>
+                        <button class="btn btn-primary btn-large" onclick="openCadastro()">Começar agora</button>
+                    </div>
+                    <div class="cta-image">
+                        <img id="sobre-cta-image"
+                             src="./assets/img/sobre/conexao-oportunidades-50plus.webp" 
+                             alt="Conectando experiência a oportunidades" 
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capacitação -->
+        <section class="training" id="capacitacao">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Capacitação e <span class="highlight">Desenvolvimento</span></h2>
+                    <p class="section-subtitle">Cursos práticos para manter-se atualizado no mercado</p>
+                </div>
+                
+                <div class="training-cards">
+                    <div class="training-card featured">
+                        <div class="card-badge featured-badge">⭐ Destaque</div>
+                        <div class="card-header">
+                            <div class="card-icon-large">
+                                <span class="icon-symbol">🤖</span>
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="card-title">Inteligência Artificial para 50+</h3>
+                                <p class="card-subtitle">Domine as ferramentas do futuro</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Curso prático sobre ferramentas de IA para aumentar sua produtividade e competitividade no mercado de trabalho.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">ChatGPT e IA generativa</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Automação de tarefas</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Análise de dados</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span class="meta-text">20 horas</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📊</span>
+                                <span class="meta-text">Iniciante</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏆</span>
+                                <span class="meta-text">Certificado</span>
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            <a href="#capacitacao" class="btn btn-primary btn-full">Ver curso gratuito</a>
+                        </div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="card-header">
+                            <div class="card-icon-large">
+                                <span class="icon-symbol">💻</span>
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="card-title">Ferramentas Digitais</h3>
+                                <p class="card-subtitle">Produtividade no trabalho moderno</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Microsoft Office, Google Workspace e outras ferramentas essenciais para o trabalho moderno e produtivo.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Office 365 completo</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Google Workspace</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Colaboração online</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span class="meta-text">15 horas</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📊</span>
+                                <span class="meta-text">Básico</span>
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            <a href="#capacitacao" class="btn btn-outline btn-full">Ver curso</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Histórias de <span class="highlight">Sucesso</span></h2>
+                    <p class="section-subtitle">Profissionais 50+ que transformaram suas carreiras</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img id="depoimento-ana-image"
+                                 src="./assets/img/depoimentos/ana-santos-58.webp" 
+                                 alt="Ana Santos, 58 anos - Consultora em RH" 
+                                 loading="lazy">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Em apenas 3 semanas encontrei uma posição que valoriza minha experiência. O suporte foi excepcional."</p>
+                            <div class="testimonial-author">
+                                <strong>Ana Santos, 58 anos</strong>
+                                <span>Consultora em RH</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img id="depoimento-carlos-image"
+                                 src="./assets/img/depoimentos/carlos-mendes-62.webp" 
+                                 alt="Carlos Mendes, 62 anos - Gerente Financeiro" 
+                                 loading="lazy">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Aos 62 anos, pensei que seria difícil. Mas encontrei uma empresa que realmente valoriza experiência."</p>
+                            <div class="testimonial-author">
+                                <strong>Carlos Mendes, 62 anos</strong>
+                                <span>Gerente Financeiro</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img id="depoimento-jose-image"
+                                 src="./assets/img/depoimentos/jose-lima-54.webp" 
+                                 alt="José Lima, 54 anos - Analista de Dados" 
+                                 loading="lazy">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"A capacitação digital me deu confiança para competir no mercado atual. Hoje trabalho remotamente."</p>
+                            <div class="testimonial-author">
+                                <strong>José Lima, 54 anos</strong>
+                                <span>Analista de Dados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-final">
+            <div class="container">
+                <h2>Pronto para transformar sua carreira?</h2>
+                <p>Junte-se aos profissionais 50+ que já deram o próximo passo.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="openCadastro()">Cadastrar meu perfil</button>
+                    <a class="btn btn-ghost" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Falar com consultor</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="./assets/img/logos/logo-50plus-empregos.png" alt="50+ Empregos" class="footer-logo-img" width="160" height="48">
+                    <p>Conectando experiência com oportunidade. Transformando carreiras 50+ com resultados comprovados e sucesso profissional.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/50plus-empregos" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+                            <span class="social-icon">in</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://facebook.com/50plusempregos" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+                            <span class="social-icon">f</span>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://instagram.com/50plusempregos" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+                            <span class="social-icon">ig</span>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://youtube.com/@50plusempregos" target="_blank" rel="noopener" aria-label="YouTube" class="social-link">
+                            <span class="social-icon">yt</span>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Para Candidatos</h4>
+                        <ul>
+                            <li><a href="#vagas">Buscar vagas</a></li>
+                            <li><a href="#candidatos">Cadastrar-se</a></li>
+                            <li><a href="#capacitacao">Capacitação</a></li>
+                            <li><a href="#empreender">Empreender</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Para Empresas</h4>
+                        <ul>
+                            <li><a href="#empresas">Publicar vagas</a></li>
+                            <li><a href="#empresas">Planos</a></li>
+                            <li><a href="#sobre">Sobre nós</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Recursos</h4>
+                        <ul>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#sobre">Missão</a></li>
+                            <li><a href="#privacidade">Privacidade</a></li>
+                            <li><a href="#termos">Termos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2025 50+ Empregos. Todos os direitos reservados.</p>
+                    <div class="footer-seals">
+                        <span class="seal">LGPD</span>
+                        <span class="seal">Acessível</span>
+                        <span class="seal">Age-Friendly</span>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Guia gratuito: Atualização Digital 50+</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit" class="btn btn-primary">Receber</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-button" onclick="openWhatsApp()">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+        </svg>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/js/imageRegistry.js"></script>
+    <script src="./assets/js/imageControlPanel.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    <script>
+        // Funções auxiliares
+        function openCadastro() {
+            alert('Sistema de cadastro será implementado em breve!');
+        }
+        
+        function openLogin() {
+            alert('Sistema de login será implementado em breve!');
+        }
+        
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+        
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function openWhatsApp() {
+            window.open('https://wa.me/5511999999999', '_blank');
+        }
+        
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            alert('Obrigado por se inscrever! Em breve você receberá o guia gratuito.');
+        }
+        
+        // Inicializar sistema de imagens quando a página carregar
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 Inicializando sistema de imagens...');
+            
+            // Aguardar ImageRegistry estar pronto
+            if (window.ImageRegistry) {
+                await window.ImageRegistry.init();
+                console.log('✅ Sistema de imagens inicializado!');
+            }
+        });
+    </script>
+</body>
+</html>

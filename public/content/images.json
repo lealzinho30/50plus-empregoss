@@ -1,0 +1,172 @@
+[
+  {
+    "id": "hero",
+    "src": "./assets/img/hero/hero-profissional-50plus.webp",
+    "alt": "Profissional 50+ confiante e experiente usando laptop",
+    "width": 1600,
+    "height": 1200,
+    "loading": "eager",
+    "section": "hero",
+    "description": "Imagem principal do Hero - profissional 50+ em ambiente de trabalho"
+  },
+  {
+    "id": "servicos",
+    "src": "./assets/img/servicos/entrevista-profissional-50plus.webp",
+    "alt": "Profissional 50+ em entrevista de emprego",
+    "width": 1280,
+    "height": 960,
+    "loading": "lazy",
+    "section": "servicos",
+    "description": "Imagem da seção Como Funciona - processo de recolocação"
+  },
+  {
+    "id": "sobre",
+    "src": "./assets/img/sobre/equipe-profissionais-experientes.webp",
+    "alt": "Equipe de profissionais experientes em reunião",
+    "width": 1280,
+    "height": 960,
+    "loading": "lazy",
+    "section": "sobre",
+    "description": "Imagem da seção Sobre - equipe colaborando"
+  },
+  {
+    "id": "empresas",
+    "src": "./assets/img/empresas/equipe-negocios-50plus.webp",
+    "alt": "Equipe de profissionais 50+ em reunião de negócios",
+    "width": 800,
+    "height": 600,
+    "loading": "lazy",
+    "section": "empresas",
+    "description": "Imagem da seção Para Empresas"
+  },
+  {
+    "id": "sobre-missao",
+    "src": "./assets/img/sobre/executivo-50plus-negocios.webp",
+    "alt": "Executivo 50+ em reunião de negócios",
+    "width": 500,
+    "height": 400,
+    "loading": "lazy",
+    "section": "sobre",
+    "description": "Imagem da seção Sobre - missão"
+  },
+  {
+    "id": "sobre-servicos-1",
+    "src": "./assets/img/sobre/analise-oportunidades-50plus.webp",
+    "alt": "Profissional 50+ analisando oportunidades de emprego",
+    "width": 300,
+    "height": 200,
+    "loading": "lazy",
+    "section": "sobre",
+    "description": "Imagem do serviço Match Inteligente"
+  },
+  {
+    "id": "sobre-servicos-2",
+    "src": "./assets/img/sobre/revisao-curriculo-50plus.webp",
+    "alt": "Profissional 50+ revisando currículo",
+    "width": 300,
+    "height": 200,
+    "loading": "lazy",
+    "section": "sobre",
+    "description": "Imagem do serviço Revisão de Currículo"
+  },
+  {
+    "id": "sobre-servicos-3",
+    "src": "./assets/img/sobre/consultoria-carreira-50plus.webp",
+    "alt": "Profissional 50+ em consultoria de carreira",
+    "width": 300,
+    "height": 200,
+    "loading": "lazy",
+    "section": "sobre",
+    "description": "Imagem do serviço Consultoria de Carreira"
+  },
+  {
+    "id": "sobre-servicos-4",
+    "src": "./assets/img/sobre/desenvolvimento-profissional-50plus.webp",
+    "alt": "Profissional 50+ em desenvolvimento profissional",
+    "width": 500,
+    "height": 400,
+    "loading": "lazy",
+    "section": "sobre",
+    "description": "Imagem do serviço Desenvolvimento Profissional"
+  },
+  {
+    "id": "sobre-cta",
+    "src": "./assets/img/sobre/conexao-oportunidades-50plus.webp",
+    "alt": "Conectando experiência a oportunidades",
+    "width": 1200,
+    "height": 400,
+    "loading": "lazy",
+    "section": "sobre",
+    "description": "Imagem da seção Sobre - CTA"
+  },
+  {
+    "id": "depoimento-ana",
+    "src": "./assets/img/depoimentos/ana-santos-58.webp",
+    "alt": "Ana Santos, 58 anos - Consultora em RH",
+    "width": 200,
+    "height": 200,
+    "loading": "lazy",
+    "section": "depoimentos",
+    "description": "Depoimento de Ana Santos"
+  },
+  {
+    "id": "depoimento-carlos",
+    "src": "./assets/img/depoimentos/carlos-mendes-62.webp",
+    "alt": "Carlos Mendes, 62 anos - Gerente Financeiro",
+    "width": 200,
+    "height": 200,
+    "loading": "lazy",
+    "section": "depoimentos",
+    "description": "Depoimento de Carlos Mendes"
+  },
+  {
+    "id": "depoimento-jose",
+    "src": "./assets/img/depoimentos/jose-lima-54.webp",
+    "alt": "José Lima, 54 anos - Analista de Dados",
+    "width": 200,
+    "height": 200,
+    "loading": "lazy",
+    "section": "depoimentos",
+    "description": "Depoimento de José Lima"
+  },
+  {
+    "id": "curso-ai",
+    "src": "./assets/img/cursos/curso-ia-50plus.webp",
+    "alt": "Curso de Inteligência Artificial para profissionais 50+",
+    "width": 400,
+    "height": 300,
+    "loading": "lazy",
+    "section": "cursos",
+    "description": "Imagem do curso de IA"
+  },
+  {
+    "id": "curso-ferramentas-digitais",
+    "src": "./assets/img/cursos/ferramentas-digitais-50plus.webp",
+    "alt": "Curso de ferramentas digitais para profissionais 50+",
+    "width": 400,
+    "height": 300,
+    "loading": "lazy",
+    "section": "cursos",
+    "description": "Imagem do curso de ferramentas digitais"
+  },
+  {
+    "id": "logo-header",
+    "src": "./assets/img/logos/logo-50plus-empregos.png",
+    "alt": "50+ Empregos - Logo",
+    "width": 160,
+    "height": 48,
+    "loading": "eager",
+    "section": "header",
+    "description": "Logo no header do site"
+  },
+  {
+    "id": "logo-footer",
+    "src": "./assets/img/logos/logo-50plus-empregos.png",
+    "alt": "50+ Empregos - Logo",
+    "width": 160,
+    "height": 48,
+    "loading": "lazy",
+    "section": "footer",
+    "description": "Logo no footer do site"
+  }
+]
