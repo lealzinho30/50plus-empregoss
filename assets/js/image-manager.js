@@ -199,71 +199,64 @@ function applyImageChange(section, src, alt) {
             selectors = [
                 '.sobre-imagens img',
                 '.about-us img',
-                '.about img',
                 'section.sobre-imagens img',
                 'section#sobre img'
             ];
             break;
         case 'services':
             selectors = [
-                '.feature-media img',
                 '.feature img',
-                '.services img',
                 'section.feature img'
             ];
             break;
         case 'vagas':
-            // Para vagas, precisamos atualizar o JavaScript
-            updateVagasImages(src);
-            success = true;
+            selectors = [
+                '.featured-jobs img',
+                'section.featured-jobs img',
+                'section#vagas img'
+            ];
+            break;
+        case 'empresas':
+            selectors = [
+                '.for-companies img',
+                '.company-img',
+                'section.for-companies img',
+                'section#empresas img'
+            ];
+            break;
+        case 'sobre':
+            selectors = [
+                '.sobre-imagens img',
+                '.about-us img',
+                'section.sobre-imagens img',
+                'section#sobre img'
+            ];
             break;
         case 'cursos':
             selectors = [
-                '.cursos img',
-                '.courses img',
-                '.feature img',
-                'section.cursos img',
-                'section.courses img'
+                '.training img',
+                'section.training img',
+                'section#capacitacao img'
             ];
             break;
         case 'depoimentos':
             selectors = [
-                '.testimonial img',
-                '.depoimento img',
-                '.avatar img',
+                '.testimonials img',
+                '.testimonial-avatar img',
                 'section.testimonials img'
             ];
             break;
         case 'cta':
             selectors = [
-                '.cta img',
-                '.final-cta img',
-                'section.cta img',
-                'section.final-cta img'
+                '.cta-final img',
+                'section.cta-final img'
             ];
             break;
-        case 'empresas':
+        case 'proposta':
             selectors = [
-                '.empresas img',
-                '.for-companies img',
-                'section.empresas img',
-                'section.for-companies img'
-            ];
-            break;
-        case 'conectando':
-            selectors = [
-                '.conectando img',
-                '.connecting img',
-                'section.conectando img',
-                'section.connecting img'
-            ];
-            break;
-        case 'missao':
-            selectors = [
-                '.missao img',
-                '.mission img',
-                'section.missao img',
-                'section.mission img'
+                '.value-prop img',
+                'section.value-prop img',
+                'section#proposta img'
             ];
             break;
         default:
