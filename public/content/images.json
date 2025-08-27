@@ -181,12 +181,12 @@
   },
   {
     "id": "servicos-nova-imagem",
-    "src": "/50plus-empregoss/assets/img/servicos/imagensserviços.png",
-    "alt": "Nova imagem da seção Serviços - atendimento 50+",
+    "src": "/50plus-empregoss/assets/img/servicos/Design sem nome99.png",
+    "alt": "Edifício 50+ Empregos - Como funciona nosso processo",
     "width": 800,
     "height": 600,
     "loading": "lazy",
     "section": "servicos",
-    "description": "Nova imagem adicionada na seção Serviços"
+    "description": "Edifício corporativo 50+ Empregos representando nossos processos"
   }
 ]
