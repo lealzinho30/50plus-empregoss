@@ -60,16 +60,21 @@
       
              /* BOTÕES ESPECÍFICOS - NÃO SOBRESCRITOS PELO MODAL */
        /* APENAS o botão da navegação (header) */
-       .nav-buttons .btn-primary {
-         background:var(--white) !important;
-         color:var(--blue-900) !important;
-         border-color:var(--white) !important;
-         box-shadow:0 8px 22px rgba(0,0,0,.25) !important;
+       .nav-buttons .btn-primary,
+       .nav-buttons .btn-primary.btn-nav {
+         background: #ffffff !important;
+         color: #0f355a !important;
+         border-color: #ffffff !important;
+         box-shadow: 0 8px 22px rgba(0,0,0,0.25) !important;
+         font-weight: 600 !important;
+         text-decoration: none !important;
        }
        
-       .nav-buttons .btn-primary:hover {
-         filter:brightness(.95) !important;
-         transform:translateY(-1px) !important;
+       .nav-buttons .btn-primary:hover,
+       .nav-buttons .btn-primary.btn-nav:hover {
+         filter: brightness(0.95) !important;
+         transform: translateY(-1px) !important;
+         background: #f0f0f0 !important;
        }
        
        /* Botões do CTA final */
@@ -280,7 +285,7 @@
             
             <div class="nav-buttons">
                 <a href="#vagas" class="btn btn-secondary btn-nav">Ver Vagas</a>
-                <a href="#candidatos" class="btn btn-primary btn-nav">Cadastrar-se</a>
+                <a href="#candidatos" class="btn btn-primary btn-nav" style="background: #ffffff !important; color: #0f355a !important; border-color: #ffffff !important; box-shadow: 0 8px 22px rgba(0,0,0,0.25) !important;">Cadastrar-se</a>
                 <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
