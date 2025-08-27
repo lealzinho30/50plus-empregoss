@@ -543,8 +543,6 @@ function loadCustomImages() {
         const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
         console.log('📂 Imagens personalizadas carregadas:', Object.keys(customImages));
         
-        let loadedCount = 0;
-        
         Object.keys(customImages).forEach(section => {
             const customImage = customImages[section];
             if (customImage && customImage.src) {
@@ -552,34 +550,14 @@ function loadCustomImages() {
                     // É uma imagem de vaga específica
                     const jobTitle = customImage.jobTitle;
                     console.log(`🔄 Aplicando imagem personalizada para vaga "${jobTitle}"`);
-                    
-                    // Tentar usar a função do main.js se disponível
-                    if (typeof updateJobImage === 'function') {
-                        updateJobImage(jobTitle, customImage.src);
-                        loadedCount++;
-                    } else {
-                        // Fallback: aplicar diretamente
-                        const success = updateSpecificJobImage(jobTitle, customImage.src);
-                        if (success) loadedCount++;
-                    }
+                    updateSpecificJobImage(jobTitle, customImage.src);
                 } else {
                     // É uma imagem de seção normal
                     console.log(`🔄 Aplicando imagem personalizada para "${section}"`);
-                    const success = applyImageChange(section, customImage.src, customImage.alt);
-                    if (success) loadedCount++;
+                    applyImageChange(section, customImage.src, customImage.alt);
                 }
             }
         });
-        
-        console.log(`✅ ${loadedCount} imagens personalizadas carregadas com sucesso!`);
-        
-        // Forçar re-renderização das vagas se necessário
-        if (typeof forceRerenderJobs === 'function') {
-            setTimeout(() => {
-                console.log('🔄 Forçando re-renderização das vagas após carregar imagens personalizadas...');
-                forceRerenderJobs();
-            }, 500);
-        }
         
         return true;
     } catch (error) {
@@ -632,6 +610,135 @@ function removeCustomImage(section) {
     }
 }
 
+/**
+ * 📤 Exporta todas as imagens personalizadas para um arquivo JSON
+ * Permite compartilhar as imagens com outros usuários
+ */
+function exportCustomImages() {
+    try {
+        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        
+        if (Object.keys(customImages).length === 0) {
+            alert('❌ Nenhuma imagem personalizada encontrada para exportar!');
+            return;
+        }
+        
+        // Criar arquivo de exportação
+        const exportData = {
+            version: '1.0',
+            exportDate: new Date().toISOString(),
+            customImages: customImages,
+            totalImages: Object.keys(customImages).length
+        };
+        
+        const dataStr = JSON.stringify(exportData, null, 2);
+        const dataBlob = new Blob([dataStr], { type: 'application/json' });
+        
+        // Criar link de download
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(dataBlob);
+        link.download = `50plus-empregos-imagens-${new Date().toISOString().split('T')[0]}.json`;
+        link.click();
+        
+        console.log('📤 Exportação concluída:', exportData.totalImages, 'imagens exportadas');
+        alert(`✅ ${exportData.totalImages} imagens exportadas com sucesso!\n\nArquivo salvo para compartilhamento.`);
+        
+    } catch (error) {
+        console.error('❌ Erro na exportação:', error);
+        alert('❌ Erro ao exportar imagens: ' + error.message);
+    }
+}
+
+/**
+ * 📥 Importa imagens personalizadas de um arquivo JSON
+ * Permite que outros usuários recebam as imagens personalizadas
+ */
+function importCustomImages() {
+    try {
+        // Criar input de arquivo
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        input.style.display = 'none';
+        
+        input.onchange = function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importData = JSON.parse(e.target.result);
+                    
+                    if (!importData.customImages || !importData.version) {
+                        throw new Error('Formato de arquivo inválido');
+                    }
+                    
+                    // Mesclar com imagens existentes
+                    const existingImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+                    const mergedImages = { ...existingImages, ...importData.customImages };
+                    
+                    // Salvar no localStorage
+                    localStorage.setItem('customImages', JSON.stringify(mergedImages));
+                    
+                    // Aplicar as imagens importadas
+                    loadCustomImages();
+                    
+                    // Forçar re-renderização das vagas se disponível
+                    if (typeof forceRerenderJobs === 'function') {
+                        forceRerenderJobs();
+                    }
+                    
+                    console.log('📥 Importação concluída:', Object.keys(importData.customImages).length, 'imagens importadas');
+                    alert(`✅ ${Object.keys(importData.customImages).length} imagens importadas com sucesso!\n\nAs imagens foram aplicadas automaticamente.`);
+                    
+                } catch (error) {
+                    console.error('❌ Erro ao processar arquivo:', error);
+                    alert('❌ Erro ao importar arquivo: ' + error.message);
+                }
+            };
+            
+            reader.readAsText(file);
+        };
+        
+        document.body.appendChild(input);
+        input.click();
+        document.body.removeChild(input);
+        
+    } catch (error) {
+        console.error('❌ Erro na importação:', error);
+        alert('❌ Erro ao importar imagens: ' + error.message);
+    }
+}
+
+/**
+ * 🔄 Sincroniza imagens com um servidor remoto (simulado)
+ * Em produção, isso seria conectado a um backend real
+ */
+function syncImagesWithServer() {
+    try {
+        const customImages = JSON.parse(localStorage.getItem('customImages') || '{}');
+        
+        if (Object.keys(customImages).length === 0) {
+            alert('❌ Nenhuma imagem para sincronizar!');
+            return;
+        }
+        
+        // Simular envio para servidor
+        console.log('🔄 Sincronizando imagens com servidor...');
+        
+        // Em produção, aqui seria uma chamada fetch() para um API
+        setTimeout(() => {
+            console.log('✅ Sincronização simulada concluída!');
+            alert('✅ Imagens sincronizadas com sucesso!\n\nNota: Esta é uma simulação. Em produção, as imagens seriam salvas em um servidor real.');
+        }, 2000);
+        
+    } catch (error) {
+        console.error('❌ Erro na sincronização:', error);
+        alert('❌ Erro ao sincronizar: ' + error.message);
+    }
+}
+
 // ========== EXPORTAÇÃO PARA USO GLOBAL ==========
 
 // Disponibilizar funções globalmente
@@ -647,7 +754,10 @@ window.ImageManager = {
     updateVagasImages,
     updateSpecificJobImage,
     listAvailableJobs,
-    IMAGE_PLACEHOLDERS
+    IMAGE_PLACEHOLDERS,
+    exportCustomImages,
+    importCustomImages,
+    syncImagesWithServer
 };
 
 // Log de inicialização

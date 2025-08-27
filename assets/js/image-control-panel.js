@@ -127,6 +127,26 @@ function createImageControlPanel() {
         </div>
     `;
 
+    // Adicionar botões de ação
+    const actionButtons = document.createElement('div');
+    actionButtons.className = 'action-buttons';
+    actionButtons.innerHTML = `
+        <button class="action-btn export-btn" onclick="ImageManager.exportCustomImages()">
+            📤 Exportar Imagens
+        </button>
+        <button class="action-btn import-btn" onclick="ImageManager.importCustomImages()">
+            📥 Importar Imagens
+        </button>
+        <button class="action-btn sync-btn" onclick="ImageManager.syncImagesWithServer()">
+            🔄 Sincronizar
+        </button>
+        <button class="action-btn reset-btn" onclick="resetAllImages()">
+            🔄 Reset Geral
+        </button>
+    `;
+    
+    panel.appendChild(actionButtons);
+
     // Adicionar estilos
     const styles = document.createElement('style');
     styles.textContent = `
