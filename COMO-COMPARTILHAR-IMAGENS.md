@@ -167,3 +167,6 @@ As imagens personalizadas são salvas apenas no **localStorage do seu navegador*
 **🚀 Agora você pode compartilhar suas imagens personalizadas com qualquer pessoa!**
 
 **📤 Exporte → 📧 Compartilhe → 📥 Importe → ✅ Funciona!**
+
+
+

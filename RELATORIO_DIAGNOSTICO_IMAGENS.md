@@ -192,3 +192,6 @@ background-image: url(...);
 
 ---
 *Relatório gerado automaticamente em 26/08/2025*
+
+
+

@@ -464,3 +464,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('🚀 Inicializando ImageRegistry...');
     await window.ImageRegistry.init();
 });
+
+
+

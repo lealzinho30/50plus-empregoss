@@ -932,3 +932,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('🚀 Inicializando ImageControlPanel...');
     await window.imageControlPanel.init();
 });
+
+
+

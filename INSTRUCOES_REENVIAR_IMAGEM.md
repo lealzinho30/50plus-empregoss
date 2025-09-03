@@ -57,3 +57,6 @@ Use o arquivo `TESTE_IMAGENS_SIMPLES.html` para verificar se a imagem carrega co
 ---
 
 **💡 Dica:** Se a imagem original também estiver corrompida, crie uma nova imagem ou use uma imagem de placeholder temporária.
+
+
+

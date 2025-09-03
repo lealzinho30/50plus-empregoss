@@ -72,7 +72,7 @@
   color: #1E293B;
 }
 
-/* Conteúdo do formulário */
+/* Conteudo do formulario */
 .modal-body {
   padding: 24px 32px 32px;
 }
@@ -223,7 +223,7 @@
   background: rgba(20, 60, 107, 0.05);
 }
 
-/* Chips para áreas de interesse */
+/* Chips para areas de interesse */
 .chips-container {
   display: flex;
   flex-wrap: wrap;
@@ -347,7 +347,7 @@
   background: #FEE2E2;
 }
 
-/* Botões de ação */
+/* Botoes de acao */
 .form-actions {
   display: flex;
   gap: 12px;
@@ -516,7 +516,7 @@
   }
 }
 
-/* Animações */
+/* Animacoes */
 .fade-in {
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -531,5 +531,7 @@
     transform: translateY(0);
   }
 }
+
+
 
 
