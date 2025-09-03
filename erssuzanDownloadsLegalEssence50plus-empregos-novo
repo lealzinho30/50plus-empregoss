@@ -1,0 +1,10 @@
+[33mdf9bb60[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat: Restaurar seção de cursos com preços e pacotes - Adicionar preços aos cursos individuais - Criar pacote completo com desconto - Corrigir referências de imagens para usar arquivos existentes - Adicionar estilos CSS para preços e pacotes
+[33m581f075[m fix: Configurar CNAME para GitHub Pages - lealzinho30.github.io
+[33ma1384d5[m Implementado sistema de login que aparece após cadastro, com modal dedicado e funcionalidades de navegação
+[33me21a7d2[m Corrigido botão de cadastro da navegação com estilos inline completos e CSS reforçado
+[33me16e65d[m Corrigido botão de cadastro da navegação com estilo inline e CSS reforçado
+[33ma38424e[m Corrigido: apenas botão da navegação tem estilo específico, hero mantém estilo original
+[33m63a6310[m Corrigido problema dos botões de cadastro que estavam ficando brancos e invisíveis
+[33m4001639[m Formulário de cadastro completo e funcional implementado
+[33meb3e95d[m Correções parciais do formulário de cadastro
+[33mabb9247[m  FORMULÁRIO COMPLETO: Cadastro detalhado com 5 passos - perfil, experiência, preferências, contato e finalização
