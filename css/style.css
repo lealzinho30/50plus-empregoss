@@ -336,18 +336,22 @@ body {
     border-radius: var(--radius-sm);
 }
 
-/* Botões profissionais e acessíveis */
+/* Botões profissionais e acessíveis - MELHORADOS */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-2);
-    padding: var(--spacing-4) var(--spacing-6);
-    border-radius: var(--radius-lg);
+    padding: 16px 32px;
+    border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
     border: none;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.3px;
     transition: all 0.3s ease;
     font-size: var(--font-size-sm);
     line-height: 1;
@@ -356,15 +360,30 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: var(--white);
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 25px rgba(27, 75, 132, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #0f3a6b 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(27, 75, 132, 0.4);
 }
 
 .btn-secondary {
@@ -707,20 +726,39 @@ body {
 }
 
 .testimonial-card {
-  background: var(--white);
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
   padding: var(--spacing-8);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(27, 75, 132, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(27, 75, 132, 0.08);
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-4);
 }
 
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover::before {
+  transform: scaleX(1);
+}
+
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(27, 75, 132, 0.15), 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
 }
 
 .testimonial-avatar {
@@ -1303,14 +1341,15 @@ section {
 }
 
 .value-card {
-    background-color: var(--white);
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
     padding: var(--spacing-8);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 4px 12px rgba(27, 75, 132, 0.08);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(27, 75, 132, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(27, 75, 132, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(27, 75, 132, 0.1);
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(10px);
     align-items: center;
     text-align: center;
     position: relative;
@@ -1334,9 +1373,10 @@ section {
 }
 
 .value-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px -10px rgba(27, 75, 132, 0.15), 0 8px 16px -4px rgba(27, 75, 132, 0.1);
-    border-color: rgba(27, 75, 132, 0.15);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(27, 75, 132, 0.2), 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(27, 75, 132, 0.2);
+    background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
 }
 
 .card-header {
@@ -1347,17 +1387,25 @@ section {
 }
 
 .card-icon {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    border-radius: var(--radius-xl);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 50%, var(--primary-light) 100%);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-2xl);
+    font-size: 28px;
+    box-shadow: 0 8px 25px rgba(27, 75, 132, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
     color: var(--white);
     flex-shrink: 0;
     box-shadow: 0 4px 12px rgba(27, 75, 132, 0.2);
+}
+
+.value-card:hover .card-icon {
+    transform: translateY(-5px) rotate(5deg);
+    box-shadow: 0 15px 35px rgba(27, 75, 132, 0.4);
 }
 
 .card-icon-illustration {
@@ -1409,11 +1457,17 @@ section {
 }
 
 .card-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
-    color: var(--gray-900);
+    color: var(--primary-dark);
     margin-bottom: var(--spacing-3);
-    line-height: 1.2;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    transition: color 0.3s ease;
+}
+
+.value-card:hover .card-title {
+    color: var(--primary);
 }
 
 .card-description {
@@ -1653,22 +1707,40 @@ section {
     }
 }
 
-/* Job Cards - Com imagens inspirado no 55mais.pt */
+/* Job Cards - MELHORADOS */
 .job-card {
-    background-color: var(--white);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    border: 1px solid var(--gray-200);
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(27, 75, 132, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(27, 75, 132, 0.08);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover::before {
+    transform: scaleX(1);
 }
 
 .job-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(27, 75, 132, 0.15), 0 10px 25px rgba(0, 0, 0, 0.08);
     border-color: var(--primary);
+    background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
 }
 
 .job-image {
