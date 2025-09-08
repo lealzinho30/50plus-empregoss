@@ -34,6 +34,7 @@ const featuredJobs = [
         id: 3,
         title: "Operador de Logística",
         company: "LogiMais",
+        
         location: "Campinas, SP",
         state: "SP",
         mode: "Presencial",
@@ -347,9 +348,8 @@ function renderJobs() {
         jobsGrid.style.display = 'grid';
         noJobsMessage.style.display = 'none';
         
-        // Mostrar apenas as primeiras 3 vagas
-        const jobsToShow = filteredJobs.slice(0, jobsPerPage);
-        jobsGrid.innerHTML = jobsToShow.map(job => createJobCard(job)).join('');
+        // Mostrar todas as vagas filtradas
+        jobsGrid.innerHTML = filteredJobs.map(job => createJobCard(job)).join('');
         
         // Adicionar botão "Mostrar mais" se houver mais vagas
         if (filteredJobs.length > jobsPerPage) {

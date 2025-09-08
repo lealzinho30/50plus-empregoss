@@ -6,3 +6,4 @@ git commit -m "Adicionar chat suporte e questionario perfil"
 git push
 echo Commit realizado com sucesso!
 pause
+
