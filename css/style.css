@@ -47,10 +47,10 @@ body {
 }
 
 .hero .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 60px !important;
+    align-items: center !important;
     position: relative;
     z-index: 2;
     max-width: 1200px;
@@ -59,8 +59,9 @@ body {
 }
 
 .hero-content {
-    max-width: 100%;
+    max-width: 100% !important;
     padding-right: 20px;
+    grid-column: 1 !important;
 }
 
 .hero-badge {
@@ -119,11 +120,13 @@ body {
 }
 
 .hero-image {
-    position: relative;
+    position: relative !important;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-column: 2 !important;
+    width: 100% !important;
 }
 
 .hero-image img {
