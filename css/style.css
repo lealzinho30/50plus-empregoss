@@ -39,7 +39,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, 
+        rgba(27, 75, 132, 0.85) 0%, 
+        rgba(74, 144, 188, 0.75) 50%,
+        rgba(107, 182, 214, 0.65) 100%);
     z-index: 1;
 }
 
@@ -76,7 +79,7 @@ body {
     line-height: 1.1;
     margin-bottom: 24px;
     color: var(--white);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-title .highlight {
@@ -91,9 +94,10 @@ body {
     font-weight: 400;
     line-height: 1.6;
     margin-bottom: 40px;
-    opacity: 0.95;
+    opacity: 1;
     max-width: 520px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .hero-cta {
@@ -411,15 +415,50 @@ section {
 }
 
 .card-icon {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     margin: 0 auto 24px;
     background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    border-radius: 20px;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    box-shadow: 0 12px 40px rgba(27, 75, 132, 0.3), 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-icon:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 20px 60px rgba(27, 75, 132, 0.4), 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon:hover::before {
+    opacity: 1;
+}
+
+.icon-symbol {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.card-icon:hover .icon-symbol {
+    transform: scale(1.1);
 }
 
 .card-title {
@@ -495,14 +534,49 @@ section {
 }
 
 .card-icon-ai, .card-icon-computer, .card-icon-skills {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: var(--radius-2xl);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
     margin-bottom: var(--spacing-4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-icon-ai::before, .card-icon-computer::before, .card-icon-skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: var(--radius-2xl);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-icon-ai:hover, .card-icon-computer:hover, .card-icon-skills:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon-ai:hover::before, .card-icon-computer:hover::before, .card-icon-skills:hover::before {
+    opacity: 1;
+}
+
+.card-icon-ai svg, .card-icon-computer svg, .card-icon-skills svg {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.card-icon-ai:hover svg, .card-icon-computer:hover svg, .card-icon-skills:hover svg {
+    transform: scale(1.1);
 }
 
 .card-icon-ai {
@@ -2457,16 +2531,42 @@ section {
 }
 
 .no-jobs-icon {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-xl);
+    font-size: 2rem;
     font-weight: 700;
-    background: var(--gray-200);
+    background: linear-gradient(135deg, var(--gray-200), var(--gray-300));
     color: var(--gray-600);
     border-radius: var(--radius-full);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.no-jobs-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: var(--radius-full);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.no-jobs-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.no-jobs-icon:hover::before {
+    opacity: 1;
     margin: 0 auto var(--spacing-4);
 }
 
@@ -3428,16 +3528,42 @@ section {
 }
 
 .social-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     font-weight: 700;
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: var(--white);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(27, 75, 132, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: var(--radius-md);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(27, 75, 132, 0.4);
+}
+
+.social-icon:hover::before {
+    opacity: 1;
     padding: var(--spacing-1);
 }
 
@@ -3585,16 +3711,42 @@ section {
 }
 
 .whatsapp-icon {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366, #128C7E);
     color: var(--white);
     border-radius: 50%;
-    padding: 8px;
+    padding: 10px;
     margin-right: 12px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-icon:hover::before {
+    opacity: 1;
 }
 
 .whatsapp-icon svg {
@@ -4077,9 +4229,12 @@ textarea.error {
 }
 
 .package-header p {
-  font-size: 1.125rem;
-  opacity: 0.9;
+  font-size: 1.25rem;
+  font-weight: 600;
+  opacity: 1;
   margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .package-content {
@@ -4186,7 +4341,13 @@ textarea.error {
 }
 
 .chat-icon {
-  font-size: 20px;
+  font-size: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.chat-toggle:hover .chat-icon {
+  transform: scale(1.1);
 }
 
 .chat-text {

@@ -7,3 +7,6 @@ git push
 echo Commit realizado com sucesso!
 pause
 
+
+
+

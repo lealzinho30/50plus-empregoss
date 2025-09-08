@@ -348,8 +348,9 @@ function renderJobs() {
         jobsGrid.style.display = 'grid';
         noJobsMessage.style.display = 'none';
         
-        // Mostrar todas as vagas filtradas
-        jobsGrid.innerHTML = filteredJobs.map(job => createJobCard(job)).join('');
+        // Mostrar apenas as primeiras 3 vagas inicialmente
+        const jobsToShow = filteredJobs.slice(0, jobsPerPage);
+        jobsGrid.innerHTML = jobsToShow.map(job => createJobCard(job)).join('');
         
         // Adicionar botão "Mostrar mais" se houver mais vagas
         if (filteredJobs.length > jobsPerPage) {
