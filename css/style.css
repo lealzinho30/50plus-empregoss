@@ -1342,22 +1342,9 @@ body {
 
 /* ====== HERO MINIMALISTA ====== */
 
-.hero {
-  position: relative;
-  background: var(--blue);
-  padding: 120px 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
+/* Removido - definição duplicada */
 
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  color: var(--white);
-  text-align: left;
-}
+/* Removido - definição duplicada */
 
 .hero-pill {
   display: inline-block;
@@ -1371,13 +1358,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.hero-title {
-  font-size: clamp(36px, 6vw, 44px);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 24px;
-  color: var(--white);
-}
+/* Removido - definição duplicada */
 
 .hero-highlight {
   color: var(--gold);
@@ -1387,13 +1368,7 @@ body {
   color: var(--gold);
 }
 
-.hero-subtitle {
-  font-size: clamp(18px, 2.5vw, 20px);
-  line-height: 1.6;
-  margin-bottom: 48px;
-  max-width: 600px;
-  color: rgba(255, 255, 255, 0.9);
-}
+/* Removido - definição duplicada */
 
 .hero-stats {
   display: flex;
@@ -1739,23 +1714,9 @@ body {
 }
 
 /* Hero Section - Moderno e impactante com nova identidade */
-.hero {
-    position: relative;
-    overflow: hidden;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    color: var(--white);
-}
+/* Removido - definição duplicada */
 
-.hero-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
+/* Removido - definição duplicada que causava sobreposição */
 
 .hero-bg-image {
     width: 100%;
@@ -1790,16 +1751,7 @@ body {
     z-index: 2;
 }
 
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    z-index: 3;
-    padding: var(--spacing-20) 0 var(--spacing-16);
-    width: 100%;
-}
+/* Removido - definição duplicada */
 
 @media (min-width: 1024px) {
     .hero-content {
@@ -1832,16 +1784,7 @@ body {
     font-size: var(--font-size-base);
 }
 
-.hero-title {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: var(--spacing-6);
-    color: var(--white);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    letter-spacing: -0.01em;
-    max-width: 600px;
-}
+/* Removido - definição duplicada */
 
 @media (min-width: 640px) {
     .hero-title {
