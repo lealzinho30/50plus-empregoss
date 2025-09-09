@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://50plus-empregos.com">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=5.0">
+    <link rel="stylesheet" href="css/style.css?v=6.0">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -661,7 +661,7 @@
     </div>
 
          <!-- ========== MODAL DE CADASTRO COMPLETO ========== -->
-     <div id="cadastro-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cadastro-title">
+     <div id="cadastro-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cadastro-title" style="display: none;">
        <div class="modal-backdrop" data-close></div>
        <div class="modal-dialog modal-large" role="document">
          <button class="modal-close" data-close aria-label="Fechar">✕</button>
@@ -818,7 +818,7 @@
       </div>
       
       <!-- ========== MODAL DE LOGIN ========== -->
-      <div id="login-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="login-title">
+      <div id="login-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="login-title" style="display: none;">
         <div class="modal-backdrop" data-close></div>
         <div class="modal-dialog" role="document">
           <button class="modal-close" data-close aria-label="Fechar">✕</button>
@@ -871,11 +871,20 @@
          openProfileModal();
        }));
        
-       // Manter código antigo caso ainda exista
+       // Controle do modal de cadastro
        const modal = document.getElementById('cadastro-modal');
-       modal?.addEventListener('click', (e) => {
-         if(e.target.hasAttribute('data-close') || e.target.closest('[data-close]')) modal.classList.remove('is-open');
-       });
+       if (modal) {
+         // Ocultar modal por padrão
+         modal.style.display = 'none';
+         
+         // Event listener para fechar modal
+         modal.addEventListener('click', (e) => {
+           if(e.target.hasAttribute('data-close') || e.target.closest('[data-close]')) {
+             modal.style.display = 'none';
+             modal.classList.remove('active');
+           }
+         });
+       }
  
        // Stepper avançado para 5 passos
        const steps = Array.from(document.querySelectorAll('.step'));
@@ -999,7 +1008,8 @@
           const email = e.target.querySelector('input[name="email"]').value;
           
           // Fechar modal de cadastro
-          modal.classList.remove('is-open');
+          modal.style.display = 'none';
+          modal.classList.remove('active');
           
           // Mostrar modal de login
           setTimeout(() => {
@@ -1031,11 +1041,13 @@
           const cadastroModal = document.getElementById('cadastro-modal');
           
           // Fechar modal de login
-          loginModal.classList.remove('is-open');
+          loginModal.style.display = 'none';
+          loginModal.classList.remove('active');
           
           // Mostrar modal de cadastro
           setTimeout(() => {
-            cadastroModal.classList.add('is-open');
+            cadastroModal.style.display = 'block';
+            cadastroModal.classList.add('active');
           }, 300);
         }
         
@@ -1044,7 +1056,8 @@
           if (e.target.hasAttribute('data-close') || e.target.closest('[data-close]')) {
             const modal = e.target.closest('.modal');
             if (modal) {
-              modal.classList.remove('is-open');
+              modal.style.display = 'none';
+              modal.classList.remove('active');
             }
           }
         });
@@ -1064,7 +1077,11 @@
             alert(`Login realizado com sucesso!\nBem-vindo(a), ${email.split('@')[0]}!`);
             
             // Fechar modal de login
-            document.getElementById('login-modal').classList.remove('is-open');
+            const loginModal = document.getElementById('login-modal');
+            if (loginModal) {
+              loginModal.style.display = 'none';
+              loginModal.classList.remove('active');
+            }
             
             // Resetar formulário
             e.target.reset();
