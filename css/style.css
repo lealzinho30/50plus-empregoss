@@ -3573,21 +3573,6 @@ section {
 }
 
 /* Responsividade duplicada removida */
-    
-    .hero-stats {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-4);
-    }
-    
-    section {
-        padding: var(--spacing-12) 0;
-    }
-    
-    .section-title {
-        font-size: var(--font-size-3xl);
-        margin-bottom: var(--spacing-6);
-    }
-}
 
 /* Animações suaves */
 @keyframes fadeInUp {
