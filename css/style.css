@@ -900,6 +900,45 @@ section {
     }
 }
 
+/* Mobile otimizado para hero */
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 0 !important;
+        min-height: 70vh !important;
+    }
+    
+    .hero .container {
+        padding: 0 10px !important;
+        gap: 30px !important;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .hero-cta {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    
+    .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        padding: 16px 24px !important;
+    }
+    
+    .hero-image img {
+        max-width: 350px !important;
+    }
+}
+
 /* Estilos para preços dos cursos */
 .card-price {
     text-align: center;
