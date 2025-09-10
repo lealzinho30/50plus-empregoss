@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://50plus-empregos.com">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=9.0">
+    <link rel="stylesheet" href="css/style.css?v=10.0">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -403,7 +403,7 @@
                 <!-- Pacote Completo -->
                 <div class="training-package">
                     <div class="package-header">
-                        <h3>🎯 Pacote Completo 50+</h3>
+                        <h3>Pacote Completo 50+</h3>
                         <p>Economize e tenha acesso a todos os cursos</p>
                     </div>
                     <div class="package-content">
@@ -739,15 +739,15 @@
         
         function getAnswer(question) {
             const answers = {
-                'Como funciona o cadastro?': 'Para se cadastrar, clique em "Cadastrar CV" e preencha o formulário com suas informações. É rápido e gratuito! 📝',
-                'Quais são os preços dos cursos?': 'Temos o curso de IA GRATUITO, Ferramentas Digitais por R$ 197 e Soft Skills por R$ 147. O pacote completo sai por R$ 397! 💰',
-                'Como encontrar vagas?': 'Após o cadastro, nossa tecnologia faz o match entre seu perfil e as vagas disponíveis. Você receberá notificações das melhores oportunidades! 🎯',
-                'Qual a idade mínima?': 'Nosso foco são profissionais 50+, mas aceitamos candidatos a partir dos 45 anos com experiência relevante. 👥',
-                'Como entrar em contato?': 'Você pode usar este chat, WhatsApp ou email. Nosso time responde rapidamente! 📞',
-                'Os cursos têm certificado?': 'Sim! Todos os nossos cursos oferecem certificado de conclusão reconhecido no mercado. 🏆',
-                'Quanto tempo para encontrar emprego?': 'Em média, nossos candidatos encontram oportunidades em 4-8 semanas. Depende do perfil e disponibilidade. ⏰',
-                'Posso trabalhar remoto?': 'Sim! Temos muitas oportunidades remotas e híbridas para profissionais 50+. 💻',
-                'default': 'Obrigado pela pergunta! Nossa equipe entrará em contato em breve para esclarecer suas dúvidas. Você também pode nos chamar no WhatsApp! 😊'
+                'Como funciona o cadastro?': 'Para se cadastrar, clique em "Cadastrar CV" e preencha o formulário com suas informações. É rápido e gratuito.',
+                'Quais são os preços dos cursos?': 'Temos o curso de IA GRATUITO, Ferramentas Digitais por R$ 197 e Soft Skills por R$ 147. O pacote completo sai por R$ 397.',
+                'Como encontrar vagas?': 'Após o cadastro, nossa tecnologia faz o match entre seu perfil e as vagas disponíveis. Você receberá notificações das melhores oportunidades.',
+                'Qual a idade mínima?': 'Nosso foco são profissionais 50+, mas aceitamos candidatos a partir dos 45 anos com experiência relevante.',
+                'Como entrar em contato?': 'Você pode usar este chat, WhatsApp ou email. Nosso time responde rapidamente.',
+                'Os cursos têm certificado?': 'Sim! Todos os nossos cursos oferecem certificado de conclusão reconhecido no mercado.',
+                'Quanto tempo para encontrar emprego?': 'Em média, nossos candidatos encontram oportunidades em 4-8 semanas. Depende do perfil e disponibilidade.',
+                'Posso trabalhar remoto?': 'Sim! Temos muitas oportunidades remotas e híbridas para profissionais 50+.',
+                'default': 'Obrigado pela pergunta! Nossa equipe entrará em contato em breve para esclarecer suas dúvidas. Você também pode nos chamar no WhatsApp!'
             };
             
             // Busca por palavras-chave na pergunta
@@ -838,41 +838,6 @@
             return true;
         }
         
-        function resetForm() {
-            document.getElementById('profile-form').reset();
-            currentStep = 1;
-            showStep(1);
-        }
-        
-        // Submissão do formulário
-        document.getElementById('profile-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (validateCurrentStep()) {
-                // Coletar dados do formulário
-                const formData = new FormData(this);
-                const data = {};
-                
-                for (let [key, value] of formData.entries()) {
-                    if (data[key]) {
-                        if (Array.isArray(data[key])) {
-                            data[key].push(value);
-                        } else {
-                            data[key] = [data[key], value];
-                        }
-                    } else {
-                        data[key] = value;
-                    }
-                }
-                
-                // Simular envio
-                alert('✅ Cadastro realizado com sucesso!\n\nObrigado por se cadastrar. Nossa equipe entrará em contato em breve com oportunidades compatíveis com seu perfil.');
-                closeProfileModal();
-                
-                // Aqui você pode enviar os dados para o servidor
-                console.log('Dados do perfil:', data);
-            }
-        });
     </script>
 </body>
 </html>
