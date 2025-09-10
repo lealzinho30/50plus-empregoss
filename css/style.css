@@ -88,10 +88,12 @@ body {
 }
 
 .hero-title .highlight {
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    background: linear-gradient(135deg, #FBBF24 0%, #FDE047 50%, #FACC15 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: brightness(1.2);
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
 }
 
 .hero-subtitle {
@@ -2169,11 +2171,12 @@ body {
 }
 
 .highlight-gold {
-    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+    background: linear-gradient(135deg, #FBBF24 0%, #FDE047 50%, #FACC15 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 800;
+    filter: brightness(1.1);
 }
 
 .hero-subtitle {
