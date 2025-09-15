@@ -6459,3 +6459,392 @@ textarea.error {
 }
 
 /* Hero mobile duplicado removido */
+
+/* ==============================================
+   OTIMIZAÇÃO MOBILE COMPLETA - VERSÃO APRIMORADA
+   ============================================== */
+
+@media (max-width: 768px) {
+    /* Reset mobile otimizado */
+    html {
+        font-size: 16px !important;
+        scroll-behavior: smooth !important;
+        -webkit-text-size-adjust: 100% !important;
+    }
+    
+    body {
+        overflow-x: hidden !important;
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+    
+    /* Container mobile */
+    .container {
+        padding: 0 16px !important;
+        max-width: 100% !important;
+    }
+    
+    /* Header mobile sticky */
+    .header {
+        padding: 12px 0 !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .nav-buttons {
+        display: none !important;
+    }
+    
+    .nav-toggle {
+        display: flex !important;
+        background: var(--primary) !important;
+        color: white !important;
+        border: none !important;
+        padding: 8px !important;
+        border-radius: 8px !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    /* Hero mobile otimizado */
+    .hero {
+        padding: 80px 0 60px !important;
+        background-attachment: scroll !important;
+    }
+    
+    .hero .container {
+        display: block !important;
+        text-align: center !important;
+    }
+    
+    .hero-content {
+        margin-bottom: 40px !important;
+    }
+    
+    .hero-image {
+        max-width: 300px !important;
+        margin: 0 auto !important;
+    }
+    
+    .hero-title {
+        font-size: 1.875rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 16px !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+        font-weight: 700 !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 32px !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    
+    .hero-buttons .btn {
+        width: 100% !important;
+        min-height: 52px !important;
+        font-size: 1.125rem !important;
+        padding: 16px 24px !important;
+        border-radius: 12px !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Seções mobile */
+    .section {
+        padding: 60px 0 !important;
+    }
+    
+    .section-title {
+        font-size: 1.75rem !important;
+        margin-bottom: 16px !important;
+        text-align: center !important;
+        font-weight: 700 !important;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 40px !important;
+        text-align: center !important;
+        opacity: 0.8 !important;
+    }
+    
+    /* Cards mobile */
+    .value-grid,
+    .courses-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+    
+    .value-card,
+    .course-card {
+        padding: 24px !important;
+        border-radius: 16px !important;
+        text-align: center !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    }
+    
+    .value-card h3,
+    .course-card h3 {
+        font-size: 1.25rem !important;
+        margin-bottom: 12px !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Jobs mobile */
+    .jobs-filters {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    
+    .filter-select {
+        width: 100% !important;
+        padding: 14px 16px !important;
+        font-size: 1rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .jobs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .job-card {
+        padding: 20px !important;
+        border-radius: 16px !important;
+    }
+    
+    .job-actions {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    
+    .job-actions .btn {
+        width: 100% !important;
+    }
+    
+    /* Training package mobile */
+    .training-package {
+        margin: 40px 16px !important;
+        padding: 32px 24px !important;
+        border-radius: 20px !important;
+        text-align: center !important;
+    }
+    
+    .package-features {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        text-align: left !important;
+    }
+    
+    /* FAQ mobile */
+    .faq-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .faq-item {
+        border-radius: 16px !important;
+        overflow: hidden !important;
+    }
+    
+    .faq-question {
+        padding: 20px !important;
+        font-size: 1.125rem !important;
+        font-weight: 600 !important;
+    }
+    
+    .faq-answer {
+        padding: 0 20px 20px 20px !important;
+        font-size: 1rem !important;
+    }
+    
+    /* CTA final mobile */
+    .cta-final {
+        margin: 40px 16px !important;
+        padding: 40px 24px !important;
+        border-radius: 20px !important;
+        text-align: center !important;
+    }
+    
+    /* Footer mobile */
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+        text-align: center !important;
+    }
+    
+    /* Chat mobile */
+    .chat-widget {
+        bottom: 90px !important;
+        right: 20px !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .chat-window {
+        width: calc(100vw - 40px) !important;
+        height: 70vh !important;
+        max-height: 500px !important;
+        bottom: 160px !important;
+        right: 20px !important;
+        border-radius: 20px !important;
+    }
+    
+    /* WhatsApp mobile */
+    .whatsapp-button {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 30px !important;
+    }
+    
+    .whatsapp-text {
+        display: none !important;
+    }
+    
+    /* Botões mobile */
+    .btn {
+        min-height: 48px !important;
+        padding: 14px 24px !important;
+        font-size: 1rem !important;
+        border-radius: 12px !important;
+        font-weight: 600 !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* Formulários mobile */
+    input, select, textarea {
+        min-height: 48px !important;
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+        border-radius: 12px !important;
+    }
+    
+    /* Performance mobile */
+    * {
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* ==============================================
+   MOBILE PEQUENO - 480px e abaixo
+   ============================================== */
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px !important;
+    }
+    
+    .hero {
+        padding: 60px 0 40px !important;
+    }
+    
+    .hero-title {
+        font-size: 1.625rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    .hero-buttons .btn {
+        min-height: 48px !important;
+        font-size: 1rem !important;
+        padding: 14px 20px !important;
+    }
+    
+    .section {
+        padding: 40px 0 !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .value-card,
+    .course-card {
+        padding: 20px !important;
+    }
+    
+    .training-package {
+        margin: 32px 12px !important;
+        padding: 24px 20px !important;
+    }
+    
+    .cta-final {
+        margin: 32px 12px !important;
+        padding: 32px 20px !important;
+    }
+    
+    .chat-window {
+        width: calc(100vw - 24px) !important;
+        right: 12px !important;
+    }
+    
+    .whatsapp-button {
+        right: 12px !important;
+        width: 56px !important;
+        height: 56px !important;
+    }
+    
+    .chat-widget {
+        right: 12px !important;
+        width: 56px !important;
+        height: 56px !important;
+    }
+}
+
+/* ==============================================
+   MOBILE EXTRA PEQUENO - 375px e abaixo
+   ============================================== */
+
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.375rem !important;
+    }
+    
+    .hero-buttons .btn {
+        padding: 12px 16px !important;
+    }
+    
+    .value-card,
+    .course-card {
+        padding: 16px !important;
+    }
+    
+    .job-card {
+        padding: 16px !important;
+    }
+    
+    .faq-question {
+        padding: 16px !important;
+        font-size: 1rem !important;
+    }
+    
+    .faq-answer {
+        padding: 0 16px 16px 16px !important;
+        font-size: 0.9375rem !important;
+    }
+}
