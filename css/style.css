@@ -318,10 +318,18 @@ input:focus, select:focus, textarea:focus {
 }
 
 .faq-answer {
-    padding: var(--spacing-4) var(--spacing-6);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 var(--spacing-6);
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--gray-700);
+}
+
+.faq-answer.active {
+    max-height: 300px;
+    padding: var(--spacing-4) var(--spacing-6);
 }
 
 /* Depoimentos com melhor legibilidade */
@@ -3768,13 +3776,15 @@ section {
 }
 
 .faq-answer {
-    max-height: 0;
+    max-height: 0 !important;
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 !important;
 }
 
 .faq-answer.active {
-    max-height: 300px;
+    max-height: 300px !important;
+    padding: 0 0 24px 0 !important;
 }
 
 .faq-answer p {

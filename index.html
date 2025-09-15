@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://50plus-empregos.com">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=11.0">
+    <link rel="stylesheet" href="css/style.css?v=11.1">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -723,21 +723,13 @@
       <!-- ========== MODAL DE LOGIN REMOVIDO COMPLETAMENTE ========== -->
  
      <!-- JavaScript -->
-    <script src="js/main.js?v=2.0"></script>
+    <script src="js/main.js?v=2.1"></script>
     <script src="assets/js/image-manager.js?v=2.0"></script>
     <script src="assets/js/image-control-panel.js?v=2.0"></script>
-    <script src="assets/js/cadastro.js"></script>
+    <!-- Script de cadastro removido completamente -->
     
          <script>
-       // Abrir modal do questionário de perfil
-       const openers = [document.getElementById('btn-cadastrar'), document.getElementById('btn-cadastrar-2')].filter(Boolean);
-       
-       openers.forEach(btn => btn.addEventListener('click', (e) => {
-         e.preventDefault();
-         openProfileModal();
-       }));
-       
-       // Modais removidos completamente
+       // Todos os modais e questionários foram removidos completamente
  
        // JavaScript dos modais removido completamente
      </script>
@@ -833,69 +825,6 @@
         }
     </script>
 
-    <!-- JavaScript do Modal do Questionário -->
-    <script>
-        let currentStep = 1;
-        const totalSteps = 4;
-        
-        // Funções do modal removidas
-        
-        function showStep(step) {
-            // Esconder todas as etapas
-            document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-            // Mostrar etapa atual
-            document.getElementById(`step-${step}`).classList.add('active');
-            
-            // Controlar botões
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const submitBtn = document.getElementById('submit-btn');
-            
-            prevBtn.style.display = step === 1 ? 'none' : 'inline-block';
-            nextBtn.style.display = step === totalSteps ? 'none' : 'inline-block';
-            submitBtn.style.display = step === totalSteps ? 'inline-block' : 'none';
-        }
-        
-        function nextStep() {
-            if (validateCurrentStep()) {
-                if (currentStep < totalSteps) {
-                    currentStep++;
-                    showStep(currentStep);
-                }
-            }
-        }
-        
-        function prevStep() {
-            if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
-            }
-        }
-        
-        function validateCurrentStep() {
-            const currentStepElement = document.getElementById(`step-${currentStep}`);
-            const requiredFields = currentStepElement.querySelectorAll('[required]');
-            
-            for (let field of requiredFields) {
-                if (!field.value.trim()) {
-                    field.focus();
-                    alert('Por favor, preencha todos os campos obrigatórios.');
-                    return false;
-                }
-            }
-            
-            // Validação especial para modalidade (checkboxes)
-            if (currentStep === 3) {
-                const modalidadeChecked = currentStepElement.querySelectorAll('input[name="modalidade"]:checked');
-                if (modalidadeChecked.length === 0) {
-                    alert('Por favor, selecione pelo menos uma modalidade de trabalho.');
-                    return false;
-                }
-            }
-            
-            return true;
-        }
-        
-    </script>
+    <!-- JavaScript do Modal do Questionário - REMOVIDO COMPLETAMENTE -->
 </body>
 </html>
