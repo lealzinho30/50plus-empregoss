@@ -178,3 +178,4 @@ As imagens personalizadas são salvas apenas no **localStorage do seu navegador*
 
 
 
+

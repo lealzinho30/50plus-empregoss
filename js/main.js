@@ -1,3 +1,4 @@
+
 // Dados das vagas em destaque - Com imagens representativas
 const featuredJobs = [
     {
@@ -52,7 +53,7 @@ const featuredJobs = [
         company: "Casa do Lar",
         location: "Belo Horizonte, MG",
         state: "MG",
-        mode: "Presencial",
+        mode: "Presencial",s isso  ot
         level: "Pleno",
         salary: "R$ 2.000 + comissões",
         area: "Vendas",
@@ -1240,8 +1241,268 @@ if (document.readyState === 'loading') {
     init();
 }
 
+// ==============================================
+// FUNÇÕES DOS MODAIS DE CADASTRO E PERFIL
+// ==============================================
+
+// Modal de Cadastro Simples
+function openCadastroModal() {
+    const modal = document.getElementById('cadastro-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        trackEvent('modal', 'open', 'cadastro-simples');
+    }
+}
+
+function closeCadastroModal() {
+    const modal = document.getElementById('cadastro-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        trackEvent('modal', 'close', 'cadastro-simples');
+    }
+}
+
+// Modal de Perfil Completo
+function openPerfilModal() {
+    const modal = document.getElementById('perfil-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Resetar para o primeiro step
+        showStep(1);
+        trackEvent('modal', 'open', 'perfil-completo');
+    }
+}
+
+function closePerfilModal() {
+    const modal = document.getElementById('perfil-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        trackEvent('modal', 'close', 'perfil-completo');
+    }
+}
+
+// Controle dos steps do formulário de perfil
+let currentStep = 1;
+const totalSteps = 4;
+
+function showStep(step) {
+    // Esconder todos os steps
+    for (let i = 1; i <= totalSteps; i++) {
+        const stepElement = document.getElementById(`step-${i}`);
+        if (stepElement) {
+            stepElement.classList.remove('active');
+        }
+    }
+    
+    // Mostrar o step atual
+    const currentStepElement = document.getElementById(`step-${step}`);
+    if (currentStepElement) {
+        currentStepElement.classList.add('active');
+    }
+    
+    // Atualizar botões de navegação
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    if (prevBtn) {
+        prevBtn.style.display = step > 1 ? 'block' : 'none';
+    }
+    
+    if (nextBtn) {
+        nextBtn.style.display = step < totalSteps ? 'block' : 'none';
+    }
+    
+    if (submitBtn) {
+        submitBtn.style.display = step === totalSteps ? 'block' : 'none';
+    }
+    
+    currentStep = step;
+}
+
+function nextStep() {
+    if (validateCurrentStep()) {
+        if (currentStep < totalSteps) {
+            showStep(currentStep + 1);
+            trackEvent('form', 'next-step', `step-${currentStep + 1}`);
+        }
+    }
+}
+
+function prevStep() {
+    if (currentStep > 1) {
+        showStep(currentStep - 1);
+        trackEvent('form', 'prev-step', `step-${currentStep - 1}`);
+    }
+}
+
+function validateCurrentStep() {
+    const currentStepElement = document.getElementById(`step-${currentStep}`);
+    if (!currentStepElement) return false;
+    
+    const requiredFields = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.style.borderColor = '#e53e3e';
+            isValid = false;
+        } else {
+            field.style.borderColor = '#e2e8f0';
+        }
+    });
+    
+    if (!isValid) {
+        showToast('Por favor, preencha todos os campos obrigatórios', 'error');
+    }
+    
+    return isValid;
+}
+
+// Validação de CPF
+function validateCPF(cpf) {
+    cpf = cpf.replace(/[^\d]/g, '');
+    
+    if (cpf.length !== 11) return false;
+    
+    // Verificar se todos os dígitos são iguais
+    if (/^(\d)\1{10}$/.test(cpf)) return false;
+    
+    // Validar dígitos verificadores
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+        sum += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    let remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) remainder = 0;
+    if (remainder !== parseInt(cpf.charAt(9))) return false;
+    
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
+        sum += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) remainder = 0;
+    if (remainder !== parseInt(cpf.charAt(10))) return false;
+    
+    return true;
+}
+
+// Máscara para CPF
+function formatCPF(input) {
+    let value = input.value.replace(/\D/g, '');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    input.value = value;
+}
+
+// Máscara para telefone
+function formatPhone(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length <= 10) {
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{4})(\d)/, '$1-$2');
+    } else {
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+    }
+    input.value = value;
+}
+
+// Event listeners para os formulários
+document.addEventListener('DOMContentLoaded', function() {
+    // Formulário de cadastro simples
+    const cadastroForm = document.getElementById('cadastro-form');
+    if (cadastroForm) {
+        cadastroForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(cadastroForm);
+            const data = Object.fromEntries(formData);
+            
+            // Validação básica
+            if (!data.aceito_termos) {
+                showToast('Você deve aceitar os termos de uso', 'error');
+                return;
+            }
+            
+            // Simular envio
+            showToast('Cadastro realizado com sucesso!', 'success');
+            closeCadastroModal();
+            cadastroForm.reset();
+            
+            trackEvent('form', 'submit', 'cadastro-simples');
+        });
+    }
+    
+    // Formulário de perfil completo
+    const perfilForm = document.getElementById('perfil-form');
+    if (perfilForm) {
+        perfilForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(perfilForm);
+            const data = Object.fromEntries(formData);
+            
+            // Validação do CPF
+            if (data.cpf && !validateCPF(data.cpf)) {
+                showToast('CPF inválido', 'error');
+                return;
+            }
+            
+            // Validação dos termos
+            if (!data.aceito_termos) {
+                showToast('Você deve aceitar os termos de uso', 'error');
+                return;
+            }
+            
+            // Simular envio
+            showToast('Perfil cadastrado com sucesso!', 'success');
+            closePerfilModal();
+            perfilForm.reset();
+            showStep(1);
+            
+            trackEvent('form', 'submit', 'perfil-completo');
+        });
+    }
+    
+    // Aplicar máscaras
+    const cpfInput = document.getElementById('perfil-cpf');
+    if (cpfInput) {
+        cpfInput.addEventListener('input', function() {
+            formatCPF(this);
+        });
+    }
+    
+    const phoneInputs = document.querySelectorAll('input[type="tel"]');
+    phoneInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            formatPhone(this);
+        });
+    });
+    
+    // Fechar modais com ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeCadastroModal();
+            closePerfilModal();
+        }
+    });
+});
+
 // Exportar funções para uso global
 window.toggleFAQ = toggleFAQ;
 window.openWhatsApp = openWhatsApp;
 window.showToast = showToast;
 window.trackEvent = trackEvent;
+window.openCadastroModal = openCadastroModal;
+window.closeCadastroModal = closeCadastroModal;
+window.openPerfilModal = openPerfilModal;
+window.closePerfilModal = closePerfilModal;
+window.nextStep = nextStep;
+window.prevStep = prevStep;

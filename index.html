@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://50plus-empregos.com">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=12.0">
+    <link rel="stylesheet" href="css/style.css?v=13.0">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +43,7 @@
             
             <div class="nav-buttons">
                 <a href="#vagas" class="btn btn-secondary btn-nav">Ver Vagas</a>
-                <a href="#candidatos" class="btn btn-primary btn-nav" style="background: #ffffff !important; color: #0f355a !important; border-color: #ffffff !important; box-shadow: 0 8px 22px rgba(0,0,0,0.25) !important; font-weight: 600 !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; height: 44px !important; padding: 0 18px !important; border-radius: 12px !important;">Cadastrar-se</a>
+                <button class="btn btn-primary btn-nav" onclick="openCadastroModal()" style="background: #ffffff !important; color: #0f355a !important; border-color: #ffffff !important; box-shadow: 0 8px 22px rgba(0,0,0,0.25) !important; font-weight: 600 !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; height: 44px !important; padding: 0 18px !important; border-radius: 12px !important;">Cadastrar-se</button>
                 <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -61,25 +61,25 @@
             <div class="container">
                 <div class="hero-content">
                     <span class="hero-badge">Especialistas em Empregos 50+</span>
-                    <h1 class="hero-title">
+            <h1 class="hero-title">
                         Sua <span class="highlight">experiência</span> vale ouro
-                    </h1>
+            </h1>
                     <p class="hero-subtitle">
                         Conectamos profissionais experientes com empresas que valorizam maturidade e resultados.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="https://wa.me/5511999999999?text=Olá! Gostaria de me cadastrar no 50+ Empregos" class="btn btn-primary btn-large" target="_blank">Cadastrar meu perfil</a>
+            </p>
+            <div class="hero-cta">
+                        <button class="btn btn-primary btn-large" onclick="openPerfilModal()">Cadastrar meu perfil</button>
                         <a class="btn btn-secondary" href="#vagas">Ver vagas disponíveis</a>
-                    </div>
-                </div>
-                
+            </div>
+          </div>
+
                 <div class="hero-image">
                     <img 
                         src="assets/img/hero/image.hero.png" 
                         alt="Profissional 50+ confiante" 
                         width="600" height="400" />
                 </div>
-            </div>
+          </div>
         </section>
 
         <!-- ========== COMO FUNCIONA ========== -->
@@ -271,7 +271,7 @@
                                     <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                                 </svg>
                             </div>
-                        </div>
+                            </div>
                         <div class="card-content">
                             <h3 class="card-title">Tecnologia Inteligente</h3>
                             <p class="card-subtitle">Aprenda ferramentas modernas de forma simples</p>
@@ -283,25 +283,25 @@
                                 <li>Criar relatórios facilmente</li>
                             </ul>
                             
-                            <div class="card-meta">
+                        <div class="card-meta">
                                 <div class="meta-group">
                                     <span class="meta-label">Duração:</span>
                                     <span class="meta-value">20 horas</span>
-                                </div>
+                            </div>
                                 <div class="meta-group">
                                     <span class="meta-label">Nível:</span>
                                     <span class="meta-value">Iniciante</span>
-                                </div>
+                            </div>
                                 <div class="meta-group">
                                     <span class="meta-label">Certificado:</span>
                                     <span class="meta-value">Sim</span>
-                                </div>
+                            </div>
                             </div>
                             
                             <div class="card-price">
                                 <span class="price-badge">Gratuito</span>
                                 <span class="price-note">Curso completo sem custo</span>
-                            </div>
+                        </div>
                             
                             <a href="#capacitacao" class="btn-card btn-primary-card">Começar Curso</a>
                         </div>
@@ -317,7 +317,7 @@
                                     <path d="M12 16v5" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                        </div>
+                            </div>
                         <div class="card-content">
                             <h3 class="card-title">Ferramentas Digitais</h3>
                             <p class="card-subtitle">Domine o essencial do computador</p>
@@ -329,20 +329,20 @@
                                 <li>Zoom e Teams para reuniões</li>
                             </ul>
                             
-                            <div class="card-meta">
+                        <div class="card-meta">
                                 <div class="meta-group">
                                     <span class="meta-label">Duração:</span>
                                     <span class="meta-value">15 horas</span>
-                                </div>
+                            </div>
                                 <div class="meta-group">
                                     <span class="meta-label">Nível:</span>
                                     <span class="meta-value">Básico</span>
-                                </div>
+                            </div>
                                 <div class="meta-group">
                                     <span class="meta-label">Certificado:</span>
                                     <span class="meta-value">Sim</span>
-                                </div>
                             </div>
+                        </div>
                             
                             <div class="card-price">
                                 <span class="price-badge">R$ 197</span>
@@ -363,7 +363,7 @@
                                     <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                        </div>
+                            </div>
                         <div class="card-content">
                             <h3 class="card-title">Habilidades Pessoais</h3>
                             <p class="card-subtitle">Use sua experiência a seu favor</p>
@@ -375,20 +375,20 @@
                                 <li>Resolução sábia de conflitos</li>
                             </ul>
                             
-                            <div class="card-meta">
+                        <div class="card-meta">
                                 <div class="meta-group">
                                     <span class="meta-label">Duração:</span>
                                     <span class="meta-value">12 horas</span>
-                                </div>
+                            </div>
                                 <div class="meta-group">
                                     <span class="meta-label">Nível:</span>
                                     <span class="meta-value">Todos</span>
-                                </div>
+                            </div>
                                 <div class="meta-group">
                                     <span class="meta-label">Certificado:</span>
                                     <span class="meta-value">Sim</span>
-                                </div>
                             </div>
+                        </div>
                             
                             <div class="card-price">
                                 <span class="price-badge">R$ 147</span>
@@ -491,35 +491,35 @@
                 
                 <div class="faq-grid">
                     <div class="faq-column">
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span class="faq-text">Como vocês me ajudam a encontrar trabalho?</span>
-                                <span class="faq-icon">+</span>
-                            </button>
-                            <div class="faq-answer">
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
                                 <p>Nosso processo é completo e personalizado: análise do seu perfil profissional, otimização do currículo, preparação para entrevistas, cursos de atualização quando necessário e apresentação direta para empresas parceiras que valorizam profissionais experientes.</p>
-                            </div>
                         </div>
-                        
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="toggleFAQ(this)">
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span class="faq-text">Quais áreas de trabalho vocês atendem?</span>
-                                <span class="faq-icon">+</span>
-                            </button>
-                            <div class="faq-answer">
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
                                 <p>Atendemos todas as áreas: administrativo, vendas, atendimento, logística, segurança, serviços gerais, consultoria, trabalho remoto e muito mais. Nossa rede de empresas parceiras abrange diversos setores da economia.</p>
-                            </div>
                         </div>
-                        
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="toggleFAQ(this)">
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span class="faq-text">Os cursos são pagos ou gratuitos?</span>
-                                <span class="faq-icon">+</span>
-                            </button>
-                            <div class="faq-answer">
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
                                 <p>Oferecemos o curso de Inteligência Artificial totalmente gratuito. Os demais cursos têm valores acessíveis: Ferramentas Digitais (R$ 197) e Soft Skills (R$ 147). O pacote completo sai por R$ 397, com economia de R$ 44.</p>
-                            </div>
                         </div>
+                    </div>
                         
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
@@ -528,8 +528,8 @@
                             </button>
                             <div class="faq-answer">
                                 <p>Em média, nossos candidatos recebem oportunidades entre 4 a 8 semanas após o cadastro. O tempo varia conforme o perfil, disponibilidade e área de interesse. Acompanhamos cada candidato individualmente.</p>
-                            </div>
-                        </div>
+                </div>
+            </div>
                     </div>
                     
                     <div class="faq-column">
@@ -578,7 +578,7 @@
                 <div class="faq-cta">
                     <p>Ainda tem dúvidas? <a href="https://wa.me/5511999999999?text=Olá! Tenho dúvidas sobre o processo de recolocação profissional." class="faq-contact-link">Fale conosco no WhatsApp</a></p>
                 </div>
-            </div>
+          </div>
         </section>
 
 
@@ -660,7 +660,7 @@
                         <h4>Para Candidatos</h4>
                         <ul>
                             <li><a href="#vagas">Buscar vagas</a></li>
-                            <li><a href="#candidatos">Cadastrar-se</a></li>
+                            <li><a href="#" onclick="openCadastroModal()">Cadastrar-se</a></li>
                             <li><a href="#capacitacao">Capacitação</a></li>
                             <li><a href="#empreender">Empreender</a></li>
                         </ul>
@@ -723,7 +723,7 @@
       <!-- ========== MODAL DE LOGIN REMOVIDO COMPLETAMENTE ========== -->
  
      <!-- JavaScript -->
-    <script src="js/main.js?v=2.1"></script>
+    <script src="js/main.js?v=13.0"></script>
     <script src="assets/js/image-manager.js?v=2.0"></script>
     <script src="assets/js/image-control-panel.js?v=2.0"></script>
     <!-- Script de cadastro removido completamente -->
@@ -826,5 +826,311 @@
     </script>
 
     <!-- JavaScript do Modal do Questionário - REMOVIDO COMPLETAMENTE -->
+
+    <!-- Modais de Cadastro e Perfil -->
+    <!-- Modal de Cadastro -->
+    <div id="cadastro-modal" class="modal" style="display: none;">
+        <div class="modal-backdrop" onclick="closeCadastroModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Cadastre-se no 50+ Empregos</h2>
+                <button class="modal-close" onclick="closeCadastroModal()" aria-label="Fechar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="cadastro-form" class="form-cadastro">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone/WhatsApp *</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="idade">Faixa Etária *</label>
+                        <select id="idade" name="idade" required>
+                            <option value="">Selecione sua faixa etária</option>
+                            <option value="50-55">50 a 55 anos</option>
+                            <option value="56-60">56 a 60 anos</option>
+                            <option value="61-65">61 a 65 anos</option>
+                            <option value="66-70">66 a 70 anos</option>
+                            <option value="70+">70+ anos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experiencia">Área de Experiência *</label>
+                        <select id="experiencia" name="experiencia" required>
+                            <option value="">Selecione sua área</option>
+                            <option value="administrativo">Administrativo</option>
+                            <option value="vendas">Vendas</option>
+                            <option value="tecnologia">Tecnologia</option>
+                            <option value="saude">Saúde</option>
+                            <option value="educacao">Educação</option>
+                            <option value="financeiro">Financeiro</option>
+                            <option value="rh">Recursos Humanos</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="operacoes">Operações</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cidade">Cidade/Estado *</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo/SP" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="disponibilidade">Disponibilidade *</label>
+                        <select id="disponibilidade" name="disponibilidade" required>
+                            <option value="">Selecione sua disponibilidade</option>
+                            <option value="imediata">Imediata</option>
+                            <option value="15-dias">Em 15 dias</option>
+                            <option value="30-dias">Em 30 dias</option>
+                            <option value="flexivel">Flexível</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="aceito-termos" name="aceito-termos" required>
+                            <span class="checkmark"></span>
+                            Aceito os <a href="#" target="_blank">Termos de Uso</a> e <a href="#" target="_blank">Política de Privacidade</a> *
+                        </label>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="aceito-marketing" name="aceito-marketing">
+                            <span class="checkmark"></span>
+                            Desejo receber informações sobre vagas e oportunidades por e-mail
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeCadastroModal()">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar-se</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Perfil Completo -->
+    <div id="perfil-modal" class="modal" style="display: none;">
+        <div class="modal-backdrop" onclick="closePerfilModal()"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Complete seu Perfil Profissional</h2>
+                <button class="modal-close" onclick="closePerfilModal()" aria-label="Fechar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="perfil-form" class="form-perfil">
+                    <!-- Step 1: Dados Pessoais -->
+                    <div class="form-step active" id="step-1">
+                        <h3>Dados Pessoais</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="perfil-nome">Nome Completo *</label>
+                                <input type="text" id="perfil-nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="perfil-cpf">CPF *</label>
+                                <input type="text" id="perfil-cpf" name="cpf" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="perfil-email">E-mail *</label>
+                                <input type="email" id="perfil-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="perfil-telefone">Telefone/WhatsApp *</label>
+                                <input type="tel" id="perfil-telefone" name="telefone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="perfil-nascimento">Data de Nascimento *</label>
+                                <input type="date" id="perfil-nascimento" name="nascimento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="perfil-genero">Gênero</label>
+                                <select id="perfil-genero" name="genero">
+                                    <option value="">Selecione</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="outro">Outro</option>
+                                    <option value="nao-informar">Prefiro não informar</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-endereco">Endereço Completo *</label>
+                            <input type="text" id="perfil-endereco" name="endereco" placeholder="Rua, número, bairro, cidade/estado, CEP" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Experiência Profissional -->
+                    <div class="form-step" id="step-2">
+                        <h3>Experiência Profissional</h3>
+                        <div class="form-group">
+                            <label for="perfil-area">Área de Atuação *</label>
+                            <select id="perfil-area" name="area" required>
+                                <option value="">Selecione sua área</option>
+                                <option value="administrativo">Administrativo</option>
+                                <option value="vendas">Vendas</option>
+                                <option value="tecnologia">Tecnologia</option>
+                                <option value="saude">Saúde</option>
+                                <option value="educacao">Educação</option>
+                                <option value="financeiro">Financeiro</option>
+                                <option value="rh">Recursos Humanos</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="operacoes">Operações</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-cargo">Cargo Atual/Último Cargo *</label>
+                            <input type="text" id="perfil-cargo" name="cargo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-empresa">Empresa Atual/Última Empresa *</label>
+                            <input type="text" id="perfil-empresa" name="empresa" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="perfil-inicio">Data de Início *</label>
+                                <input type="date" id="perfil-inicio" name="inicio" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="perfil-fim">Data de Término</label>
+                                <input type="date" id="perfil-fim" name="fim">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-descricao">Principais Responsabilidades e Conquistas</label>
+                            <textarea id="perfil-descricao" name="descricao" rows="4" placeholder="Descreva suas principais responsabilidades e conquistas neste cargo..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Formação e Habilidades -->
+                    <div class="form-step" id="step-3">
+                        <h3>Formação e Habilidades</h3>
+                        <div class="form-group">
+                            <label for="perfil-formacao">Nível de Escolaridade *</label>
+                            <select id="perfil-formacao" name="formacao" required>
+                                <option value="">Selecione</option>
+                                <option value="fundamental">Ensino Fundamental</option>
+                                <option value="medio">Ensino Médio</option>
+                                <option value="tecnico">Técnico</option>
+                                <option value="superior">Superior</option>
+                                <option value="pos-graduacao">Pós-graduação</option>
+                                <option value="mestrado">Mestrado</option>
+                                <option value="doutorado">Doutorado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-curso">Curso/Área de Formação</label>
+                            <input type="text" id="perfil-curso" name="curso" placeholder="Ex: Administração de Empresas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-idiomas">Idiomas</label>
+                            <input type="text" id="perfil-idiomas" name="idiomas" placeholder="Ex: Português (nativo), Inglês (intermediário)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-habilidades">Principais Habilidades</label>
+                            <textarea id="perfil-habilidades" name="habilidades" rows="3" placeholder="Ex: Liderança, Gestão de Equipes, Vendas, Análise de Dados..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-objetivo">Objetivo Profissional</label>
+                            <textarea id="perfil-objetivo" name="objetivo" rows="3" placeholder="Descreva seus objetivos profissionais e o que busca em uma nova oportunidade..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Preferências -->
+                    <div class="form-step" id="step-4">
+                        <h3>Preferências de Trabalho</h3>
+                        <div class="form-group">
+                            <label for="perfil-tipo-trabalho">Tipo de Trabalho Preferido *</label>
+                            <select id="perfil-tipo-trabalho" name="tipo-trabalho" required>
+                                <option value="">Selecione</option>
+                                <option value="presencial">Presencial</option>
+                                <option value="remoto">Remoto</option>
+                                <option value="hibrido">Híbrido</option>
+                                <option value="indiferente">Indiferente</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-jornada">Jornada de Trabalho *</label>
+                            <select id="perfil-jornada" name="jornada" required>
+                                <option value="">Selecione</option>
+                                <option value="integral">Integral (8h)</option>
+                                <option value="meio-periodo">Meio período (4-6h)</option>
+                                <option value="flexivel">Flexível</option>
+                                <option value="freelance">Freelance/Projetos</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="perfil-salario">Pretensão Salarial</label>
+                            <select id="perfil-salario" name="salario">
+                                <option value="">Selecione</option>
+                                <option value="ate-2000">Até R$ 2.000</option>
+                                <option value="2000-3000">R$ 2.000 - R$ 3.000</option>
+                                <option value="3000-5000">R$ 3.000 - R$ 5.000</option>
+                                <option value="5000-8000">R$ 5.000 - R$ 8.000</option>
+                                <option value="8000-12000">R$ 8.000 - R$ 12.000</option>
+                                <option value="acima-12000">Acima de R$ 12.000</option>
+                                <option value="a-combinar">A combinar</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="perfil-aceito-termos" name="aceito-termos" required>
+                                <span class="checkmark"></span>
+                                Aceito os <a href="#" target="_blank">Termos de Uso</a> e <a href="#" target="_blank">Política de Privacidade</a> *
+                            </label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="perfil-aceito-marketing" name="aceito-marketing">
+                                <span class="checkmark"></span>
+                                Desejo receber notificações sobre vagas e oportunidades
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegação dos Steps -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-secondary" id="prev-btn" onclick="prevStep()" style="display: none;">Anterior</button>
+                        <button type="button" class="btn btn-primary" id="next-btn" onclick="nextStep()">Próximo</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn" style="display: none;">Finalizar Cadastro</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
