@@ -588,11 +588,20 @@ function handleNewsletter(event) {
 
 // Função para mobile menu
 function toggleMobileMenu() {
+    console.log('toggleMobileMenu chamada');
     const navMenu = document.querySelector('.nav-menu');
     const navToggle = document.querySelector('.nav-toggle');
     
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
+    console.log('navMenu encontrado:', navMenu);
+    console.log('navToggle encontrado:', navToggle);
+    
+    if (navMenu && navToggle) {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        console.log('Menu mobile alternado');
+    } else {
+        console.error('Elementos do menu mobile não encontrados!');
+    }
 }
 
 // Função para scroll suave
@@ -1633,3 +1642,5 @@ window.toggleChat = toggleChat;
 window.askQuestion = askQuestion;
 window.sendMessage = sendMessage;
 window.smoothScrollTo = smoothScrollTo;
+window.clearAllFilters = clearAllFilters;
+window.toggleMobileMenu = toggleMobileMenu;
