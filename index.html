@@ -32,17 +32,17 @@
             </div>
             
             <ul class="nav-menu" role="menubar">
-                <li role="none"><a href="#inicio" class="nav-link active" role="menuitem">Início</a></li>
-                <li role="none"><a href="#vagas" class="nav-link" role="menuitem">Vagas</a></li>
-                <li role="none"><a href="#candidatos" class="nav-link" role="menuitem">Candidatos</a></li>
-                <li role="none"><a href="#empresas" class="nav-link" role="menuitem">Empresas</a></li>
-                <li role="none"><a href="#capacitacao" class="nav-link" role="menuitem">Capacitação</a></li>
-                <li role="none"><a href="#sobre" class="nav-link" role="menuitem">Sobre</a></li>
-                <li role="none"><a href="#contato" class="nav-link" role="menuitem">Contato</a></li>
+                <li role="none"><a href="#inicio" class="nav-link active" role="menuitem" onclick="smoothScrollTo('#inicio')">Início</a></li>
+                <li role="none"><a href="#vagas" class="nav-link" role="menuitem" onclick="smoothScrollTo('#vagas')">Vagas</a></li>
+                <li role="none"><a href="#candidatos" class="nav-link" role="menuitem" onclick="smoothScrollTo('#candidatos')">Candidatos</a></li>
+                <li role="none"><a href="#empresas" class="nav-link" role="menuitem" onclick="smoothScrollTo('#empresas')">Empresas</a></li>
+                <li role="none"><a href="#capacitacao" class="nav-link" role="menuitem" onclick="smoothScrollTo('#capacitacao')">Capacitação</a></li>
+                <li role="none"><a href="#sobre" class="nav-link" role="menuitem" onclick="smoothScrollTo('#sobre')">Sobre</a></li>
+                <li role="none"><a href="#contato" class="nav-link" role="menuitem" onclick="smoothScrollTo('#contato')">Contato</a></li>
             </ul>
             
             <div class="nav-buttons">
-                <a href="#vagas" class="btn btn-secondary btn-nav">Ver Vagas</a>
+                <a href="#vagas" class="btn btn-secondary btn-nav" onclick="smoothScrollTo('#vagas')">Ver Vagas</a>
                 <button class="btn btn-primary btn-nav" onclick="openCadastroModal()" style="background: #ffffff !important; color: #0f355a !important; border-color: #ffffff !important; box-shadow: 0 8px 22px rgba(0,0,0,0.25) !important; font-weight: 600 !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; height: 44px !important; padding: 0 18px !important; border-radius: 12px !important;">Cadastrar-se</button>
                 <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <span class="hamburger-line"></span>
@@ -69,7 +69,7 @@
             </p>
             <div class="hero-cta">
                         <button class="btn btn-primary btn-large" onclick="openPerfilModal()">Cadastrar meu perfil</button>
-                        <a class="btn btn-secondary" href="#vagas">Ver vagas disponíveis</a>
+                        <a class="btn btn-secondary" href="#vagas" onclick="smoothScrollTo('#vagas')">Ver vagas disponíveis</a>
             </div>
           </div>
 
@@ -303,7 +303,7 @@
                                 <span class="price-note">Curso completo sem custo</span>
                         </div>
                             
-                            <a href="#capacitacao" class="btn-card btn-primary-card">Começar Curso</a>
+                            <a href="#capacitacao" class="btn-card btn-primary-card" onclick="smoothScrollTo('#capacitacao')">Começar Curso</a>
                         </div>
                     </div>
                     
@@ -349,7 +349,7 @@
                                 <span class="price-note">Pagamento único</span>
                             </div>
                             
-                            <a href="#capacitacao" class="btn-card btn-secondary-card">Ver Curso</a>
+                            <a href="#capacitacao" class="btn-card btn-secondary-card" onclick="smoothScrollTo('#capacitacao')">Ver Curso</a>
                         </div>
                     </div>
                     
@@ -395,7 +395,7 @@
                                 <span class="price-note">Pagamento único</span>
                             </div>
                             
-                            <a href="#capacitacao" class="btn-card btn-secondary-card">Ver Curso</a>
+                            <a href="#capacitacao" class="btn-card btn-secondary-card" onclick="smoothScrollTo('#capacitacao')">Ver Curso</a>
                         </div>
                     </div>
                 </div>
@@ -423,7 +423,7 @@
                             <div class="price-savings">Economize R$ 294</div>
                         </div>
                         <div class="package-cta">
-                            <a href="#capacitacao" class="btn btn-primary btn-large">Adquirir Pacote Completo</a>
+                            <a href="#capacitacao" class="btn btn-primary btn-large" onclick="smoothScrollTo('#capacitacao')">Adquirir Pacote Completo</a>
                         </div>
                     </div>
                 </div>
@@ -659,30 +659,30 @@
                     <div class="footer-section">
                         <h4>Para Candidatos</h4>
                         <ul>
-                            <li><a href="#vagas">Buscar vagas</a></li>
+                            <li><a href="#vagas" onclick="smoothScrollTo('#vagas')">Buscar vagas</a></li>
                             <li><a href="#" onclick="openCadastroModal()">Cadastrar-se</a></li>
-                            <li><a href="#capacitacao">Capacitação</a></li>
-                            <li><a href="#empreender">Empreender</a></li>
+                            <li><a href="#capacitacao" onclick="smoothScrollTo('#capacitacao')">Capacitação</a></li>
+                            <li><a href="#empreender" onclick="smoothScrollTo('#empreender')">Empreender</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h4>Para Empresas</h4>
                         <ul>
-                            <li><a href="#empresas">Publicar vagas</a></li>
-                            <li><a href="#empresas">Planos</a></li>
-                            <li><a href="#sobre">Sobre nós</a></li>
-                            <li><a href="#contato">Contato</a></li>
+                            <li><a href="#empresas" onclick="smoothScrollTo('#empresas')">Publicar vagas</a></li>
+                            <li><a href="#empresas" onclick="smoothScrollTo('#empresas')">Planos</a></li>
+                            <li><a href="#sobre" onclick="smoothScrollTo('#sobre')">Sobre nós</a></li>
+                            <li><a href="#contato" onclick="smoothScrollTo('#contato')">Contato</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h4>Recursos</h4>
                         <ul>
-                            <li><a href="#blog">Blog</a></li>
-                            <li><a href="#sobre">Missão</a></li>
-                            <li><a href="#privacidade">Privacidade</a></li>
-                            <li><a href="#termos">Termos</a></li>
+                            <li><a href="#blog" onclick="smoothScrollTo('#blog')">Blog</a></li>
+                            <li><a href="#sobre" onclick="smoothScrollTo('#sobre')">Missão</a></li>
+                            <li><a href="#privacidade" onclick="smoothScrollTo('#privacidade')">Privacidade</a></li>
+                            <li><a href="#termos" onclick="smoothScrollTo('#termos')">Termos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -723,7 +723,7 @@
       <!-- ========== MODAL DE LOGIN REMOVIDO COMPLETAMENTE ========== -->
  
      <!-- JavaScript -->
-    <script src="js/main.js?v=13.0"></script>
+    <script src="js/main.js?v=14.0"></script>
     <script src="assets/js/image-manager.js?v=2.0"></script>
     <script src="assets/js/image-control-panel.js?v=2.0"></script>
     <!-- Script de cadastro removido completamente -->

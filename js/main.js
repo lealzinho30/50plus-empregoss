@@ -1497,6 +1497,110 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Exportar funções para uso global
 window.toggleFAQ = toggleFAQ;
+// Funções do Chat Widget
+function toggleChat() {
+    const chatWindow = document.querySelector('.chat-window');
+    const chatToggle = document.querySelector('.chat-toggle');
+    
+    if (chatWindow.classList.contains('active')) {
+        chatWindow.classList.remove('active');
+        chatToggle.classList.remove('active');
+    } else {
+        chatWindow.classList.add('active');
+        chatToggle.classList.add('active');
+    }
+}
+
+function askQuestion(question) {
+    const chatMessages = document.querySelector('.chat-messages');
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user-message';
+    userMessage.innerHTML = `
+        <div class="message-content">
+            <p>${question}</p>
+        </div>
+    `;
+    
+    chatMessages.appendChild(userMessage);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Simular resposta automática
+    setTimeout(() => {
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message bot-message';
+        
+        let response = '';
+        switch(question) {
+            case 'Como funciona o cadastro?':
+                response = 'O cadastro é simples! Clique em "Cadastrar-se" e preencha seus dados básicos. Para um perfil completo, use "Cadastrar meu perfil" e siga as etapas.';
+                break;
+            case 'Quais são os preços dos cursos?':
+                response = 'Temos cursos gratuitos e o Pacote Completo 50+ por apenas R$ 197. Todos os cursos incluem certificado e suporte especializado.';
+                break;
+            case 'Como encontrar vagas?':
+                response = 'Use os filtros na seção "Vagas" para encontrar oportunidades por área, modalidade e localização. Nossas vagas são atualizadas diariamente.';
+                break;
+            default:
+                response = 'Obrigado pela pergunta! Nossa equipe entrará em contato em breve para esclarecer suas dúvidas.';
+        }
+        
+        botMessage.innerHTML = `
+            <div class="message-content">
+                <p>${response}</p>
+            </div>
+        `;
+        
+        chatMessages.appendChild(botMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 1000);
+}
+
+function sendMessage() {
+    const messageInput = document.querySelector('.chat-input input');
+    const message = messageInput.value.trim();
+    
+    if (message) {
+        const chatMessages = document.querySelector('.chat-messages');
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user-message';
+        userMessage.innerHTML = `
+            <div class="message-content">
+                <p>${message}</p>
+            </div>
+        `;
+        
+        chatMessages.appendChild(userMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        messageInput.value = '';
+        
+        // Simular resposta automática
+        setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.innerHTML = `
+                <div class="message-content">
+                    <p>Obrigado pela sua mensagem! Nossa equipe de suporte entrará em contato em breve. Enquanto isso, você pode explorar nossas vagas disponíveis ou fazer seu cadastro.</p>
+                </div>
+            `;
+            
+            chatMessages.appendChild(botMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1500);
+    }
+}
+
+// Função para navegação suave
+function smoothScrollTo(target) {
+    const element = document.querySelector(target);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
 window.openWhatsApp = openWhatsApp;
 window.showToast = showToast;
 window.trackEvent = trackEvent;
@@ -1506,3 +1610,7 @@ window.openPerfilModal = openPerfilModal;
 window.closePerfilModal = closePerfilModal;
 window.nextStep = nextStep;
 window.prevStep = prevStep;
+window.toggleChat = toggleChat;
+window.askQuestion = askQuestion;
+window.sendMessage = sendMessage;
+window.smoothScrollTo = smoothScrollTo;
