@@ -6916,6 +6916,17 @@ textarea.error {
     display: flex !important;
 }
 
+/* Garantir que modais ocultos por padrão */
+#cadastro-modal,
+#perfil-modal {
+    display: none !important;
+}
+
+#cadastro-modal.show,
+#perfil-modal.show {
+    display: flex !important;
+}
+
 .modal-backdrop {
     position: absolute;
     top: 0;

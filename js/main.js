@@ -1266,9 +1266,9 @@ function openCadastroModal() {
     const modal = document.getElementById('cadastro-modal');
     console.log('Modal encontrado:', modal);
     if (modal) {
+        modal.style.display = 'flex';
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
-        trackEvent('modal', 'open', 'cadastro-simples');
         console.log('Modal aberto com sucesso');
     } else {
         console.error('Modal não encontrado!');
@@ -1278,30 +1278,37 @@ function openCadastroModal() {
 function closeCadastroModal() {
     const modal = document.getElementById('cadastro-modal');
     if (modal) {
+        modal.style.display = 'none';
         modal.classList.remove('show');
         document.body.style.overflow = 'auto';
-        trackEvent('modal', 'close', 'cadastro-simples');
+        console.log('Modal fechado');
     }
 }
 
 // Modal de Perfil Completo
 function openPerfilModal() {
+    console.log('openPerfilModal chamada');
     const modal = document.getElementById('perfil-modal');
+    console.log('Modal perfil encontrado:', modal);
     if (modal) {
+        modal.style.display = 'flex';
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
         // Resetar para o primeiro step
         showStep(1);
-        trackEvent('modal', 'open', 'perfil-completo');
+        console.log('Modal perfil aberto com sucesso');
+    } else {
+        console.error('Modal perfil não encontrado!');
     }
 }
 
 function closePerfilModal() {
     const modal = document.getElementById('perfil-modal');
     if (modal) {
+        modal.style.display = 'none';
         modal.classList.remove('show');
         document.body.style.overflow = 'auto';
-        trackEvent('modal', 'close', 'perfil-completo');
+        console.log('Modal perfil fechado');
     }
 }
 
@@ -1523,8 +1530,45 @@ console.log('Funções disponíveis:', {
     openPerfilModal: typeof openPerfilModal
 });
 
+// Teste automático das funções
+setTimeout(() => {
+    console.log('=== TESTE AUTOMÁTICO ===');
+    console.log('openCadastroModal no window:', typeof window.openCadastroModal);
+    console.log('openPerfilModal no window:', typeof window.openPerfilModal);
+    console.log('toggleFAQ no window:', typeof window.toggleFAQ);
+    
+    // Teste se os elementos existem
+    const cadastroModal = document.getElementById('cadastro-modal');
+    const perfilModal = document.getElementById('perfil-modal');
+    console.log('Modal cadastro existe:', !!cadastroModal);
+    console.log('Modal perfil existe:', !!perfilModal);
+    
+    if (cadastroModal) {
+        console.log('Classes do modal cadastro:', cadastroModal.className);
+    }
+    if (perfilModal) {
+        console.log('Classes do modal perfil:', perfilModal.className);
+    }
+}, 1000);
+
 // Exportar funções para uso global
 window.toggleFAQ = toggleFAQ;
+window.openCadastroModal = openCadastroModal;
+window.closeCadastroModal = closeCadastroModal;
+window.openPerfilModal = openPerfilModal;
+window.closePerfilModal = closePerfilModal;
+window.nextStep = nextStep;
+window.prevStep = prevStep;
+window.toggleChat = toggleChat;
+window.askQuestion = askQuestion;
+window.sendMessage = sendMessage;
+window.smoothScrollTo = smoothScrollTo;
+window.clearAllFilters = clearAllFilters;
+window.toggleMobileMenu = toggleMobileMenu;
+window.openWhatsApp = openWhatsApp;
+window.showToast = showToast;
+window.trackEvent = trackEvent;
+
 // Funções do Chat Widget
 function toggleChat() {
     const chatWindow = document.querySelector('.chat-window');
@@ -1629,18 +1673,4 @@ function smoothScrollTo(target) {
     }
 }
 
-window.openWhatsApp = openWhatsApp;
-window.showToast = showToast;
-window.trackEvent = trackEvent;
-window.openCadastroModal = openCadastroModal;
-window.closeCadastroModal = closeCadastroModal;
-window.openPerfilModal = openPerfilModal;
-window.closePerfilModal = closePerfilModal;
-window.nextStep = nextStep;
-window.prevStep = prevStep;
-window.toggleChat = toggleChat;
-window.askQuestion = askQuestion;
-window.sendMessage = sendMessage;
-window.smoothScrollTo = smoothScrollTo;
-window.clearAllFilters = clearAllFilters;
-window.toggleMobileMenu = toggleMobileMenu;
+// Funções já exportadas acima
