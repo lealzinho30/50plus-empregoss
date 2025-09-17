@@ -3818,6 +3818,17 @@ section {
 .faq-answer.active {
     max-height: 300px !important;
     padding: 0 0 24px 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.faq-answer {
+    max-height: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
 }
 
 .faq-answer p {
@@ -6888,16 +6899,17 @@ textarea.error {
 
 /* Modal base */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: var(--z-modal-content);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
 }
 
 .modal-backdrop {

@@ -496,8 +496,11 @@ function loadFeaturedJobs() {
 
 // Função para alternar FAQ
 function toggleFAQ(question) {
+    console.log('toggleFAQ chamada com:', question);
     const answer = question.nextElementSibling;
     const isActive = question.classList.contains('active');
+    console.log('Answer encontrado:', answer);
+    console.log('FAQ está ativo:', isActive);
     
     // Fechar todas as outras perguntas
     document.querySelectorAll('.faq-question').forEach(q => {
@@ -509,6 +512,9 @@ function toggleFAQ(question) {
     if (!isActive) {
         question.classList.add('active');
         answer.classList.add('active');
+        console.log('FAQ aberto');
+    } else {
+        console.log('FAQ fechado');
     }
 }
 
@@ -1247,11 +1253,16 @@ if (document.readyState === 'loading') {
 
 // Modal de Cadastro Simples
 function openCadastroModal() {
+    console.log('openCadastroModal chamada');
     const modal = document.getElementById('cadastro-modal');
+    console.log('Modal encontrado:', modal);
     if (modal) {
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         trackEvent('modal', 'open', 'cadastro-simples');
+        console.log('Modal aberto com sucesso');
+    } else {
+        console.error('Modal não encontrado!');
     }
 }
 
@@ -1493,6 +1504,14 @@ document.addEventListener('DOMContentLoaded', function() {
             closePerfilModal();
         }
     });
+});
+
+// Teste de carregamento
+console.log('JavaScript carregado com sucesso!');
+console.log('Funções disponíveis:', {
+    openCadastroModal: typeof openCadastroModal,
+    toggleFAQ: typeof toggleFAQ,
+    openPerfilModal: typeof openPerfilModal
 });
 
 // Exportar funções para uso global
