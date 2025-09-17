@@ -1257,7 +1257,7 @@ function openCadastroModal() {
     const modal = document.getElementById('cadastro-modal');
     console.log('Modal encontrado:', modal);
     if (modal) {
-        modal.style.display = 'flex';
+        modal.classList.add('show');
         document.body.style.overflow = 'hidden';
         trackEvent('modal', 'open', 'cadastro-simples');
         console.log('Modal aberto com sucesso');
@@ -1269,7 +1269,7 @@ function openCadastroModal() {
 function closeCadastroModal() {
     const modal = document.getElementById('cadastro-modal');
     if (modal) {
-        modal.style.display = 'none';
+        modal.classList.remove('show');
         document.body.style.overflow = 'auto';
         trackEvent('modal', 'close', 'cadastro-simples');
     }
@@ -1279,7 +1279,7 @@ function closeCadastroModal() {
 function openPerfilModal() {
     const modal = document.getElementById('perfil-modal');
     if (modal) {
-        modal.style.display = 'flex';
+        modal.classList.add('show');
         document.body.style.overflow = 'hidden';
         // Resetar para o primeiro step
         showStep(1);
@@ -1290,7 +1290,7 @@ function openPerfilModal() {
 function closePerfilModal() {
     const modal = document.getElementById('perfil-modal');
     if (modal) {
-        modal.style.display = 'none';
+        modal.classList.remove('show');
         document.body.style.overflow = 'auto';
         trackEvent('modal', 'close', 'perfil-completo');
     }
