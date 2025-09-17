@@ -1551,23 +1551,7 @@ setTimeout(() => {
     }
 }, 1000);
 
-// Exportar funções para uso global
-window.toggleFAQ = toggleFAQ;
-window.openCadastroModal = openCadastroModal;
-window.closeCadastroModal = closeCadastroModal;
-window.openPerfilModal = openPerfilModal;
-window.closePerfilModal = closePerfilModal;
-window.nextStep = nextStep;
-window.prevStep = prevStep;
-window.toggleChat = toggleChat;
-window.askQuestion = askQuestion;
-window.sendMessage = sendMessage;
-window.smoothScrollTo = smoothScrollTo;
-window.clearAllFilters = clearAllFilters;
-window.toggleMobileMenu = toggleMobileMenu;
-window.openWhatsApp = openWhatsApp;
-window.showToast = showToast;
-window.trackEvent = trackEvent;
+// Funções já exportadas no final do arquivo
 
 // Funções do Chat Widget
 function toggleChat() {
@@ -1673,4 +1657,26 @@ function smoothScrollTo(target) {
     }
 }
 
-// Funções já exportadas acima
+// Exportar todas as funções para uso global
+window.toggleFAQ = toggleFAQ;
+window.openCadastroModal = openCadastroModal;
+window.closeCadastroModal = closeCadastroModal;
+window.openPerfilModal = openPerfilModal;
+window.closePerfilModal = closePerfilModal;
+window.nextStep = nextStep;
+window.prevStep = prevStep;
+window.toggleChat = toggleChat;
+window.askQuestion = askQuestion;
+window.sendMessage = sendMessage;
+window.smoothScrollTo = smoothScrollTo;
+window.clearAllFilters = clearAllFilters;
+window.toggleMobileMenu = toggleMobileMenu;
+window.openWhatsApp = openWhatsApp;
+window.showToast = showToast;
+window.trackEvent = trackEvent;
+
+// Teste final das funções
+console.log('=== EXPORTAÇÃO FINAL ===');
+console.log('openCadastroModal:', typeof window.openCadastroModal);
+console.log('openPerfilModal:', typeof window.openPerfilModal);
+console.log('toggleFAQ:', typeof window.toggleFAQ);
